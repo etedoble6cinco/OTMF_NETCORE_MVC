@@ -1,0 +1,121 @@
+﻿@model OTMF_NETCORE_MVC.Models.Parte
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Parte</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdCodigoParte" class="control-label"></label>
+                <input asp-for="IdCodigoParte" class="form-control" />
+                <span asp-validation-for="IdCodigoParte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTarimaFk" class="control-label"></label>
+                <select asp-for="IdTarimaFk" class ="form-control" asp-items="ViewBag.IdTarimaFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aluminio" class="control-label"></label>
+                <input asp-for="Aluminio" class="form-control" />
+                <span asp-validation-for="Aluminio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEnsambleFk" class="control-label"></label>
+                <select asp-for="IdEnsambleFk" class ="form-control" asp-items="ViewBag.IdEnsambleFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdParteAccesorioFk" class="control-label"></label>
+                <input asp-for="IdParteAccesorioFk" class="form-control" />
+                <span asp-validation-for="IdParteAccesorioFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstandarFk" class="control-label"></label>
+                <select asp-for="IdEstandarFk" class ="form-control" asp-items="ViewBag.IdEstandarFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEtiquetaFk" class="control-label"></label>
+                <select asp-for="IdEtiquetaFk" class ="form-control" asp-items="ViewBag.IdEtiquetaFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PiezasPorCaja" class="control-label"></label>
+                <input asp-for="PiezasPorCaja" class="form-control" />
+                <span asp-validation-for="PiezasPorCaja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdColorFk" class="control-label"></label>
+                <select asp-for="IdColorFk" class ="form-control" asp-items="ViewBag.IdColorFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CajasPorTarima" class="control-label"></label>
+                <input asp-for="CajasPorTarima" class="form-control" />
+                <span asp-validation-for="CajasPorTarima" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StdPintura" class="control-label"></label>
+                <input asp-for="StdPintura" class="form-control" />
+                <span asp-validation-for="StdPintura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Costo" class="control-label"></label>
+                <input asp-for="Costo" class="form-control" />
+                <span asp-validation-for="Costo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstandarPorHora" class="control-label"></label>
+                <input asp-for="EstandarPorHora" class="form-control" />
+                <span asp-validation-for="EstandarPorHora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCajaFk" class="control-label"></label>
+                <select asp-for="IdCajaFk" class ="form-control" asp-items="ViewBag.IdCajaFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdHuleFk" class="control-label"></label>
+                <select asp-for="IdHuleFk" class ="form-control" asp-items="ViewBag.IdHuleFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPinturaFk" class="control-label"></label>
+                <select asp-for="IdPinturaFk" class ="form-control" asp-items="ViewBag.IdPinturaFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdInsertoFk" class="control-label"></label>
+                <select asp-for="IdInsertoFk" class ="form-control" asp-items="ViewBag.IdInsertoFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdMoldeFk" class="control-label"></label>
+                <select asp-for="IdMoldeFk" class ="form-control" asp-items="ViewBag.IdMoldeFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdClienteFk" class="control-label"></label>
+                <select asp-for="IdClienteFk" class ="form-control" asp-items="ViewBag.IdClienteFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Scrap" class="control-label"></label>
+                <input asp-for="Scrap" class="form-control" />
+                <span asp-validation-for="Scrap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstandarConRelevoFk" class="control-label"></label>
+                <select asp-for="IdEstandarConRelevoFk" class ="form-control" asp-items="ViewBag.IdEstandarConRelevoFk"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

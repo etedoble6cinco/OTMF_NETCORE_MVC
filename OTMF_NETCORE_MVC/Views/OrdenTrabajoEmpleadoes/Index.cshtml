@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OTMF_NETCORE_MVC.Models.OrdenTrabajoEmpleado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEmpleadoFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdOrdenTrabajoFkNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEmpleadoFkNavigation.IdEmpleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdOrdenTrabajoFkNavigation.IdOrdenTrabajo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEmpleadoOrdenTrabajo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEmpleadoOrdenTrabajo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEmpleadoOrdenTrabajo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

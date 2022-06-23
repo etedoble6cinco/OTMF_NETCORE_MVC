@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OTMF_NETCORE_MVC.Models.ParteAccesorio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAccesorioFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdParteFkNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAccesorioFkNavigation.IdAccesorio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdParteFkNavigation.IdParte)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdParteAccesorio">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdParteAccesorio">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdParteAccesorio">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

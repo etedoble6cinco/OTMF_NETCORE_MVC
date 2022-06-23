@@ -1,0 +1,155 @@
+﻿@model IEnumerable<OTMF_NETCORE_MVC.Models.Parte>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCodigoParte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aluminio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdParteAccesorioFk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PiezasPorCaja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CajasPorTarima)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StdPintura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Costo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstandarPorHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scrap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCajaFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClienteFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdColorFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEnsambleFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstandarConRelevoFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstandarFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEtiquetaFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdHuleFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdInsertoFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMoldeFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPinturaFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTarimaFkNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCodigoParte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aluminio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdParteAccesorioFk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PiezasPorCaja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CajasPorTarima)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StdPintura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Costo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstandarPorHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Scrap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCajaFkNavigation.IdCaja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClienteFkNavigation.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdColorFkNavigation.IdColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEnsambleFkNavigation.IdEnsamble)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstandarConRelevoFkNavigation.IdEstandarConRelevo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstandarFkNavigation.IdEstandar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEtiquetaFkNavigation.IdEtiqueta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdHuleFkNavigation.IdHule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdInsertoFkNavigation.IdInserto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMoldeFkNavigation.IdMolde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPinturaFkNavigation.IdPintura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTarimaFkNavigation.IdTarima)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdParte">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdParte">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdParte">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
