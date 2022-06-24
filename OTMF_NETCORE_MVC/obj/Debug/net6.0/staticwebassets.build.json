@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+Gkdnp6/3g5aacvhZ7igsoIf10oSOSoWQP5CD9G5QQQ=",
+  "Hash": "XjkQbP8nRKwInZjcJD1VLey1fkz0uQNGFFSZaO/OxTM=",
   "Source": "OTMF_NETCORE_MVC",
   "BasePath": "_content/OTMF_NETCORE_MVC",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OTMF_NETCORE_MVC.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\css\\datatables.min.css",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "css/datatables.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\datatables.min.css"
+    },
+    {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\css\\site.css",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\datatables.min.js",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "js/datatables.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\datatables.min.js"
     },
     {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\site.js",

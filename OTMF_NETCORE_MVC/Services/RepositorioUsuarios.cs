@@ -20,8 +20,9 @@ namespace OTMF_NETCORE_MVC.Services
         {
             //usuario.EmailNormalizado = usuario.Email.ToUpper();
             using var connection = new SqlConnection(connectionString);
-            var id = await connection.QuerySingleAsync<int>(@"INSERT INTO Usuarios (Email , EmailNormalizado , PasswordHash) VALUES (@Email , @EmailNormalizado , @PasswordHash)", usuario);
-        return id;
+            var IdUsuarios = await connection.QueryFirstOrDefaultAsync<int>("INSERT INTO Usuarios (Email , EmailNormalizado , PasswordHash) VALUES (@Email , @EmailNormalizado , @PasswordHash)", usuario);
+            Console.WriteLine(IdUsuarios);
+            return IdUsuarios;
         }
 
         public async Task<Usuario> BuscarUsuarioPorEmail(string emailNormalizado)

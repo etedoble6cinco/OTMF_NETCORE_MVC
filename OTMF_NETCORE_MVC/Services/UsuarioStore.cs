@@ -13,7 +13,7 @@ namespace OTMF_NETCORE_MVC.Services
 
         public async Task<IdentityResult> CreateAsync(Usuario user, CancellationToken cancellationToken)
         {
-            user.IdUsuario = await repositorioUsuarios.CrearUsuario(user);
+            user.IdUsuarios = await repositorioUsuarios.CrearUsuario(user);
             return IdentityResult.Success;
 
         }
@@ -25,7 +25,7 @@ namespace OTMF_NETCORE_MVC.Services
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+           //  throw new NotImplementedException();
         }
 
         public async Task<Usuario> FindByEmailAsync(string normalizedEmail, CancellationToken cancellationToken)
@@ -39,15 +39,15 @@ namespace OTMF_NETCORE_MVC.Services
             throw new NotImplementedException();
         }
 
-        public Task<Usuario> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
+        public async Task<Usuario> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return await repositorioUsuarios.BuscarUsuarioPorEmail(normalizedUserName);
         }
 
         public Task<string> GetEmailAsync(Usuario user, CancellationToken cancellationToken)
         {
             return Task.FromResult(user.Email); 
-            throw new NotImplementedException();
+ 
         }
 
         public Task<bool> GetEmailConfirmedAsync(Usuario user, CancellationToken cancellationToken)
@@ -67,18 +67,18 @@ namespace OTMF_NETCORE_MVC.Services
 
         public Task<string> GetPasswordHashAsync(Usuario user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(user.PasswordHash);
         }
 
         public Task<string> GetUserIdAsync(Usuario user, CancellationToken cancellationToken)
         {
-            return Task.FromResult(user.IdUsuario.ToString());
+            return Task.FromResult(user.IdUsuarios.ToString());
            
         }
 
         public Task<string> GetUserNameAsync(Usuario user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(user.Email);
         }
 
         public Task<bool> HasPasswordAsync(Usuario user, CancellationToken cancellationToken)
@@ -105,7 +105,7 @@ namespace OTMF_NETCORE_MVC.Services
 
         public Task SetNormalizedUserNameAsync(Usuario user, string normalizedName, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
 
         public Task SetPasswordHashAsync(Usuario user, string passwordHash, CancellationToken cancellationToken)

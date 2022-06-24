@@ -16,3 +16,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+fieldset{
+    background-color :white;
+    padding:3px;
+}
+legend{
+    background-color:gray;
+    text-align:center;
+}
+
