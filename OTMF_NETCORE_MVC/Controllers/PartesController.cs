@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OTMF_NETCORE_MVC.Entities;
 using OTMF_NETCORE_MVC.Models;
 
 namespace OTMF_NETCORE_MVC.Controllers
@@ -12,10 +15,11 @@ namespace OTMF_NETCORE_MVC.Controllers
     public class PartesController : Controller
     {
         private readonly OTMFContext _context;
-
-        public PartesController(OTMFContext context)
+        private readonly string con;
+        public PartesController(OTMFContext context , IConfiguration configuration)
         {
             _context = context;
+            con = configuration.GetConnectionString("DefaultConnection");
         }
 
         // GET: Partes
@@ -232,8 +236,15 @@ namespace OTMF_NETCORE_MVC.Controllers
 
         public JsonResult ObtenerPartes ()
         {
+            var OP = "[ObtenerPartesAllInfo]";
+            using ( var connection = new SqlConnection(con))
+            {
+                var partes = connection.Query<ObtenerPartes>(OP, commandType: System.Data.CommandType.StoredProcedure);
 
-            return null;
+                return Json(new { data = partes });
+            }
+
+               
         }
     }
 }

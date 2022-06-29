@@ -100,14 +100,6 @@
          Clientes
         </a>
       </li>
-
-
-
-      
-
-
-     
-     
     </ul>
     <hr>
   
@@ -118,19 +110,43 @@
         <div class="col-9">
             <fieldset>
                 <legend>Partes</legend>
-                     <table class="table" id="Empleadoes">
+                     <table class="table" id="Partes">
    
                          <thead> 
                              <tr>
-                                 <th> IdEmpleado</th>
-                                 <th> NombreEmpleado</th>
-                                 <th> ClaveEmpleado</th>
-                                 <th> Estado</th>
-                                 <th> IdTipoEmpleado</th>
-                                 <th> NombreTipoEmpleado</th>
-                                 <th> IdTurno</th>
-                                 <th> NombreTurno</th> 
-                                 <th> Acciones</th>
+                                 <th> IdParte</th>
+                                 <th> Aluminio</th>
+                                 <th> CajasPorTarima</th>
+                                 <th> Costo</th>
+                                 <th> EstarPorHora</th>
+                                 <th> IdCodigoParte</th>
+                                 <th> PiezasPorCaja</th>
+                                 <th> Scrap</th> 
+                                 <th> Std_Pintura</th>
+                                 <th> IdCaja</th>
+                                 <th> NombreCaja</th>
+                                 <th> IdColor</th>
+                                 <th> NombreColor</th>
+                                 <th> IdPintura</th>
+                                 <th> NombrePintura</th>
+                                 <th> IdTarima</th>
+                                 <th> NombreTarima</th>
+                                 <th> IdMolde</th>
+                                 <th> NombreMolde</th>
+                                 <th> IdEnsamble</th>
+                                 <th> NombreEnsamble</th>
+                                 <th> IdEstandarConRelevo</th>
+                                 <th> NombreEstandarConRelevo</th>
+                                 <th> NombreEtiqueta</th>
+                                 <th> IdEtiqueta</th>
+                                 <th> NombreInserto</th>
+                                 <th> IdInserto</th>
+                                 <th> IdHule</th>
+                                 <th> NombreHule</th>
+                                 <th> IdEstandar</th>
+                                 <th> NombreEstandar</th>
+                                 <th> IdCliente</th>
+                                 <th> NombreCliente</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -157,21 +173,46 @@
 $(document).ready(function () {
 
 
-    $("#Empleadoes").DataTable({
+    $("#Partes").DataTable({
         "ajax": {
-            "url": "Empleadoes/ObtenerEmpleados",
+            "url": "Partes/ObtenerPartes",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "idEmpleado" },
-            { "data": "nombreEmpleado" },
-            { "data": "claveEmpleado" },
-            { "data": "estado" },
-            { "data": "idTipoEmpleado" },
-            { "data": "nombreTipoEmpleado" },
-            { "data": "idTurno" },
-            { "data": "nombreTurno" },
+            { "data": "idParte" },
+            { "data": "idCodigoParte" },
+            { "data": "aluminio" },
+            { "data": "cajasPorTarima" },
+            { "data": "costo" },
+            { "data": "estandarPorHora" },
+            { "data": "piezasPorCaja" },
+            { "data": "scrap" },
+            { "data": "Std_Pintura" },
+            { "data": "IdCaja" },
+            { "data": "NombreCaja" },
+            { "data": "NombreColor" },
+            { "data": "idColor" },
+            { "data": "nombrePintura" },
+            { "data": "idPintura" },
+            { "data": "nombreTarima" },
+            { "data": "idTarima" },
+            { "data": "nombreMolde" },
+            { "data": "idMolde" },
+            { "data": "nombreEnsamble" },
+            { "data": "idEnsamble" },
+            { "data": "nombreEstandarConRelevo" },
+            { "data": "idEstandarConRelevo" },
+            { "data": "nombreEtiqueta" },
+            { "data": "idEtiqueta" },
+            { "data": "nombreInserto" },
+            { "data": "idInserto" },
+            { "data": "nombreHule" },
+            { "data": "idHule" },
+            { "data": "nombreEstandar" },
+            { "data": "idEstandar" },
+            { "data": "nombreCliente" },
+            { "data": "idCliente" },
              {
                 "data": "null",
                 "className": "dt-center editor-edit",
@@ -184,10 +225,12 @@ $(document).ready(function () {
              {
                  targets : 0,
                  visible:false
-             }, {
+             }, 
+             {
                  targets : 4,
                  visible:false
-             },{
+             },
+             {
                  targets : 6,
                  visible:false
              }
