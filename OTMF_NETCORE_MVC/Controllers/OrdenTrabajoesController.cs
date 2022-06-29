@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OTMF_NETCORE_MVC.Entities;
 using OTMF_NETCORE_MVC.Models;
 
 namespace OTMF_NETCORE_MVC.Controllers
@@ -12,10 +16,12 @@ namespace OTMF_NETCORE_MVC.Controllers
     public class OrdenTrabajoesController : Controller
     {
         private readonly OTMFContext _context;
+        private readonly string con;
 
-        public OrdenTrabajoesController(OTMFContext context)
+        public OrdenTrabajoesController(OTMFContext context ,IConfiguration configuration)
         {
             _context = context;
+            con = configuration.GetConnectionString("DefaultConnection");
         }
 
         // GET: OrdenTrabajoes
@@ -174,6 +180,20 @@ namespace OTMF_NETCORE_MVC.Controllers
         private bool OrdenTrabajoExists(int id)
         {
           return (_context.OrdenTrabajos?.Any(e => e.IdOrdenTrabajo == id)).GetValueOrDefault();
+        }
+
+
+        public JsonResult ObtenerOrdenesTrabajo()
+        {
+            var OOT = "[ObtenerOrdenesTrabajo]";
+            using (var connection = new SqlConnection(con))
+            {
+                var ordenestrabajo = connection.Query<ObtenerOrdenesTrabajo>(OOT,commandType: CommandType.StoredProcedure);
+
+                return Json(new { data = ordenestrabajo });
+            } 
+                
+               
         }
     }
 }

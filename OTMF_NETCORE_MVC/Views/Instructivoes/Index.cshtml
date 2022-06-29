@@ -4,12 +4,50 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-3">
+        <fieldset>
+            <legend><h5 class="display-6">Gestionar</h5></legend>
+        <div class="d-flex flex-column flex-shrink-0 p-1 bg-light">
+  
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a  asp-controller="OrdenTrabajoes"  asp-action="Index" class="nav-link link-dark" aria-current="page">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+          Ordenes de Trabajo
+        </a>
+      </li> <li class="nav-item">
+        <a class="nav-link active" asp-controller="Instructivoes"  asp-action="Index">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+           Instructivo 
+        </a>
+      </li>
+      <li>
+        <a class="nav-link link-dark" asp-controller="Maquinas"  asp-action="Index">
+            <svg class="bi me-2" width="16" height="16"></svg>
+          Maquina
+        </a>
+      </li>
+          <li>
+        <a class="nav-link link-dark" asp-controller="EstadoOrdens"  asp-action="Index">
+            <svg class="bi me-2" width="16" height="16"></svg>
+         Estado OT
+        </a>
+      </li> 
+      
+    </ul>
+    <hr>
+  
+  </div>
+  </fieldset>
+    </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+        <div class="col-9">
+            <fieldset>
+                <legend>Instructivos</legend>
+                    <table class="table" id="Instructivos">
     <thead>
         <tr>
             <th>
@@ -33,3 +71,34 @@
 }
     </tbody>
 </table>
+
+
+            </fieldset>
+  
+    </div>
+    </div>
+    
+
+
+
+</div>
+
+
+@section Scripts{
+    <script>
+        
+$(document).ready(function () {
+
+
+    $("#Instructivos").DataTable();
+
+   
+
+
+});
+
+
+    </script>
+}
+
+

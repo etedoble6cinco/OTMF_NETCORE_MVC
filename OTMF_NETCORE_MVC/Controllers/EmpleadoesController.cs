@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OTMF_NETCORE_MVC.Entities;
 using OTMF_NETCORE_MVC.Models;
 
 namespace OTMF_NETCORE_MVC.Controllers
@@ -12,10 +16,12 @@ namespace OTMF_NETCORE_MVC.Controllers
     public class EmpleadoesController : Controller
     {
         private readonly OTMFContext _context;
+        private readonly string con;
 
-        public EmpleadoesController(OTMFContext context)
+        public EmpleadoesController(OTMFContext context , IConfiguration configuracion)
         {
             _context = context;
+            con = configuracion.GetConnectionString("DefaultConnection");
         }
 
         // GET: Empleadoes
@@ -169,5 +175,18 @@ namespace OTMF_NETCORE_MVC.Controllers
         {
           return (_context.Empleados?.Any(e => e.IdEmpleado == id)).GetValueOrDefault();
         }
+    
+        public JsonResult ObtenerEmpleados()
+        {
+            var OE = "[ObtenerEmpleados]";
+            using(var connection =  new SqlConnection(con))
+            {
+                var empleados = connection.Query<ObtenerEmpleados>(OE,
+                    commandType: CommandType.StoredProcedure);
+             return Json(new { data = empleados });    
+            }
+           
+        }
+
     }
 }

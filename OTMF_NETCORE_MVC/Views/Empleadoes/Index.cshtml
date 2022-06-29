@@ -16,12 +16,17 @@
       <li class="nav-item">
         <a href="#" class="nav-link active" aria-current="page">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+           Empleados
+        </a>
+      </li> <li class="nav-item">
+        <a class="nav-link link-dark" asp-controller="TipoEmpleadoes"  asp-action="Index">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
            Tipos
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+        <a class="nav-link link-dark" asp-controller="Turnoes"  asp-action="Index">
+            <svg class="bi me-2" width="16" height="16"></svg>
          Turno
         </a>
       </li>
@@ -38,52 +43,24 @@
             <fieldset>
                 <legend>Empleados</legend>
                      <table class="table" id="Empleadoes">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreEmpleado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClaveEmpleado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdTipoEmpleadoFkNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdTurnoFkNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreEmpleado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClaveEmpleado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdTipoEmpleadoFkNavigation.IdTipoEmpleado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdTurnoFkNavigation.IdTurno)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdEmpleado">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdEmpleado">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdEmpleado">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+   
+                         <thead> 
+                             <tr>
+                                 <th> IdEmpleado</th>
+                                 <th> NombreEmpleado</th>
+                                 <th> ClaveEmpleado</th>
+                                 <th> Estado</th>
+                                 <th> IdTipoEmpleado</th>
+                                 <th> NombreTipoEmpleado</th>
+                                 <th> IdTurno</th>
+                                 <th> NombreTurno</th> 
+                                 <th> Acciones</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+
+                         </tbody>
+                         <tfoot></tfoot>
 </table>
 
 
@@ -96,5 +73,62 @@
 
 
 </div>
+
+
+@section Scripts{
+    <script>
+        
+$(document).ready(function () {
+
+
+    $("#Empleadoes").DataTable({
+        "ajax": {
+            "url": "Empleadoes/ObtenerEmpleados",
+            "type": "GET",
+            "datatype": "json"
+        },
+        "columns": [
+            { "data": "idEmpleado" },
+            { "data": "nombreEmpleado" },
+            { "data": "claveEmpleado" },
+            { "data": "estado" },
+            { "data": "idTipoEmpleado" },
+            { "data": "nombreTipoEmpleado" },
+            { "data": "idTurno" },
+            { "data": "nombreTurno" },
+             {
+                "data": "null",
+                "className": "dt-center editor-edit",
+                "defaultContent": "<i onclick='myFunction()' class='fa fa-eye'/>",
+                "orderable": "false"
+            },
+           
+        ],
+         columnDefs:[
+             {
+                 targets : 0,
+                 visible:false
+             }, {
+                 targets : 4,
+                 visible:false
+             },{
+                 targets : 6,
+                 visible:false
+             }
+         ],
+
+          buttons: [
+        'copy', 'excel', 'pdf'
+    ]
+    });
+
+   
+
+
+});
+
+
+    </script>
+}
 
 

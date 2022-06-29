@@ -229,5 +229,11 @@ namespace OTMF_NETCORE_MVC.Controllers
         {
           return (_context.Partes?.Any(e => e.IdParte == id)).GetValueOrDefault();
         }
+
+        public JsonResult ObtenerPartes ()
+        {
+
+            return null;
+        }
     }
 }
