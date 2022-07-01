@@ -69,10 +69,14 @@
                                  <th> EtiquetaDeCaja</th> 
                                  <th> MaxScrap</th>
                                  <th> IdCodigoOrdenTrabajo</th>
-                                 <th> NombreMaquina</th>
+                                 <th> IdEstadoOrden</th>
                                  <th> NombreEstadoOrden</th>
-                                 <th> IdCodigoParte</th>
+                                 <th> IdInstructivo</th>
                                  <th> NombreInstructivo</th>
+                                 <th> IdParteFK</th>
+                                 <th> IdCodigoOrdenTrabajo</th>
+                                 <th> IdParte</th>
+                                 <th> IdCodigoParte</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -108,46 +112,52 @@ $(document).ready(function () {
         "columns": [
             { "data": "idOrdenTrabajo" },
             { "data": "fechaOrdenTrabajo" },
-            { "data": "cantidadPiezasPororden" },
-            { "data": "CajasRecibidas" },
+            { "data": "cantidadPiezasPorOrden" },
+            { "data": "cajasRecibidas" },
             { "data": "piezasRealizadas" },
             { "data": "horaInicio" },
             { "data": "horaFinalizacion" },
             { "data": "etiquetaDeCaja" },
             { "data": "maxScrap" },
             { "data": "idCodigoOrdenTrabajo" },
-            { "data": "NombreMaquina" },
-            { "data": "NombreEstadoOrden" },
-            { "data": "idCodigoParte" },
-             {
-                "data": "null",
-                "className": "dt-center editor-edit",
-                "defaultContent": "<i onclick='myFunction()' class='fa fa-eye'/>",
-                "orderable": "false"
-            },
+            { "data": "idEstadoOrden" },
+            { "data": "nombreEstadoOrden" },
+            { "data": "idInstructivo" },
+            { "data": "nombreInstructivo" },
+            { "data": "idParteFK" },
+            { "data": "idCodigoOrdenTrabajo" },
+            { "data": "idParte" },
+            { "data": "idCodigoParte" }
+            
            
         ],
          columnDefs:[
              {
-                 targets : 0,
+                 targets : 1,
                  visible:false
-             }, {
+             },
+             {
                  targets : 9,
                  visible:false
-             },{
-                 targets : 12,
-                 visible:false
-             },{
+             },
+             {
+                 targets : 10,
+                 visible : false
+             },
+             {
                  targets : 11,
                  visible:false
-             },{
+             },
+             {
                  targets : 2,
                  visible:false
-             },{
+             },
+             {
                  targets : 13,
                  visible:false
-             },{
-                 targets : 3,
+             },
+             {
+                 targets : 7,
                  visible:false
              }
          ],

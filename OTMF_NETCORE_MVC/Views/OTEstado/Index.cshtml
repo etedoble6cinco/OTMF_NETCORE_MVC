@@ -1,0 +1,76 @@
+﻿@model IEnumerable<OTMF_NETCORE_MVC.Models.Maquina>
+@{
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-9 offset-2">
+           
+           <div id="ContenedorMaquina" class="d-flex aling-content-start flex-wrap">
+             @foreach (var item in Model) {
+
+                    <a  class="btn btn-light " asp-action="OrdenesDeTrabajoAsignadas" asp-route-id="@item.IdMaquina"> 
+             <div class='border-3 p-5 m-3 bg-success shadow-lg'>
+           <small class='text-white'>@Html.DisplayFor(modelItem => item.NombreMaquina)</small> </div> </a>
+       
+}
+ 
+ 
+
+</div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+@section Scripts{
+
+   <script>
+$(document).ready(function() {
+
+
+   
+
+});
+
+function GetMaquinas() {
+
+    $.ajax({
+        type: "GET",
+        url: "OTEstado/ObtenerMaquinas",
+        contentType: "applicacion/json; charset=utf-8",
+        dataType:"json",
+        success: function(data) {
+           
+            FillMaquinas(data);
+        }
+    });
+}
+function FillMaquinas(data) {
+    
+   $("#ContenedorMaquina").html("");
+    var x = 0;
+    console.log(data)
+    $.each(data.data, function(n) {
+
+        $("#ContenedorMaquina").append(
+            " <a  class='btn btn-light ' asp-action='OrdenesDeTrabajoAsignadas' asp-route-id=" + data.data[x].idMaquina +">" +
+            " <div class='border-3 p-5 m-3 bg-success shadow-lg'> " +
+            "<small class='text-white'> "+data.data[x].nombreMaquina+"</small> </div> </a>");
+      
+           x++;
+    });
+ 
+      
+}
+   </script>
+}

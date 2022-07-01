@@ -54,8 +54,8 @@ namespace OTMF_NETCORE_MVC.Controllers
         // GET: Empleadoes/Create
         public IActionResult Create()
         {
-            ViewData["IdTipoEmpleadoFk"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "IdTipoEmpleado");
-            ViewData["IdTurnoFk"] = new SelectList(_context.Turnos, "IdTurno", "IdTurno");
+            ViewData["IdTipoEmpleadoFk"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "NombreTipoEmpleado");
+            ViewData["IdTurnoFk"] = new SelectList(_context.Turnos, "IdTurno", "NombreTurno");
             return View();
         }
 
@@ -72,8 +72,8 @@ namespace OTMF_NETCORE_MVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdTipoEmpleadoFk"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "IdTipoEmpleado", empleado.IdTipoEmpleadoFk);
-            ViewData["IdTurnoFk"] = new SelectList(_context.Turnos, "IdTurno", "IdTurno", empleado.IdTurnoFk);
+            ViewData["IdTipoEmpleadoFk"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "NombreTipoEmpleado", empleado.IdTipoEmpleadoFk);
+            ViewData["IdTurnoFk"] = new SelectList(_context.Turnos, "IdTurno", "NombreTurno", empleado.IdTurnoFk);
             return View(empleado);
         }
 
@@ -90,8 +90,8 @@ namespace OTMF_NETCORE_MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdTipoEmpleadoFk"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "IdTipoEmpleado", empleado.IdTipoEmpleadoFk);
-            ViewData["IdTurnoFk"] = new SelectList(_context.Turnos, "IdTurno", "IdTurno", empleado.IdTurnoFk);
+            ViewData["IdTipoEmpleadoFk"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "NombreTipoEmpleado", empleado.IdTipoEmpleadoFk);
+            ViewData["IdTurnoFk"] = new SelectList(_context.Turnos, "IdTurno", "NombreTurno", empleado.IdTurnoFk);
             return View(empleado);
         }
 
@@ -127,8 +127,8 @@ namespace OTMF_NETCORE_MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdTipoEmpleadoFk"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "IdTipoEmpleado", empleado.IdTipoEmpleadoFk);
-            ViewData["IdTurnoFk"] = new SelectList(_context.Turnos, "IdTurno", "IdTurno", empleado.IdTurnoFk);
+            ViewData["IdTipoEmpleadoFk"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "NombreTipoEmpleado", empleado.IdTipoEmpleadoFk);
+            ViewData["IdTurnoFk"] = new SelectList(_context.Turnos, "IdTurno", "NombreTurno", empleado.IdTurnoFk);
             return View(empleado);
         }
 

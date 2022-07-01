@@ -25,6 +25,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                           View(await _context.TipoEmpleados.ToListAsync()) :
                           Problem("Entity set 'OTMFContext.TipoEmpleados'  is null.");
         }
+       
 
         // GET: TipoEmpleadoes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -157,6 +158,15 @@ namespace OTMF_NETCORE_MVC.Controllers
         private bool TipoEmpleadoExists(int id)
         {
           return (_context.TipoEmpleados?.Any(e => e.IdTipoEmpleado == id)).GetValueOrDefault();
+        }
+        public JsonResult ObtenerTiposEmpleados()
+        {
+            
+            var tipoEmpleados = _context.TipoEmpleados.ToList();
+            return Json(new { data = tipoEmpleados });
+
+
+
         }
     }
 }

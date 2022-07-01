@@ -62,18 +62,18 @@ namespace OTMF_NETCORE_MVC.Controllers
         // GET: Partes/Create
         public IActionResult Create()
         {
-            ViewData["IdCajaFk"] = new SelectList(_context.Cajas, "IdCaja", "IdCaja");
-            ViewData["IdClienteFk"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
-            ViewData["IdColorFk"] = new SelectList(_context.Colors, "IdColor", "IdColor");
-            ViewData["IdEnsambleFk"] = new SelectList(_context.Ensambles, "IdEnsamble", "IdEnsamble");
-            ViewData["IdEstandarConRelevoFk"] = new SelectList(_context.EstandarConRelevos, "IdEstandarConRelevo", "IdEstandarConRelevo");
-            ViewData["IdEstandarFk"] = new SelectList(_context.Estandars, "IdEstandar", "IdEstandar");
-            ViewData["IdEtiquetaFk"] = new SelectList(_context.Etiqueta, "IdEtiqueta", "IdEtiqueta");
-            ViewData["IdHuleFk"] = new SelectList(_context.Hules, "IdHule", "IdHule");
-            ViewData["IdInsertoFk"] = new SelectList(_context.Insertos, "IdInserto", "IdInserto");
-            ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "IdMolde");
-            ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "IdPintura");
-            ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "IdTarima");
+            ViewData["IdCajaFk"] = new SelectList(_context.Cajas, "IdCaja", "NombreCaja");
+            ViewData["IdClienteFk"] = new SelectList(_context.Clientes, "IdCliente", "NombreCliente");
+            ViewData["IdColorFk"] = new SelectList(_context.Colors, "IdColor", "NombreColor");
+            ViewData["IdEnsambleFk"] = new SelectList(_context.Ensambles, "IdEnsamble", "NombreEnsamble");
+            ViewData["IdEstandarConRelevoFk"] = new SelectList(_context.EstandarConRelevos, "IdEstandarConRelevo", "NombreEstandarconRelevo");
+            ViewData["IdEstandarFk"] = new SelectList(_context.Estandars, "IdEstandar", "NombreEstandar");
+            ViewData["IdEtiquetaFk"] = new SelectList(_context.Etiqueta, "IdEtiqueta", "NombreEtiqueta");
+            ViewData["IdHuleFk"] = new SelectList(_context.Hules, "IdHule", "NombreHule");
+            ViewData["IdInsertoFk"] = new SelectList(_context.Insertos, "IdInserto", "NombreInserto");
+            ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "NombreMolde");
+            ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura");
+            ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima");
             return View();
         }
 
@@ -90,18 +90,18 @@ namespace OTMF_NETCORE_MVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCajaFk"] = new SelectList(_context.Cajas, "IdCaja", "IdCaja", parte.IdCajaFk);
-            ViewData["IdClienteFk"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", parte.IdClienteFk);
-            ViewData["IdColorFk"] = new SelectList(_context.Colors, "IdColor", "IdColor", parte.IdColorFk);
-            ViewData["IdEnsambleFk"] = new SelectList(_context.Ensambles, "IdEnsamble", "IdEnsamble", parte.IdEnsambleFk);
-            ViewData["IdEstandarConRelevoFk"] = new SelectList(_context.EstandarConRelevos, "IdEstandarConRelevo", "IdEstandarConRelevo", parte.IdEstandarConRelevoFk);
-            ViewData["IdEstandarFk"] = new SelectList(_context.Estandars, "IdEstandar", "IdEstandar", parte.IdEstandarFk);
-            ViewData["IdEtiquetaFk"] = new SelectList(_context.Etiqueta, "IdEtiqueta", "IdEtiqueta", parte.IdEtiquetaFk);
-            ViewData["IdHuleFk"] = new SelectList(_context.Hules, "IdHule", "IdHule", parte.IdHuleFk);
-            ViewData["IdInsertoFk"] = new SelectList(_context.Insertos, "IdInserto", "IdInserto", parte.IdInsertoFk);
-            ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "IdMolde", parte.IdMoldeFk);
-            ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "IdPintura", parte.IdPinturaFk);
-            ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "IdTarima", parte.IdTarimaFk);
+            ViewData["IdCajaFk"] = new SelectList(_context.Cajas, "IdCaja", "NombreCaja", parte.IdCajaFk);
+            ViewData["IdClienteFk"] = new SelectList(_context.Clientes, "IdCliente", "NombreCliente", parte.IdClienteFk);
+            ViewData["IdColorFk"] = new SelectList(_context.Colors, "IdColor", "NombreColor", parte.IdColorFk);
+            ViewData["IdEnsambleFk"] = new SelectList(_context.Ensambles, "IdEnsamble", "NombreEnsamble", parte.IdEnsambleFk);
+            ViewData["IdEstandarConRelevoFk"] = new SelectList(_context.EstandarConRelevos, "IdEstandarConRelevo", "NombreEstandarconRelevo", parte.IdEstandarConRelevoFk);
+            ViewData["IdEstandarFk"] = new SelectList(_context.Estandars, "IdEstandar", "NombreEstandar", parte.IdEstandarFk);
+            ViewData["IdEtiquetaFk"] = new SelectList(_context.Etiqueta, "IdEtiqueta", "NombreEtiqueta", parte.IdEtiquetaFk);
+            ViewData["IdHuleFk"] = new SelectList(_context.Hules, "IdHule", "NombreHule", parte.IdHuleFk);
+            ViewData["IdInsertoFk"] = new SelectList(_context.Insertos, "IdInserto", "NombreInserto", parte.IdInsertoFk);
+            ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "NombreMolde", parte.IdMoldeFk);
+            ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura", parte.IdPinturaFk);
+            ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima", parte.IdTarimaFk);
             return View(parte);
         }
 
@@ -118,18 +118,18 @@ namespace OTMF_NETCORE_MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCajaFk"] = new SelectList(_context.Cajas, "IdCaja", "IdCaja", parte.IdCajaFk);
-            ViewData["IdClienteFk"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", parte.IdClienteFk);
-            ViewData["IdColorFk"] = new SelectList(_context.Colors, "IdColor", "IdColor", parte.IdColorFk);
-            ViewData["IdEnsambleFk"] = new SelectList(_context.Ensambles, "IdEnsamble", "IdEnsamble", parte.IdEnsambleFk);
-            ViewData["IdEstandarConRelevoFk"] = new SelectList(_context.EstandarConRelevos, "IdEstandarConRelevo", "IdEstandarConRelevo", parte.IdEstandarConRelevoFk);
-            ViewData["IdEstandarFk"] = new SelectList(_context.Estandars, "IdEstandar", "IdEstandar", parte.IdEstandarFk);
-            ViewData["IdEtiquetaFk"] = new SelectList(_context.Etiqueta, "IdEtiqueta", "IdEtiqueta", parte.IdEtiquetaFk);
-            ViewData["IdHuleFk"] = new SelectList(_context.Hules, "IdHule", "IdHule", parte.IdHuleFk);
-            ViewData["IdInsertoFk"] = new SelectList(_context.Insertos, "IdInserto", "IdInserto", parte.IdInsertoFk);
-            ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "IdMolde", parte.IdMoldeFk);
-            ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "IdPintura", parte.IdPinturaFk);
-            ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "IdTarima", parte.IdTarimaFk);
+            ViewData["IdCajaFk"] = new SelectList(_context.Cajas, "IdCaja", "NombreCaja", parte.IdCajaFk);
+            ViewData["IdClienteFk"] = new SelectList(_context.Clientes, "IdCliente", "NombreCliente", parte.IdClienteFk);
+            ViewData["IdColorFk"] = new SelectList(_context.Colors, "IdColor", "NombreColor", parte.IdColorFk);
+            ViewData["IdEnsambleFk"] = new SelectList(_context.Ensambles, "IdEnsamble", "NombreEnsamble", parte.IdEnsambleFk);
+            ViewData["IdEstandarConRelevoFk"] = new SelectList(_context.EstandarConRelevos, "IdEstandarConRelevo", "NombreEstandarconRelevo", parte.IdEstandarConRelevoFk);
+            ViewData["IdEstandarFk"] = new SelectList(_context.Estandars, "IdEstandar", "NombreEstandar", parte.IdEstandarFk);
+            ViewData["IdEtiquetaFk"] = new SelectList(_context.Etiqueta, "IdEtiqueta", "NombreEtiqueta", parte.IdEtiquetaFk);
+            ViewData["IdHuleFk"] = new SelectList(_context.Hules, "IdHule", "NombreHule", parte.IdHuleFk);
+            ViewData["IdInsertoFk"] = new SelectList(_context.Insertos, "IdInserto", "NombreInserto", parte.IdInsertoFk);
+            ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "NombreMolde", parte.IdMoldeFk);
+            ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura", parte.IdPinturaFk);
+            ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima", parte.IdTarimaFk);
             return View(parte);
         }
 
@@ -165,18 +165,18 @@ namespace OTMF_NETCORE_MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCajaFk"] = new SelectList(_context.Cajas, "IdCaja", "IdCaja", parte.IdCajaFk);
-            ViewData["IdClienteFk"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", parte.IdClienteFk);
-            ViewData["IdColorFk"] = new SelectList(_context.Colors, "IdColor", "IdColor", parte.IdColorFk);
-            ViewData["IdEnsambleFk"] = new SelectList(_context.Ensambles, "IdEnsamble", "IdEnsamble", parte.IdEnsambleFk);
-            ViewData["IdEstandarConRelevoFk"] = new SelectList(_context.EstandarConRelevos, "IdEstandarConRelevo", "IdEstandarConRelevo", parte.IdEstandarConRelevoFk);
-            ViewData["IdEstandarFk"] = new SelectList(_context.Estandars, "IdEstandar", "IdEstandar", parte.IdEstandarFk);
-            ViewData["IdEtiquetaFk"] = new SelectList(_context.Etiqueta, "IdEtiqueta", "IdEtiqueta", parte.IdEtiquetaFk);
-            ViewData["IdHuleFk"] = new SelectList(_context.Hules, "IdHule", "IdHule", parte.IdHuleFk);
-            ViewData["IdInsertoFk"] = new SelectList(_context.Insertos, "IdInserto", "IdInserto", parte.IdInsertoFk);
-            ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "IdMolde", parte.IdMoldeFk);
-            ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "IdPintura", parte.IdPinturaFk);
-            ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "IdTarima", parte.IdTarimaFk);
+            ViewData["IdCajaFk"] = new SelectList(_context.Cajas, "IdCaja", "NombreCaja", parte.IdCajaFk);
+            ViewData["IdClienteFk"] = new SelectList(_context.Clientes, "IdCliente", "NombreCliente", parte.IdClienteFk);
+            ViewData["IdColorFk"] = new SelectList(_context.Colors, "IdColor", "NombreColor", parte.IdColorFk);
+            ViewData["IdEnsambleFk"] = new SelectList(_context.Ensambles, "IdEnsamble", "NombreEnsamble", parte.IdEnsambleFk);
+            ViewData["IdEstandarConRelevoFk"] = new SelectList(_context.EstandarConRelevos, "IdEstandarConRelevo", "NombreEstandarconRelevo", parte.IdEstandarConRelevoFk);
+            ViewData["IdEstandarFk"] = new SelectList(_context.Estandars, "IdEstandar", "NombreEstandar", parte.IdEstandarFk);
+            ViewData["IdEtiquetaFk"] = new SelectList(_context.Etiqueta, "IdEtiqueta", "NombreEtiqueta", parte.IdEtiquetaFk);
+            ViewData["IdHuleFk"] = new SelectList(_context.Hules, "IdHule", "NombreHule", parte.IdHuleFk);
+            ViewData["IdInsertoFk"] = new SelectList(_context.Insertos, "IdInserto", "NombreInserto", parte.IdInsertoFk);
+            ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "NombreMolde", parte.IdMoldeFk);
+            ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura", parte.IdPinturaFk);
+            ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima", parte.IdTarimaFk);
             return View(parte);
         }
 

@@ -383,6 +383,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OTEstado/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT1RFc3RhZG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OTEstado/OrdenesDeTrabajoAsignadas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT1RFc3RhZG9cT3JkZW5lc0RlVHJhYmFqb0FzaWduYWRhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVBY2Nlc29yaW9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

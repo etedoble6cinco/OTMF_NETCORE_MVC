@@ -4,36 +4,41 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Empleado</h4>
+
+<h4>Nuevo Empleado</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NombreEmpleado" class="control-label"></label>
+                <label asp-for="NombreEmpleado" class="control-label">Nombre del Empleado</label>
                 <input asp-for="NombreEmpleado" class="form-control" />
                 <span asp-validation-for="NombreEmpleado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClaveEmpleado" class="control-label"></label>
+                <label asp-for="ClaveEmpleado" class="control-label">Clave del Empleado</label>
                 <input asp-for="ClaveEmpleado" class="form-control" />
                 <span asp-validation-for="ClaveEmpleado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
+                <label asp-for="Estado" class="control-label">Activo</label>
                 <input asp-for="Estado" class="form-control" />
                 <span asp-validation-for="Estado" class="text-danger"></span>
+              
             </div>
             <div class="form-group">
-                <label asp-for="IdTipoEmpleadoFk" class="control-label"></label>
-                <select asp-for="IdTipoEmpleadoFk" class ="form-control" asp-items="ViewBag.IdTipoEmpleadoFk"></select>
+                <label asp-for="IdTipoEmpleadoFk" class="control-label"> Tipo de Empleado</label>
+                <select asp-for="IdTipoEmpleadoFk" class ="form-control" asp-items="ViewBag.IdTipoEmpleadoFk">
+                    <option selected disabled>Seleccionar Opcion</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="IdTurnoFk" class="control-label"></label>
-                <select asp-for="IdTurnoFk" class ="form-control" asp-items="ViewBag.IdTurnoFk"></select>
+                <label asp-for="IdTurnoFk" class="control-label">Turno del Empleado</label>
+                <select asp-for="IdTurnoFk" class ="form-control" asp-items="ViewBag.IdTurnoFk">
+                    <option selected disabled>Seleccionar Opcion</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

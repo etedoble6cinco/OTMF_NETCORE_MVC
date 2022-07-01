@@ -1,0 +1,102 @@
+﻿@model List<OTMF_NETCORE_MVC.Entities.ObtenerOTAsignadas>
+
+@{
+
+  
+}
+
+
+
+
+
+
+ 
+
+<div class="container">
+
+    <div class="row">
+
+      
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+               @foreach (var item in Model)
+            {
+                 
+                <li class="nav-item" role="presentation">
+                <button class="nav-link" onclick="GetOrdenTrabajo(@item.idOrdenTrabajoFk)" id="@item.idOrdenTrabajoFk" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">@item.idOrdenTrabajoFk</button>
+                  </li>
+
+            }
+
+  
+
+</ul>
+
+<div class="tab-content card" id="pills-tabContent">
+
+
+
+    </div>
+         
+
+     
+
+
+    </div>
+
+</div>
+
+@section Scripts{
+    
+    <script>
+       
+
+
+function GetOrdenTrabajo(idOrdenTrabajo) {
+   
+    
+    $.ajax({
+        type: "POST",
+        url:'@Url.Action("DetalleDeOT")',
+        data: {id:idOrdenTrabajo},
+        dataType:"json",
+        success: function(data) {
+            FillDetalles(data);
+          
+        }
+    });
+}
+function FillDetalles(data) {
+    
+   $("#pills-tabContent").html("");
+    var x = 0;
+   
+    $.each(data.data, function(n) {
+
+        $("#pills-tabContent").append("<section class='d-flex flex-wrap' id='OrdenDeTrabajo'>"
+
+        +"<div class='p-2'><h5>Fecha Orden de Trabajo</h5><p>"+data.data[x].fechaOrdenTrabajo+        "</p></div>"
+        +"<div class='p-2'><h5>Cajas Recibidas</h5><p>"+data.data[x].cajasRecibidas+                  "</p></div>"
+        +"<div class='p-2'><h5>Cantidad Piezas por Orden</h5><p>"+data.data[x].cantidadPiezasPorOrden+"</p></div>"
+        +"<div class='p-2'><h5>Etiqueta de Caja</h5><p>"+data.data[x].etiquetaDeCaja+                 "</p></div>"
+        +"<div class='p-2'><h5>Hora Inicio</h5><p>"+data.data[x].horaInicio+                          "</p></div>"
+        +"<div class='p-2'><h5>Hora Finalizacion</h5><p>"+data.data[x].horaFinalizacion+              "</p></div>"
+        +"<div class='p-2'><h5>Codigo Orden de Trabajo</h5><p>"+data.data[x].idCodigoOrdenTrabajo+    "</p></div>"
+        +"<div class='p-2'><h5>Codigo de Parte</h5><p>"+data.data[x].idCodigoParte+                   "</p></div>"
+        +"<div class='p-2'><h5>Maximo Scrap</h5><p>"+data.data[x].maxScrap+                           "</p></div>"
+        +"<div class='p-2'><h5>Piezas Realizadas</h5><p>"+data.data[x].piezasRealizadas+              "</p></div>"
+        +"<div class='p-2'><h5>Estado de la Orden de Trabajo</h5><p>"+data.data[x].nombreEstadoOrden+ "</p></div>"
+        +"<div class='p-2'><h5>Nombre del Instructivo</h5><p>"+data.data[x].nombreInstructivo+        "</p></div>"
+
+        +"</section>");
+                                         
+      
+           x++;
+    });
+ 
+      
+}
+
+    </script>
+
+}

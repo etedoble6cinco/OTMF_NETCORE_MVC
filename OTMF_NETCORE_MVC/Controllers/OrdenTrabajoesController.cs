@@ -55,9 +55,9 @@ namespace OTMF_NETCORE_MVC.Controllers
         // GET: OrdenTrabajoes/Create
         public IActionResult Create()
         {
-            ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "IdEstadoOrden");
-            ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "IdInstructivo");
-            ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdParte");
+            ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden");
+            ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo");
+            ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte");
             return View();
         }
 
@@ -74,9 +74,9 @@ namespace OTMF_NETCORE_MVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "IdEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
-            ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "IdInstructivo", ordenTrabajo.IdInstructivoFk);
-            ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdParte", ordenTrabajo.IdParteFk);
+            ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
+            ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo", ordenTrabajo.IdInstructivoFk);
+            ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
             return View(ordenTrabajo);
         }
 
@@ -93,9 +93,9 @@ namespace OTMF_NETCORE_MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "IdEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
-            ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "IdInstructivo", ordenTrabajo.IdInstructivoFk);
-            ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdParte", ordenTrabajo.IdParteFk);
+            ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
+            ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo", ordenTrabajo.IdInstructivoFk);
+            ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
             return View(ordenTrabajo);
         }
 
@@ -131,9 +131,9 @@ namespace OTMF_NETCORE_MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "IdEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
-            ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "IdInstructivo", ordenTrabajo.IdInstructivoFk);
-            ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdParte", ordenTrabajo.IdParteFk);
+            ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
+            ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo", ordenTrabajo.IdInstructivoFk);
+            ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
             return View(ordenTrabajo);
         }
 
@@ -185,7 +185,7 @@ namespace OTMF_NETCORE_MVC.Controllers
 
         public JsonResult ObtenerOrdenesTrabajo()
         {
-            var OOT = "[ObtenerOrdenesTrabajo]";
+            var OOT = "[ObtenerOrdenesTrabajoAllInfo]";
             using (var connection = new SqlConnection(con))
             {
                 var ordenestrabajo = connection.Query<ObtenerOrdenesTrabajo>(OOT,commandType: CommandType.StoredProcedure);
