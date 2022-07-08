@@ -13,6 +13,7 @@
  
 
 <div class="container">
+    
 
     <div class="row">
 
@@ -21,23 +22,56 @@
 
                @foreach (var item in Model)
             {
-                 
-                <li class="nav-item" role="presentation">
-                <button class="nav-link" onclick="GetOrdenTrabajo(@item.idOrdenTrabajoFk)" id="@item.idOrdenTrabajoFk" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">@item.idOrdenTrabajoFk</button>
+                @if(item.IdEstadoOTFK == 1 || item.IdEstadoOTFK == 3 ||    item.IdEstadoOTFK==4 || item.IdEstadoOTFK ==6)
+                {
+                     <li class="nav-item" role="presentation">
+                <button class="nav-link" onclick="GetOrdenTrabajo(@item.idOrdenTrabajo)" id="@item.idOrdenTrabajo" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">@item.idOrdenTrabajo</button>
                   </li>
+                }
+               
 
             }
 
   
 
 </ul>
-
-<div class="tab-content card" id="pills-tabContent">
+<div id="indicadorEstado">
+    <div class="tab-content card" id="pills-tabContent">
 
 
 
     </div>
-         
+     <div class="row">
+                 <div class="col-6">
+                  <nav id="ShowCajasRecibidas" class="d-flex flex-wrap">
+
+
+                   </nav>
+            </div>
+            <div class="col-6">
+                <nav id="ShowCajasRealizadas" class="d-flex flex-wrap">
+
+                </nav>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-6">
+                  <nav id="EmpleadosRelacionados" class="d-flex flex-wrap">
+
+
+                   </nav>
+            </div>
+            <div class="col-6">
+                <nav id="AccionesOrdenTrabajo" class="d-flex flex-wrap">
+
+                </nav>
+            </div>
+       
+
+        </div> 
+       
+</div>
+
 
      
 
@@ -45,24 +79,120 @@
     </div>
 
 </div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Asignar Empleados</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form">
+       
+            <form>
+          
+        
+              <div class="m-2">
+                   <select id="EleccionEmpleado" class ="form-control" asp-items="ViewBag.Empleado">
+                       <option> Eleguir Empleado</option>
+                   </select>
+         
+              </div>
+              
+
+            
+            </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="ClearCambiosEmpleados()" >Aceptar</button>
+        <button type="button" class="btn btn-primary" onclick="GuardarCambiosEmpleados()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="CajasRecibidasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registro Inicial de Activos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+           
+            <input type="number" name="CajasRecibidas" id="CajasRecibidas" class="form-control" placeholder="" aria-describedby="helpId">
+            <small id="helpId" class="text-muted">Numero de Cajas Recibidas</small>
+          
+            <input type="number" name="PiezasSueltasRecibidas" id="PiezasSueltasRecibidas" class="form-control" placeholder="" aria-describedby="helpId">
+            <small id="helpId" class="text-muted">Numero de Piezas Sueltas Recibidas</small>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="UpdateCajasRecibidas()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="PiezasRealizadasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registro Final de Activos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+           
+            <input type="number" name="PiezasRealizadas" id="PiezasRealizadas" class="form-control" placeholder="" aria-describedby="helpId">
+            <small id="helpId" class="text-muted">Numero de Piezas Realizadas</small>
+          
+          
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="UpdateCajasRealizadas()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @section Scripts{
     
     <script>
-       
+ 
+        
 
+$(document).ready(function(){
+
+});
 
 function GetOrdenTrabajo(idOrdenTrabajo) {
-   
-    
+    localStorage.clear();
+    localStorage.setItem('currentOT', idOrdenTrabajo);
+    GetEstadoOT();
     $.ajax({
         type: "POST",
         url:'@Url.Action("DetalleDeOT")',
         data: {id:idOrdenTrabajo},
         dataType:"json",
         success: function(data) {
+        
             FillDetalles(data);
-          
+            GetParteByOTId(idOrdenTrabajo);
+            GetEmpleadosByOTId(idOrdenTrabajo);
+            ObtenerCajasRecibidas();
+            ObtenerCajasRealizadas();
         }
     });
 }
@@ -75,18 +205,17 @@ function FillDetalles(data) {
 
         $("#pills-tabContent").append("<section class='d-flex flex-wrap' id='OrdenDeTrabajo'>"
 
-        +"<div class='p-2'><h5>Fecha Orden de Trabajo</h5><p>"+data.data[x].fechaOrdenTrabajo+        "</p></div>"
-        +"<div class='p-2'><h5>Cajas Recibidas</h5><p>"+data.data[x].cajasRecibidas+                  "</p></div>"
-        +"<div class='p-2'><h5>Cantidad Piezas por Orden</h5><p>"+data.data[x].cantidadPiezasPorOrden+"</p></div>"
-        +"<div class='p-2'><h5>Etiqueta de Caja</h5><p>"+data.data[x].etiquetaDeCaja+                 "</p></div>"
-        +"<div class='p-2'><h5>Hora Inicio</h5><p>"+data.data[x].horaInicio+                          "</p></div>"
-        +"<div class='p-2'><h5>Hora Finalizacion</h5><p>"+data.data[x].horaFinalizacion+              "</p></div>"
-        +"<div class='p-2'><h5>Codigo Orden de Trabajo</h5><p>"+data.data[x].idCodigoOrdenTrabajo+    "</p></div>"
-        +"<div class='p-2'><h5>Codigo de Parte</h5><p>"+data.data[x].idCodigoParte+                   "</p></div>"
-        +"<div class='p-2'><h5>Maximo Scrap</h5><p>"+data.data[x].maxScrap+                           "</p></div>"
-        +"<div class='p-2'><h5>Piezas Realizadas</h5><p>"+data.data[x].piezasRealizadas+              "</p></div>"
-        +"<div class='p-2'><h5>Estado de la Orden de Trabajo</h5><p>"+data.data[x].nombreEstadoOrden+ "</p></div>"
-        +"<div class='p-2'><h5>Nombre del Instructivo</h5><p>"+data.data[x].nombreInstructivo+        "</p></div>"
+        +"<div class='p-2 border border-3'><p>Fecha Orden de Trabajo</p><p>"+data.data[x].fechaOrdenTrabajo+        "</p></div>"
+       
+        +"<div class='p-2 border border-3'><p>Cantidad Piezas por Orden</p><p>"+data.data[x].cantidadPiezasPorOrden+"</p></div>"
+        +"<div class='p-2 border border-3'><p>Etiqueta de Caja</p><p>"+data.data[x].etiquetaDeCaja+                 "</p></div>"
+        +"<div class='p-2 border border-3'><p>Hora Inicio</p><p>"+data.data[x].horaInicio+                          "</p></div>"
+        +"<div class='p-2 border border-3'><p>Hora Finalizacion</p><p>"+data.data[x].horaFinalizacion+              "</p></div>"
+        +"<div class='p-2 border border-3'><p>Codigo Orden de Trabajo</p><p>"+data.data[x].idCodigoOrdenTrabajo+    "</p></div>"
+        +"<div class='p-2 border border-3'><p>Codigo de Parte</p><p>"+data.data[x].idCodigoParte+                   "</p></div>"
+        +"<div class='p-2 border border-3'><p>Maximo Scrap</p><p>"+data.data[x].maxScrap+                           "</p></div>"
+        +"<div class='p-2 border border-3'><p>Estado de la Orden de Trabajo</p><p>"+data.data[x].nombreEstadoOrden+ "</p></div>"
+        +"<div class='p-2 border border-3'><p>Nombre del Instructivo</p><p>"+data.data[x].nombreInstructivo+        "</p></div>"
 
         +"</section>");
                                          
@@ -94,9 +223,347 @@ function FillDetalles(data) {
            x++;
     });
  
+   
+}
+function GetParteByOTId(idOrdenTrabajo) {
+
+        
+
+      $.ajax({
+        type: "POST",
+        url:'@Url.Action("ObtenerParteByOTId")',
+        data: {id:idOrdenTrabajo},
+        dataType:"json",
+        success: function(data) {
+           
+            FillParte(data);
+        }
+    });
+}
+function FillParte(data) {
+     var x = 0;
+   
+    $.each(data.data, function(n) {
+
+        $("#pills-tabContent").append("<section class='d-flex flex-wrap' id='Parte'>"
+
+        +"<div class='p-2 border border-3'><p>Aluminio</p><p>"+data.data[x].aluminio        +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Cajas por Tarima</p><p>"+data.data[x].cajasPorTarima  +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Costo</p><p>"+data.data[x].costo           +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Estandar por Hora</p><p>"+data.data[x].estandarPorHora +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Etiqueta de Caja</p><p>"+data.data[x].etiquetaDeCaja  +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Codigo de Parte</p><p>"+data.data[x].idCodigoParte   +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Logo de Caja</p><p>"+data.data[x].logoCaja        +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre de Caja</p><p>"+data.data[x].nombreCaja      +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre del Cliente</p><p>"+data.data[x].nombreCliente   +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Color</p><p>"+data.data[x].nombreColor     +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre del Ensamble</p><p>"+data.data[x].nombreEnsamble  +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre de Estandar</p><p>"+data.data[x].nombreEstandar  +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre de Etiqueta</p><p>"+data.data[x].nombreEtiqueta  +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre del Hule</p><p>"+data.data[x].nombreHule      +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre del Inserto</p><p>"+data.data[x].nombreInserto   +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre del Molde</p><p>"+data.data[x].nombreMolde     +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre Pintura</p><p>"+data.data[x].nombrePintura   +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Nombre Tarima</p><p>"+data.data[x].nombreTarima    +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Piezas por Caja</p><p>"+data.data[x].piezasPorCaja   +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Scrap</p><p>"+data.data[x].scrap           +"</p></div>" 
+        +"<div class='p-2 border border-3'><p>Std Pintura</p><p>"+data.data[x].std_Pintura     +"</p></div>" 
+
+        +"</section>");
+                                         
       
+           x++;
+    });
+ 
+
+   
+}
+      function DeleteAsignacionEmpleadoOTById(id) {
+          $.ajax({
+              type: "Delete",
+              url: '@Url.Action("DeleteAsignacionEmpleadoOTById")',
+              data: {idEmpleadoOrdenTrabajo:id},
+              dataType:"json",
+              success: function(data) {
+                  var idcurrentOT = localStorage.getItem('currentOT');
+                  GetEmpleadosByOTId(idcurrentOT);
+              }
+          });                
+      }
+      function GetEmpleadosByOTId(idOrdenTrabajo) {
+          $.ajax({
+                    type: "POST",
+                    url:'@Url.Action("ObtenerEmpleadosByOTId")',
+                    data: {id:idOrdenTrabajo},
+                    dataType:"json",
+                    success: function(data) {
+                        
+              
+                        FillEmpleados(data,idOrdenTrabajo);
+                    }
+          });
+
+
+      }
+        function FillEmpleados(data,idOrdenTrabajo) {
+            var x = 0;
+       
+            $("#EmpleadosRelacionados").html("");
+         
+                $.each(data.data, function(n) {
+                    
+                    if (data.data[x].idTipoEmpleadoFK == 3) {
+                        $("#EmpleadosRelacionados").append("<section id='empleadoEmpacador' class='m-2'>"
+                            + "<div class=''><h5>Empacador </h5><p>"
+                            + data.data[x].nombreEmpleado + "</p></div> </section>"+
+                            "<button  data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick=\"SetEditEmpleado(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fas fa-edit'></i></button>"+
+                            "<button  onclick=\"DeleteAsignacionEmpleadoOTById(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fa fa-trash' aria-hidden='true'></i></button>");
+                     
+                    }
+                    if (data.data[x].idTipoEmpleadoFK == 4) {
+                        $("#EmpleadosRelacionados").append("<section id='empleadoMoldeador' class='m-2'>"
+                            + "<div class=''><h5>Moldeador </h5><p>"
+                            + data.data[x].nombreEmpleado + "</p></div></section>" +
+                            "<button  data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick=\"SetEditEmpleado(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fas fa-edit' ></i></button>"+
+                            "<button   onclick=\"DeleteAsignacionEmpleadoOTById(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fa fa-trash' aria-hidden='true'></i></button>");
+                       
+                       
+                    
+                    }
+
+                    x++;
+                });
+         
+                  $("#EmpleadosRelacionados").append("<section class='m-1'>"+
+                            "<button type='button' class='btn btn-primary m-1'  data-bs-toggle='modal' data-bs-target='#staticBackdrop'>"+
+                            "AgregarEmpleadosAsignados</button>"
+                            + "</section>");
+           
+        
+        }
+
+function SetEditEmpleado(data) {
+    localStorage.setItem('EditRelacion', data);
+   
+}
+///function UpdateCajas
+
+
+function GuardarCambiosEmpleados() {
+        var idMovimiento = localStorage.getItem('EditRelacion');
+        var idEmpleado = $("#EleccionEmpleado").val();
+        var currentOT = localStorage.getItem('currentOT');
+  
+      $.ajax({
+                    type: "POST",
+                    url:'@Url.Action("UpsertAsignacionEmpleadoOTById")',
+                    data: {
+                        idOrdenTrabajo:currentOT,
+                        idEmpleado:idEmpleado,
+                        idRelacion:idMovimiento
+                    },
+                    dataType:"json",
+                    success: function(data) {
+                        
+                        GetEmpleadosByOTId(currentOT);
+                        
+                    }
+          });
 }
 
+function UpdateOTEstado(idEstadoOT) {
+    console.log(idEstadoOT);
+    var idOrdenTrabajo = localStorage.getItem("currentOT");
+    $.ajax({
+            type:"POST",
+            url:'@Url.Action("UpdateOTEstado")',
+        data: {
+            idOrdenTrabajo : idOrdenTrabajo,
+            idEstadoOT : idEstadoOT
+        },
+        dataType:"json",
+        success: function(data) {
+            GetEstadoOT();
+            GetOrdenTrabajo(idOrdenTrabajo);
+        }
+        });
+
+}
+
+function GetEstadoOT() {
+     var idOrdenTrabajo = localStorage.getItem('currentOT');
+    $.ajax({
+                    type: "POST",
+                    url:'@Url.Action("ObtenerEstadoOT")',
+                    data: {
+                        id:idOrdenTrabajo
+                    },
+                    dataType:"json",
+                    success: function(data) {
+                        
+                        EvaluateOTEstado(data);
+                        
+                    }
+          });
+}
+function EvaluateOTEstado(data) {
+    
+    switch (data.data[0].idEstadoOrden) {
+        case 1:
+            $("#AccionesOrdenTrabajo").html("");
+            $("#indicadorEstado").removeClass();
+            $("#indicadorEstado").addClass("border p-2 bg-info");
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-warning bg-gradient m-2' onclick='SetActiva()'><strong>Aceptar</strong></button>");
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-warning bg-gradient m-2' onclick='SetActiva()'><strong>Aceptar</strong></button>");
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-warning bg-gradient m-2' onclick='SetActiva()'><strong>Aceptar</strong></button>");
+             
+            break;
+        case 2:
+            //$("#AccionesOrdenTrabajo").html("");
+            //$("#indicadorEstado").removeClass();
+            //$("#indicadorEstado").addClass("border p-2 bg-primary");
+            //$("#AccionesOrdenTrabajo").append("<button class='btn btn-primary'>se</button>")
+            break;
+        case 3:
+            $("#AccionesOrdenTrabajo").html("");
+            $("#indicadorEstado").removeClass();
+            $("#indicadorEstado").addClass("border p-2 bg-success");
+             $("#AccionesOrdenTrabajo").append("<button class='btn btn-light bg-gradient m-2' onclick='SetAceptar();' ><strong>Terminar</strong></button>")
+             $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetPausa();'><strong>Pausar</strong></button>")
+           
+            break;
+        case 4:
+            $("#AccionesOrdenTrabajo").html("");
+            $("#indicadorEstado").removeClass();
+            $("#indicadorEstado").addClass("border p-2 bg-warning");
+            $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetTerminar();'><strong>Aceptar</strong></button>")
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-danger bg-gradient m-2' onclick='SetPausa();'><strong>Pausar</strong></button>")
+          
+            
+            break;
+        case 5:
+            $("#AccionesOrdenTrabajo").html("");
+            $("#indicadorEstado").removeClass();
+            $("#indicadorEstado").addClass("border p-2 bg-dark");
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-warning bg-gradient m-2' onclick='SetAceptar();'>Regresar</button>")
+           
+        
+            break;
+        case 6:
+            $("#AccionesOrdenTrabajo").html("");
+            $("#indicadorEstado").removeClass();
+            $("#indicadorEstado").addClass("border p-2 bg-danger");
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-success bg-gradient m-2' onclick='SetActiva();'>Reanudar</button>")
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-dark bg-gradient m-2'>Terminar</button>")
+            break;
+        }
+  
+}
+    function SetTerminar() {
+        UpdateOTEstado(5);
+    }
+    function SetActiva() {
+        UpdateOTEstado(3);
+    }
+    function SetPausa() {
+    UpdateOTEstado(6);
+    }
+    function SetAceptar() {
+    UpdateOTEstado(4);
+    } 
+
+//El valor de cajas recibidas en la tabla de la orden de trabajo sera la llave foreanea para obtener el detalle de la fila .
+    function ObtenerCajasRecibidas(){
+     var IdOrdenTrabajo = localStorage.getItem('currentOT');
+        $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ObtenerCajasRecibidas")',
+                dataType: 'json',
+                data: {
+                    IdOrdenTrabajo: IdOrdenTrabajo
+                },
+                success: function (data) {  
+                    
+                    $("#ShowCajasRecibidas").html("");
+                   
+                
+                FillCajasRecibidas(data);
+                }
+        });
+    }
+    function UpdateCajasRecibidas(){
+            var NumeroCajasRecibidas = $("#CajasRecibidas").val();
+            var NumeroPiezasRecibidas = $("#PiezasSueltasRecibidas").val();
+            console.log(NumeroCajasRecibidas, NumeroPiezasRecibidas);
+            var IdOrdenTrabajo = localStorage.getItem('currentOT');
+            $.ajax({  
+                type: 'POST',
+                url: '@Url.Action("InsertCajasRecibidas")',
+                dataType: 'json',   
+                data: {
+                     
+                    IdOrdenTrabajo: IdOrdenTrabajo,
+                    NumeroCajasRecibidas: NumeroCajasRecibidas,
+                    NumeroPiezasRecibidas: NumeroPiezasRecibidas
+                },
+                success: function (data) {
+                      ObtenerCajasRecibidas();
+            },
+
+             });
+    }
+   function FillCajasRecibidas(data){
+               
+         
+        $("#ShowCajasRecibidas").append("<div class='card p-1 m-2 border border-2'><p>Cajas Recibidas</p>"+data.data[0].NumeroCajasRecibidas+"</div>"+
+                  "<div class='card p-1 m-2 border border-2'><p>Piezas Sueltas Recibidas</p>"+data.data[0].NumeroPiezasSueltasRecibidas+"</div>");
+        $("#ShowCajasRecibidas").append(
+                        "<button type='button' id='btnCajasRealizadas' class='btn btn-primary bg-gradient m-2' data-bs-toggle='modal' data-bs-target='#CajasRecibidasModal'>Registrar material recibido</button>");
+            $("#CajasRecibidasModal").modal('hide');
+        
+    }
+    function UpdateCajasRealizadas()
+    {
+        var PiezasRealizadas = $("#PiezasRealizadas").val();
+        var IdOrdenTrabajo = localStorage.getItem('currentOT'); 
+        $.ajax({ 
+            type: "POST", 
+            url: '@Url.Action("UpdatePiezasRealizadas")', 
+            dataType: "json", 
+            data: {
+                IdOrdenTrabajo: IdOrdenTrabajo, ////
+                PiezasRealizadas:PiezasRealizadas
+            },
+            success: function (data) {
+                console.log(data);
+                ObtenerCajasRealizadas();
+            }
+            });
+
+    }
+    function ObtenerCajasRealizadas()
+    {
+            var IdOrdenTrabajo = localStorage.getItem('currentOT');
+             $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ObtenerPiezasRealizadas")',
+                dataType: 'json',
+                data: {
+                    IdOrdenTrabajo: IdOrdenTrabajo
+                },
+                success: function (data) {      
+                $("#ShowCajasRealizadas").html("");
+                FillCajasRealizadas(data);
+                }
+        });
+    }
+    function FillCajasRealizadas(data)
+    {
+    
+        $("#ShowCajasRealizadas").append("<div class='card p-1 m-2 border border-2'><p>Piezas Realizadas</p>"+data.data[0].PiezasRealizadas+"</div>");
+        $("#ShowCajasRealizadas").append("<button type='button' id='btnPiezasRealizadas' class='btn btn-primary bg-gradient m-2' data-bs-toggle='modal' data-bs-target='#PiezasRealizadasModal'>Registrar material realizado</button>");
+            $("#PiezasRealizadasModal").modal('hide');
+    }
     </script>
 
 }

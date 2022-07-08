@@ -48,7 +48,7 @@ namespace OTMF_NETCORE_MVC.Controllers
         // GET: OrdenTrabajoEmpleadoes/Create
         public IActionResult Create()
         {
-            ViewData["IdEmpleadoFk"] = new SelectList(_context.Empleados, "IdEmpleado", "IdEmpleado");
+            ViewData["IdEmpleadoFk"] = new SelectList(_context.Empleados, "IdEmpleado", "NombreEmpleado");
             ViewData["IdOrdenTrabajoFk"] = new SelectList(_context.OrdenTrabajos, "IdOrdenTrabajo", "IdOrdenTrabajo");
             return View();
         }

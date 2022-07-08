@@ -2,6 +2,7 @@
 {
     public class ObtenerOTAsignadas
     {
-        public int idOrdenTrabajoFk { get; set; }  
+        public int idOrdenTrabajo { get; set; }  
+        public int IdEstadoOTFK { get; set; }   
     }
 }
