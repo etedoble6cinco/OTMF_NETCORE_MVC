@@ -2,12 +2,17 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
+using OTMF_NETCORE_MVC.Hubs;
+using OTMF_NETCORE_MVC.MiddlewareExtensions;
 using OTMF_NETCORE_MVC.Models;
 using OTMF_NETCORE_MVC.Services;
+using OTMF_NETCORE_MVC.SuscribeTableDependencies;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSingleton<DashboardHub>();
+builder.Services.AddSingleton<SuscribeOrdenTrabajoTableDependecy>();
 builder.Services.AddDbContext<OTMFContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 var politicaUsuariosAutenticados = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
@@ -31,7 +36,7 @@ builder.Services.AddAuthentication(options =>
 {
     opciones.LoginPath = "/usuarios/login";
 });
-
+builder.Services.AddSignalR();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -48,9 +53,10 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapHub<DashboardHub>("/dashboardHub");
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.UseProductTableDependency();
 app.Run();

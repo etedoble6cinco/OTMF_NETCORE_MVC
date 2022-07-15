@@ -113,39 +113,39 @@
    
                          <thead> 
                              <tr>
-                                 <th> IdParte</th>
-                                 <th> Aluminio</th>
-                                 <th> CajasPorTarima</th>
-                                 <th> Costo</th>
-                                 <th> EstarPorHora</th>
-                                 <th> IdCodigoParte</th>
-                                 <th> PiezasPorCaja</th>
-                                 <th> Scrap</th> 
-                                 <th> Std_Pintura</th>
-                                 <th> IdCaja</th>
-                                 <th> NombreCaja</th>
-                                 <th> IdColor</th>
-                                 <th> NombreColor</th>
-                                 <th> IdPintura</th>
-                                 <th> NombrePintura</th>
-                                 <th> IdTarima</th>
-                                 <th> NombreTarima</th>
-                                 <th> IdMolde</th>
-                                 <th> NombreMolde</th>
-                                 <th> IdEnsamble</th>
-                                 <th> NombreEnsamble</th>
-                                 <th> IdEstandarConRelevo</th>
-                                 <th> NombreEstandarConRelevo</th>
-                                 <th> NombreEtiqueta</th>
-                                 <th> IdEtiqueta</th>
-                                 <th> NombreInserto</th>
-                                 <th> IdInserto</th>
-                                 <th> IdHule</th>
-                                 <th> NombreHule</th>
-                                 <th> IdEstandar</th>
-                                 <th> NombreEstandar</th>
-                                 <th> IdCliente</th>
-                                 <th> NombreCliente</th>
+                                 <th>idParte </th>
+                                 <th>Codigo Parte </th>
+                                 <th>Aluminio</th>
+                                 <th>Cajas por Tarima</th>
+                                 <th>Costo</th>
+                                 <th>Estandar por Hora</th>
+                                 <th>piezasPorCaja </th>
+                                 <th>scrap</th>
+                                 <th>std_Pintura</th>
+                                 <th>idCaja</th>
+                                 <th>nombreCaja</th>
+                                 <th>idColor</th>
+                                 <th>nombreColor</th>
+                                 <th>idPintura</th>
+                                 <th>nombrePintura</th>
+                                 <th>idTarima</th>
+                                 <th>nombreTarima</th>
+                                 <th>idMolde</th>
+                                 <th>nombreMolde</th>
+                                 <th>idEnsamble</th>
+                                 <th>nombreEnsamble</th>
+                                 <th>idEstandarConRelevo</th>
+                                 <th>nombreEstandarConRelevo</th>
+                                 <th>idEtiqueta</th>
+                                 <th>nombreEtiqueta</th>
+                                 <th>idInserto</th>
+                                 <th>nombreInserto</th>
+                                 <th>idHule</th>
+                                 <th>nombreHule</th>
+                                 <th>idEstandar</th>
+                                 <th>nombreEstandar</th>
+                                 <th>idCliente</th>
+                                 <th>nombreCliente</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -169,6 +169,44 @@ $(document).ready(function () {
             "type": "GET",
             "datatype": "json"
         },
+           dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i>',
+                tittleAttr: 'Exportar a Excel',
+                className: 'btn btn-lg btn-success'
+
+            },
+            {
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i>',
+                tittleAttr: 'Exportar a Excel',
+                className: 'btn btn-lg btn-danger'
+
+            }
+            , {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                tittleAttr: 'Imprimir',
+                className: 'btn btn-lg btn-info'
+
+            }
+            ,
+            {
+                text:'<i class="fa fa-plus" aria-hidden="true"></i>',
+                tittleAttr: 'Agregar Nuevo',
+                className:'btn btn-lg btn-primary',
+                action: function() {
+                    window.location.href = "OrdenTrabajoes/Create";
+                }
+            }
+
+
+        ],
+        autoFill: false,
+        responsive: true,
+        select:false,
         rowId:"idParte",
         "columns": [
             { "data": "idParte" },
@@ -205,28 +243,14 @@ $(document).ready(function () {
             { "data": "idCliente" },
             { "data": "nombreCliente" }
            
-        ],
-         columnDefs:[
-             {
-                 targets : 0,
-                 visible:false
-             }, 
-             {
-                 targets : 4,
-                 visible:false
-             },
-             {
-                 targets : 6,
-                 visible:false
-             }
-         ],
+        ]
 
         
     });
 
    
     var table = $('#Partes').DataTable();
-     $('#Partes').on( 'click', 'tr', function () {
+     $('#Partes').on( 'click', 'td', function () {
     var id = table.row( this ).id();
     window.location.href = "Partes/Details/" + id;
      

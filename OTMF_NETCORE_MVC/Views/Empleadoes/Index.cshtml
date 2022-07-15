@@ -47,13 +47,13 @@
                          <thead> 
                              <tr>
                                  <th> IdEmpleado</th>
-                                 <th> NombreEmpleado</th>
-                                 <th> ClaveEmpleado</th>
-                                 <th> Estado</th>
-                                 <th> IdTipoEmpleado</th>
-                                 <th> NombreTipoEmpleado</th>
-                                 <th> IdTurno</th>
-                                 <th> NombreTurno</th> 
+                                 <th> Nombre de Empleado</th>
+                                 <th> Clave de Empleado</th>
+                                 <th> Activo</th>
+                                 <th> Tipo de Empleado</th>
+                                 <th> Tipo de Empleado</th>
+                                 <th> Turno</th>
+                                 <th> Nombre del Turno</th> 
                                 
                              </tr>
                          </thead>
@@ -87,6 +87,44 @@ $(document).ready(function () {
             "type": "GET",
             "datatype": "json"
         },
+           dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i>',
+                tittleAttr: 'Exportar a Excel',
+                className: 'btn btn-lg btn-success'
+
+            },
+            {
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i>',
+                tittleAttr: 'Exportar a Excel',
+                className: 'btn btn-lg btn-danger'
+
+            }
+            , {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                tittleAttr: 'Imprimir',
+                className: 'btn btn-lg btn-info'
+
+            }
+            ,
+            {
+                text:'<i class="fa fa-plus" aria-hidden="true"></i>',
+                tittleAttr: 'Agregar Nuevo',
+                className:'btn btn-lg btn-primary',
+                action: function() {
+                    window.location.href = "Empleadoes/Create";
+                }
+            }
+
+
+        ],
+        autoFill: false,
+        responsive: true,
+        select:false,
         rowId:'idEmpleado',
         "columns": [
             { "data": "idEmpleado" },
@@ -104,18 +142,12 @@ $(document).ready(function () {
              {
                  targets : 0,
                  visible:false
-             }, {
-                 targets : 4,
-                 visible:false
-             },{
-                 targets : 6,
-                 visible:false
              }
          ]
     });
 
     var table = $('#Empleadoes').DataTable();
-     $('#Empleadoes').on( 'click', 'tr', function () {
+     $('#Empleadoes').on( 'click', 'td', function () {
     var id = table.row( this ).id();
     window.location.href = "Empleadoes/Details/" + id;
      

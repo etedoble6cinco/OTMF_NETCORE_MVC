@@ -8,23 +8,13 @@
         <div class="col-9 offset-2">
            
            <div id="ContenedorMaquina" class="d-flex aling-content-start flex-wrap">
-             @foreach (var item in Model) {
-
-                    <a  class="btn btn-light " asp-action="OrdenesDeTrabajoAsignadas" asp-route-id="@item.IdMaquina"> 
-             <div class='border-3 p-5 m-3 bg-success shadow-lg'>
+           @foreach (var item in Model) {
+           <a  class="btn btn-light " asp-action="OrdenesDeTrabajoAsignadas" asp-route-id="@item.IdMaquina"> 
+           <div class='border-3 p-5 m-3 bg-success shadow-lg'>
            <small class='text-white'>@Html.DisplayFor(modelItem => item.NombreMaquina)</small> </div> </a>
-       
-}
- 
- 
-
+       }
+    </div>
 </div>
-
-
-
-
-
-        </div>
 
     </div>
 
@@ -65,7 +55,7 @@ function FillMaquinas(data) {
         $("#ContenedorMaquina").append(
             " <a  class='btn btn-light ' asp-action='OrdenesDeTrabajoAsignadas' asp-route-id=" + data.data[x].idMaquina +">" +
             " <div class='border-3 p-5 m-3 bg-success shadow-lg'> " +
-            "<small class='text-white'> "+data.data[x].nombreMaquina+"</small> </div> </a>");
+            "<small class='text-white'> "+data.data[x].nombreMaquina+"</small></div></a>");
       
            x++;
     });

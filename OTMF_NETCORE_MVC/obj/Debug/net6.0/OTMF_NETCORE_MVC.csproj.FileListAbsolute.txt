@@ -273,3 +273,5 @@ C:\Users\analista.sistemas\source\repos\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC\obj\De
 C:\Users\analista.sistemas\source\repos\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC\obj\Debug\net6.0\OTMF_NETCORE_MVC.genruntimeconfig.cache
 C:\Users\analista.sistemas\source\repos\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC\obj\Debug\net6.0\ref\OTMF_NETCORE_MVC.dll
 C:\Users\analista.sistemas\source\repos\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC\bin\Debug\net6.0\Microsoft.AspNet.Identity.Core.dll
+C:\Users\analista.sistemas\source\repos\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC\bin\Debug\net6.0\libman.json
+C:\Users\analista.sistemas\source\repos\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC\bin\Debug\net6.0\TableDependency.SqlClient.dll

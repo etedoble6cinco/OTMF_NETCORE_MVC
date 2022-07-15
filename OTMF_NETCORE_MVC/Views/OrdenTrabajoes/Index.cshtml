@@ -109,8 +109,49 @@ $(document).ready(function () {
             "type": "GET",
             "datatype": "json"
         },
-        rowId:"idOrdenTrabajo",
+        
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i>',
+                tittleAttr: 'Exportar a Excel',
+                className: 'btn btn-lg btn-success'
+
+            },
+            {
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i>',
+                tittleAttr: 'Exportar a Excel',
+                className: 'btn btn-lg btn-danger'
+
+            }
+            , {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                tittleAttr: 'Imprimir',
+                className: 'btn btn-lg btn-info'
+
+            }
+            ,
+            {
+                text:'<i class="fa fa-plus" aria-hidden="true"></i>',
+                tittleAttr: 'Agregar Nuevo',
+                className:'btn btn-lg btn-primary',
+                action: function() {
+                    window.location.href = "OrdenTrabajoes/Create";
+                }
+            }
+
+
+        ],
+        autoFill: false,
+        responsive: true,
+        select:false,
+          
+        rowId: "idOrdenTrabajo",
         "columns": [
+           
             { "data": "idOrdenTrabajo" },
             { "data": "fechaOrdenTrabajo" },
             { "data": "cantidadPiezasPorOrden" },
@@ -129,50 +170,21 @@ $(document).ready(function () {
             { "data": "idCodigoOrdenTrabajo" },
             { "data": "idParte" },
             { "data": "idCodigoParte" }
-            
-           
-        ],
-         columnDefs:[
-             {
-                 targets : 1,
-                 visible:false
-             },
-             {
-                 targets : 9,
-                 visible:false
-             },
-             {
-                 targets : 10,
-                 visible : false
-             },
-             {
-                 targets : 11,
-                 visible:false
-             },
-             {
-                 targets : 2,
-                 visible:false
-             },
-             {
-                 targets : 13,
-                 visible:false
-             },
-             {
-                 targets : 7,
-                 visible:false
-             }
-         ],
 
-     
-    })
+
+        ]
+
+
+
+    });
 
    
-      var table = $('#OrdenesDeTrabajo').DataTable();
-     $('#OrdenesDeTrabajo').on( 'click', 'tr', function () {
+    var table = $('#OrdenesDeTrabajo').DataTable();
+    $('#OrdenesDeTrabajo').on( 'click', 'td', function () {
     var id = table.row( this ).id();
     window.location.href = "OrdenTrabajoes/Details/" + id;
      
-     });
+    });
 
 });
 
