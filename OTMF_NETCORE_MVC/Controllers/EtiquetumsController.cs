@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,9 +15,12 @@ namespace OTMF_NETCORE_MVC.Controllers
     public class EtiquetumsController : Controller
     {
         private readonly OTMFContext _context;
-
-        public EtiquetumsController(OTMFContext context)
+        private IWebHostEnvironment webHostEnvironment;
+        private readonly string connectionString;
+        public EtiquetumsController(OTMFContext context,  IWebHostEnvironment environment ,  IConfiguration configuration)
         {
+            connectionString = configuration.GetConnectionString("DefaultConnection");
+            webHostEnvironment = environment;
             _context = context;
         }
 
@@ -157,6 +163,60 @@ namespace OTMF_NETCORE_MVC.Controllers
         private bool EtiquetumExists(int id)
         {
           return (_context.Etiqueta?.Any(e => e.IdEtiqueta == id)).GetValueOrDefault();
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> UploadImage()
+        {
+            string guid = string.Empty;
+            string Result = string.Empty;
+            string NombreEtiqueta = string.Empty;
+            var Files = Request.Form.Files;
+            foreach(IFormFile file in Files)
+            {
+                NombreEtiqueta = file.Name.ToString();
+                string FileName = NombreEtiqueta + ".jpeg";
+                string imagepath = GetEtiquetaParte(FileName);
+               
+                
+                try
+                {
+                    if(System.IO.File.Exists(imagepath))
+                        System.IO.File.Delete(imagepath);   
+                    using(FileStream stream = System.IO.File.Create(imagepath))
+                    {
+                        await file.CopyToAsync(stream);
+                        Result = "pass";
+                        UpsertImagenEtiquetaParte(NombreEtiqueta, 0);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message.ToString());
+                }
+            }
+            return RedirectToAction(nameof(Index)); 
+            
+        }
+
+        public string GetEtiquetaParte(string FileName)
+        {
+            return Path.Combine(webHostEnvironment.WebRootPath + "\\Uploads\\Etiquetas\\Partes\\", FileName);
+        }
+
+        public void UpsertImagenEtiquetaParte(string nombreEtiqueta, int IdEtiquetaParte)
+        {
+            var procedure = "[UpsertImagenEtiquetaParte]";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var confirm = connection.Query(procedure, new
+                {
+                    IdEtiqueta  = IdEtiquetaParte,
+                    NombreEtiqueta = nombreEtiqueta
+
+                }, commandType: CommandType.StoredProcedure);
+            }
         }
     }
 }

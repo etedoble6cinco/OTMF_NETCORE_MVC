@@ -181,6 +181,21 @@ namespace OTMF_NETCORE_MVC.Controllers
 
         }
         [HttpPost]
+        public JsonResult UpdateCajasRecibidas(int IdDetalleCajasRecibidas , int NumeroCajasRecibidas , int NumeroPiezasRecibidas)
+        {
+            var procedure = "[UpdateCajasRecibidas]";
+            using (var  connection  =  new SqlConnection(connectionString))
+            {
+                var confirm = connection.Query(procedure, new
+                {
+                    IdDetalleCajasRecibidas = IdDetalleCajasRecibidas,
+                    NumeroCajasRecibidas = NumeroCajasRecibidas,
+                    NumeroPiezasRecibidas = NumeroPiezasRecibidas
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = confirm });
+            }
+        }
+        [HttpPost]
         public JsonResult ObtenerCajasRecibidas(int idOrdenTrabajo)
         {
             var procedure = "[ObtenerCajasRecibidas]";
@@ -307,5 +322,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = Accesorios });
             }
         }
+       
+       
     }
 }

@@ -4,40 +4,81 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+
+<div class="container">
+    <div class="row">
+        <h1>Create</h1>
 
 <h4>Caja</h4>
 <hr />
-<div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+  
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NombreCaja" class="control-label"></label>
-                <input asp-for="NombreCaja" class="form-control" />
+                <label asp-for="NombreCaja" class="control-label"> Nombre de la Caja</label>
+                <input asp-for="NombreCaja" id="NombreCaja" class="form-control" />
                 <span asp-validation-for="NombreCaja" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LogoCaja" class="control-label"></label>
-                <input asp-for="LogoCaja" class="form-control" />
+                <label asp-for="LogoCaja" class="control-label"> Nombre del logo</label>
+                <input asp-for="LogoCaja" id="LogoCaja" class="form-control" />
                 <span asp-validation-for="LogoCaja" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="EtiquetaDeCaja" class="control-label"></label>
-                <input asp-for="EtiquetaDeCaja" class="form-control" />
-                <span asp-validation-for="EtiquetaDeCaja" class="text-danger"></span>
+         
+            <div class="form-group mt-3">
+                 <a asp-action="Index" class="btn btn-lg bg-secondary">Back to List</a>
+                <input type="button" onclick="f();"  value="Create" class="btn btn-lg btn-primary" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+       
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="imagen" >Imagen de la Etiqueta: </label>
+            <input name="imagen" id="imageupload" class="form-control" type="file" />
+            <div class="card" id="imagePlace">
+              
+                
             </div>
-        </form>
+        </div>
     </div>
 </div>
+</div>
+
 
 <div>
-    <a asp-action="Index">Back to List</a>
+   
 </div>
 
 @section Scripts {
+    <script>
+$(document).ready(function() {
+   
+});
+function f() {
+     var uploadfile = $('#imageupload').get(0);
+    var files = uploadfile.files;
+    var filedata = new FormData();
+    var NombreCaja = $("#NombreCaja").val();
+    var LogoCaja = $("#LogoCaja").val();
+    for (var i = 0; i < files.length; i++) {
+        filedata.append(LogoCaja, files[i]);
+    }
+    filedata.append(NombreCaja, "NombreCaja");
+   
+    $.ajax({
+        url: "@Url.Action("UploadImage")",
+        type: "POST",
+        data: filedata,
+        processData :false,
+        contentType: false,
+        success: function(result) {
+            window.location.href = "@Url.Action("Index")";
+        },
+        error: function() {
+        }
+    });
+}
+
+    </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

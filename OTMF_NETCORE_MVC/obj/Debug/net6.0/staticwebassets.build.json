@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/cCTB9ltKADeZVpRtIbZ+RFhS6Omd6RDEQV3gmAQrQs=",
+  "Hash": "UOwcl3Y51UJK04SWT1ZWHERfpfPaN4+tETKAgh+O8q0=",
   "Source": "OTMF_NETCORE_MVC",
   "BasePath": "_content/OTMF_NETCORE_MVC",
   "Mode": "Default",
@@ -916,6 +916,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\lib\\brand\\24261dba-3824-4484-9149-5ba298ae777d.jpeg",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "lib/brand/24261dba-3824-4484-9149-5ba298ae777d.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\brand\\24261dba-3824-4484-9149-5ba298ae777d.jpeg"
     },
     {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\lib\\datatables\\AutoFill-2.4.0\\css\\autoFill.bootstrap.css",
@@ -13513,6 +13530,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\microsoft\\signalr\\src\\XhrHttpClient.ts"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Cajas\\af895324-a983-4a2b-9c2a-a62598d6baab.jpeg",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "Uploads/Etiquetas/Cajas/af895324-a983-4a2b-9c2a-a62598d6baab.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Cajas\\af895324-a983-4a2b-9c2a-a62598d6baab.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Cajas\\ellogo_a5911b07-6c15-4d05-be9c-14953128828a_.jpeg",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "Uploads/Etiquetas/Cajas/ellogo_a5911b07-6c15-4d05-be9c-14953128828a_.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Cajas\\ellogo_a5911b07-6c15-4d05-be9c-14953128828a_.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Cajas\\elnameellogo.jpeg",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "Uploads/Etiquetas/Cajas/elnameellogo.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Cajas\\elnameellogo.jpeg"
     }
   ]
 }

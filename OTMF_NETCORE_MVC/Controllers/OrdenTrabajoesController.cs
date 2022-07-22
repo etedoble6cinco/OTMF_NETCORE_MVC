@@ -17,9 +17,11 @@ namespace OTMF_NETCORE_MVC.Controllers
     {
         private readonly OTMFContext _context;
         private readonly string con;
-
+        private readonly string connectionString;
         public OrdenTrabajoesController(OTMFContext context ,IConfiguration configuration)
+
         {
+            connectionString = configuration.GetConnectionString("DefaultConnection");
             _context = context;
             con = configuration.GetConnectionString("DefaultConnection");
         }
@@ -30,6 +32,24 @@ namespace OTMF_NETCORE_MVC.Controllers
             var oTMFContext = _context.OrdenTrabajos.Include(o => o.IdEstadoOrdenFkNavigation).Include(o => o.IdInstructivoFkNavigation).Include(o => o.IdParteFkNavigation);
             return View(await oTMFContext.ToListAsync());
         }
+        [HttpPost]
+        public  JsonResult ObtenerMaquinaById(int IdMaquina)
+        {
+            var data = "no se encontro";
+            if (IdMaquina == null || _context.OrdenTrabajos == null)
+            {
+               
+                return Json(data);
+            }
+            var maquina = _context.Maquinas.FirstOrDefault(m => m.IdMaquina == IdMaquina);
+            if (maquina == null)
+            {
+
+                return Json(data);
+            }
+            return Json(new { data = maquina });
+        }
+
 
         // GET: OrdenTrabajoes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -60,7 +80,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte");
             return View();
         }
-
+    
         // POST: OrdenTrabajoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -70,10 +90,23 @@ namespace OTMF_NETCORE_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 _context.Add(ordenTrabajo);
                 await _context.SaveChangesAsync();
+                //SE CREA LA RELACION DE LA TABLA DE CAJAS RECIBIDAS , YA QUE LA TABLA NO ESTA RELACIONADA CON FK , SI NO SOLAMENTE CON UN ID "POSTIZO"
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    var procedure = "[InsertCajasRecibidas]";
+                    var confirm = connection.Query(procedure, new
+                    {
+                        IdOrdenTrabajo = ordenTrabajo.IdOrdenTrabajo,
+                        NumeroCajasRecibidas = 0,
+                        NumeroPiezasRecibidas = 0
+                    }, commandType: CommandType.StoredProcedure);
+                }
                 return RedirectToAction(nameof(Index));
             }
+         
             ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
             ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo", ordenTrabajo.IdInstructivoFk);
             ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
@@ -93,49 +126,43 @@ namespace OTMF_NETCORE_MVC.Controllers
             {
                 return NotFound();
             }
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var OE = "[ObtenerEmpleadoConcatType]";
+                var empleados = connection.Query<ObtenerEmpleadoConcatType>(OE,
+               commandType: CommandType.StoredProcedure);
+                ViewData["Empleado"] = new SelectList(empleados, "IdEmpleado", "NombreEmpleado");
+            }
             ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
             ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo", ordenTrabajo.IdInstructivoFk);
             ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
+            ViewData["Maquinas"] = new SelectList(_context.Maquinas, "IdMaquina", "NombreMaquina");
             return View(ordenTrabajo);
         }
 
-        // POST: OrdenTrabajoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdEmpleadoMoldeadorFk,IdEmpleadoEmpacadorFk,IdOrdenTrabajo,IdMaquinaFk,FechaOrdenTrabajo,IdParteFk,CantidadPiezasPororden,CajasRecibidas,PiezasRealizadas,IdInstructivoFk,HoraInicio,HoraFinalizacion,IdEmpeadoSupervisorFk,IdEstadoOrdenFk,EtiquetaDeCaja,IdEstandarConRelevoFk,IdEstandarPorHoraFk,MaxScrap,IdCodigoOrdenTrabajo")] OrdenTrabajo ordenTrabajo)
+        public JsonResult UpdateOrdenTrabajo (int IdOrdenTrabajo ,int IdParteFK , int CantidadPiezasPorOrden , int IdInstructivoFK , int IdEstadoOrdenFK)
         {
-            if (id != ordenTrabajo.IdOrdenTrabajo)
+            using(var connection  =  new SqlConnection(connectionString))
             {
-                return NotFound();
+                var procedure = "[UpdateOrdenTrabajo]";
+
+                var confirm = connection.Query(procedure, new
+                {
+                    IdOrdenTrabajo = IdOrdenTrabajo , 
+                    IdParteFK = IdParteFK , 
+                    CantidadPiezasPorOrden = CantidadPiezasPorOrden ,
+                    IdInstructivoFK = IdInstructivoFK ,
+                    IdEstadoOrdenFK = IdEstadoOrdenFK
+
+                } ,commandType: CommandType.StoredProcedure);
+                return Json( new { data = confirm});
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(ordenTrabajo);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OrdenTrabajoExists(ordenTrabajo.IdOrdenTrabajo))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
-            ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo", ordenTrabajo.IdInstructivoFk);
-            ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
-            return View(ordenTrabajo);
+
         }
+
 
         // GET: OrdenTrabajoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -195,5 +222,62 @@ namespace OTMF_NETCORE_MVC.Controllers
                 
                
         }
+     
+        [HttpGet]
+        public JsonResult ObtenerUltimoIdOT()
+        {
+            var procedure = "[ObtenerUltimoIdOT]";
+            using (var connection  =  new SqlConnection(con))
+            {
+                var id = connection.Query(procedure,commandType: CommandType.StoredProcedure);
+
+                return Json(new {data = id});
+            }
+        }
+        [HttpPost]
+        public JsonResult ObtenerMaquinasAsignadasByOTId(int IdOrdenTrabajo)
+        {
+            var procedure = "[ObtenerMaquinasAsignadasByOTId]";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var Maquinas = connection.Query(procedure, new
+                {
+                    IdOrdenTrabajo = IdOrdenTrabajo
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = Maquinas });
+            };
+        }
+        [HttpPost]
+        public JsonResult UpsertMaquinasAsignadasByOTId( int IdMaquinaOrdenTrabajo, int IdOrdenTrabajo , int IdMaquina)
+        {
+            var procedure = "[UpsertMaquinasAsignadasByOTId]";
+            using(var connection = new SqlConnection(connectionString))
+            {
+                var confirm = connection.Query(procedure, new
+                {
+                    IdMaquinaOrdenTrabajo = IdMaquinaOrdenTrabajo,
+                    IdOrdenTrabajo = IdOrdenTrabajo,
+                    IdMaquina = IdMaquina
+                      
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = confirm });
+            }
+        }
+
+        [HttpPost]
+        public JsonResult DeleteMaquinasAsignadasByOTId(int IdMaquinaOrdenTrabajo)
+        {
+            var procedure = "[DeleteMaquinasAsignadasByOTId]";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var confirm = connection.Query(procedure, new
+                {
+                    IdMaquinaOrdenTrabajo = IdMaquinaOrdenTrabajo
+
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = confirm });
+            } 
+        }
+     
     }
 }

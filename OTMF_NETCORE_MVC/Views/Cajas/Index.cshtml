@@ -123,13 +123,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NombreCaja)
+               Nombre de la Caja
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LogoCaja)
+                Logo de la Caja
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EtiquetaDeCaja)
+                Etiqueta de la Caja
             </th>
             <th></th>
         </tr>
@@ -147,9 +147,9 @@
                 @Html.DisplayFor(modelItem => item.EtiquetaDeCaja)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdCaja">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdCaja">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdCaja">Delete</a>
+                <a asp-action="Edit" class="btn btn-lg btn-primary" asp-route-id="@item.IdCaja">Editar</a> |
+                <a asp-action="Details" class="btn btn-lg btn-warning" asp-route-id="@item.IdCaja">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-lg btn-danger" asp-route-id="@item.IdCaja">Eliminar</a>
             </td>
         </tr>
 }
@@ -180,7 +180,22 @@
 $(document).ready(function () {
 
 
-    $("#Cajas").DataTable();
+    $("#Cajas").DataTable({
+        dom:'Bfrtip',
+        buttons:[
+             {
+                text:'<i class="fa fa-plus" aria-hidden="true"><div class="badge"></div></i>',
+                tittleAttr: 'creadas hoy',
+                className:'btn btn-lg btn-secondary',
+                action: function() {
+                    
+                    window.location.href = "@Url.Action("Create")";
+                 
+                }
+            }
+        ]
+        
+    });
 
    
 

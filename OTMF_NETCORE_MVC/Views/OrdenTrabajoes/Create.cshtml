@@ -16,100 +16,51 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
            <div class="col-6">
-       
-               
+             <!-- INPUTS ESCONDIDOS CON VALOR AUTOMATICO---->
+                <input asp-for="CajasRecibidas" type="hidden" value="0" class="form-control" />
+                <input asp-for="CantidadPiezasPororden" type="hidden" value="0" class="form-control" />
                 <input asp-for="IdEmpleadoMoldeadorFk" type="hidden" value="0" class="form-control" />
-               
-                 <input asp-for="IdEmpleadoEmpacadorFk" type="hidden" value="0" class="form-control" />
-               
+                <input asp-for="PiezasRealizadas" type="hidden" value="0" class="form-control" />
+                <input asp-for="IdEmpleadoEmpacadorFk" type="hidden" value="0" class="form-control" />
+                <input asp-for="IdEmpeadoSupervisorFk" type="hidden" value="0"class="form-control" />
+                <input asp-for="FechaOrdenTrabajo" type="hidden" class="form-control" />
+                <input asp-for="HoraInicio"       id="HoraInicio" type="hidden"  class="form-control" />
+            
+                <input asp-for="HoraFinalizacion"  id="HoraFinalizacion" type="hidden" class="form-control" />
+                <input asp-for="EtiquetaDeCaja" type="hidden" value="0" class="form-control" />
+                <input asp-for="IdEstandarConRelevoFk" type="hidden" value="0" class="form-control" />
+                <input asp-for="IdMaquinaFk" type="hidden" value="0" class="form-control" />
+                <input asp-for="MaxScrap" class="form-control" type="hidden" value="0" />
+                <input asp-for="IdEstandarPorHoraFk" type="hidden" value="0" class="form-control" />
+                <input asp-for="IdOrdenTrabajo" type="hidden" id="IdOrdenTrabajo" class="form-control" />
+                <!------>
+          
             <div class="form-group">
-                <label asp-for="IdOrdenTrabajo" class="control-label"></label>
-                <input asp-for="IdOrdenTrabajo" class="form-control" />
-                <span asp-validation-for="IdOrdenTrabajo" class="text-danger"></span>
+                <label asp-for="IdEstadoOrdenFk" class="control-label">Estado inicial de la Orden Trabajo</label>
+                   <select asp-for="IdEstadoOrdenFk" id="IdEstadoOrdenFk"  class ="form-control" asp-items="ViewBag.IdEstadoOrdenFk" required>
+                       <option value="0" selected disabled>Seleccionar</option>
+                   </select>
             </div>
+           
             <div class="form-group">
-                <label asp-for="IdMaquinaFk" class="control-label"></label>
-                <input asp-for="IdMaquinaFk" class="form-control" />
-                <span asp-validation-for="IdMaquinaFk" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaOrdenTrabajo" class="control-label"></label>
-                <input asp-for="FechaOrdenTrabajo" class="form-control" />
-                <span asp-validation-for="FechaOrdenTrabajo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdParteFk" class="control-label"></label>
+                <label asp-for="IdParteFk" class="control-label">Clave de Pieza</label>
                 <select asp-for="IdParteFk" class ="form-control" asp-items="ViewBag.IdParteFk"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="CantidadPiezasPororden" class="control-label"></label>
-                <input asp-for="CantidadPiezasPororden" class="form-control" />
-                <span asp-validation-for="CantidadPiezasPororden" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CajasRecibidas" class="control-label"></label>
-                <input asp-for="CajasRecibidas" class="form-control" />
-                <span asp-validation-for="CajasRecibidas" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PiezasRealizadas" class="control-label"></label>
-                <input asp-for="PiezasRealizadas" class="form-control" />
-                <span asp-validation-for="PiezasRealizadas" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdInstructivoFk" class="control-label"></label>
-                <select asp-for="IdInstructivoFk" class ="form-control" asp-items="ViewBag.IdInstructivoFk"></select>
             </div>
     </div>
     <div class="col-6">
          <div class="form-group">
-                <label asp-for="HoraInicio" class="control-label"></label>
-                <input asp-for="HoraInicio" class="form-control" />
-                <span asp-validation-for="HoraInicio" class="text-danger"></span>
+                <label asp-for="IdInstructivoFk" class="control-label"> Instructivo de la Pieza</label>
+                <select asp-for="IdInstructivoFk" class ="form-control" asp-items="ViewBag.IdInstructivoFk"></select>
             </div>
             <div class="form-group">
-                <label asp-for="HoraFinalizacion" class="control-label"></label>
-                <input asp-for="HoraFinalizacion" class="form-control" />
-                <span asp-validation-for="HoraFinalizacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdEmpeadoSupervisorFk" class="control-label"></label>
-                <input asp-for="IdEmpeadoSupervisorFk" class="form-control" />
-                <span asp-validation-for="IdEmpeadoSupervisorFk" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdEstadoOrdenFk" class="control-label"></label>
-                <select asp-for="IdEstadoOrdenFk" class ="form-control" asp-items="ViewBag.IdEstadoOrdenFk"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="EtiquetaDeCaja" class="control-label"></label>
-                <input asp-for="EtiquetaDeCaja" class="form-control" />
-                <span asp-validation-for="EtiquetaDeCaja" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdEstandarConRelevoFk" class="control-label"></label>
-                <input asp-for="IdEstandarConRelevoFk" class="form-control" />
-                <span asp-validation-for="IdEstandarConRelevoFk" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdEstandarPorHoraFk" class="control-label"></label>
-                <input asp-for="IdEstandarPorHoraFk" class="form-control" />
-                <span asp-validation-for="IdEstandarPorHoraFk" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxScrap" class="control-label"></label>
-                <input asp-for="MaxScrap" class="form-control" />
-                <span asp-validation-for="MaxScrap" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdCodigoOrdenTrabajo" class="control-label"></label>
-                <input asp-for="IdCodigoOrdenTrabajo" class="form-control" />
+                <label asp-for="IdCodigoOrdenTrabajo" class="control-label"> Codigo Orden Trabajo</label>
+                <input asp-for="IdCodigoOrdenTrabajo" class="form-control" required/>
                 <span asp-validation-for="IdCodigoOrdenTrabajo" class="text-danger"></span>
             </div>
     </div>
-           
             <div class="d-block mt-3">
-                   <a asp-action="Index" class="btn btn-danger btn-lg">Regresar</a> <input type="submit" value="Create" class="btn btn-lg btn-primary" />
+              
+                   <a asp-action="Index" type="button" class="btn btn-danger btn-lg">Regresar</a> <input type="submit" value="Create" class="btn btn-lg btn-primary" />
             </div>
         </form>
     </div>
@@ -120,5 +71,32 @@
 </div>
 
 @section Scripts {
+     <script>
+        $(document).ready(function() {
+            ObtenerUltimoIdOT();
+     
+        var now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        document.getElementById('HoraInicio').value = now.toISOString().slice(0,16);
+        document.getElementById('HoraFinalizacion').value = now.toISOString().slice(0,16);
+        document.getElementById('FechaOrdenTrabajo').value = now.toISOString().slice(0,16);
+         
+        });
+        function ObtenerUltimoIdOT(){
+              $.ajax({
+                type:'GET',
+                url:'@Url.Action("ObtenerUltimoIdOT")',
+                dataType:'json',
+                success: function(data) {
+                    document.getElementById('IdOrdenTrabajo').value = data.data[0].ultimoid+1;
+            
+        }
+    });
+        }
+
+
+       
+    </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+   
 }

@@ -3,31 +3,67 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div class="container">
+    <h1>Crear</h1>
 
-<h1>Create</h1>
-
-<h4>Etiquetum</h4>
+<h4>Etiquetas de Parte</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+       
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NombreEtiqueta" class="control-label"></label>
-                <input asp-for="NombreEtiqueta" class="form-control" />
+                <label asp-for="NombreEtiqueta" class="control-label">Nombre de Etiqueta de Parte</label>
+                <input asp-for="NombreEtiqueta" id="NombreEtiqueta" class="form-control" />
                 <span asp-validation-for="NombreEtiqueta" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group mt-3">
+                 <a asp-action="Index" class="btn btn-lg btn-warning">Regresar</a>
+                <input type="button" onclick="UploadImage" value="Guardar" class="btn btn-lg btn-primary" />
+                
             </div>
-        </form>
+   
+    </div>
+    <div class="col-md-4">
+        <label for="img">Subir Imagen de la Etiqueta</label>
+        <input type="file" name="img" class="form-control" id="imageupload" />
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+   
 </div>
+</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function UploadImage() {
+    var uploadfile = $('#imageupload').get(0);
+    var files = uploadfile.files;
+    var filedata = new FormData();
+    var NombreCaja = $("#NombreEtiqueta").val();
+  
+    for (var i = 0; i < files.length; i++) {
+        filedata.append(NombreCaja, files[i]);
+    }
+ 
+   
+    $.ajax({
+        url: "@Url.Action("UploadImage")",
+        type: "POST",
+        data: filedata,
+        processData :false,
+        contentType: false,
+        success: function(result) {
+            window.location.href = "@Url.Action("Index")";
+        },
+        error: function() {
+        }
+    });
+}
+
+    </script>
 }

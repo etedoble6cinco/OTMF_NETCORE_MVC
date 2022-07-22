@@ -7,12 +7,13 @@ using OTMF_NETCORE_MVC.MiddlewareExtensions;
 using OTMF_NETCORE_MVC.Models;
 using OTMF_NETCORE_MVC.Services;
 using OTMF_NETCORE_MVC.SuscribeTableDependencies;
+using OTMF_NETCORE_MVC.Tools;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddSingleton<DashboardHub>();
-builder.Services.AddSingleton<SuscribeOrdenTrabajoTableDependecy>();
+builder.Services.AddSingleton<SuscribeOrdenTrabajoTableDependecy>(); 
 builder.Services.AddDbContext<OTMFContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 var politicaUsuariosAutenticados = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
@@ -27,6 +28,7 @@ builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
 builder.Services.AddTransient<IUserStore<Usuario>, UsuarioStore>();
 builder.Services.AddTransient < SignInManager<Usuario>>();
 builder.Services.AddIdentityCore<Usuario>();
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;

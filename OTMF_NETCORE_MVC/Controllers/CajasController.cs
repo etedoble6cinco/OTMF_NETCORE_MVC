@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OTMF_NETCORE_MVC.Models;
+using OTMF_NETCORE_MVC.Tools;
 
 namespace OTMF_NETCORE_MVC.Controllers
 {
     public class CajasController : Controller
     {
         private readonly OTMFContext _context;
-
-        public CajasController(OTMFContext context)
+        private readonly FileLocation fileLocation;
+        private IWebHostEnvironment webHostEnvironment;
+        private readonly string connectionString;
+        public CajasController(OTMFContext context, IWebHostEnvironment Environment , IConfiguration configuration)
         {
+            connectionString = configuration.GetConnectionString("DefaultConnection");
             _context = context;
+            webHostEnvironment = Environment;
         }
 
         // GET: Cajas
@@ -158,5 +166,72 @@ namespace OTMF_NETCORE_MVC.Controllers
         {
           return (_context.Cajas?.Any(e => e.IdCaja == id)).GetValueOrDefault();
         }
+
+        [HttpPost]
+        public async Task<ActionResult> UploadImage() {
+            string guid = string.Empty;
+            string Result = string.Empty;
+            string NombreCaja = string.Empty;
+            var Files = Request.Form.Files;
+            var keys = Request.Form.Keys;
+            int IdCaja = 0;
+            foreach(var key in keys)
+            {
+                NombreCaja = key.ToString();
+                
+            }
+            foreach(IFormFile source in Files)
+            {
+                Guid id = Guid.NewGuid();
+                guid = id.ToString();
+                string FileName = NombreCaja+"_"+source.Name+".jpeg";
+                string imagepath =  GetEtiquetasCajasImagePath(FileName); 
+                try
+                {
+                    if(System.IO.File.Exists(imagepath))
+                        System.IO.File.Delete(imagepath);
+                    using(FileStream stream = System.IO.File.Create(imagepath))
+                    {
+                        await source.CopyToAsync(stream);
+                        Result = "pass";
+                        UpsertImagenEtiquetaCaja(NombreCaja,true, NombreCaja+"_"+ source.Name, IdCaja );
+                        
+                    }
+                 
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e.Message.ToString());
+                }
+
+            }
+            return RedirectToAction(nameof(Index));
+
+        }
+        public string GetEtiquetasCajasImagePath(string FileName)
+        {
+            return Path.Combine(webHostEnvironment.WebRootPath + "\\Uploads\\Etiquetas\\Cajas\\", FileName);
+        }
+
+        public void UpsertImagenEtiquetaCaja(string nombreCaja, bool logoCaja, string etiquetaCaja , int IdCaja)
+        {
+            var procedure = "[UpsertImagenEtiquetaCaja]";
+            
+            using( var connection  = new SqlConnection(connectionString))
+            {
+                var confirm = connection.Query(procedure, new
+                {
+                    NombreCaja =  nombreCaja ,
+                    LogoCaja = logoCaja ,
+                    EtiquetaDeCaja = etiquetaCaja,
+                    IdCaja = IdCaja
+
+                }, commandType: CommandType.StoredProcedure);
+            }
+
+           
+        }
+        
+
     }
 }

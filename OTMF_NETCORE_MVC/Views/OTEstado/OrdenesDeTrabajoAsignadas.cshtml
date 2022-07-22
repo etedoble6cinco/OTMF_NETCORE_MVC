@@ -80,7 +80,7 @@
               <div class="m-2">
                    <select id="EleccionEmpleado" class ="form-control" asp-items="ViewBag.Empleado">
                      
-                     <option></option>
+                     <option disabled selected> Seleccionar Empleado</option>
                    </select>
               </div>
             </form>
@@ -456,7 +456,7 @@ function EvaluateOTEstado(data) {
                 success: function (data) {  
                     
                     $("#ShowCajasRecibidas").html("");
-                   
+                    console.log(data);
                 
                 FillCajasRecibidas(data);
                 }
@@ -466,14 +466,14 @@ function EvaluateOTEstado(data) {
             var NumeroCajasRecibidas = $("#CajasRecibidas").val();
             var NumeroPiezasRecibidas = $("#PiezasSueltasRecibidas").val();
           
-            var IdOrdenTrabajo = localStorage.getItem('currentOT');
+            var IdDetalleCajasRecibidas = localStorage.getItem('idDetalleCajasRecibidas');
             $.ajax({  
                 type: 'POST',
-                url: '@Url.Action("InsertCajasRecibidas")',
+                url: '@Url.Action("UpdateCajasRecibidas")',
                 dataType: 'json',   
                 data: {
                      
-                    IdOrdenTrabajo: IdOrdenTrabajo,
+                    IdDetalleCajasRecibidas: IdDetalleCajasRecibidas,
                     NumeroCajasRecibidas: NumeroCajasRecibidas,
                     NumeroPiezasRecibidas: NumeroPiezasRecibidas
                 },
@@ -485,7 +485,7 @@ function EvaluateOTEstado(data) {
     }
    function FillCajasRecibidas(data){
                
-         
+       localStorage.setItem('idDetalleCajasRecibidas', data.data[0].idDetalleCajasRecibidas);
         $("#ShowCajasRecibidas").append("<div class='card p-1 m-2 border border-2'><p>Cajas Recibidas</p>"+data.data[0].NumeroCajasRecibidas+"</div>"+
                   "<div class='card p-1 m-2 border border-2'><p>Piezas Sueltas Recibidas</p>"+data.data[0].NumeroPiezasSueltasRecibidas+"</div>");
         $("#ShowCajasRecibidas").append("<button type='button' id='btnCajasRealizadas' class='btn btn-primary bg-gradient m-2' data-bs-toggle='modal' data-bs-target='#CajasRecibidasModal'>Registrar material recibido</button>");

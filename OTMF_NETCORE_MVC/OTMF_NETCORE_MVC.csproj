@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <Folder Include="Repositories\" />
+    <Folder Include="wwwroot\Uploads\Etiquetas\Cajas\" />
   </ItemGroup>
 
 </Project>

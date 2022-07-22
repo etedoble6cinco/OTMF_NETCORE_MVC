@@ -10,15 +10,25 @@
     <h4>Ensamble</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NombreEnsamble)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NombreEnsamble)
-        </dd>
+        <div class = "col-sm-2">
+           <p>@Html.DisplayNameFor(model => model.NombreEnsamble)</p> 
+        </div>
+        <div class = "col-sm-10">
+            <p >@Html.DisplayFor(model => model.NombreEnsamble)</p>
+        </div>
     </dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.IdEnsamble">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+
+@section Scripts{
+
+
+    <script>
+
+
+    </script>
+}
