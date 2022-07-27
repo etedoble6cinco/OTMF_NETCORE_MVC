@@ -51,10 +51,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NombreMaquina)
+                Nombre Maquina
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EstadoMaquina)
+                Estado Maquina
             </th>
             <th></th>
         </tr>
@@ -69,9 +69,9 @@
                 @Html.DisplayFor(modelItem => item.EstadoMaquina)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMaquina">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdMaquina">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdMaquina">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdMaquina"    class="btn btn-lg btn-primary">Edit</a> 
+           
+                <a asp-action="Delete" asp-route-id="@item.IdMaquina"  class="btn btn-lg btn-danger" >Delete</a>
             </td>
         </tr>
 }
@@ -94,27 +94,22 @@
     <script>
         
 $(document).ready(function () {
-
-
+            
     $("Maquinas").DataTable({
-          dom:'Bfrtip',
-        buttons:[
-             {
-                text:'<i class="fa fa-plus" aria-hidden="true"><div class="badge"></div></i>',
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text: '<i class="fa fa-plus" aria-hidden="true"><div class="badge"></div></i>',
                 tittleAttr: 'creadas hoy',
-                className:'btn btn-lg btn-secondary',
+                className: 'btn btn-lg btn-secondary',
                 action: function() {
-                    
+
                     window.location.href = "@Url.Action("Create")";
-                 
+
                 }
             }
         ]
     });
-
-   
-
-
 });
 
 

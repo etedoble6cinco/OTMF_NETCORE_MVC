@@ -70,9 +70,9 @@
                 @Html.DisplayFor(modelItem => item.HoraEntrada)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdTurno">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdTurno">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdTurno">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdTurno"     class="btn btn-lg btn-primary">Edit</a> 
+              
+                <a asp-action="Delete" asp-route-id="@item.IdTurno"   class="btn btn-lg btn-danger" >Delete</a>
             </td>
         </tr>
 }
@@ -95,7 +95,20 @@
     <script>
         
 $(document).ready(function () {
-    $("#Turnos").DataTable();
+    $("#Turnos").DataTable({
+          dom:'Bfrtip',
+        buttons:[
+             {
+                text:'<i class="fa fa-plus" aria-hidden="true"><div class="badge"></div></i>',
+                tittleAttr: 'creadas hoy',
+                className:'btn btn-lg btn-secondary',
+                action: function() {
+                    window.location.href = "@Url.Action("Create")";
+                 
+                }
+            }
+        ]
+    });
 });
 
 

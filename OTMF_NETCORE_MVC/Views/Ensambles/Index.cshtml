@@ -133,9 +133,8 @@
                 @Html.DisplayFor(modelItem => item.NombreEnsamble)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdEnsamble">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdEnsamble">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdEnsamble">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdEnsamble"   class="btn btn-lg btn-primary">Editar</a> 
+                <a asp-action="Delete" asp-route-id="@item.IdEnsamble" class="btn btn-lg btn-danger" >Eliminar</a>
             </td>
         </tr>
 }

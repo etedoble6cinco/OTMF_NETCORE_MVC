@@ -68,7 +68,7 @@
         </a>
       </li>
       <li>
-        <a class="nav-link link-dark" asp-controller="Etiquetas"  asp-action="Index">
+        <a class="nav-link link-dark" asp-controller="Etiquetums"  asp-action="Index">
             <svg class="bi me-2" width="16" height="16"></svg>
          Etiqueta
         </a>
@@ -132,9 +132,9 @@
                 @Html.DisplayFor(modelItem => item.NombreTarima)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdTarima">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdTarima">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdTarima">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdTarima"   class="btn btn-lg btn-primary">Edit</a> 
+
+                <a asp-action="Delete" asp-route-id="@item.IdTarima" class="btn btn-lg btn-danger" >Delete</a>
             </td>
         </tr>
 }
@@ -165,7 +165,20 @@
 $(document).ready(function () {
 
 
-    $("#Tarimas").DataTable();
+    $("#Tarimas").DataTable({
+          dom:'Bfrtip',
+        buttons:[
+             {
+                text:'<i class="fa fa-plus" aria-hidden="true"><div class="badge"></div></i>',
+                tittleAttr: 'creadas hoy',
+                className:'btn btn-lg btn-secondary',
+                action: function() {
+                    window.location.href = "@Url.Action("Create")";
+                 
+                }
+            }
+        ]
+    });
 
    
 

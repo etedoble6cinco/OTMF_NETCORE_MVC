@@ -132,9 +132,8 @@
                 @Html.DisplayFor(modelItem => item.NombreEstandar)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdEstandar">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdEstandar">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdEstandar">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdEstandar"    class="btn btn-lg btn-primary">Edit</a>  
+                <a asp-action="Delete" asp-route-id="@item.IdEstandar"  class="btn btn-lg btn-danger" >Delete</a>
             </td>
         </tr>
 }

@@ -23,6 +23,8 @@
         
         public int IdParte { get; set; }    
         public string IdCodigoParte { get; set; }   
+        public int IdMaquinaFK { get; set; }
+        public string NombreMaquina { get; set; }
        
 
     }

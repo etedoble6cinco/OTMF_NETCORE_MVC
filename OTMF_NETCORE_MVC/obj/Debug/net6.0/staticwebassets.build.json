@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UOwcl3Y51UJK04SWT1ZWHERfpfPaN4+tETKAgh+O8q0=",
+  "Hash": "6Z+ui+P4rbtT6RAZe6I+KTzESIJUv+E7dGN5oRAbhIA=",
   "Source": "OTMF_NETCORE_MVC",
   "BasePath": "_content/OTMF_NETCORE_MVC",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\lib\\anime\\anime.js",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "lib/anime/anime.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\anime\\anime.js"
     },
     {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -13549,6 +13566,23 @@
       "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Cajas\\af895324-a983-4a2b-9c2a-a62598d6baab.jpeg"
     },
     {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Cajas\\cajachic_etiquetagrande.jpeg",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "Uploads/Etiquetas/Cajas/cajachic_etiquetagrande.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Cajas\\cajachic_etiquetagrande.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Cajas\\ellogo_a5911b07-6c15-4d05-be9c-14953128828a_.jpeg",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
@@ -13581,6 +13615,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Cajas\\elnameellogo.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Partes\\etiqueta.jpeg",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "Uploads/Etiquetas/Partes/etiqueta.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Partes\\etiqueta.jpeg"
     }
   ]
 }

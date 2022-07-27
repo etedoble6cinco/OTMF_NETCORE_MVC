@@ -4,7 +4,7 @@
 
     $(function (){
     connection.start().then(function () {
-            //alert("conexion exitosa");
+            
             InvokeOrdenTrabajo();
         }).catch(function (err) {
             return console.error(err.toString());
@@ -17,21 +17,76 @@
         });
     }
 connection.on("ReceivedOrdenTrabajo", function (data) {
-    $("#OrdenesDeTrabajo tbody").html("");
     console.log(data);
+    $("#OrdenesDeTrabajo tbody").html("");
+   
     $.each(data.data, function (n) {
+        if (EvaluarFechaOrdenTrabajo(data.data[n].fechaOrdenTrabajo)) { 
         $("#OrdenesDeTrabajo tbody").append("<tr>" +
             "<td>" + data.data[n].idCodigoOrdenTrabajo + "</td>" +
             "<td>" + data.data[n].idCodigoParte + "</td>" +
-            "<td>" + data.data[n].idEstadoOrden + "</td>" +
+            "<td>" + EvaluarEstadoOT(data.data[n].idEstadoOrden) + "</td>" +
             "<td> " + data.data[n].nombreEstadoOrden + "</td>" +
-            "<td> " + data.data[n].horaInicio + "</td>" +
-            "<td> " + data.data[n].horaFinalizacion + "</td>");
-                               
+            "<td> " + FormatearFechaOT(data.data[n].horaInicio) + "</td>" +
+            "<td> " + FormatearFechaOT(data.data[n].horaFinalizacion) + "</td>" +
+            "<td> " + data.data[n].nombreMaquina + "</td>" +
+            "</tr>");
+    }        
     });
+
+    anime({
+        targets: '.planeado',
+        translateX: 10,
+        direction: 'alternate',
+        loop: true,
+        easing: 'linear'
+    });
+
    
      
-    });
+});
+
+function EvaluarFechaOrdenTrabajo(data) {
+    console.log(data);
+            let dateTimeEST = new Date(data);
+            let currentTime = new Date();
+            if (dateTimeEST.getDate() == currentTime.getDate()) {
+                
+                return true;      
+            }
+         
+        }
+
+function EvaluarEstadoOT(idEstadoOrden) {
+
+    switch (idEstadoOrden) {
+        case 1:  //PLEANEADO
+            return "<svg width='80' height='80' class='planeado'> <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:#00FFE8;' /> </svg>";
+            break;
+        case 2:  //INICIADO
+            return "<svg width='80' height='80' class='iniciado'> <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:orange;' /> </svg>";
+            break;
+        case 3:  //ACTIVA 
+            return "<svg width='80' height='80' class='activa'> <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:#1FAB00;' /> </svg>";
+            break;
+        case 4:  //ACEPTADA
+            return "<svg width='80' height='80' class='aceptada' > <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:yellow;' /> </svg>";
+            break;
+        case 5:  //TERMINADA
+            return "<svg width='80' height='80' class='terminada' > <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:black;' /> </svg>";
+            break;
+        case 6:  //RECHAZADA
+            return "<svg width='80' height='80' class='rechazada' > <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:red;' /> </svg>";
+            break;
+
+    }
+  
+
+}
+function FormatearFechaOT(fecha) {
+    let dateTimeEST = new Date(fecha);
+    return dateTimeEST.toLocaleTimeString();
+}
 
 
     

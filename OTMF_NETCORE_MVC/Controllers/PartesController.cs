@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -74,6 +75,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "NombreMolde");
             ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura");
             ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima");
+            ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorios", "NombreAccesorios");
             return View();
         }
 
@@ -102,6 +104,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "NombreMolde", parte.IdMoldeFk);
             ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura", parte.IdPinturaFk);
             ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima", parte.IdTarimaFk);
+            //ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorios", "NombreAccesorios");
             return View(parte);
         }
 
@@ -130,6 +133,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "NombreMolde", parte.IdMoldeFk);
             ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura", parte.IdPinturaFk);
             ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima", parte.IdTarimaFk);
+            ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorio", "NombreAccesorio");
             return View(parte);
         }
 
@@ -233,18 +237,61 @@ namespace OTMF_NETCORE_MVC.Controllers
         {
           return (_context.Partes?.Any(e => e.IdParte == id)).GetValueOrDefault();
         }
-
+        [HttpGet]
         public JsonResult ObtenerPartes ()
         {
             var OP = "[ObtenerPartesAllInfo]";
             using ( var connection = new SqlConnection(con))
             {
-                var partes = connection.Query<ObtenerPartes>(OP, commandType: System.Data.CommandType.StoredProcedure);
+                var partes = connection.Query<ObtenerPartes>(OP, commandType: CommandType.StoredProcedure);
 
                 return Json(new { data = partes });
             }
 
                
+        }
+        [HttpPost]
+        public JsonResult InsertAccesorioByParteId(int  IdParte , int IdAccesorio)
+        {
+            var procedure = "[InsertAccesorioByParteId]";
+            using (var connection = new SqlConnection(con))
+            {
+                var confirm =  connection.Query(procedure, new
+                {
+                    IdParte = IdParte,
+                    IdAccessorio = IdAccesorio
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = confirm });
+            }
+        }
+        [HttpPost]
+        public JsonResult DeleteAccesorioByParteId(int IdParteAccesorio)
+        {
+            var procedure = "[DeleteAccesorioByParteId]";
+            using (var connection = new SqlConnection(con))
+            {
+                var confirm = connection.Query(procedure, new
+                {
+                    IdParteAccesorio = IdParteAccesorio
+                }, commandType: CommandType.StoredProcedure);
+
+                return Json(new { data = confirm });
+            }
+
+        }
+        [HttpPost]
+        public JsonResult UpdateAsignacionAccesorioById(int IdParte , int IdParteAccesorio)
+        {
+            var procedure = "[UpdateAsignacionAccesorioById]";
+            using(var connection  = new SqlConnection(con))
+            {
+                var confirm = connection.Query(procedure, new
+                {
+                    IdParte = IdParte,
+                    IdParteAccesorio = IdParteAccesorio
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = confirm });
+            }
         }
     }
 }

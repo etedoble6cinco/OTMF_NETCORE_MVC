@@ -22,7 +22,8 @@
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
            Partes
         </a>
-      </li> <li class="nav-item">
+      </li> 
+      <li class="nav-item">
         <a class="nav-link link-dark" asp-controller="Moldes"  asp-action="Index">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
            Molde
@@ -102,13 +103,6 @@
          Clientes
         </a>
       </li>
-
-
-      
-
-
-     
-     
     </ul>
     <hr>
   
@@ -147,9 +141,9 @@
                 @Html.DisplayFor(modelItem => item.EtiquetaDeCaja)
             </td>
             <td>
-                <a asp-action="Edit" class="btn btn-lg btn-primary" asp-route-id="@item.IdCaja">Editar</a> |
-                <a asp-action="Details" class="btn btn-lg btn-warning" asp-route-id="@item.IdCaja">Detalles</a> |
-                <a asp-action="Delete" class="btn btn-lg btn-danger" asp-route-id="@item.IdCaja">Eliminar</a>
+                <a asp-action="Edit"    class="btn btn-lg btn-primary"    asp-route-id="@item.IdCaja">Editar</a> 
+                <a asp-action="Details" class="btn btn-lg btn-warning" asp-route-id="@item.IdCaja">Detalles</a> 
+                <a asp-action="Delete"  class="btn btn-lg btn-danger"   asp-route-id="@item.IdCaja">Eliminar</a>
             </td>
         </tr>
 }

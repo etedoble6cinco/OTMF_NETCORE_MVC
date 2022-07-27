@@ -3,118 +3,160 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div class="container">
+   
 
-<h1>Create</h1>
-
-<h4>Parte</h4>
+<h4> Crear Parte</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="border border-3 m-3">
+        <form asp-action="Create" class="row">
+            <div class="col-6">
+                  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IdCodigoParte" class="control-label"></label>
-                <input asp-for="IdCodigoParte" class="form-control" />
+                <label asp-for="IdCodigoParte" class="control-label"> <strong>Codigo de la Parte</strong></label>
+                <input asp-for="IdCodigoParte" placeholder="Codigo de la Parte" class="form-control" required />
                 <span asp-validation-for="IdCodigoParte" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdTarimaFk" class="control-label"></label>
-                <select asp-for="IdTarimaFk" class ="form-control" asp-items="ViewBag.IdTarimaFk"></select>
+                <label asp-for="IdTarimaFk" class="control-label"> Tipo de Tarima</label>
+                <select asp-for="IdTarimaFk" class ="form-control" asp-items="ViewBag.IdTarimaFk">
+                    <option selected disabled>Seleccionar Tarima</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="Aluminio" class="control-label"></label>
-                <input asp-for="Aluminio" class="form-control" />
+                <label asp-for="Aluminio" class="control-label">Aluminio</label>
+                <input asp-for="Aluminio" type="number" placeholder="0.000" class="form-control" />
                 <span asp-validation-for="Aluminio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdEnsambleFk" class="control-label"></label>
-                <select asp-for="IdEnsambleFk" class ="form-control" asp-items="ViewBag.IdEnsambleFk"></select>
+                <label asp-for="IdEnsambleFk" class="control-label">Ensamble</label>
+                <select asp-for="IdEnsambleFk" class ="form-control" asp-items="ViewBag.IdEnsambleFk">
+                    <option selected disabled>Seleccionar Ensable</option>
+                </select>
+            </div>
+            
+                <input asp-for="IdParteAccesorioFk" value="0" type="hidden" class="form-control" />
+          
+            <div class="form-group">
+                <label asp-for="IdEstandarFk" class="control-label">Estandar</label>
+                <select asp-for="IdEstandarFk" class ="form-control" asp-items="ViewBag.IdEstandarFk">
+                    <option selected disabled>Seleccionar Estandar</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="IdParteAccesorioFk" class="control-label"></label>
-                <input asp-for="IdParteAccesorioFk" class="form-control" />
-                <span asp-validation-for="IdParteAccesorioFk" class="text-danger"></span>
+                <label asp-for="IdEtiquetaFk" class="control-label">Etiqueta de Parte</label>
+                <select asp-for="IdEtiquetaFk" class ="form-control" asp-items="ViewBag.IdEtiquetaFk">
+                    <option selected disabled> Seleccionar Etiqueta</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="IdEstandarFk" class="control-label"></label>
-                <select asp-for="IdEstandarFk" class ="form-control" asp-items="ViewBag.IdEstandarFk"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdEtiquetaFk" class="control-label"></label>
-                <select asp-for="IdEtiquetaFk" class ="form-control" asp-items="ViewBag.IdEtiquetaFk"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="PiezasPorCaja" class="control-label"></label>
-                <input asp-for="PiezasPorCaja" class="form-control" />
+                <label asp-for="PiezasPorCaja" class="control-label">Partes Por Caja</label>
+                <input asp-for="PiezasPorCaja" placeholder="0.000" required type="number" class="form-control" />
                 <span asp-validation-for="PiezasPorCaja" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdColorFk" class="control-label"></label>
-                <select asp-for="IdColorFk" class ="form-control" asp-items="ViewBag.IdColorFk"></select>
+                <label asp-for="IdColorFk" class="control-label">Color de Parte</label>
+                <select asp-for="IdColorFk" class ="form-control" asp-items="ViewBag.IdColorFk">
+                    <option disabled selected>
+                        Seleccionar Color de Parte
+                    </option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="CajasPorTarima" class="control-label"></label>
-                <input asp-for="CajasPorTarima" class="form-control" />
+                <label asp-for="CajasPorTarima" class="control-label">Cajas por Tarima</label>
+                <input asp-for="CajasPorTarima" type="number" required class="form-control" />
                 <span asp-validation-for="CajasPorTarima" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StdPintura" class="control-label"></label>
+                <label asp-for="StdPintura" class="control-label">Estandar de Pintura</label>
                 <input asp-for="StdPintura" class="form-control" />
                 <span asp-validation-for="StdPintura" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Costo" class="control-label"></label>
-                <input asp-for="Costo" class="form-control" />
+                <label asp-for="Costo" class="control-label">Costo</label>
+                <input asp-for="Costo" type="number" placeholder="0.000" class="form-control" />
                 <span asp-validation-for="Costo" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="EstandarPorHora" class="control-label"></label>
-                <input asp-for="EstandarPorHora" class="form-control" />
+            </div>
+          <div class="col-6">
+                <div class="form-group">
+                <label asp-for="EstandarPorHora" class="control-label">Estandar por Hora</label>
+                <input asp-for="EstandarPorHora" placeholder="0" type="number" class="form-control" />
                 <span asp-validation-for="EstandarPorHora" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdCajaFk" class="control-label"></label>
-                <select asp-for="IdCajaFk" class ="form-control" asp-items="ViewBag.IdCajaFk"></select>
+                <label asp-for="IdCajaFk" class="control-label">Caja</label>
+                <select asp-for="IdCajaFk" class ="form-control" asp-items="ViewBag.IdCajaFk">
+                    <option selected disabled>
+                        Seleccionar Caja
+                    </option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="IdHuleFk" class="control-label"></label>
-                <select asp-for="IdHuleFk" class ="form-control" asp-items="ViewBag.IdHuleFk"></select>
+                <label asp-for="IdHuleFk" class="control-label">Hule</label>
+                <select asp-for="IdHuleFk" class ="form-control" asp-items="ViewBag.IdHuleFk">Seleccionar Hule</select>
             </div>
             <div class="form-group">
-                <label asp-for="IdPinturaFk" class="control-label"></label>
-                <select asp-for="IdPinturaFk" class ="form-control" asp-items="ViewBag.IdPinturaFk"></select>
+                <label asp-for="IdPinturaFk" class="control-label">Pintura</label>
+                <select asp-for="IdPinturaFk" class ="form-control" asp-items="ViewBag.IdPinturaFk">
+                    <option selected disabled > 
+                        Seleccionar Pintura
+                    </option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="IdInsertoFk" class="control-label"></label>
-                <select asp-for="IdInsertoFk" class ="form-control" asp-items="ViewBag.IdInsertoFk"></select>
+                <label asp-for="IdInsertoFk" class="control-label">Inserto</label>
+                <select asp-for="IdInsertoFk" class ="form-control" asp-items="ViewBag.IdInsertoFk">
+                    <option selected disabled>
+                        Seleccionar Inserto
+                    </option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="IdMoldeFk" class="control-label"></label>
-                <select asp-for="IdMoldeFk" class ="form-control" asp-items="ViewBag.IdMoldeFk"></select>
+                <label asp-for="IdMoldeFk" class="control-label">Molde</label>
+                <select asp-for="IdMoldeFk" class ="form-control" asp-items="ViewBag.IdMoldeFk">
+                    <option selected disabled >
+                        Seleccionar Molde
+                    </option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="IdClienteFk" class="control-label"></label>
-                <select asp-for="IdClienteFk" class ="form-control" asp-items="ViewBag.IdClienteFk"></select>
+                <label asp-for="IdClienteFk" class="control-label">Cliente</label>
+                <select asp-for="IdClienteFk" class ="form-control" asp-items="ViewBag.IdClienteFk">
+                    <option selected disabled>
+                        Seleccionar Cliente
+                    </option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="Scrap" class="control-label"></label>
+                <label asp-for="Scrap" class="control-label">Scrap</label>
                 <input asp-for="Scrap" class="form-control" />
                 <span asp-validation-for="Scrap" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdEstandarConRelevoFk" class="control-label"></label>
-                <select asp-for="IdEstandarConRelevoFk" class ="form-control" asp-items="ViewBag.IdEstandarConRelevoFk"></select>
+                <label asp-for="IdEstandarConRelevoFk" class="control-label">Estandar con Relevo</label>
+                <select asp-for="IdEstandarConRelevoFk" class ="form-control" asp-items="ViewBag.IdEstandarConRelevoFk">
+                    <option selected disabled>
+                        Seleccionar Estandar con Relevo
+                    </option>
+                </select>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+          </div>
+          
+            <div class="form-group mt-4">
+                <input type="submit" value="Guardar" class="btn btn-primary btn-lg" />
+                 <a asp-action="Index" class="btn btn-lg btn-warning">Regresar</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+   
 </div>
+</div>
+
 
 @section Scripts {
     <script>

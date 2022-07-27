@@ -71,9 +71,9 @@
                 @Html.DisplayFor(modelItem => item.EstadoOrdenNumero)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdEstadoOrden">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdEstadoOrden">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdEstadoOrden">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdEstadoOrden"   class="btn btn-lg btn-primary">Editar</a> 
+              
+                <a asp-action="Delete" asp-route-id="@item.IdEstadoOrden" class="btn btn-lg btn-danger" >Eliminar</a>
             </td>
         </tr>
 }

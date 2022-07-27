@@ -21,7 +21,7 @@ namespace OTMF_NETCORE_MVC.Services
         }
         public  List<ObtenerOrdenesTrabajo> ObtenerOrdenesTrabajo()
         {
-            var procedure = "[ObtenerOrdenesTrabajoAllInfo]";
+            var procedure = "[ObtenerOrdenesTrabajoAllInfoDashBoard]";
             using ( var  connection  =  new SqlConnection(connectionString))
             {
                 var ot = connection.Query<ObtenerOrdenesTrabajo>(procedure, commandType: CommandType.StoredProcedure);
