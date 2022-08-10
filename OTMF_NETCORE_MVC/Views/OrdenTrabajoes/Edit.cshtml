@@ -26,6 +26,7 @@
                 <input asp-for="EtiquetaDeCaja" type="hidden" class="form-control" />
                 <input asp-for="IdEmpeadoSupervisorFk" type="hidden" class="form-control" />
                 <input type="hidden" asp-for="HoraFinalizacion" class="form-control" />
+               
          <!------------------------------------------------------------------------>
            <div class="form-group">
                 <label asp-for="IdParteFk" class="control-label"> Nombre de Pieza</label>
@@ -48,14 +49,10 @@
        
             <div class="form-group">
                 <label asp-for="PiezasRealizadas" class="control-label"> Piezas Realizadas</label>
-                <input asp-for="PiezasRealizadas" id="PiezasRealizadas" class="form-control" />
+                <input  asp-for="PiezasRealizadas" id="PiezasRealizadas" class="form-control" />
                 <span asp-validation-for="PiezasRealizadas" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IdInstructivoFk" class="control-label"> Instructivo</label>
-                <select asp-for="IdInstructivoFk" id="IdInstructivoFK" class="form-control" asp-items="ViewBag.IdInstructivoFk"></select>
-                <span asp-validation-for="IdInstructivoFk" class="text-danger"></span>
-            </div>
+        
           
             <div class="form-group">
                 <label asp-for="IdEstadoOrdenFk" class="control-label"> Estado Orden</label>
@@ -201,7 +198,7 @@ $(document).ready(function (){
          
                 $.each(data.data, function(n) {
                     
-                    if (data.data[x].idTipoEmpleadoFK == 4) {
+                    if (data.data[x].idTipoEmpleadoFK == 5) {
                         $("#EmpleadosRelacionados").append("<section id='empleadoEmpacador' class='p-1 m-1 bg-secondary'>"
                             + "<div class='badge bg-light text-dark'><h5>Empacador </h5><p>"
                             + data.data[x].nombreEmpleado + "</p></div>"+
@@ -209,7 +206,7 @@ $(document).ready(function (){
                             "<button class='btn btn-lg btn-primary m-1 p-2'  onclick=\"DeleteAsignacionEmpleadoOTById(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fa fa-trash' aria-hidden='true'></i></button> </section>");
                      
                     }
-                    if (data.data[x].idTipoEmpleadoFK == 3) {
+                    if (data.data[x].idTipoEmpleadoFK == 6) {
                         $("#EmpleadosRelacionados").append("<section id='empleadoMoldeador' class='p-1 m-1 bg-secondary'>"
                             + "<div class='badge bg-light text-dark'><h5>Moldeador </h5><p>"
                             + data.data[x].nombreEmpleado + "</p></div>" +

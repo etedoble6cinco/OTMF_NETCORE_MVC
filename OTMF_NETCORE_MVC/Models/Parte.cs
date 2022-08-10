@@ -33,6 +33,9 @@ namespace OTMF_NETCORE_MVC.Models
         public int? IdClienteFk { get; set; }
         public int? Scrap { get; set; }
         public int? IdEstandarConRelevoFk { get; set; }
+        public int? IdInstructivoPiezaFk { get; set; }
+        public int? IdEtiquetaCajaFk { get; set; }
+        public int? IdEstandarPorHoraFk { get; set; }
 
         public virtual Caja? IdCajaFkNavigation { get; set; }
         public virtual Cliente? IdClienteFkNavigation { get; set; }
@@ -40,9 +43,12 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual Ensamble? IdEnsambleFkNavigation { get; set; }
         public virtual EstandarConRelevo? IdEstandarConRelevoFkNavigation { get; set; }
         public virtual Estandar? IdEstandarFkNavigation { get; set; }
+        public virtual EstandarPorHora? IdEstandarPorHoraFkNavigation { get; set; }
+        public virtual EtiquetaCaja? IdEtiquetaCajaFkNavigation { get; set; }
         public virtual Etiquetum? IdEtiquetaFkNavigation { get; set; }
         public virtual Hule? IdHuleFkNavigation { get; set; }
         public virtual Inserto? IdInsertoFkNavigation { get; set; }
+        public virtual InstructivoPieza? IdInstructivoPiezaFkNavigation { get; set; }
         public virtual Molde? IdMoldeFkNavigation { get; set; }
         public virtual Pintura? IdPinturaFkNavigation { get; set; }
         public virtual Tarima? IdTarimaFkNavigation { get; set; }

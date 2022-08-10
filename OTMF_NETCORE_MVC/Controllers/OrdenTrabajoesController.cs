@@ -5,22 +5,27 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OTMF_NETCORE_MVC.Entities;
+using OTMF_NETCORE_MVC.Hubs;
 using OTMF_NETCORE_MVC.Models;
 
 namespace OTMF_NETCORE_MVC.Controllers
 {
+    [Authorize( Policy = "RequireAmin")]
     public class OrdenTrabajoesController : Controller
     {
         private readonly OTMFContext _context;
         private readonly string con;
         private readonly string connectionString;
-        public OrdenTrabajoesController(OTMFContext context ,IConfiguration configuration)
+        DashboardHub dashboardHub;
+        public OrdenTrabajoesController(DashboardHub dashboardHub,OTMFContext context ,IConfiguration configuration)
 
         {
+            this.dashboardHub = dashboardHub;
             connectionString = configuration.GetConnectionString("DefaultConnection");
             _context = context;
             con = configuration.GetConnectionString("DefaultConnection");
@@ -90,8 +95,9 @@ namespace OTMF_NETCORE_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                ordenTrabajo.IdInstructivoFk = 3;   
                 _context.Add(ordenTrabajo);
+             
                 await _context.SaveChangesAsync();
                 //SE CREA LA RELACION DE LA TABLA DE CAJAS RECIBIDAS , YA QUE LA TABLA NO ESTA RELACIONADA CON FK , SI NO SOLAMENTE CON UN ID "POSTIZO"
                 using (var connection = new SqlConnection(connectionString))
@@ -104,6 +110,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                         NumeroPiezasRecibidas = 0
                     }, commandType: CommandType.StoredProcedure);
                 }
+               
                 return RedirectToAction(nameof(Index));
             }
          
@@ -142,8 +149,9 @@ namespace OTMF_NETCORE_MVC.Controllers
 
          
         [HttpPost]
-        public JsonResult UpdateOrdenTrabajo (int IdOrdenTrabajo ,int IdParteFK , int CantidadPiezasPorOrden , int IdInstructivoFK , int IdEstadoOrdenFK)
+        public JsonResult UpdateOrdenTrabajo (int IdOrdenTrabajo ,int IdParteFK , int CantidadPiezasPorOrden , int IdInstructivoFK  , int IdEstadoOrdenFK)
         {
+            IdInstructivoFK = 3;
             using(var connection  =  new SqlConnection(connectionString))
             {
                 var procedure = "[UpdateOrdenTrabajo]";
@@ -260,6 +268,8 @@ namespace OTMF_NETCORE_MVC.Controllers
                     IdMaquina = IdMaquina
                       
                 }, commandType: CommandType.StoredProcedure);
+                dashboardHub.SendOrdenTrabajo();
+
                 return Json(new { data = confirm });
             }
         }
@@ -277,6 +287,19 @@ namespace OTMF_NETCORE_MVC.Controllers
                 }, commandType: CommandType.StoredProcedure);
                 return Json(new { data = confirm });
             } 
+        }
+        [HttpPost]
+        public JsonResult ObtenerOrdenesTrabajoDetallesById(int IdOrdenTrabajo )
+        {
+            var procedure = "[ObtenerOrdenesTrabajoDetallesById]";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var OrdenTrabajo = connection.Query(procedure, new
+                {
+                    IdOrdenTrabajo = IdOrdenTrabajo
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new {data = OrdenTrabajo});
+            }
         }
      
     }

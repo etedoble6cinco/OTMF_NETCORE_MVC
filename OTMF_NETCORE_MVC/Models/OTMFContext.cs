@@ -20,15 +20,19 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual DbSet<Caja> Cajas { get; set; } = null!;
         public virtual DbSet<Cliente> Clientes { get; set; } = null!;
         public virtual DbSet<Color> Colors { get; set; } = null!;
+        public virtual DbSet<DetalleCajasRecibida> DetalleCajasRecibidas { get; set; } = null!;
         public virtual DbSet<Empleado> Empleados { get; set; } = null!;
         public virtual DbSet<Ensamble> Ensambles { get; set; } = null!;
         public virtual DbSet<EstadoOrden> EstadoOrdens { get; set; } = null!;
         public virtual DbSet<Estandar> Estandars { get; set; } = null!;
         public virtual DbSet<EstandarConRelevo> EstandarConRelevos { get; set; } = null!;
+        public virtual DbSet<EstandarPorHora> EstandarPorHoras { get; set; } = null!;
+        public virtual DbSet<EtiquetaCaja> EtiquetaCajas { get; set; } = null!;
         public virtual DbSet<Etiquetum> Etiqueta { get; set; } = null!;
         public virtual DbSet<Hule> Hules { get; set; } = null!;
         public virtual DbSet<Inserto> Insertos { get; set; } = null!;
         public virtual DbSet<Instructivo> Instructivos { get; set; } = null!;
+        public virtual DbSet<InstructivoPieza> InstructivoPiezas { get; set; } = null!;
         public virtual DbSet<Maquina> Maquinas { get; set; } = null!;
         public virtual DbSet<MaquinaOrdenTrabajo> MaquinaOrdenTrabajos { get; set; } = null!;
         public virtual DbSet<Molde> Moldes { get; set; } = null!;
@@ -37,16 +41,19 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual DbSet<Parte> Partes { get; set; } = null!;
         public virtual DbSet<ParteAccesorio> ParteAccesorios { get; set; } = null!;
         public virtual DbSet<Pintura> Pinturas { get; set; } = null!;
+        public virtual DbSet<Role> Roles { get; set; } = null!;
+        public virtual DbSet<RolesUsuario> RolesUsuarios { get; set; } = null!;
         public virtual DbSet<Tarima> Tarimas { get; set; } = null!;
         public virtual DbSet<TipoEmpleado> TipoEmpleados { get; set; } = null!;
         public virtual DbSet<Turno> Turnos { get; set; } = null!;
+        public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=OTMF;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=OTMF;Integrated Security=True;Persist Security Info=False");
             }
         }
 
@@ -102,6 +109,14 @@ namespace OTMF_NETCORE_MVC.Models
                 entity.Property(e => e.NombreColor)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<DetalleCajasRecibida>(entity =>
+            {
+                entity.HasKey(e => e.IdDetalleCajasRecibidas)
+                    .HasName("PK__DetalleC__DB33E7DD49FF47C7");
+
+                entity.Property(e => e.IdDetalleCajasRecibidas).HasColumnName("idDetalleCajasRecibidas");
             });
 
             modelBuilder.Entity<Empleado>(entity =>
@@ -184,6 +199,28 @@ namespace OTMF_NETCORE_MVC.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<EstandarPorHora>(entity =>
+            {
+                entity.HasKey(e => e.IdEstandarPorHora)
+                    .HasName("PK__Estandar__8A90348331BD5A93");
+
+                entity.ToTable("EstandarPorHora");
+            });
+
+            modelBuilder.Entity<EtiquetaCaja>(entity =>
+            {
+                entity.HasKey(e => e.IdEtiquetaDeCaja)
+                    .HasName("PK__Etiqueta__591980CF82D0057E");
+
+                entity.ToTable("EtiquetaCaja");
+
+                entity.Property(e => e.NombreEtiquetaDeCaja)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PathEtiquetaDeCaja).IsUnicode(false);
+            });
+
             modelBuilder.Entity<Etiquetum>(entity =>
             {
                 entity.HasKey(e => e.IdEtiqueta)
@@ -192,6 +229,8 @@ namespace OTMF_NETCORE_MVC.Models
                 entity.Property(e => e.NombreEtiqueta)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+
+                entity.Property(e => e.PathNombreEtiqueta).IsUnicode(false);
             });
 
             modelBuilder.Entity<Hule>(entity =>
@@ -228,6 +267,16 @@ namespace OTMF_NETCORE_MVC.Models
                 entity.Property(e => e.NombreInstructivo)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<InstructivoPieza>(entity =>
+            {
+                entity.HasKey(e => e.IdInstructivoPieza)
+                    .HasName("PK__Instruct__31F08B13B3C1819B");
+
+                entity.ToTable("InstructivoPieza");
+
+                entity.Property(e => e.NombreInstructivoPieza).IsUnicode(false);
             });
 
             modelBuilder.Entity<Maquina>(entity =>
@@ -385,6 +434,10 @@ namespace OTMF_NETCORE_MVC.Models
 
                 entity.Property(e => e.IdEstandarFk).HasColumnName("IdEstandarFK");
 
+                entity.Property(e => e.IdEstandarPorHoraFk).HasColumnName("IdEstandarPorHoraFK");
+
+                entity.Property(e => e.IdEtiquetaCajaFk).HasColumnName("IdEtiquetaCajaFK");
+
                 entity.Property(e => e.IdEtiquetaFk).HasColumnName("IdEtiquetaFK");
 
                 entity.Property(e => e.IdHuleFk).HasColumnName("IdHuleFK");
@@ -437,6 +490,18 @@ namespace OTMF_NETCORE_MVC.Models
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("Parte_IdEstandarFK");
 
+                entity.HasOne(d => d.IdEstandarPorHoraFkNavigation)
+                    .WithMany(p => p.Partes)
+                    .HasForeignKey(d => d.IdEstandarPorHoraFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("Parte_IdEstandarPorHoraFK");
+
+                entity.HasOne(d => d.IdEtiquetaCajaFkNavigation)
+                    .WithMany(p => p.Partes)
+                    .HasForeignKey(d => d.IdEtiquetaCajaFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("Parte_IdEtiquetaDeCajaFK");
+
                 entity.HasOne(d => d.IdEtiquetaFkNavigation)
                     .WithMany(p => p.Partes)
                     .HasForeignKey(d => d.IdEtiquetaFk)
@@ -454,6 +519,12 @@ namespace OTMF_NETCORE_MVC.Models
                     .HasForeignKey(d => d.IdInsertoFk)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("Parte_IdInsertoFK");
+
+                entity.HasOne(d => d.IdInstructivoPiezaFkNavigation)
+                    .WithMany(p => p.Partes)
+                    .HasForeignKey(d => d.IdInstructivoPiezaFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("Parte_IdInstructivoPiezaFK");
 
                 entity.HasOne(d => d.IdMoldeFkNavigation)
                     .WithMany(p => p.Partes)
@@ -510,6 +581,38 @@ namespace OTMF_NETCORE_MVC.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.HasKey(e => e.IdRolUsuario)
+                    .HasName("PK__Roles__3FC7F91F5567A1E4");
+
+                entity.Property(e => e.NombreRolUsuario)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<RolesUsuario>(entity =>
+            {
+                entity.HasKey(e => e.IdRolesUsuarios)
+                    .HasName("PK__RolesUsu__B7E8A9E513B81230");
+
+                entity.Property(e => e.IdRolUsuarioFk).HasColumnName("IdRolUsuarioFK");
+
+                entity.Property(e => e.IdUsuariosFk).HasColumnName("IdUsuariosFK");
+
+                entity.HasOne(d => d.IdRolUsuarioFkNavigation)
+                    .WithMany(p => p.RolesUsuarios)
+                    .HasForeignKey(d => d.IdRolUsuarioFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("RolesUsuarios_IdRolUsuarioFK");
+
+                entity.HasOne(d => d.IdUsuariosFkNavigation)
+                    .WithMany(p => p.RolesUsuarios)
+                    .HasForeignKey(d => d.IdUsuariosFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("RolesUsuarios_IdUsuariosFK");
+            });
+
             modelBuilder.Entity<Tarima>(entity =>
             {
                 entity.HasKey(e => e.IdTarima)
@@ -548,6 +651,22 @@ namespace OTMF_NETCORE_MVC.Models
                 entity.Property(e => e.NombreTurno)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Usuario>(entity =>
+            {
+                entity.HasKey(e => e.IdUsuarios)
+                    .HasName("PK__Usuarios__EAEBAC8FF0F1632D");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EmailNormalizado)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PasswordHash).IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

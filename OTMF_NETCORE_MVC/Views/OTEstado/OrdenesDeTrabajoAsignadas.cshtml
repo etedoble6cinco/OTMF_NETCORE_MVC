@@ -7,7 +7,7 @@
 
                @foreach (var item in Model)
             {
-                @if(item.IdEstadoOTFK == 1 || item.IdEstadoOTFK == 3 ||    item.IdEstadoOTFK==4 || item.IdEstadoOTFK ==6)
+                @if(item.IdEstadoOTFK == 7 || item.IdEstadoOTFK == 9 ||    item.IdEstadoOTFK == 10 || item.IdEstadoOTFK == 12)
                 {
                      <li class="nav-item" role="presentation">
                 <button class="nav-link" onclick="GetOrdenTrabajo(@item.idOrdenTrabajo)" id="@item.idOrdenTrabajo" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">@item.idOrdenTrabajo</button>
@@ -139,6 +139,8 @@
     </div>
   </div>
 </div>
+
+
 @section Scripts{
     
     <script>
@@ -207,19 +209,20 @@ function GetParteByOTId(idOrdenTrabajo) {
         data: {id:idOrdenTrabajo},
         dataType:"json",
         success: function(data) {
-           
+            console.log(data);
             FillParte(data);
         }
     });
 }
 function FillParte(data) {
      var x = 0;
-   
+ 
     $.each(data.data, function(n) {
 
         $("#pills-tabContent").append("<section class='d-flex flex-wrap justify-content-center' id='Parte'>"
-
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Aluminio</p><p>"+data.data[x].aluminio        +"</p></div>" //
+        +"<div><img width='170' height='110' class='card'  src='/Uploads//Etiquetas/Partes/"+data.data[x].nombreEtiquetaDeCaja+".jpg' /></div>"
+        +"<div><img width='170' height='110' class='card' src='/Uploads//Etiquetas/Cajas/"+data.data[x].nombreEtiqueta+".jpg' /></div>"
+        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Aluminio</p><p>"+data.data[x].aluminio        +"</p></div>" 
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Cajas por Tarima</p><p>"+data.data[x].cajasPorTarima  +"</p></div>" 
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Costo</p><p>"+data.data[x].costo           +"</p></div>" 
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Estandar por Hora</p><p>"+data.data[x].estandarPorHora +"</p></div>" 
@@ -242,8 +245,7 @@ function FillParte(data) {
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Std Pintura</p><p>"+data.data[x].std_Pintura     +"</p></div>" 
 
         +"</section>");
-                                         
-      
+
            x++;
     });
  
@@ -284,7 +286,7 @@ function FillParte(data) {
          
                 $.each(data.data, function(n) {
                     
-                    if (data.data[x].idTipoEmpleadoFK == 4) {
+                    if (data.data[x].idTipoEmpleadoFK == 5) {
                         $("#EmpleadosRelacionados").append("<section id='empleadoEmpacador' class='p-1 m-1 bg-secondary'>"
                             + "<div class='badge bg-light text-dark'><h5>Empacador </h5><p>"
                             + data.data[x].nombreEmpleado + "</p></div>"+
@@ -292,7 +294,7 @@ function FillParte(data) {
                             "<button class='btn btn-lg btn-primary m-1 p-2'  onclick=\"DeleteAsignacionEmpleadoOTById(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fa fa-trash' aria-hidden='true'></i></button> </section>");
                      
                     }
-                    if (data.data[x].idTipoEmpleadoFK == 3) {
+                    if (data.data[x].idTipoEmpleadoFK == 6) {
                         $("#EmpleadosRelacionados").append("<section id='empleadoMoldeador' class='p-1 m-1 bg-secondary'>"
                             + "<div class='badge bg-light text-dark'><h5>Moldeador </h5><p>"
                             + data.data[x].nombreEmpleado + "</p></div>" +
@@ -378,7 +380,7 @@ function GetEstadoOT() {
 function EvaluateOTEstado(data) {
     
     switch (data.data[0].idEstadoOrden) {
-        case 1:
+        case 7:
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-info");
@@ -392,7 +394,7 @@ function EvaluateOTEstado(data) {
             //$("#indicadorEstado").addClass("border p-2 bg-primary");
             //$("#AccionesOrdenTrabajo").append("<button class='btn btn-primary'>se</button>")
             break;
-        case 3:
+        case 9:
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-success");
@@ -400,7 +402,7 @@ function EvaluateOTEstado(data) {
              $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetPausa();'><strong>Pausar</strong></button>")
            
             break;
-        case 4:
+        case 10:
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-warning");
@@ -409,7 +411,7 @@ function EvaluateOTEstado(data) {
         
             
             break;
-        case 5:
+        case 11:
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-dark");
@@ -417,7 +419,7 @@ function EvaluateOTEstado(data) {
            
         
             break;
-        case 6:
+        case 12:
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-danger");
@@ -429,18 +431,18 @@ function EvaluateOTEstado(data) {
 }
     function SetTerminar() {
         UpdateFechaFinalizacion();
-        UpdateOTEstado(5);
+        UpdateOTEstado(11);
     }
     function SetActiva() {
          UpdateFechaInicio();
-        UpdateOTEstado(3);
+        UpdateOTEstado(9);
     }
     function SetPausa() {
          UpdateFechaFinalizacion();
-    UpdateOTEstado(6);
+    UpdateOTEstado(12);
     }
     function SetAceptar() {
-    UpdateOTEstado(4);
+    UpdateOTEstado(10);
     } 
 
 //El valor de cajas recibidas en la tabla de la orden de trabajo sera la llave foreanea para obtener el detalle de la fila .

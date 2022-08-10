@@ -1,20 +1,34 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Dapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using OTMF_NETCORE_MVC.Entities;
 using OTMF_NETCORE_MVC.Models;
+using OTMF_NETCORE_MVC.Services;
+using System.Data;
+using System.Data.SqlClient;
+using System.Security.Claims;
 
 namespace OTMF_NETCORE_MVC.Controllers
 {
     public class UsuariosController : Controller
     {
         private readonly UserManager<Usuario> userManager;
-        private SignInManager<Usuario> signInManager;   
+        private SignInManager<Usuario> signInManager;
+        private readonly string con;
+        private readonly IServicioUsuarios servicio;
         public UsuariosController(UserManager<Usuario> userManager,
-            SignInManager<Usuario>signInManager)
+            SignInManager<Usuario>signInManager ,
+            IConfiguration configuration,
+           IServicioUsuarios _services)
         {
+            con = configuration.GetConnectionString("DefaultConnection");
             this.signInManager = signInManager;
             this.userManager = userManager;
+            servicio = _services;
+      
+
         }
         [AllowAnonymous]
         public IActionResult Registro()
@@ -41,7 +55,28 @@ namespace OTMF_NETCORE_MVC.Controllers
                 modelo.Password, modelo.RememberMe, lockoutOnFailure:false);
             if (resultado.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                var user =  await userManager.FindByEmailAsync(modelo.Email);   
+                var procedure = "[ObtenerRolUsuarioByIdUsuario]";
+                using (var connection = new SqlConnection(con))
+                {
+                    var usuario = connection.Query<RolesUsuarios>(procedure, new
+                    {
+                        IdUsuario = user.IdUsuarios
+                    }, commandType: CommandType.StoredProcedure).ToList();
+
+                  
+
+                    var claims = new List<Claim>();
+
+                    foreach (var role in usuario)
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, role.NombreRolUsuario));
+                    }
+
+                    await signInManager.SignInWithClaimsAsync(user, modelo.RememberMe, claims);
+                }
+             
+                return RedirectToAction("CheckRole", "Home");
             }
             else
             {
@@ -49,6 +84,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return View(modelo);
             }
         }
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Registro(RegistroViewModel modelo)
         {

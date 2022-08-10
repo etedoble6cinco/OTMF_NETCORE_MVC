@@ -8,19 +8,40 @@ namespace OTMF_NETCORE_MVC.SuscribeTableDependencies
     public class SuscribeOrdenTrabajoTableDependecy
     {
         SqlTableDependency<OrdenTrabajo> TableDependency;
+        SqlTableDependency<MaquinaOrdenTrabajo> TableDependency2;
         DashboardHub dashboardHub;
-        public SuscribeOrdenTrabajoTableDependecy(DashboardHub dashboardHub)
+        private readonly OTMFContext _context;
+        private readonly string con;
+        public SuscribeOrdenTrabajoTableDependecy(DashboardHub dashboardHub, IConfiguration configuration)
         {
-            this.dashboardHub = dashboardHub;   
+            this.dashboardHub = dashboardHub;
+            this.con = configuration.GetConnectionString("DefaultConnection");
         }
         public void SuscribeTableDependecy ()
         {
-            string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=OTMF;Integrated Security=True;Persist Security Info=False";
-            TableDependency = new SqlTableDependency<OrdenTrabajo>(connectionString);
+           
+            TableDependency = new SqlTableDependency<OrdenTrabajo>(con);
             TableDependency.OnChanged += TableDependency_OnChanged;
+           
             TableDependency.OnError += TableDependency_OnError;
             TableDependency.Start();
+            TableDependency2 = new SqlTableDependency<MaquinaOrdenTrabajo>(con);
+            TableDependency2.OnChanged += TableDependency2_OnChanged;
+            TableDependency2.OnChanged += TableDependency2_OnError;
+
+            TableDependency2.Start();
         }
+
+        private void TableDependency2_OnError(object sender, TableDependency.SqlClient.Base.EventArgs.RecordChangedEventArgs<MaquinaOrdenTrabajo> e)
+        {
+            Console.WriteLine($"{nameof(OrdenTrabajo)}SqlTableDependency error: {e}");
+        }
+
+        private void TableDependency2_OnChanged(object sender, TableDependency.SqlClient.Base.EventArgs.RecordChangedEventArgs<MaquinaOrdenTrabajo> e)
+        {
+            dashboardHub.SendOrdenTrabajo();
+        }
+
         private void TableDependency_OnError (object sender ,  TableDependency.SqlClient.Base.EventArgs.ErrorEventArgs e)
         {
             Console.WriteLine($"{nameof(OrdenTrabajo)}SqlTableDependency error: {e.Error.Message}");

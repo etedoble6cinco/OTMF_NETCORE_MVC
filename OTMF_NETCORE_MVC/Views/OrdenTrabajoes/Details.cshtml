@@ -4,123 +4,60 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<input asp-for="IdOrdenTrabajo" type="hidden" id="IdOrdenTrabajo" />
+<div class="container">
+   <div class="row">
+      <div class="container">
+          <div id="OTDetails"></div>
+      </div>
+       <div class="form-group">
+               <a asp-action="Edit" asp-route-id="@Model?.IdOrdenTrabajo" class="btn bg-primary btn-lg text-white">Editar</a> 
+    <a asp-action="Index" class="btn bg-danger btn-lg text-white">Regresar</a>
+       </div>
+       
 
-<div>
-    <h4>OrdenTrabajo</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEmpleadoMoldeadorFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEmpleadoMoldeadorFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEmpleadoEmpacadorFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEmpleadoEmpacadorFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdMaquinaFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdMaquinaFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaOrdenTrabajo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaOrdenTrabajo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CantidadPiezasPororden)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CantidadPiezasPororden)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CajasRecibidas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CajasRecibidas)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PiezasRealizadas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PiezasRealizadas)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HoraInicio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HoraInicio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HoraFinalizacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HoraFinalizacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEmpeadoSupervisorFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEmpeadoSupervisorFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EtiquetaDeCaja)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EtiquetaDeCaja)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstandarConRelevoFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstandarConRelevoFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstandarPorHoraFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstandarPorHoraFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxScrap)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxScrap)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCodigoOrdenTrabajo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdCodigoOrdenTrabajo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstadoOrdenFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstadoOrdenFkNavigation.IdEstadoOrden)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdInstructivoFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdInstructivoFkNavigation.IdInstructivo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdParteFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdParteFkNavigation.IdParte)
-        </dd>
-    </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdOrdenTrabajo">Edit</a> |
-    <a asp-action="Index">Back to List</a>
 </div>
+
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function() {
+            ObtenerDetallesOT();
+        });
+
+
+        function ObtenerDetallesOT() {
+            var IdOrdenTrabajo = document.getElementById("IdOrdenTrabajo").value;
+            $.ajax({
+                method: "POST",
+                url: "@Url.Action("ObtenerOrdenesTrabajoDetallesById")",
+                data: {
+                    IdOrdenTrabajo:IdOrdenTrabajo
+                },
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+               
+            
+                 
+                    $("#OTDetails").append("<p>Fecha de Creacion</p><p>"+data.data[0].FechaOrdenTrabajo+"</p><hr/>")
+                    $("#OTDetails").append("<p>Fecha de Finalizacion</p><p>"+data.data[0].HoraFinalizacion+"</p><hr/>")
+                    $("#OTDetails").append("<p>Fecha de Inicio</p><p>"+data.data[0].HoraInicio+"</p><hr/>")
+                    $("#OTDetails").append("<p>Codigo de Orden De Trabajo</p> <p>"+data.data[0].IdCodigoOrdenTrabajo+"</p><hr/>")
+                    $("#OTDetails").append("<p>Codigo de Parte</p> <p>"+data.data[0].IdCodigoParte+"</p><hr/>")
+                    $("#OTDetails").append("<p>Estado de la orden de trabajo</p><p>"+data.data[0].NombreEstadoOrden+"</p><hr/>")
+                }
+
+            });
+        }
+
+        function FillDetallesOT() {
+
+        }
+
+    </script>
+
+
+}

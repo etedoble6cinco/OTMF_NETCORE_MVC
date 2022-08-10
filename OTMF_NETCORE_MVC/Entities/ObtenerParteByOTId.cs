@@ -14,6 +14,7 @@
         public string NombreEnsamble  { get; set; } 
         public string  NombreEstandar { get; set; } 
         public string  NombreEtiqueta { get; set; }
+        public string PathNombreEtiqueta { get; set; }
         public string NombreColor { get; set; } 
         public string EtiquetaDeCaja { get; set; }  
         public string LogoCaja { get; set; }    
@@ -23,5 +24,13 @@
         public string NombreInserto { get; set; }   
         public string NombreMolde { get; set; } 
         public string NombreCliente { get; set; }   
+        public string  NombreInstructivoPieza { get; set; }
+        public string  NombreEtiquetaDeCaja { get; set; }
+        
+	 public string  PathEtiquetaDeCaja { get; set; }    
+
+
+        public string NombreEstandarPorHora { get; set; }
+
     }
 }

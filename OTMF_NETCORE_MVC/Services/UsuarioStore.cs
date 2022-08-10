@@ -34,9 +34,9 @@ namespace OTMF_NETCORE_MVC.Services
    
         }
 
-        public Task<Usuario> FindByIdAsync(string userId, CancellationToken cancellationToken)
+        public async Task<Usuario> FindByIdAsync(string userId, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return await repositorioUsuarios.BuscarUsuarioPorId( int.Parse(userId));
         }
 
         public async Task<Usuario> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)

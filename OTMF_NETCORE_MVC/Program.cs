@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -13,7 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddSingleton<DashboardHub>();
-builder.Services.AddSingleton<SuscribeOrdenTrabajoTableDependecy>(); 
+builder.Services.AddSingleton<SuscribeOrdenTrabajoTableDependecy>();
+builder.Services.AddSingleton<IServicioUsuarios, ServicioUsuarios>();
 builder.Services.AddDbContext<OTMFContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 var politicaUsuariosAutenticados = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
@@ -25,10 +27,10 @@ builder.Services.AddControllersWithViews(opciones =>
 builder.Services.AddHttpContextAccessor();
 //builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
+builder.Services.AddTransient<IServicioUsuarios, ServicioUsuarios>();
 builder.Services.AddTransient<IUserStore<Usuario>, UsuarioStore>();
 builder.Services.AddTransient < SignInManager<Usuario>>();
 builder.Services.AddIdentityCore<Usuario>();
-
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
@@ -37,6 +39,12 @@ builder.Services.AddAuthentication(options =>
 }).AddCookie(IdentityConstants.ApplicationScheme, opciones =>
 {
     opciones.LoginPath = "/usuarios/login";
+    opciones.ExpireTimeSpan = TimeSpan.FromHours(12);
+    opciones.AccessDeniedPath = "/Home/Privacy";
+});
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAmin", policy => policy.RequireRole("Administrador"));
 });
 builder.Services.AddSignalR();
 var app = builder.Build();

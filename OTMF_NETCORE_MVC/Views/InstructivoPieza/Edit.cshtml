@@ -1,0 +1,35 @@
+﻿@model OTMF_NETCORE_MVC.Models.InstructivoPieza
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Instructivo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdInstructivoPieza" />
+            <div class="form-group">
+                <label asp-for="NombreInstructivoPieza" class="control-label"></label>
+                <input asp-for="NombreInstructivoPieza" class="form-control" />
+                <span asp-validation-for="NombreInstructivoPieza" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary btn-lg" />
+                 <a asp-action="Index" class="btn btn-primary btn-lg">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+   
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

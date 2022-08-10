@@ -19,12 +19,7 @@
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           Ordenes de Trabajo
         </a>
-      </li> <li class="nav-item">
-        <a class="nav-link link-dark" asp-controller="Instructivoes"  asp-action="Index">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-           Instructivo 
-        </a>
-      </li>
+      </li> 
       <li>
         <a class="nav-link active" asp-controller="Maquinas"  asp-action="Index">
             <svg class="bi me-2" width="16" height="16"></svg>
@@ -95,7 +90,7 @@
         
 $(document).ready(function () {
             
-    $("Maquinas").DataTable({
+    $("#Maquinas").DataTable({
         dom: 'Bfrtip',
         buttons: [
             {
@@ -111,6 +106,8 @@ $(document).ready(function () {
         ]
     });
 });
+
+
 
 
     </script>

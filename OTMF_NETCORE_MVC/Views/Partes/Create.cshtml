@@ -20,18 +20,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="IdTarimaFk" class="control-label"> Tipo de Tarima</label>
-                <select asp-for="IdTarimaFk" class ="form-control" asp-items="ViewBag.IdTarimaFk">
+                <select asp-for="IdTarimaFk" class ="form-control" asp-items="ViewBag.IdTarimaFk" required>
                     <option selected disabled>Seleccionar Tarima</option>
                 </select>
             </div>
             <div class="form-group">
                 <label asp-for="Aluminio" class="control-label">Aluminio</label>
-                <input asp-for="Aluminio" type="number" placeholder="0.000" class="form-control" />
+                <input asp-for="Aluminio" type="number" placeholder="0.000" class="form-control" required/>
                 <span asp-validation-for="Aluminio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdEnsambleFk" class="control-label">Ensamble</label>
-                <select asp-for="IdEnsambleFk" class ="form-control" asp-items="ViewBag.IdEnsambleFk">
+                <select asp-for="IdEnsambleFk" class ="form-control" asp-items="ViewBag.IdEnsambleFk" required>
                     <option selected disabled>Seleccionar Ensable</option>
                 </select>
             </div>
@@ -40,24 +40,24 @@
           
             <div class="form-group">
                 <label asp-for="IdEstandarFk" class="control-label">Estandar</label>
-                <select asp-for="IdEstandarFk" class ="form-control" asp-items="ViewBag.IdEstandarFk">
+                <select asp-for="IdEstandarFk" class ="form-control" asp-items="ViewBag.IdEstandarFk" required>
                     <option selected disabled>Seleccionar Estandar</option>
                 </select>
             </div>
             <div class="form-group">
                 <label asp-for="IdEtiquetaFk" class="control-label">Etiqueta de Parte</label>
-                <select asp-for="IdEtiquetaFk" class ="form-control" asp-items="ViewBag.IdEtiquetaFk">
+                <select asp-for="IdEtiquetaFk" class ="form-control" asp-items="ViewBag.IdEtiquetaFk" required>
                     <option selected disabled> Seleccionar Etiqueta</option>
                 </select>
             </div>
             <div class="form-group">
                 <label asp-for="PiezasPorCaja" class="control-label">Partes Por Caja</label>
-                <input asp-for="PiezasPorCaja" placeholder="0.000" required type="number" class="form-control" />
+                <input asp-for="PiezasPorCaja" placeholder="0.000" required type="number" class="form-control"/>
                 <span asp-validation-for="PiezasPorCaja" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdColorFk" class="control-label">Color de Parte</label>
-                <select asp-for="IdColorFk" class ="form-control" asp-items="ViewBag.IdColorFk">
+                <select asp-for="IdColorFk" class ="form-control" asp-items="ViewBag.IdColorFk" required>
                     <option disabled selected>
                         Seleccionar Color de Parte
                     </option>
@@ -70,24 +70,24 @@
             </div>
             <div class="form-group">
                 <label asp-for="StdPintura" class="control-label">Estandar de Pintura</label>
-                <input asp-for="StdPintura" class="form-control" />
+                <input asp-for="StdPintura" class="form-control" required />
                 <span asp-validation-for="StdPintura" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Costo" class="control-label">Costo</label>
-                <input asp-for="Costo" type="number" placeholder="0.000" class="form-control" />
+                <input asp-for="Costo" type="number" placeholder="0.000" class="form-control"  required/>
                 <span asp-validation-for="Costo" class="text-danger"></span>
             </div>
             </div>
           <div class="col-6">
                 <div class="form-group">
                 <label asp-for="EstandarPorHora" class="control-label">Estandar por Hora</label>
-                <input asp-for="EstandarPorHora" placeholder="0" type="number" class="form-control" />
+                <input asp-for="EstandarPorHora" placeholder="0" type="number" class="form-control" required/>
                 <span asp-validation-for="EstandarPorHora" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdCajaFk" class="control-label">Caja</label>
-                <select asp-for="IdCajaFk" class ="form-control" asp-items="ViewBag.IdCajaFk">
+                <select asp-for="IdCajaFk" class ="form-control" asp-items="ViewBag.IdCajaFk" required>
                     <option selected disabled>
                         Seleccionar Caja
                     </option>
@@ -95,11 +95,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="IdHuleFk" class="control-label">Hule</label>
-                <select asp-for="IdHuleFk" class ="form-control" asp-items="ViewBag.IdHuleFk">Seleccionar Hule</select>
+                <select asp-for="IdHuleFk" class ="form-control" asp-items="ViewBag.IdHuleFk" required >Seleccionar Hule</select>
             </div>
             <div class="form-group">
                 <label asp-for="IdPinturaFk" class="control-label">Pintura</label>
-                <select asp-for="IdPinturaFk" class ="form-control" asp-items="ViewBag.IdPinturaFk">
+                <select asp-for="IdPinturaFk" class ="form-control" asp-items="ViewBag.IdPinturaFk" required>
                     <option selected disabled > 
                         Seleccionar Pintura
                     </option>
@@ -107,7 +107,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="IdInsertoFk" class="control-label">Inserto</label>
-                <select asp-for="IdInsertoFk" class ="form-control" asp-items="ViewBag.IdInsertoFk">
+                <select asp-for="IdInsertoFk" class ="form-control" asp-items="ViewBag.IdInsertoFk" required>
                     <option selected disabled>
                         Seleccionar Inserto
                     </option>
@@ -115,7 +115,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="IdMoldeFk" class="control-label">Molde</label>
-                <select asp-for="IdMoldeFk" class ="form-control" asp-items="ViewBag.IdMoldeFk">
+                <select asp-for="IdMoldeFk" class ="form-control" asp-items="ViewBag.IdMoldeFk"required>
                     <option selected disabled >
                         Seleccionar Molde
                     </option>
@@ -123,7 +123,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="IdClienteFk" class="control-label">Cliente</label>
-                <select asp-for="IdClienteFk" class ="form-control" asp-items="ViewBag.IdClienteFk">
+                <select asp-for="IdClienteFk" class ="form-control" asp-items="ViewBag.IdClienteFk" required>
                     <option selected disabled>
                         Seleccionar Cliente
                     </option>
@@ -131,18 +131,51 @@
             </div>
             <div class="form-group">
                 <label asp-for="Scrap" class="control-label">Scrap</label>
-                <input asp-for="Scrap" class="form-control" />
+                <input asp-for="Scrap" class="form-control" required />
                 <span asp-validation-for="Scrap" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdEstandarConRelevoFk" class="control-label">Estandar con Relevo</label>
-                <select asp-for="IdEstandarConRelevoFk" class ="form-control" asp-items="ViewBag.IdEstandarConRelevoFk">
+                <select asp-for="IdEstandarConRelevoFk" class ="form-control" asp-items="ViewBag.IdEstandarConRelevoFk" required>
+                    <option selected disabled>
+                        Seleccionar Estandar con Relevo
+                    </option>
+                </select>
+            </div>    
+            <div class="form-group">
+                <label asp-for="IdEstandarConRelevoFk" class="control-label">Estandar con Relevo</label>
+                <select asp-for="IdEstandarConRelevoFk" class ="form-control" asp-items="ViewBag.IdEstandarConRelevoFk" required>
                     <option selected disabled>
                         Seleccionar Estandar con Relevo
                     </option>
                 </select>
             </div>
-          </div>
+          </div>  
+          <div class="form-group">
+                <label asp-for="IdInstructivoPiezaFk" class="control-label">Instructivo de la Parte</label>
+                <select asp-for="IdInstructivoPiezaFk" class ="form-control" asp-items="ViewBag.IdInstructivoPiezaFk" required>
+                    <option selected disabled>
+                        Seleccionar Instructivo
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEtiquetaCajaFk" class="control-label">Etiqueta de Caja</label>
+                <select asp-for="IdEtiquetaCajaFk" class ="form-control" asp-items="ViewBag.IdEtiquetaCajaFK" required>
+                    <option selected disabled>
+                        Seleccionar Etiqueta de la Caja 
+                    </option>
+                </select>
+            </div>
+              <div class="form-group">
+                <label asp-for="IdEstandarPorHoraFk" class="control-label">Estandar por hora</label>
+                <select asp-for="IdEstandarPorHoraFk" class ="form-control" asp-items="ViewBag.IdEstandarPorHoraFK" required>
+                    <option selected disabled>
+                        Seleccionar Estandar por Hora
+                    </option>
+                </select>
+            </div>
+         
           
             <div class="form-group mt-4">
                 <input type="submit" value="Guardar" class="btn btn-primary btn-lg" />
@@ -159,13 +192,15 @@
 
 
 @section Scripts {
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script>
 $(document).ready(function() {
-
+   
 });
-
+   $("form").validate();
 
 
     </script>
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

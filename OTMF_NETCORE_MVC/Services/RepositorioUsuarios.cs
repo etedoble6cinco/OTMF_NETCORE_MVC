@@ -8,6 +8,7 @@ namespace OTMF_NETCORE_MVC.Services
     {
         Task<int> CrearUsuario(Usuario user);
         Task<Usuario> BuscarUsuarioPorEmail(string normalizedEmail);
+        Task<Usuario> BuscarUsuarioPorId( int normalizedId);
     }
     public class RepositorioUsuarios : IRepositorioUsuarios
     {
@@ -31,6 +32,13 @@ namespace OTMF_NETCORE_MVC.Services
             return await con.QuerySingleOrDefaultAsync<Usuario>
                 ("SELECT * FROM Usuarios where EmailNormalizado = @emailNormalizado",
                 new { emailNormalizado });
+        }
+        public async Task<Usuario> BuscarUsuarioPorId(int Id)
+        {
+            using var con = new SqlConnection(connectionString);
+            return await con.QuerySingleOrDefaultAsync<Usuario>
+                ("SELECT * FROM Usuarios where IdUsuarios = @Id",
+                new {Id});
         }
     }
 }

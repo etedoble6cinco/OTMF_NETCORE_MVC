@@ -4,141 +4,65 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<input asp-for="IdParte" id="idParte" type="hidden" />
 
-<div>
-    <h4>Parte</h4>
+<div class="container">
+    <h4> Detalle de Parte</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCodigoParte)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdCodigoParte)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Aluminio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Aluminio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdParteAccesorioFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdParteAccesorioFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PiezasPorCaja)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PiezasPorCaja)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CajasPorTarima)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CajasPorTarima)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StdPintura)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StdPintura)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Costo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Costo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EstandarPorHora)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EstandarPorHora)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Scrap)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Scrap)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCajaFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdCajaFkNavigation.IdCaja)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdClienteFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdClienteFkNavigation.IdCliente)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdColorFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdColorFkNavigation.IdColor)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEnsambleFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEnsambleFkNavigation.IdEnsamble)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstandarConRelevoFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstandarConRelevoFkNavigation.IdEstandarConRelevo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstandarFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstandarFkNavigation.IdEstandar)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEtiquetaFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEtiquetaFkNavigation.IdEtiqueta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdHuleFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdHuleFkNavigation.IdHule)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdInsertoFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdInsertoFkNavigation.IdInserto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdMoldeFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdMoldeFkNavigation.IdMolde)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdPinturaFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdPinturaFkNavigation.IdPintura)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdTarimaFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdTarimaFkNavigation.IdTarima)
-        </dd>
-    </dl>
+    <div class="row">
+        <div class="col-6 offset-3">
+             <div id="DetalleParte">
+
+    </div>
+        </div>
+   
+    
+    </div>
+        <a asp-action="Edit" asp-route-id="@Model?.IdParte" class="btn btn-lg btn-primary">Editar</a> 
+    <a asp-action="Index" class="btn btn-lg btn-danger">Regresar</a>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdParte">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
 </div>
+
+
+@section Scripts{
+    <script>
+
+$(document).ready(function() {
+    ObtenerDetalleParteById();
+});
+
+
+function ObtenerDetalleParteById(){
+    var IdParte = document.getElementById("idParte").value;
+    $.ajax({
+        type:"POST",
+        url:"@Url.Action("ObtenerDetalleParteById")",
+        dataType:"json",
+        data: {
+            IdParte:IdParte
+        },
+        success: function(data) {
+            
+            $("#DetalleParte").append("<div><p>Caja</p>"+data.data[0].NombreCaja+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Cliente</p>"+data.data[0].NombreCliente+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Color</p>"+data.data[0].NombreColor+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Ensamble</p>"+data.data[0].NombreEnsamble+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Estandar</p>"+data.data[0].NombreEstandar+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Estandar CR</p>"+data.data[0].NombreEstandarconRelevo+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Etiqueta</p>"+data.data[0].NombreEtiqueta+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Hule</p>"+data.data[0].NombreHule+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Inserto</p>"+data.data[0].NombreInserto+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Molde</p>"+data.data[0].NombreMolde+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Pintura</p>"+data.data[0].NombrePintura+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Tarima</p>"+data.data[0].NombreTarima+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Piezas por Caja</p>"+data.data[0].PiezasPorCaja+"</div><hr/>");
+            $("#DetalleParte").append("<div><p>Scrap</p>"+data.data[0].Scrap+"</div><hr/>");
+        }
+        
+
+    })
+}
+    </script>
+}

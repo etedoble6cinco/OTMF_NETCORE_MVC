@@ -19,8 +19,8 @@ namespace OTMF_NETCORE_MVC.Hubs
         public async Task SendOrdenTrabajo()
         {
             var ot =  repositorioOrdenesTrabajo.ObtenerOrdenesTrabajo().ToList();
-            
-            
+
+            Console.WriteLine(ot);
             await Clients.All.SendAsync("ReceivedOrdenTrabajo", new { data = ot } );
 
         }

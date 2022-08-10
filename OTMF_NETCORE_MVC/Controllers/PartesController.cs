@@ -76,6 +76,9 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura");
             ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima");
             ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorios", "NombreAccesorios");
+            ViewData["IdInstructivoPiezaFk"] = new SelectList(_context.InstructivoPiezas, "IdInstructivoPieza", "NombreInstructivoPieza");
+            ViewData["IdEtiquetaCajaFK"] = new SelectList(_context.EtiquetaCajas, "IdEtiquetaDeCaja", "NombreEtiquetaDeCaja");
+            ViewData["IdEstandarPorHoraFK"] = new SelectList(_context.EstandarPorHoras, "IdEstandarPorHora", "NombreEstandarPorHora");
             return View();
         }
 
@@ -84,7 +87,31 @@ namespace OTMF_NETCORE_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdParte,IdCodigoParte,IdTarimaFk,Aluminio,IdEnsambleFk,IdParteAccesorioFk,IdEstandarFk,IdEtiquetaFk,PiezasPorCaja,IdColorFk,CajasPorTarima,StdPintura,Costo,EstandarPorHora,IdCajaFk,IdHuleFk,IdPinturaFk,IdInsertoFk,IdMoldeFk,IdClienteFk,Scrap,IdEstandarConRelevoFk")] Parte parte)
+        public async Task<IActionResult> Create([Bind("IdParte," +
+            "IdCodigoParte," +
+            "IdTarimaFk," +
+            "Aluminio," +
+            "IdEnsambleFk," +
+            "IdParteAccesorioFk," +
+            "IdEstandarFk," +
+            "IdEtiquetaFk," +
+            "PiezasPorCaja," +
+            "IdColorFk," +
+            "CajasPorTarima," +
+            "StdPintura," +
+            "Costo," +
+            "EstandarPorHora," +
+            "IdCajaFk," +
+            "IdHuleFk," +
+            "IdPinturaFk," +
+            "IdInsertoFk," +
+            "IdMoldeFk," +
+            "IdClienteFk," +
+            "Scrap," +
+            "IdEstandarConRelevoFk," +
+            "IdInstructivoPiezaFk," +
+            "IdEtiquetaCajaFK," +
+            "IdEstandarPorHoraFK")] Parte parte)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +131,10 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "NombreMolde", parte.IdMoldeFk);
             ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura", parte.IdPinturaFk);
             ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima", parte.IdTarimaFk);
-            //ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorios", "NombreAccesorios");
+            ViewData["IdInstructivoPiezaFk"] = new SelectList(_context.InstructivoPiezas, "IdInstructivoPieza", "NombreInstructivoPieza", parte.IdInstructivoPiezaFk);
+            ViewData["IdEtiquetaCajaFK"] = new SelectList(_context.EtiquetaCajas, "IdEtiquetaDeCaja", "NombreEtiquetaDeCaja", parte.IdEtiquetaCajaFk);
+            ViewData["IdEstandarPorHora"] = new SelectList(_context.EstandarPorHoras, "IdEstandarPorHora", "NombreEstandarPorHora",parte.IdEstandarPorHoraFk);
+            ///ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorios", "NombreAccesorios");
             return View(parte);
         }
 
@@ -134,6 +164,9 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura", parte.IdPinturaFk);
             ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima", parte.IdTarimaFk);
             ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorio", "NombreAccesorio");
+             ViewData["IdInstructivoPiezaFk"] = new SelectList(_context.InstructivoPiezas, "IdInstructivoPieza", "NombreInstructivoPieza",parte.IdInstructivoPiezaFk);
+            ViewData["IdEtiquetaCajaFK"] = new SelectList(_context.EtiquetaCajas, "IdEtiquetaDeCaja", "NombreEtiquetaDeCaja",parte.IdEtiquetaCajaFk);
+            ViewData["IdEstandarPorHoraFK"] = new SelectList(_context.EstandarPorHoras, "IdEstandarPorHora", "NombreEstandarPorHora",parte.IdEstandarPorHoraFk);
             return View(parte);
         }
 
@@ -142,7 +175,31 @@ namespace OTMF_NETCORE_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdParte,IdCodigoParte,IdTarimaFk,Aluminio,IdEnsambleFk,IdParteAccesorioFk,IdEstandarFk,IdEtiquetaFk,PiezasPorCaja,IdColorFk,CajasPorTarima,StdPintura,Costo,EstandarPorHora,IdCajaFk,IdHuleFk,IdPinturaFk,IdInsertoFk,IdMoldeFk,IdClienteFk,Scrap,IdEstandarConRelevoFk")] Parte parte)
+        public async Task<IActionResult> Edit(int id, [Bind("IdParte," +
+            "IdCodigoParte," +
+            "IdTarimaFk," +
+            "Aluminio," +
+            "IdEnsambleFk," +
+            "IdParteAccesorioFk," +
+            "IdEstandarFk," +
+            "IdEtiquetaFk," +
+            "PiezasPorCaja," +
+            "IdColorFk," +
+            "CajasPorTarima," +
+            "StdPintura," +
+            "Costo," +
+            "EstandarPorHora," +
+            "IdCajaFk," +
+            "IdHuleFk," +
+            "IdPinturaFk," +
+            "IdInsertoFk," +
+            "IdMoldeFk," +
+            "IdClienteFk," +
+            "Scrap," +
+            "IdEstandarConRelevoFk," +
+            "IdInstructivoPiezaFk," +
+            "IdEtiquetaCajaFk," +
+            "IdEstandarPorHoraFk")] Parte parte)
         {
             if (id != parte.IdParte)
             {
@@ -181,6 +238,9 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdMoldeFk"] = new SelectList(_context.Moldes, "IdMolde", "NombreMolde", parte.IdMoldeFk);
             ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura", parte.IdPinturaFk);
             ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima", parte.IdTarimaFk);
+            ViewData["IdInstructivoPiezaFk"] = new SelectList(_context.InstructivoPiezas, "IdInstructivoPiezas", "NombreInstructivoPiezas", parte.IdInstructivoPiezaFk);
+            ViewData["IdEtiquetaCajaFK"] = new SelectList(_context.EtiquetaCajas, "IdEtiquetaDeCaja", "NombreEtiquetaDeCaja", parte.IdEtiquetaCajaFk);
+            ViewData["IdEstandarPorHora"] = new SelectList(_context.EstandarPorHoras, "IdEstandarPorHora", "NombreEstandarPorHora", parte.IdEstandarPorHoraFk);
             return View(parte);
         }
 
@@ -291,6 +351,20 @@ namespace OTMF_NETCORE_MVC.Controllers
                     IdParteAccesorio = IdParteAccesorio
                 }, commandType: CommandType.StoredProcedure);
                 return Json(new { data = confirm });
+            }
+        }
+        [HttpPost]
+        public JsonResult ObtenerDetalleParteById (int IdParte)
+        {
+            var procedure = "[ObtenerDetalleParteById]";
+
+            using (var connection = new SqlConnection(con))
+            {
+                var DetalleParte = connection.Query(procedure, new
+                {
+                    IdParte = IdParte
+                }, commandType: CommandType.StoredProcedure);
+                return Json( new {data = DetalleParte });
             }
         }
     }

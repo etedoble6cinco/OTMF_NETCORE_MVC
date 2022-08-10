@@ -30,8 +30,6 @@
 
   <ItemGroup>
     <Folder Include="Repositories\" />
-    <Folder Include="wwwroot\Uploads\Etiquetas\Cajas\" />
-    <Folder Include="wwwroot\Uploads\Etiquetas\Partes\" />
     <Folder Include="wwwroot\Uploads\NewFolder\" />
   </ItemGroup>
 
