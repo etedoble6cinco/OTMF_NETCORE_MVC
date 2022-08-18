@@ -1,0 +1,309 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-3" >
+        <fieldset>
+            <legend><h5 class="display-6">Gestionar</h5></legend>
+        <div class="d-flex flex-column flex-shrink-0 p-1 bg-light">
+  
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+   
+      <li>
+        <a class="nav-link link-dark" asp-controller="Configuracion" asp-action="Usuarios">
+            <svg class="bi me-2" width="16" height="16"></svg>
+         Usuarios
+        </a>
+      </li>
+      
+      <li>
+        <a class="nav-link link-dark active" asp-controller="Configuracion"  asp-action="EstandaresParametros">
+            <svg class="bi me-2" width="16" height="16"></svg>
+         Estandares & Parametros 
+        </a>  
+      
+      </li>
+    </ul>
+    <hr>
+  
+  </div>
+  </fieldset>
+    </div>
+        <div class="col-9">
+            <fieldset>
+
+                <legend>Configuracion</legend>
+                  <div class="d-flex flex-row">
+                                      <div class="card" style="width: 18rem;">
+ 
+  <div class="card-body">
+    <h5 class="card-title"><div class="badge bg-primary">Fraccion Estandar c/ Relevo</div></h5>
+    <p class="card-text" id="FraccionEstandar"></p>
+   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#FraccionEstandarModal">
+  Editar
+</button>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+ 
+  <div class="card-body">
+    <h5 class="card-title"><div class="badge bg-primary"> Porcentaje de Scrap permitido</div></h5>
+    <p class="card-text" id="ScrapPermitido"></p>
+   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ScrapPermitidoModal">
+  Editar
+</button>
+  </div>
+</div>
+
+                  </div>
+               <div class="d-flex flex-row">
+                   <table class="table caption-top">
+                       <caption>Horarios de asignacion para ordenes de trabajo</caption>
+                       <thead>
+                          <tr>
+                              <th> Nombre turno</th>
+                              <th> Horas Trabajadas</th>  
+                              <th> Acciones</th>
+                          </tr>
+                       </thead>
+                       <tbody id="HorariosContent">
+                         
+                       </tbody>
+                       <tfoot>
+
+                       </tfoot>
+                   </table>
+               </div>
+            </fieldset>
+    </div>
+    </div>
+</div>
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="FraccionEstandarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar fraccion estandar c/ Relevo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+                  <input type="number" id="FraccionEstandarRelevo" class="form-control" />
+          </div>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="UpdateFraccionEstandarRelevo()" >Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="ScrapPermitidoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar porcentaje de scrap permitido</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <input type="number" id="PorcentajeScrapPermitido" class="form-control" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="UpdatePorcentajeScrapPermitido()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="PrimerHorario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Primer Turno</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="NombreTurno">Nombre del Turno</label>
+            <input type="text" class="form-control" id="NombreTurnoPrimerHorario" name="NombreTurno" />
+            <label for="HorasTrabajadas">Horas Trabajadas</label>
+            <input type="number" class="form-control" id="HorasTrabajadasPrimerHorario" name="HorasTrabajadas"/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="UpdatePrimerHorario()" >Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="SegundoHorario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Segundo Turno</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="NombreTurnoSegundoHorario">Nombre del Turno</label>
+            <input type="text" class="form-control" id="NombreSegundoTurno" name="NombreTurno" />
+            <label for="HorasTrabajadasSegundoHorario">Horas Trabajadas</label>
+            <input type="number" class="form-control" id="HorasTrabajadasSegundoTurno" name="HorasTrabajadas"/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="UpdateSegundoHorario()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function(){
+            ObtenerFraccionEstandarRelevo();
+            ObtenerPorcentajeScrapPermitido();
+            ObtenerTurnoOt();
+          
+        });
+
+function ObtenerPorcentajeScrapPermitido(){
+
+    $.ajax({
+        type:'GET',
+        url:'@Url.Action("ObtenerPorcentajeScrapPermitido")',
+        dataType:'json',
+        success: function(data) {
+            
+            $("#ScrapPermitido").html("");
+            $("#ScrapPermitido").append("<p>"+data.data[0].porcentajeScrapPermitido+"</p>");
+        }
+    })
+    
+}
+function UpdatePrimerHorario() {
+    var HorasTrabajadasPrimerTurno = document.getElementById("HorasTrabajadasPrimerHorario").value;
+    var NombrePrimerTurno = document.getElementById("NombreTurnoPrimerHorario").value;
+    console.log(NombreTurnoPrimerHorario);
+    $.ajax({
+        type:'POST',
+        url:'@Url.Action("UpdatePrimerTurnoOt")',
+        dataType:'json',
+        data: {
+            NombreTurno:NombrePrimerTurno,
+            HorasTrabajadas:HorasTrabajadasPrimerTurno
+        },
+        success: function(data) {
+           
+            ObtenerTurnoOt();
+             $("#PrimerHorario").modal('hide');
+
+        }
+    });
+}
+function UpdateSegundoHorario() {
+    var HorasTrabajadasSegundoTurno = document.getElementById("HorasTrabajadasSegundoTurno").value;
+   var NombreSegundoTurno = document.getElementById("NombreSegundoTurno").value;
+    $.ajax({
+        type:'POST',
+        url:'@Url.Action("UpdateSegundoTurnoOt")',
+        dataType:'json',
+        data:{
+            NombreTurno:NombreSegundoTurno,
+            HorasTrabajadas:HorasTrabajadasSegundoTurno
+        },
+        success: function(data) {
+           
+            ObtenerTurnoOt();
+            $("#SegundoHorario").modal('hide');
+        }
+    });
+
+}
+function ObtenerTurnoOt() {
+    $.ajax({
+        type: 'GET',
+        url:'@Url.Action("ObtenerTurnoOt")',
+        dataType:'json',
+        success: function(data) {
+       
+            $("#HorariosContent").html("");
+            $("#HorariosContent").append("<tr><td>" + data.data[0].nombreTurno + "</td>" +
+                "<td>" + data.data[0].horasTrabajadas + "</td>"+
+                "<td><button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#PrimerHorario'>Editar</button></td></tr>");  
+                $("#HorariosContent").append("<tr><td>" + data.data[1].nombreTurno + "</td>" +
+                "<td>" + data.data[1].horasTrabajadas + "</td>"+
+                "<td><button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#SegundoHorario'>Editar</button></td></tr>");
+        }
+    })
+} 
+function ObtenerFraccionEstandarRelevo() {
+    $.ajax({
+        type:'GET',
+        url:'@Url.Action("ObtenerFraccionEstandarRelevo")',
+        dataType:'json',
+        success: function(data) {
+            
+            $("#FraccionEstandar").html("");
+            $("#FraccionEstandar").append("<p>"+data.data[0].fracEstandarRelevo+
+            "</p>");
+        }
+    });
+}
+function UpdateFraccionEstandarRelevo() {
+    var FraccionEstandarRelevo = document.getElementById("FraccionEstandarRelevo").value;
+    $.ajax({
+        type:'POST',
+        url:'@Url.Action("UpdateFraccionEstandarRelevo")',
+        dataType:'json',
+        data: {
+            FracEstandarRelevo:FraccionEstandarRelevo
+        },
+        success: function(data) {
+      
+            ObtenerFraccionEstandarRelevo();
+               $('#FraccionEstandarModal').modal('hide');
+        }
+    });
+}
+function UpdatePorcentajeScrapPermitido() {
+    var PorcentajeScrapPermitido = document.getElementById("PorcentajeScrapPermitido").value;
+    $.ajax({
+        type:'POST',
+        url:'@Url.Action("UpdatePorcentajeScrapPermitido")',
+        dataType:'json',
+        data:{
+            PorcentajeScrapPermitido:PorcentajeScrapPermitido
+        },
+        success: function(data) {
+            ObtenerPorcentajeScrapPermitido();
+               $('#ScrapPermitidoModal').modal('hide');
+        }
+
+    });
+}
+
+    </script>
+}
+
+
+

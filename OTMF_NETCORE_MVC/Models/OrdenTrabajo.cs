@@ -30,10 +30,20 @@ namespace OTMF_NETCORE_MVC.Models
         public int? IdEstandarPorHoraFk { get; set; }
         public int? MaxScrap { get; set; }
         public string? IdCodigoOrdenTrabajo { get; set; }
+        public bool? Otespecial { get; set; }
+        public int? IdTurnoOtFk { get; set; }
+        public decimal? ScrapCalculado { get; set; }
+        public decimal? EstandarCalculado { get; set; }
+        public decimal? EstandarConRelevoCalculado { get; set; }
+        public decimal? EstandarPorHorasCalculado { get; set; }
+        public decimal? HorasTrabajadasCalculado { get; set; }
+        public decimal? PorcentajeScrapCalculado { get; set; }
+        public decimal? FracEstandarConRelevo { get; set; }
 
         public virtual EstadoOrden? IdEstadoOrdenFkNavigation { get; set; }
         public virtual Instructivo? IdInstructivoFkNavigation { get; set; }
         public virtual Parte? IdParteFkNavigation { get; set; }
+        public virtual TurnoOt? IdTurnoOtFkNavigation { get; set; }
         public virtual ICollection<MaquinaOrdenTrabajo> MaquinaOrdenTrabajos { get; set; }
         public virtual ICollection<OrdenTrabajoEmpleado> OrdenTrabajoEmpleados { get; set; }
     }

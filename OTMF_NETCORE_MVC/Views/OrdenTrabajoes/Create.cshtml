@@ -6,13 +6,13 @@
 
 
 <div class="container">
-    <h6 class="display-5">Crear Orden Trabajo</h6>
+    <h6>Crear Orden Trabajo</h6>
 
 
 <hr />
     
     <div>
-        <form asp-action="Create" class="row m-2 border border-2">
+        <form asp-action="Create" id="Createot" class="row m-2 border border-2">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
            <div class="col-6">
@@ -34,12 +34,19 @@
                 <input asp-for="IdEstandarPorHoraFk" type="hidden" value="0" class="form-control" />
                 <input asp-for="IdOrdenTrabajo" type="hidden" id="IdOrdenTrabajo" class="form-control" />
                 <input asp-for="IdInstructivoFk" type="hidden" id="IdInstructivoFk" />
+                <input asp-for="Otespecial" type="hidden" id="IdOTespecial" />
                 <!------>
 
             <div class="form-group">
                 <label asp-for="IdEstadoOrdenFk" class="control-label">Estado inicial de la Orden Trabajo</label>
                    <select asp-for="IdEstadoOrdenFk" id="IdEstadoOrdenFk"  class ="form-control" asp-items="ViewBag.IdEstadoOrdenFk" required>
                        <option value="0" selected disabled>Seleccionar</option>
+                   </select>
+            </div>  
+            <div class="form-group">
+                <label asp-for="IdEstadoOrdenFk" class="control-label">Turno Orden Trabajo</label>
+                   <select asp-for="IdTurnoOtFk"   class ="form-control" asp-items="ViewBag.IdTurnoOtFk" required>
+                       <option  selected disabled>Seleccionar Turno Orden Trabajo</option>
                    </select>
             </div>
            
@@ -50,28 +57,99 @@
     </div>
     <div class="col-6">
         
-            <div class="form-group">
+        <div id="prefixOT">
+              <section class="form-group" id="otnormal">
+                    <label>Codigo Orden Trabajo</label>
+              <div class="input-group mb-3">
+                
+                      <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"></span>
+                      </div>
+                      
+                      <input type="text" class="form-control" asp-for="IdCodigoOrdenTrabajo" placeholder="Nombre Orden de Trabajo" aria-label="Orden Trabajo normal" id="InputPrefixValue" aria-describedby="basic-addon1">
+                      </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa-solid fa-gear"></i>
+</button>
+        </section>
+            <section class="form-group" style="display:none;" id="otespecial">
                 <label asp-for="IdCodigoOrdenTrabajo" class="control-label"> Codigo Orden Trabajo</label>
-                <input asp-for="IdCodigoOrdenTrabajo" class="form-control" required/>
+                <input asp-for="IdCodigoOrdenTrabajo" id="InputNormalot" placeholder="Orden de Trabajo Especial" class="form-control mb-3" required/>
                 <span asp-validation-for="IdCodigoOrdenTrabajo" class="text-danger"></span>
+          </section>
+
+        </div>
+
+      
+          <div class="form-group">
+                <input class="form-check-input" onchange="Getchkvalue()" type="checkbox" value="true"  id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">Orden Trabajo Especial</label>
           </div>
     </div>
             <div class="d-block mt-3">
-              
+                   <input type="button" value="Crear" onclick="CheckChkEspecialValue()" class="btn btn-lg btn-primary" />
                    <a asp-action="Index" type="button" class="btn btn-danger btn-lg">Regresar</a> 
-                   <input type="submit" value="Crear" class="btn btn-lg btn-primary" />
+                 
             </div>
         </form>
     </div>
 </div>
 
 <div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar prefijo de Orden de Trabajo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control" id="prefix" placeholder="Prefijo para Orden de Trabajo" type="text" max="20" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-primary" onclick="UpdatePrefixOT()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 
 @section Scripts {
      <script>
+function CheckChkEspecialValue() {
+    var chk = document.getElementById("flexCheckChecked").checked;
+ 
+    if (chk == true) {
+        var inputPrefixValue = document.getElementById("InputNormalot").value;
+        document.getElementById("InputPrefixValue").value = inputPrefixValue;
+        document.getElementById("IdOTespecial").value = true;
+    
+           $('#Createot').submit();
+    }
+    else{
+        var inputPrefixValue = document.getElementById("InputNormalot").value;
+        document.getElementById("IdOTespecial").value = false;
+    
+        $('#Createot').submit();
+    }
+   
+}
+         function Getchkvalue(){
+             var inputPrefixValue = document.getElementById("InputPrefixValue").value;
+             var prefix = document.getElementById("basic-addon1").innerText;
+            
+             $("#prefixOT section").toggle();
+             var chk = document.getElementById("flexCheckChecked").value;
+           
+            
+         }
+
         $(document).ready(function() {
+   
+            ObtenerPrefixOT();
             ObtenerUltimoIdOT();
      
         var now = new Date();
@@ -92,6 +170,37 @@
         }
     });
         }
+        function ObtenerPrefixOT() {
+            $.ajax({
+                type:'GET',
+                url:'@Url.Action("ObtenerPrefixOT")',
+                dataType:'json',
+                success: function(data) {
+                    console.log(data.data);
+                    document.getElementById("basic-addon1").innerText = "";
+                    document.getElementById("basic-addon1").innerText = data.data.nombrePrefix;
+                }
+
+            });
+
+        }
+        function UpdatePrefixOT(){
+            var prefixOt = document.getElementById("prefix").value;
+            $.ajax({
+                type:'POST',
+                url:'@Url.Action("UpdatePrefixOT")',
+                dataType:'json',
+                data: {
+                    prefixOt:prefixOt
+                },
+                success: function(data) {
+                    
+                    ObtenerPrefixOT();
+                }
+            });
+        }
+        
+        
 
 
        

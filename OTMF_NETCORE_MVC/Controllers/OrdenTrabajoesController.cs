@@ -83,6 +83,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden");
             ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo");
             ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte");
+            ViewData["IdTurnoOtFk"] = new SelectList(_context.TurnoOts, "IdTurnoOt", "NombreTurno");
             return View();
         }
     
@@ -91,11 +92,33 @@ namespace OTMF_NETCORE_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdEmpleadoMoldeadorFk,IdEmpleadoEmpacadorFk,IdOrdenTrabajo,IdMaquinaFk,FechaOrdenTrabajo,IdParteFk,CantidadPiezasPororden,CajasRecibidas,PiezasRealizadas,IdInstructivoFk,HoraInicio,HoraFinalizacion,IdEmpeadoSupervisorFk,IdEstadoOrdenFk,EtiquetaDeCaja,IdEstandarConRelevoFk,IdEstandarPorHoraFk,MaxScrap,IdCodigoOrdenTrabajo")] OrdenTrabajo ordenTrabajo)
+        public async Task<IActionResult> Create([Bind("IdEmpleadoMoldeadorFk,IdEmpleadoEmpacadorFk,IdOrdenTrabajo,IdMaquinaFk,FechaOrdenTrabajo,IdParteFk,CantidadPiezasPororden,CajasRecibidas,PiezasRealizadas,IdInstructivoFk,HoraInicio,HoraFinalizacion,IdEmpeadoSupervisorFk,IdEstadoOrdenFk,EtiquetaDeCaja,IdEstandarConRelevoFk,IdEstandarPorHoraFk,MaxScrap,IdCodigoOrdenTrabajo,Otespecial,IdTurnoOtFk")] OrdenTrabajo ordenTrabajo)
         {
             if (ModelState.IsValid)
             {
-                ordenTrabajo.IdInstructivoFk = 3;   
+
+                if(ordenTrabajo.Otespecial == false){
+
+                    var prefix = _context.PrefixOts.FirstOrDefault(m => m.IdPrefixOt == 1);
+                    ordenTrabajo.IdCodigoOrdenTrabajo =   prefix.NombrePrefix + ordenTrabajo.IdCodigoOrdenTrabajo;
+                   
+                }
+                    var turnoOt = await _context.TurnoOts
+                     .FirstOrDefaultAsync(m => m.IdTurnoOt == ordenTrabajo.IdTurnoOtFk);
+                    var fraccionEstandarRelevo = await _context.FraccionEstandarRelevos.FirstOrDefaultAsync(x => x.IdFraccionEstandarRelevo
+                    == 1);
+                    var PorcentajeScrapPermitido = await _context.ScrapPermitidos.FirstOrDefaultAsync(y => y.IdScrapPermitido
+                    == 1);
+                    var Parte = await _context.Partes.FirstOrDefaultAsync(g => g.IdParte == ordenTrabajo.IdParteFk);
+                    var EstandarPorHoras = await _context.EstandarPorHoras.FirstOrDefaultAsync(d => d.IdEstandarPorHora == Parte.IdEstandarPorHoraFk);
+                    ordenTrabajo.ScrapCalculado = CalularScrap((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas, (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido);
+                    ordenTrabajo.EstandarCalculado = CalcularEstandar((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas);
+                    ordenTrabajo.EstandarConRelevoCalculado = CalcularEstandarConRelevo((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas, (decimal)fraccionEstandarRelevo.FracEstandarRelevo);
+                    ordenTrabajo.EstandarPorHorasCalculado = (decimal)EstandarPorHoras.NombreEstandarPorHora;
+                    ordenTrabajo.HorasTrabajadasCalculado = (decimal)turnoOt.HorasTrabajadas;
+                    ordenTrabajo.PorcentajeScrapCalculado = (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido;
+                ordenTrabajo.FracEstandarConRelevo = (decimal)fraccionEstandarRelevo.FracEstandarRelevo;
+                    ordenTrabajo.IdInstructivoFk = 3;   
                 _context.Add(ordenTrabajo);
              
                 await _context.SaveChangesAsync();
@@ -119,7 +142,20 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
             return View(ordenTrabajo);
         }
-
+        public decimal CalularScrap(decimal estandarPorHora , decimal horasTrabajadas , decimal porcentajeScrapPermitido)
+        {
+            decimal result = (estandarPorHora * horasTrabajadas);
+            return result * porcentajeScrapPermitido;
+        }
+        public decimal CalcularEstandar(decimal estandarPorHora , decimal horasTrabajadas)
+        {
+            return estandarPorHora * horasTrabajadas;
+        }
+        public decimal CalcularEstandarConRelevo(decimal estandarPorHora , decimal horasTrabajadas , decimal fracEstandarConRelevo)
+        {
+            decimal result = horasTrabajadas + fracEstandarConRelevo;
+            return result * estandarPorHora;
+        }
         // GET: OrdenTrabajoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -301,6 +337,25 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new {data = OrdenTrabajo});
             }
         }
-     
+        [HttpGet]
+        public JsonResult ObtenerPrefixOT()
+        {
+            var prefix = _context.PrefixOts.FirstOrDefault(m => m.IdPrefixOt == 1);
+            return Json(new { data = prefix });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdatePrefixOT(string prefixOt)
+        {
+            PrefixOt prefix = new PrefixOt();
+
+            prefix.IdPrefixOt = 1;
+            prefix.NombrePrefix = prefixOt;
+            _context.Update(prefix);
+            await _context.SaveChangesAsync();
+            return Json(new {data = "Guardado"});
+        }
+
+
     }
 }

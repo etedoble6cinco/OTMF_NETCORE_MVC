@@ -90,6 +90,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = parte });
             }
         }
+        //METODO PARA OBTENER EMPLEADO BY ORDEN DE TRABAJO ID
         [HttpPost]
         public JsonResult ObtenerEmpleadosByOTId(int id)
         {
@@ -102,7 +103,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = empleados });
             }
         }
-
+        
         [HttpPost]
         public JsonResult UpsertAsignacionEmpleadoOTById(UpsertAsignacionEmpleadoOTById obj)
         {

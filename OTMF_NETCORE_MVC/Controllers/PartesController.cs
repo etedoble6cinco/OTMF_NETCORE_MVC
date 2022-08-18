@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -26,7 +24,19 @@ namespace OTMF_NETCORE_MVC.Controllers
         // GET: Partes
         public async Task<IActionResult> Index()
         {
-            var oTMFContext = _context.Partes.Include(p => p.IdCajaFkNavigation).Include(p => p.IdClienteFkNavigation).Include(p => p.IdColorFkNavigation).Include(p => p.IdEnsambleFkNavigation).Include(p => p.IdEstandarConRelevoFkNavigation).Include(p => p.IdEstandarFkNavigation).Include(p => p.IdEtiquetaFkNavigation).Include(p => p.IdHuleFkNavigation).Include(p => p.IdInsertoFkNavigation).Include(p => p.IdMoldeFkNavigation).Include(p => p.IdPinturaFkNavigation).Include(p => p.IdTarimaFkNavigation);
+            var oTMFContext = _context.Partes.Include(p => 
+            p.IdCajaFkNavigation).Include(p => 
+            p.IdClienteFkNavigation).Include(p => 
+            p.IdColorFkNavigation).Include(p => 
+            p.IdEnsambleFkNavigation).Include(p => 
+            p.IdEstandarConRelevoFkNavigation).Include(p => 
+            p.IdEstandarFkNavigation).Include(p => 
+            p.IdEtiquetaFkNavigation).Include(p => 
+            p.IdHuleFkNavigation).Include(p => 
+            p.IdInsertoFkNavigation).Include(p => 
+            p.IdMoldeFkNavigation).Include(p => 
+            p.IdPinturaFkNavigation).Include(p => 
+            p.IdTarimaFkNavigation);
             return View(await oTMFContext.ToListAsync());
         }
 
@@ -110,11 +120,23 @@ namespace OTMF_NETCORE_MVC.Controllers
             "Scrap," +
             "IdEstandarConRelevoFk," +
             "IdInstructivoPiezaFk," +
-            "IdEtiquetaCajaFK," +
-            "IdEstandarPorHoraFK")] Parte parte)
+            "IdEtiquetaCajaFk," +
+            "IdEstandarPorHoraFk")] Parte parte)
         {
             if (ModelState.IsValid)
             {
+                   
+             
+                    parte.IdEstandarFk = 2;
+                
+                    parte.StdPintura = 0; 
+                
+                    parte.EstandarPorHora = 0;
+                   
+                    parte.Scrap = 0; 
+                    parte.IdEstandarConRelevoFk = 2; 
+                   
+
                 _context.Add(parte);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -136,6 +158,13 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdEstandarPorHora"] = new SelectList(_context.EstandarPorHoras, "IdEstandarPorHora", "NombreEstandarPorHora",parte.IdEstandarPorHoraFk);
             ///ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorios", "NombreAccesorios");
             return View(parte);
+        }
+
+        public async Task<IActionResult> CallRegistro (int id)
+        {
+            _context.Estandars.FindAsync(id);
+
+            return null;
         }
 
         // GET: Partes/Edit/5
@@ -164,7 +193,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdPinturaFk"] = new SelectList(_context.Pinturas, "IdPintura", "NombrePintura", parte.IdPinturaFk);
             ViewData["IdTarimaFk"] = new SelectList(_context.Tarimas, "IdTarima", "NombreTarima", parte.IdTarimaFk);
             ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorio", "NombreAccesorio");
-             ViewData["IdInstructivoPiezaFk"] = new SelectList(_context.InstructivoPiezas, "IdInstructivoPieza", "NombreInstructivoPieza",parte.IdInstructivoPiezaFk);
+            ViewData["IdInstructivoPiezaFk"] = new SelectList(_context.InstructivoPiezas, "IdInstructivoPieza", "NombreInstructivoPieza",parte.IdInstructivoPiezaFk);
             ViewData["IdEtiquetaCajaFK"] = new SelectList(_context.EtiquetaCajas, "IdEtiquetaDeCaja", "NombreEtiquetaDeCaja",parte.IdEtiquetaCajaFk);
             ViewData["IdEstandarPorHoraFK"] = new SelectList(_context.EstandarPorHoras, "IdEstandarPorHora", "NombreEstandarPorHora",parte.IdEstandarPorHoraFk);
             return View(parte);

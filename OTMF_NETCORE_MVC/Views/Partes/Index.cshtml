@@ -113,39 +113,26 @@
    
                          <thead> 
                              <tr>
-                                 <th>idParte </th>
                                  <th>Codigo Parte </th>
                                  <th>Aluminio</th>
                                  <th>Cajas por Tarima</th>
                                  <th>Costo</th>
                                  <th>Estandar por Hora</th>
-                                 <th>piezasPorCaja </th>
+                                 <th>Piezas Por Caja</th>
                                  <th>scrap</th>
                                  <th>std_Pintura</th>
-                                 <th>idCaja</th>
-                                 <th>nombreCaja</th>
-                                 <th>idColor</th>
-                                 <th>nombreColor</th>
-                                 <th>idPintura</th>
-                                 <th>nombrePintura</th>
-                                 <th>idTarima</th>
-                                 <th>nombreTarima</th>
-                                 <th>idMolde</th>
-                                 <th>nombreMolde</th>
-                                 <th>idEnsamble</th>
-                                 <th>nombreEnsamble</th>
-                                 <th>idEstandarConRelevo</th>
-                                 <th>nombreEstandarConRelevo</th>
-                                 <th>idEtiqueta</th>
-                                 <th>nombreEtiqueta</th>
-                                 <th>idInserto</th>
-                                 <th>nombreInserto</th>
-                                 <th>idHule</th>
-                                 <th>nombreHule</th>
-                                 <th>idEstandar</th>
-                                 <th>nombreEstandar</th>
-                                 <th>idCliente</th>
-                                 <th>nombreCliente</th>
+                                 <th>Nombre Caja</th>      
+                                 <th>Nombre Color</th>
+                                 <th>Nombre Pintura</th>
+                                 <th>Nombre Tarima</th>
+                                 <th>Nombre Molde</th>
+                                 <th>Nombre Ensamble</th>
+                                 <th>Nombre Estanadar Con Relevo</th>
+                                 <th>Nombre Etiqueta</th>
+                                 <th>Nombre Inserto</th>
+                                 <th>Nombre Hule</th>
+                                 <th>Nombre Estandar</th>
+                                 <th>Nombre Cliente</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -178,21 +165,7 @@ $(document).ready(function () {
                 className: 'btn btn-lg btn-success'
 
             },
-            {
-                extend: 'pdfHtml5',
-                text: '<i class="fas fa-file-pdf"></i>',
-                tittleAttr: 'Exportar a Excel',
-                className: 'btn btn-lg btn-danger'
-
-            }
-            , {
-                extend: 'print',
-                text: '<i class="fa fa-print"></i>',
-                tittleAttr: 'Imprimir',
-                className: 'btn btn-lg btn-info'
-
-            }
-            ,
+           
             {
                 text:'<i class="fa fa-plus" aria-hidden="true"></i>',
                 tittleAttr: 'Agregar Nuevo',
@@ -209,46 +182,29 @@ $(document).ready(function () {
         select:false,
         rowId:"idParte",
         "columns": [
-            { "data": "idParte" },
-            { "data": "idCodigoParte" },
-            { "data": "aluminio" },
-            { "data": "cajasPorTarima" },
-            { "data": "costo" },
-            { "data": "estandarPorHora" },
-            { "data": "piezasPorCaja" },
-            { "data": "scrap" },
-            { "data": "std_Pintura" },
-            { "data": "idCaja" },
-            { "data": "nombreCaja" },
-            { "data": "idColor" },
-            { "data": "nombreColor" },
-            { "data": "idPintura" },
-            { "data": "nombrePintura" },
-            { "data": "idTarima" },
-            { "data": "nombreTarima" },
-            { "data": "idMolde" },
-            { "data": "nombreMolde" },
-            { "data": "idEnsamble" },
-            { "data": "nombreEnsamble" },
-            { "data": "idEstandarConRelevo" },
-            { "data": "nombreEstandarConRelevo" },
-            { "data": "idEtiqueta" },
-            { "data": "nombreEtiqueta" },
-            { "data": "idInserto" },
-            { "data": "nombreInserto" },
-            { "data": "idHule" },
-            { "data": "nombreHule" },
-            { "data": "idEstandar" },
-            { "data": "nombreEstandar" },
-            { "data": "idCliente" },
-            { "data": "nombreCliente" }
-           
+            { "data": "idCodigoParte"},
+            { "data": "aluminio"},
+            { "data": "cajasPorTarima"},
+            { "data": "costo"},
+            { "data": "estandarPorHora"},
+            { "data": "piezasPorCaja"},
+            { "data": "scrap"},
+            { "data": "std_Pintura"},
+            { "data": "nombreCaja"},
+            { "data": "nombreColor"},
+            { "data": "nombrePintura"},     
+            { "data": "nombreTarima"},      
+            { "data": "nombreMolde"},     
+            { "data": "nombreEnsamble"},       
+            { "data": "nombreEstandarConRelevo"},
+            { "data": "nombreEtiqueta"},     
+            { "data": "nombreInserto"},       
+            { "data": "nombreHule"},      
+            { "data": "nombreEstandar"},
+            { "data": "nombreCliente"}
         ]
-
-        
     });
 
-   
     var table = $('#Partes').DataTable();
      $('#Partes').on( 'click', 'td', function () {
     var id = table.row( this ).id();

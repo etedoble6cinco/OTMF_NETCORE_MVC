@@ -189,7 +189,6 @@ function FillDetalles(data) {
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Codigo de Parte</p><p>"+data.data[x].idCodigoParte+                   "</p></div>"
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Maximo Scrap</p><p>"+data.data[x].maxScrap+                           "</p></div>"
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Estado de la Orden de Trabajo</p><p>"+data.data[x].nombreEstadoOrden+ "</p></div>"
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre del Instructivo</p><p>"+data.data[x].nombreInstructivo+        "</p></div>"
 
         +"</section>");
                                          
@@ -220,8 +219,8 @@ function FillParte(data) {
     $.each(data.data, function(n) {
 
         $("#pills-tabContent").append("<section class='d-flex flex-wrap justify-content-center' id='Parte'>"
-        +"<div><img width='170' height='110' class='card'  src='/Uploads//Etiquetas/Partes/"+data.data[x].nombreEtiquetaDeCaja+".jpg' /></div>"
-        +"<div><img width='170' height='110' class='card' src='/Uploads//Etiquetas/Cajas/"+data.data[x].nombreEtiqueta+".jpg' /></div>"
+        +"<div><img width='170' height='110' class='card'  src='/Uploads//Etiquetas/Partes/"+data.data[x].nombreEtiqueta+".jpg' /></div>"
+        +"<div><img width='170' height='110' class='card' src='/Uploads//Etiquetas/Cajas/"+data.data[x].nombreEtiquetaDeCaja+".jpg' /></div>"
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Aluminio</p><p>"+data.data[x].aluminio        +"</p></div>" 
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Cajas por Tarima</p><p>"+data.data[x].cajasPorTarima  +"</p></div>" 
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Costo</p><p>"+data.data[x].costo           +"</p></div>" 

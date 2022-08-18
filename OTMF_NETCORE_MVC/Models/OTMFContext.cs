@@ -29,6 +29,7 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual DbSet<EstandarPorHora> EstandarPorHoras { get; set; } = null!;
         public virtual DbSet<EtiquetaCaja> EtiquetaCajas { get; set; } = null!;
         public virtual DbSet<Etiquetum> Etiqueta { get; set; } = null!;
+        public virtual DbSet<FraccionEstandarRelevo> FraccionEstandarRelevos { get; set; } = null!;
         public virtual DbSet<Hule> Hules { get; set; } = null!;
         public virtual DbSet<Inserto> Insertos { get; set; } = null!;
         public virtual DbSet<Instructivo> Instructivos { get; set; } = null!;
@@ -41,11 +42,14 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual DbSet<Parte> Partes { get; set; } = null!;
         public virtual DbSet<ParteAccesorio> ParteAccesorios { get; set; } = null!;
         public virtual DbSet<Pintura> Pinturas { get; set; } = null!;
+        public virtual DbSet<PrefixOt> PrefixOts { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<RolesUsuario> RolesUsuarios { get; set; } = null!;
+        public virtual DbSet<ScrapPermitido> ScrapPermitidos { get; set; } = null!;
         public virtual DbSet<Tarima> Tarimas { get; set; } = null!;
         public virtual DbSet<TipoEmpleado> TipoEmpleados { get; set; } = null!;
         public virtual DbSet<Turno> Turnos { get; set; } = null!;
+        public virtual DbSet<TurnoOt> TurnoOts { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -233,6 +237,16 @@ namespace OTMF_NETCORE_MVC.Models
                 entity.Property(e => e.PathNombreEtiqueta).IsUnicode(false);
             });
 
+            modelBuilder.Entity<FraccionEstandarRelevo>(entity =>
+            {
+                entity.HasKey(e => e.IdFraccionEstandarRelevo)
+                    .HasName("PK__Fraccion__72BEC92AD9353AC0");
+
+                entity.ToTable("FraccionEstandarRelevo");
+
+                entity.Property(e => e.FracEstandarRelevo).HasColumnType("decimal(5, 5)");
+            });
+
             modelBuilder.Entity<Hule>(entity =>
             {
                 entity.HasKey(e => e.IdHule)
@@ -336,11 +350,21 @@ namespace OTMF_NETCORE_MVC.Models
 
                 entity.Property(e => e.IdOrdenTrabajo).ValueGeneratedNever();
 
+                entity.Property(e => e.EstandarCalculado).HasColumnType("decimal(30, 10)");
+
+                entity.Property(e => e.EstandarConRelevoCalculado).HasColumnType("decimal(30, 10)");
+
+                entity.Property(e => e.EstandarPorHorasCalculado).HasColumnType("decimal(30, 10)");
+
                 entity.Property(e => e.FechaOrdenTrabajo).HasColumnType("datetime");
+
+                entity.Property(e => e.FracEstandarConRelevo).HasColumnType("decimal(30, 10)");
 
                 entity.Property(e => e.HoraFinalizacion).HasColumnType("datetime");
 
                 entity.Property(e => e.HoraInicio).HasColumnType("datetime");
+
+                entity.Property(e => e.HorasTrabajadasCalculado).HasColumnType("decimal(30, 10)");
 
                 entity.Property(e => e.IdCodigoOrdenTrabajo)
                     .HasMaxLength(30)
@@ -364,6 +388,12 @@ namespace OTMF_NETCORE_MVC.Models
 
                 entity.Property(e => e.IdParteFk).HasColumnName("IdParteFK");
 
+                entity.Property(e => e.IdTurnoOtFk).HasColumnName("IdTurnoOtFK");
+
+                entity.Property(e => e.PorcentajeScrapCalculado).HasColumnType("decimal(30, 10)");
+
+                entity.Property(e => e.ScrapCalculado).HasColumnType("decimal(30, 10)");
+
                 entity.HasOne(d => d.IdEstadoOrdenFkNavigation)
                     .WithMany(p => p.OrdenTrabajos)
                     .HasForeignKey(d => d.IdEstadoOrdenFk)
@@ -381,6 +411,12 @@ namespace OTMF_NETCORE_MVC.Models
                     .HasForeignKey(d => d.IdParteFk)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("OrdenTrabajo_IdParteFK");
+
+                entity.HasOne(d => d.IdTurnoOtFkNavigation)
+                    .WithMany(p => p.OrdenTrabajos)
+                    .HasForeignKey(d => d.IdTurnoOtFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("OrdenTrabajo_IdTurnoOtFK");
             });
 
             modelBuilder.Entity<OrdenTrabajoEmpleado>(entity =>
@@ -581,6 +617,20 @@ namespace OTMF_NETCORE_MVC.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<PrefixOt>(entity =>
+            {
+                entity.HasKey(e => e.IdPrefixOt)
+                    .HasName("PK__PrefixOT__C52375458CF8FD8F");
+
+                entity.ToTable("PrefixOT");
+
+                entity.Property(e => e.IdPrefixOt).HasColumnName("IdPrefixOT");
+
+                entity.Property(e => e.NombrePrefix)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.HasKey(e => e.IdRolUsuario)
@@ -611,6 +661,16 @@ namespace OTMF_NETCORE_MVC.Models
                     .HasForeignKey(d => d.IdUsuariosFk)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("RolesUsuarios_IdUsuariosFK");
+            });
+
+            modelBuilder.Entity<ScrapPermitido>(entity =>
+            {
+                entity.HasKey(e => e.IdScrapPermitido)
+                    .HasName("PK__ScrapPer__9EE2C7590D64B1A7");
+
+                entity.ToTable("ScrapPermitido");
+
+                entity.Property(e => e.PorcentajeScrapPermitido).HasColumnType("decimal(19, 5)");
             });
 
             modelBuilder.Entity<Tarima>(entity =>
@@ -650,6 +710,20 @@ namespace OTMF_NETCORE_MVC.Models
 
                 entity.Property(e => e.NombreTurno)
                     .HasMaxLength(30)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<TurnoOt>(entity =>
+            {
+                entity.HasKey(e => e.IdTurnoOt)
+                    .HasName("PK__TurnoOt__7844CFB8500BC306");
+
+                entity.ToTable("TurnoOt");
+
+                entity.Property(e => e.HorasTrabajadas).HasColumnType("decimal(5, 2)");
+
+                entity.Property(e => e.NombreTurno)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
             });
 

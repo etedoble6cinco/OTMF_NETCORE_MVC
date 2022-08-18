@@ -3,8 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="loader" id="loader">
-</div>
+
 <div class="container-fluid">
     <div class="row">
     <div class="col-3" >
@@ -47,25 +46,18 @@
                      <table class="table table-hover" id="OrdenesDeTrabajo">
    
                          <thead> 
-                             <tr>
-                                 <th> IdOrdenTrabajo</th>
-                                 <th> FechaOrdenTrabajo</th>
-                                 <th> CantidadPiezasPorOrden</th>
-                                 <th> CajasRecibidas</th>
-                                 <th> PiezasRealizadas</th>
-                                 <th> HoraInicio</th>
-                                 <th> HoraFinalizacion</th>
-                                 <th> EtiquetaDeCaja</th> 
-                                 <th> MaxScrap</th>
-                                 <th> IdCodigoOrdenTrabajo</th>
-                                 <th> IdEstadoOrden</th>
-                                 <th> NombreEstadoOrden</th>
-                                 <th> IdInstructivo</th>
-                                 <th> NombreInstructivo</th>
-                                 <th> IdParteFK</th>
-                                 <th> IdCodigoOrdenTrabajo</th>
-                                 <th> IdParte</th>
-                                 <th> IdCodigoParte</th>
+                             <tr> 
+                                 
+                                 <th> Fecha de Creacion</th>
+                              
+                                 <th> Hora de Inicio</th>
+                                 <th> Hora de Finalizacion</th>
+                                
+                                
+                                 <th> Estado</th>
+                                     <th> Codigo</th>
+                            
+                                 <th> Codigo de la Parte</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -107,21 +99,7 @@ $(document).ready(function () {
                 tittleAttr: 'Exportar a Excel',
                 className: 'btn btn-lg btn-success'
 
-            },
-            {
-                extend: 'pdfHtml5',
-                text: '<i class="fas fa-file-pdf"></i>',
-                tittleAttr: 'Exportar a Excel',
-                className: 'btn btn-lg btn-danger'
-
-            }
-            , {
-                extend: 'print',
-                text: '<i class="fa fa-print"></i>',
-                tittleAttr: 'Imprimir',
-                className: 'btn btn-lg btn-info'
-
-            }
+            } 
             ,
             {
                 text:'<i class="fa fa-plus" aria-hidden="true"></i>',
@@ -129,20 +107,6 @@ $(document).ready(function () {
                 className:'btn btn-lg btn-primary',
                 action: function() {
                     window.location.href = "OrdenTrabajoes/Create";
-                }
-            },
-            {
-                text:'<i class="fa fa-search" aria-hidden="true"><div class="badge">HOY</div></i>',
-                tittleAttr: 'creadas hoy',
-                className:'btn btn-lg btn-success',
-                action: function() {
-                    var today = new Date();
-                  
-                   var date = today.DATE
-                    $("#OrdenesDeTrabajo_filter input").val(date);
-                    $("#OrdenesDeTrabajo_filter input").focus();
-                    
-                 
                 }
             }
 
@@ -155,23 +119,19 @@ $(document).ready(function () {
         rowId: "idOrdenTrabajo",
         "columns": [
            
-            { "data": "idOrdenTrabajo" },
+           
             { "data": "fechaOrdenTrabajo" },
-            { "data": "cantidadPiezasPorOrden" },
-            { "data": "cajasRecibidas" },
-            { "data": "piezasRealizadas" },
+         
             { "data": "horaInicio" },
             { "data": "horaFinalizacion" },
-            { "data": "etiquetaDeCaja" },
-            { "data": "maxScrap" },
-            { "data": "idCodigoOrdenTrabajo" },
-            { "data": "idEstadoOrden" },
+       
+         
+         
             { "data": "nombreEstadoOrden" },
-            { "data": "idInstructivo" },
-            { "data": "nombreInstructivo" },
-            { "data": "idParteFK" },
+    
+      
             { "data": "idCodigoOrdenTrabajo" },
-            { "data": "idParte" },
+         
             { "data": "idCodigoParte" }
 
 
