@@ -187,7 +187,7 @@ function FillDetalles(data) {
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Etiqueta de Caja</p><p>"+data.data[x].etiquetaDeCaja+                 "</p></div>"
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Codigo Orden de Trabajo</p><p>"+data.data[x].idCodigoOrdenTrabajo+    "</p></div>"
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Codigo de Parte</p><p>"+data.data[x].idCodigoParte+                   "</p></div>"
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Maximo Scrap</p><p>"+data.data[x].maxScrap+                           "</p></div>"
+       
         +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Estado de la Orden de Trabajo</p><p>"+data.data[x].nombreEstadoOrden+ "</p></div>"
 
         +"</section>");
@@ -208,12 +208,13 @@ function GetParteByOTId(idOrdenTrabajo) {
         data: {id:idOrdenTrabajo},
         dataType:"json",
         success: function(data) {
-            console.log(data);
+           
             FillParte(data);
         }
     });
 }
 function FillParte(data) {
+    console.log(data);
      var x = 0;
  
     $.each(data.data, function(n) {
@@ -384,8 +385,6 @@ function EvaluateOTEstado(data) {
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-info");
             $("#AccionesOrdenTrabajo").append("<button class='btn btn-success bg-gradient m-2' onclick='SetActiva()'><strong>Iniciar</strong></button>");
-  
-             
             break;
         case 2:
             //$("#AccionesOrdenTrabajo").html("");
@@ -397,9 +396,8 @@ function EvaluateOTEstado(data) {
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-success");
-             $("#AccionesOrdenTrabajo").append("<button class='btn btn-light bg-gradient m-2' onclick='SetAceptar();' ><strong>Terminar</strong></button>")
-             $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetPausa();'><strong>Pausar</strong></button>")
-           
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-light bg-gradient m-2' onclick='SetAceptar();' ><strong>Terminar</strong></button>")
+            $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetPausa();'><strong>Pausar</strong></button>")
             break;
         case 10:
             $("#AccionesOrdenTrabajo").html("");
@@ -407,8 +405,6 @@ function EvaluateOTEstado(data) {
             $("#indicadorEstado").addClass("border p-2 bg-warning");
             $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetTerminar();'><strong>Aceptar</strong></button>")
             $("#AccionesOrdenTrabajo").append("<button class='btn btn-danger bg-gradient m-2' onclick='SetPausa();'><strong>Pausar</strong></button>")
-        
-            
             break;
         case 11:
             $("#AccionesOrdenTrabajo").html("");
@@ -437,13 +433,12 @@ function EvaluateOTEstado(data) {
         UpdateOTEstado(9);
     }
     function SetPausa() {
-         UpdateFechaFinalizacion();
-    UpdateOTEstado(12);
+        UpdateFechaFinalizacion();
+        UpdateOTEstado(12);
     }
     function SetAceptar() {
-    UpdateOTEstado(10);
+        UpdateOTEstado(10);
     } 
-
 //El valor de cajas recibidas en la tabla de la orden de trabajo sera la llave foreanea para obtener el detalle de la fila .
     function ObtenerCajasRecibidas(){
      var IdOrdenTrabajo = localStorage.getItem('currentOT');
@@ -457,7 +452,7 @@ function EvaluateOTEstado(data) {
                 success: function (data) {  
                     
                     $("#ShowCajasRecibidas").html("");
-                    console.log(data);
+                   
                 
                 FillCajasRecibidas(data);
                 }
@@ -484,8 +479,7 @@ function EvaluateOTEstado(data) {
 
              });
     }
-   function FillCajasRecibidas(data){
-               
+   function FillCajasRecibidas(data){ 
        localStorage.setItem('idDetalleCajasRecibidas', data.data[0].idDetalleCajasRecibidas);
         $("#ShowCajasRecibidas").append("<div class='card p-1 m-2 border border-2'><p>Cajas Recibidas</p>"+data.data[0].NumeroCajasRecibidas+"</div>"+
                   "<div class='card p-1 m-2 border border-2'><p>Piezas Sueltas Recibidas</p>"+data.data[0].NumeroPiezasSueltasRecibidas+"</div>");
@@ -577,7 +571,6 @@ function FillFechaFinalizacion(data) {
                
             }
         });
-
     }
 function UpdateFechaFinalizacion() {
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
@@ -592,7 +585,6 @@ function UpdateFechaFinalizacion() {
             ObtenerFechaFinalizacion();
         }
     });
-
 }
 function ObtenerFechaFinalizacion() {
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
@@ -608,9 +600,7 @@ function ObtenerFechaFinalizacion() {
         }
     });
 }
-
  function ObtenerAccesorioByParteId(IdParte) {
-                  
                 $.ajax({
                     type:'POST',
                     url:'@Url.Action("ObtenerAccesorioByParteId")',
@@ -622,7 +612,6 @@ function ObtenerFechaFinalizacion() {
                         FillAccesoriosByParteId(data);
                     }
                 });
-
  }
 function ObtenerParteIdByOTId() {
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
@@ -640,17 +629,21 @@ function ObtenerParteIdByOTId() {
     });
 }
 function FillAccesoriosByParteId(data) {
-    
-    
-    console.log(data);
     $("#ShowAccesorios").html("");
     $("#ShowAccesorios").append("<li class='list-group-item bg-secondary'><h6 class='badge bg-primary'>Accesorios :</h6></li>");
     $.each(data.data, function(n) {
-    
         $("#ShowAccesorios").append("<li class='list-group-item'><p>"+data.data[n].NombreAccesorio+"</p></li>");
-
     });
 }
+function RegistrarComienzoPausa() 
+    {
+
+    }
+function RegistrarFinalPausa() 
+    {
+
+    }
+
     </script>
 
 }

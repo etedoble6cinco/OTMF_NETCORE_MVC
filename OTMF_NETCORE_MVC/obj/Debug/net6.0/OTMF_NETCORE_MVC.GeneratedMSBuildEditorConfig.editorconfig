@@ -207,6 +207,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EtiquetaDeCaja/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldGFEZUNhamFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EtiquetaDeCaja/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldGFEZUNhamFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldHVtc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -207,7 +207,7 @@ namespace OTMF_NETCORE_MVC.Controllers
 
         public void UpsertImagenEtiquetaParte(string nombreEtiqueta, int IdEtiquetaParte)
         {
-            var procedure = "[UpsertImagenEtiquetaParte]";
+            var procedure = "[UpsertImagenEtiquetaPieza]";
             using (var connection = new SqlConnection(connectionString))
             {
                 var confirm = connection.Query(procedure, new

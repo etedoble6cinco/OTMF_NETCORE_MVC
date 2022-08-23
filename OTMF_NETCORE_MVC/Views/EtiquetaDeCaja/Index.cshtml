@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OTMF_NETCORE_MVC.Models.Accesorio>
+﻿@model IEnumerable<OTMF_NETCORE_MVC.Models.EtiquetaCaja>
 
 @{
     ViewData["Title"] = "Index";
@@ -25,7 +25,7 @@
         </a>
       </li>
       <li>
-        <a class="nav-link active" asp-controller="Accesorios"  asp-action="Index">
+        <a class="nav-link" asp-controller="Accesorios"  asp-action="Index">
             <svg class="bi me-2" width="16" height="16"></svg>
          Accessorio
         </a>
@@ -61,7 +61,7 @@
         </a>
       </li>
       <li>
-        <a class="nav-link link-dark" asp-controller="Turnoes"  asp-action="Index">
+        <a class="nav-link link-dark active" asp-controller="Turnoes"  asp-action="Index">
             <svg class="bi me-2" width="16" height="16"></svg>
          Estiqueta de Caja
         </a>
@@ -107,13 +107,14 @@
 
         <div class="col-9">
             <fieldset>
-                <legend>Accesorios</legend>
- <table class="table" id="Accessorios">
+                <legend>Etiqueta de Cajas</legend>
+ <table class="table" id="EtiquetaDeCaja">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NombreAccesorio)
+                Nombre de Etiqueta de Cajas
             </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -121,12 +122,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.NombreAccesorio)
+                @Html.DisplayFor(modelItem => item.NombreEtiquetaDeCaja)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAccesorio"   class="btn btn-lg btn-primary">Editar</a> 
+                <a asp-action="Edit" onclick="ObtenerEtiquetaDeCaja('@item.NombreEtiquetaDeCaja')" data-bs-toggle="modal" data-bs-target="#exampleModal"   class="btn btn-lg btn-primary">Detalles</a> 
             
-                <a asp-action="Delete" asp-route-id="@item.IdAccesorio" class="btn btn-lg btn-danger" >Eliminar</a>
+                <a asp-action="Delete"  asp-route-id="@item.IdEtiquetaDeCaja" class="btn btn-lg btn-danger" >Eliminar</a>
             </td>
         </tr>
 }
@@ -145,13 +146,34 @@
 </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="EtiquetaDeCajaImage">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    
+      </div>
+    </div>
+  </div>
+</div>
+
 @section Scripts{
     <script>
         
 $(document).ready(function () {
 
 
-    $("#Accessorios").DataTable({
+    $("#EtiquetaDeCaja").DataTable({
           dom:'Bfrtip',
         buttons:[
              {
@@ -171,6 +193,10 @@ $(document).ready(function () {
 
 
 });
+function ObtenerEtiquetaDeCaja(data) {
+    $("#EtiquetaDeCajaImage").html("");
+    $("#EtiquetaDeCajaImage").append("<div><img width='250' height='180' class='card' src='/Uploads//Etiquetas/Cajas/"+data+".jpeg'/></div>");
+}
 
 
     </script>

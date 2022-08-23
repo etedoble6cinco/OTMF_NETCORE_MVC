@@ -24,7 +24,7 @@
    
     </div>
     <div class="col-md-4">
-        <label for="img">Subir Imagen de la Etiqueta</label>
+        <label for="img">Subir Imagen de la Etiqueta</label> 
         <input type="file" name="img" class="form-control" id="imageupload" />
     </div>
 </div>
@@ -37,19 +37,16 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
     <script>
         function UploadImage() {
     var uploadfile = $('#imageupload').get(0);
     var files = uploadfile.files;
     var filedata = new FormData();
     var NombreCaja = $("#NombreEtiqueta").val();
-  
-    for (var i = 0; i < files.length; i++) {
+    for (var i = 0; i < files.length; i++) 
+    {
         filedata.append(NombreCaja, files[i]);
     }
- 
-   
     $.ajax({
         url: "@Url.Action("UploadImage")",
         type: "POST",
@@ -63,6 +60,5 @@
         }
     });
 }
-
     </script>
 }

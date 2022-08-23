@@ -133,8 +133,8 @@
                 @Html.DisplayFor(modelItem => item.NombreEtiqueta)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdEtiqueta" class="btn btn-lg btn-primary">Edit</a>
-                <a asp-action="Details" asp-route-id="@item.IdEtiqueta" class="btn btn-lg btn-warning">Details</a>
+       
+                <a asp-action="Details" onclick="ObtenerEtiquetaDeCaja('@item.NombreEtiqueta')" data-bs-toggle="modal" data-bs-target="#exampleModal"   class="btn btn-lg btn-warning">Detalles</a>
                 <a asp-action="Delete" asp-route-id="@item.IdEtiqueta" class="btn btn-lg btn-danger">Delete</a>
             </td>
         </tr>
@@ -152,7 +152,27 @@
 
 
 </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="EtiquetaPieza">
 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -186,6 +206,10 @@ $(document).ready(function () {
 
 
 });
+function ObtenerEtiquetaDeCaja(data) {
+    $("#EtiquetaPieza").html("");
+    $("#EtiquetaPieza").append("<div><img width='250' height='200' class='card' src='/Uploads//Etiquetas/Partes/"+data+".jpeg'/></div>");
+}
 
 
     </script>

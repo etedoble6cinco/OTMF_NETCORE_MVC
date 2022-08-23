@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Data;
+using System.Data.SqlClient;
+using Dapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OTMF_NETCORE_MVC.Models;
 
@@ -97,5 +100,36 @@ namespace OTMF_NETCORE_MVC.Controllers
             await _context.SaveChangesAsync();
             return Json(new { data = "ok" });
         }
+        [HttpPost]
+        public JsonResult ObtenerRolesUsuariosByIdUsuario(int IdUsuario){
+           var procedure = "ObtenerRolesUsuarioByIdUsuario";
+                  using (var connection = new SqlConnection(con))
+            {
+                var RolesUsuarios = connection.Query(procedure, new
+                {
+                    IdUsuario = IdUsuario
+
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = RolesUsuarios });
+            } 
+        }
+        [HttpPost]
+        public JsonResult UpsertRolesUsuariosByIdUsuario(int IdUsuario, int Administrador ,
+         int Supervisor , int Operador) {
+
+            var procedure = "UpsertRolesUsuariosByIdUsuario";
+            using(var connection = new SqlConnection(con)){
+                var confirm = connection.Query(procedure, new{
+                        IdUsuario     = IdUsuario,
+                        Administrador = Administrador,
+                        Supervisor    = Supervisor,
+                        Operador      = Operador
+                }, commandType: CommandType.StoredProcedure);
+                return  Json(new {data = confirm});
+            }
+                
+        }
+    
+
     }
 }
