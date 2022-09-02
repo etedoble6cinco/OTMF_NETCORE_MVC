@@ -11,7 +11,7 @@
     <hr />
     <div class="row">
         <div class="col-6 offset-3">
-             <div id="DetalleParte">
+             <div id="DetalleParte" class="d-flex align-content-start flex-wrap">
 
     </div>
         </div>
@@ -45,20 +45,20 @@ function ObtenerDetalleParteById(){
         },
         success: function(data) {
             
-            $("#DetalleParte").append("<div><p>Caja</p>"+data.data[0].NombreCaja+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Cliente</p>"+data.data[0].NombreCliente+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Color</p>"+data.data[0].NombreColor+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Ensamble</p>"+data.data[0].NombreEnsamble+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Estandar</p>"+data.data[0].NombreEstandar+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Estandar CR</p>"+data.data[0].NombreEstandarconRelevo+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Etiqueta</p>"+data.data[0].NombreEtiqueta+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Hule</p>"+data.data[0].NombreHule+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Inserto</p>"+data.data[0].NombreInserto+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Molde</p>"+data.data[0].NombreMolde+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Pintura</p>"+data.data[0].NombrePintura+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Tarima</p>"+data.data[0].NombreTarima+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Piezas por Caja</p>"+data.data[0].PiezasPorCaja+"</div><hr/>");
-            $("#DetalleParte").append("<div><p>Scrap</p>"+data.data[0].Scrap+"</div><hr/>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Caja</p><p></div><div><p>"+data.data[0].NombreCaja+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Cliente</p></div><div><p>"+data.data[0].NombreCliente+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Color</p></div><div><p>"+data.data[0].NombreColor+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Ensamble</p></div><div><p>"+data.data[0].NombreEnsamble+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Estandar</p></div><div><p>"+data.data[0].NombreEstandar+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Estandar CR</p></div><div><p>"+data.data[0].NombreEstandarconRelevo+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Etiqueta</p></div><div><p>"+data.data[0].NombreEtiqueta+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Hule</p></div><div><p>"+data.data[0].NombreHule+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Inserto</p></div><div><p>"+data.data[0].NombreInserto+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Molde</p></div><div><p>"+data.data[0].NombreMolde+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Pintura</p></div><div><p>"+data.data[0].NombrePintura+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Tarima</p></div><div><p>"+data.data[0].NombreTarima+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Piezas por Caja</p></div><div><p>"+data.data[0].PiezasPorCaja+"</p></div>");
+            $("#DetalleParte").append("<div><p class='badge bg-primary'>Scrap</p></div><div><p>"+data.data[0].Scrap+"</p></div>");
         }
         
 

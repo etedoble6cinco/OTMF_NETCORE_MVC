@@ -52,6 +52,8 @@ namespace OTMF_NETCORE_MVC.Controllers
                 var ot = connection.Query<ObtenerOTAsignadas>(procedure, new { idMaquina = id }, commandType: CommandType.StoredProcedure);
                 ViewData["Empleado"] = new SelectList(empleados, "IdEmpleado", "NombreEmpleado");
                 ViewData["EstadoOrden"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden");
+                ViewData["MotivoCambioEstado"] = new SelectList(_context.MotivoCambioEstados, "IdMotivoCambioEstado", "NombreMotivoCambioEstado");
+                ViewData["MotivoCambioEstadoDerivados"] = new SelectList(_context.MotivoCambioEstadoDerivados, "IdMotivoCambioEstadoDerivados", "MotivoCambioEstadoDerivadosNombre");
                 // ViewData["TipoEmpleado"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "NombreTipoEmpleado");
                 return View(ot.ToList());
             }
@@ -103,7 +105,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = empleados });
             }
         }
-        
+        //METODO PARA ACTUALIZAR E INSERTAR ASIGNACION DEL EMPLEADO 
         [HttpPost]
         public JsonResult UpsertAsignacionEmpleadoOTById(UpsertAsignacionEmpleadoOTById obj)
         {
@@ -121,7 +123,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
 
         }
-
+        // METODO PARA ACTULIZAR EL ESTADO DE LA ORDEN DE TRABAJO 
         [HttpPost]
         public JsonResult UpdateOTEstado(int idOrdenTrabajo, int idEstadoOT)
         {
@@ -139,6 +141,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
 
         }
+        // METODO PARA ELIMINAR LA ASIGNACION DEL EMPLEADO 
         [HttpDelete]
         public JsonResult DeleteAsignacionEmpleadoOTById(int idEmpleadoOrdenTrabajo)
         {
@@ -152,6 +155,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
 
         }
+        // METODO PARA OBTENER ESTADO DE LA ORDEN DE TRABAJO
         [HttpPost]
         public JsonResult ObtenerEstadoOT(int id)
         {
@@ -163,6 +167,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = estado });
             }
         }
+        // METODO PARA INSERTAR LAS CAJAS RECIBIDAS
         [HttpPost]
         public JsonResult InsertCajasRecibidas(InsertCajasRecibidas obj)
         {
@@ -181,6 +186,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
 
         }
+        // METODO PARA ACTUALIZAR LAS CAJAS RECIBIDAS 
         [HttpPost]
         public JsonResult UpdateCajasRecibidas(int IdDetalleCajasRecibidas , int NumeroCajasRecibidas , int NumeroPiezasRecibidas)
         {
@@ -196,6 +202,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = confirm });
             }
         }
+        //METODO PARA OBTENER LAS CAJAS RECIBIDAS
         [HttpPost]
         public JsonResult ObtenerCajasRecibidas(int idOrdenTrabajo)
         {
@@ -207,7 +214,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = recibida });
             }
         }
-
+        //METODO PARA OBTENER LAS PIEZAS REALIZADAS
         [HttpPost]
         public JsonResult ObtenerPiezasRealizadas(int idOrdenTrabajo)
         {
@@ -224,6 +231,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
 
         }
+        //METODO PARA ACTUALIZAR LAS PIEZAS REALIZADAS 
         [HttpPost]
         public JsonResult UpdatePiezasRealizadas(int idOrdenTrabajo, int PiezasRealizadas)
         {
@@ -242,6 +250,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
 
         }
+        //METODO PARA ACTUALIZAR FECHA FINALIZACION
         [HttpPost]
         public JsonResult UpdateFechaFinalizacion(int IdOrdenTrabajo)
         {
@@ -255,6 +264,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = confirmation });
             }
         }
+        // METODO PARA OBTENER FECHA FINALIZACION
         [HttpPost]
         public JsonResult ObtenerFechaFinalizacion(int IdOrdenTrabajo)
         {
@@ -268,6 +278,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = fechafinalizacion });
             }
         }
+        // METODO PARA ACTUALIZAR FECHA DE INICIO
         [HttpPost]
         public JsonResult UpdateFechaInicio(int IdOrdenTrabajo)
         {
@@ -281,6 +292,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = confirmation });
             }
         }
+        // METODO PARA OBTENER FECHA DE INICIO DE LA ORDEN TRABAJO
         [HttpPost]
         public JsonResult ObtenerFechaInicio(int IdOrdenTrabajo)
         {
@@ -294,6 +306,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = fechaInicio });
             }
         }
+        // METODO PARA OBTENER ID DE LA PARTE POR MEDIO DEL ID DE LA ORDEN DE TRABAJO
         [HttpPost]
         public JsonResult ObtenerParteIdByOTId(int IdOrdenTrabajo)
         {
@@ -309,6 +322,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
 
         }
+        // METODO PARA OBTENER ACCESORIOS POR MEDIO DEL ID DE LA PARTE 
         [HttpPost]
         public JsonResult ObtenerAccesorioByParteId( int IdParte)
         {
@@ -323,7 +337,96 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { data = Accesorios });
             }
         }
-       
+        [HttpPost]
+        public JsonResult GetIdentificadorOT( int id)
+        {
+
+           var ot = _context.OrdenTrabajos.FirstOrDefaultAsync(m => m.IdOrdenTrabajo == id).Result;
+
+            return Json(new { ot });
+                
+        }
+        //REGISTRAR DURACION ESTADO
+        [HttpPost] 
+     
+        public JsonResult RegistrarDuracionEstado (
+            int TipoMovimientoEstado,
+            int IdOrdenTrabajoFK,
+           
+            int IdMotivoCambioEstadoFK ,  
+            int IdEstadoOrdenTrabajoFK 
+            )
+        {
+            var procedure = "[InsertDuracionEstado]";
+            using(var connection = new SqlConnection(connectionString))
+            {
+                var confirm = connection.Query(procedure, new
+                {
+                   IdOrdenTrabajoFK = IdOrdenTrabajoFK,
+                   IdEstadoOrdenFK = IdEstadoOrdenTrabajoFK,
+                   IdMotivoCambioEstadoFK = IdMotivoCambioEstadoFK,
+                   TipoMovimientoEstado =  TipoMovimientoEstado
+                }, commandType: CommandType.StoredProcedure);
+                var estado = _context.EstadoOrdens.FindAsync(IdEstadoOrdenTrabajoFK);
+                return Json(new { data = estado });
+            }
+           
+        }
+
+        [HttpPost]
+        public JsonResult ObtenerTiemposMuertos (int IdOrdenTrabajo)
+        {
+            List<TiempoEstadosOrdenTrabajo> tiempoEstadosOrdenTrabajos = new List<TiempoEstadosOrdenTrabajo>(); 
+            var procedure = "[ObtenerTiemposMuertos]";
+            using(var connection = new SqlConnection(connectionString))
+            {
+                var data = connection.Query<ObtenerTiempoMuertos>(procedure, new
+                {
+                    IdOrdenTrabajo = IdOrdenTrabajo
+                }, commandType: CommandType.StoredProcedure).ToList();
+
+                int ActivaSegundos = 0;
+                int ParaLiberarSegundos = 0;
+                int DetenidaSegundos = 0;
+                for( int x = 0; x <data.Count; x++ )
+                {
+                    if (data[x].NombreEstadoOrden.Equals("ACTIVA"))
+                    {
+                        ActivaSegundos = ActivaSegundos + data[x].Duracion;
+                    }
+                    if (data[x].NombreEstadoOrden.Equals("PARA LIBERAR"))
+                    {
+                        ParaLiberarSegundos = ParaLiberarSegundos + data[x].Duracion;
+                    }
+                    if (data[x].NombreEstadoOrden.Equals("PAUSADA"))
+                    {
+                        DetenidaSegundos = DetenidaSegundos + data[x].Duracion;
+                    }
+                }
+
+                TiempoEstadosOrdenTrabajo DuracionActiva = new TiempoEstadosOrdenTrabajo();
+                DuracionActiva.DuracionEstado = ActivaSegundos;
+                DuracionActiva.NombreEstado = "ACTIVA";
+                
+                TiempoEstadosOrdenTrabajo DuracionParaLiberar = new TiempoEstadosOrdenTrabajo();
+                TiempoEstadosOrdenTrabajo DuracionDetenida = new TiempoEstadosOrdenTrabajo();
+                DuracionParaLiberar.DuracionEstado = ParaLiberarSegundos;
+                DuracionParaLiberar.NombreEstado = "POR LIBERAR";
+                DuracionDetenida.DuracionEstado = DetenidaSegundos;
+                DuracionDetenida.NombreEstado = "PAUSADA";
+                tiempoEstadosOrdenTrabajos.Add(DuracionDetenida);
+                tiempoEstadosOrdenTrabajos.Add(DuracionParaLiberar);
+                tiempoEstadosOrdenTrabajos.Add(DuracionActiva);
+
+                return Json(new { details = data,
+                    total =  tiempoEstadosOrdenTrabajos  });
+            }
+          
+
+
+
+
+        }
 
 
 

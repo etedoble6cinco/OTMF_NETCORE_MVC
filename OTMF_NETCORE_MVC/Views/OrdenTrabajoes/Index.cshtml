@@ -90,7 +90,6 @@ $(document).ready(function () {
             "type": "GET",
             "datatype": "json"
         },
-        
         dom: 'Bfrtip',
         buttons: [
             {
@@ -115,33 +114,16 @@ $(document).ready(function () {
         autoFill: false,
         responsive: true,
         select:false,
-          
         rowId: "idOrdenTrabajo",
         "columns": [
-           
-           
             { "data": "fechaOrdenTrabajo" },
-         
             { "data": "horaInicio" },
             { "data": "horaFinalizacion" },
-       
-         
-         
             { "data": "nombreEstadoOrden" },
-    
-      
             { "data": "idCodigoOrdenTrabajo" },
-         
             { "data": "idCodigoParte" }
-
-
         ]
-
-
-
-    });
-
-   
+    });  
     var table = $('#OrdenesDeTrabajo').DataTable();
     $('#OrdenesDeTrabajo').on( 'click', 'td', function () {
     var id = table.row( this ).id();

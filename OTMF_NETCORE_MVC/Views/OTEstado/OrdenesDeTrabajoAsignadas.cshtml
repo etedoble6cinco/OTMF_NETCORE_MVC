@@ -9,13 +9,17 @@
             {
                 @if(item.IdEstadoOTFK == 7 || item.IdEstadoOTFK == 9 ||    item.IdEstadoOTFK == 10 || item.IdEstadoOTFK == 12)
                 {
-                     <li class="nav-item" role="presentation">
-                <button class="nav-link" onclick="GetOrdenTrabajo(@item.idOrdenTrabajo)" id="@item.idOrdenTrabajo" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">@item.idOrdenTrabajo</button>
+                     <li class="nav-item" role="presentation" id="OtList">
+                <button class="nav-link m-2 p-3 border border-1 border-dark shadow" onclick="GetOrdenTrabajo(@item.idOrdenTrabajo)"  data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                    
+                    <div style="display:none;" id="IdentificadorOT">@item.idOrdenTrabajo</div>
+                    <div id="@item.idOrdenTrabajo"></div>
+                </button>
                   </li>
                 }
             }
 </ul>
-<div id="indicadorEstado">
+<div id="indicadorEstado" class="shadow">
    
     <div class="row">
         <div class="col-6">
@@ -30,7 +34,10 @@
         </div>
        
     </div>
-    <div class="tab-content card" id="pills-tabContent">
+    <div class="tab-content d-flex flex-wrap" id="pills-tabContent">
+      
+    </div>
+      <div class="tab-content card " id="part-Image">
       
     </div>
     <div class="row">
@@ -42,24 +49,24 @@
     </div>
      <div class="row">
             <div class="col-7">
-                <nav id="ShowCajasRecibidas" class="d-flex flex-wrap">
+                <nav id="ShowCajasRecibidas" class="d-flex flex-wrap border border-2 rounded m-1">
                     
                  </nav>
             </div>
             <div class="col-5">
-                <nav id="ShowCajasRealizadas" class="d-flex flex-wrap">
+                <nav id="ShowCajasRealizadas" class="d-flex flex-wrap border border-2 rounded m-1">
 
                 </nav>
             </div> 
         </div>
         <div class="row">
             <div class="col-9">
-                  <nav id="EmpleadosRelacionados" class="d-flex flex-wrap">
+                  <nav id="EmpleadosRelacionados" class="d-flex flex-wrap border border-2 rounded m-1">
 
                    </nav>
             </div>
             <div class="col-3">
-                <nav id="AccionesOrdenTrabajo" class="d-flex flex-wrap">
+                <nav id="AccionesOrdenTrabajo" class="d-flex flex-wrap border border-2 rounded m-1">
 
                 </nav>
             </div>
@@ -139,6 +146,91 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="MotivoCambioEstadoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Motivo de cambio de estado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+             <label for="checkRespuesta"></label>
+            <select id="checkRespuesta" name="checkRespuesta" onchange="CheckRespuestaCambioEstado()" class ="form-control" asp-items="ViewBag.MotivoCambioEstado">
+                     
+                     <option disabled selected> Seleccionar Motivo</option>
+            </select>   
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="InsertRespuestaCambioEstado()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ResumenTiemposMuertos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Resumen de Tiempos Muertos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="container">
+              <div class="row">
+                  <div class="col">
+                  <div class="bg-danger m-1 p-1 rounded" >
+                        <div class="bg-white" id="ResumenSumDetenida">
+
+                        </div>
+                  </div>
+                  </div>
+                  
+                  <div class="col">
+                      <div class=" bg-warning m-1 p-1 rounded" >
+                        <div class="bg-white" id="ResumenSumPorLiberar">
+
+                        </div>
+                  </div>
+                  </div>
+                  
+                  <div class="col">
+                        <div class=" bg-success m-1 p-1 rounded" >
+                        <div class="bg-white" id="ResumenSumActiva">
+
+                        </div>
+                  </div>
+                  </div>
+                
+              </div>
+              <div class="row">
+                      <p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Ver linea de tiempo
+  </a>
+
+</p>
+              </div>
+          
+<div class="collapse" id="collapseExample">
+    <div class="accordion" id="accordionExample">
+         <div id="ResumenContainer"></div>
+    </div>
+  
+  
+</div>
+           
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 @section Scripts{
@@ -148,11 +240,36 @@
         
 
 $(document).ready(function(){
+    $("#mainNav").hide();
+    GetIdentificadorOT();
 
-});
-//main
+   
+}); 
+//METODO PARA OBTENER LA INFORMACION DE LAS PESTANAS 
+function GetIdentificadorOT() {
+        var arr = $("#OtList button #IdentificadorOT").map(function() {
+        return this.textContent;
+            }).get();
+    
+    for (let i = 0; i < arr.length; i++) {
+        $.ajax({
+            type:"POST",
+            url:'@Url.Action("GetIdentificadorOT")',
+            data: {id:arr[i]},
+            dataType:"json",
+            success: function(ot) {
+              
+                document.getElementById(arr[i]).innerText = ot.ot.idCodigoOrdenTrabajo ;
+            }
+        });
+    }
+    
+} 
+// METODO PARA OBTENER TODA LA INFORMACION DE LAS ORDENES DE TRABAJO , CUANDO SE DA CLICK EN ELLA 
 function GetOrdenTrabajo(idOrdenTrabajo) {
+    
     localStorage.clear();
+   
     localStorage.setItem('currentOT', idOrdenTrabajo);
     GetEstadoOT();
     $.ajax({
@@ -176,21 +293,21 @@ function GetOrdenTrabajo(idOrdenTrabajo) {
 function FillDetalles(data) {
     
    $("#pills-tabContent").html("");
+    $("#part-Image").html("");
     var x = 0;
    
     $.each(data.data, function(n) {
 
-        $("#pills-tabContent").append("<section class='d-flex flex-wrap justify-content-center' id='OrdenDeTrabajo'>"
+        $("#pills-tabContent").append(
 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Fecha Creacion</p><p>"+data.data[x].fechaOrdenTrabajo+        "</p></div>"
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Cantidad Piezas por Orden</p><p>"+data.data[x].cantidadPiezasPorOrden+"</p></div>"
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Etiqueta de Caja</p><p>"+data.data[x].etiquetaDeCaja+                 "</p></div>"
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Codigo Orden de Trabajo</p><p>"+data.data[x].idCodigoOrdenTrabajo+    "</p></div>"
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Codigo de Parte</p><p>"+data.data[x].idCodigoParte+                   "</p></div>"
-       
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Estado de la Orden de Trabajo</p><p>"+data.data[x].nombreEstadoOrden+ "</p></div>"
+        "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Codigo Orden de Trabajo</p><p>"+data.data[x].idCodigoOrdenTrabajo+    "</p></div>"
+      
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Numero de Parte</p><p>"+data.data[x].idCodigoParte+                   "</p></div>"
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Cantidad Piezas por Orden</p><p>"+data.data[x].cantidadPiezasPorOrden+"</p></div>"
+      
+      
 
-        +"</section>");
+        );
                                          
       
            x++;
@@ -214,37 +331,27 @@ function GetParteByOTId(idOrdenTrabajo) {
     });
 }
 function FillParte(data) {
-    console.log(data);
+   
      var x = 0;
  
     $.each(data.data, function(n) {
 
-        $("#pills-tabContent").append("<section class='d-flex flex-wrap justify-content-center' id='Parte'>"
-        +"<div><img width='170' height='110' class='card'  src='/Uploads//Etiquetas/Partes/"+data.data[x].nombreEtiqueta+".jpg' /></div>"
-        +"<div><img width='170' height='110' class='card' src='/Uploads//Etiquetas/Cajas/"+data.data[x].nombreEtiquetaDeCaja+".jpg' /></div>"
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Aluminio</p><p>"+data.data[x].aluminio        +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Cajas por Tarima</p><p>"+data.data[x].cajasPorTarima  +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Costo</p><p>"+data.data[x].costo           +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Estandar por Hora</p><p>"+data.data[x].estandarPorHora +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Etiqueta de Caja</p><p>"+data.data[x].etiquetaDeCaja  +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Codigo de Parte</p><p>"+data.data[x].idCodigoParte   +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Logo de Caja</p><p>"+data.data[x].logoCaja        +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre de Caja</p><p>"+data.data[x].nombreCaja      +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre del Cliente</p><p>"+data.data[x].nombreCliente   +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Color</p><p>"+data.data[x].nombreColor     +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre del Ensamble</p><p>"+data.data[x].nombreEnsamble  +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre de Estandar</p><p>"+data.data[x].nombreEstandar  +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre de Etiqueta</p><p>"+data.data[x].nombreEtiqueta  +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre del Hule</p><p>"+data.data[x].nombreHule      +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre del Inserto</p><p>"+data.data[x].nombreInserto   +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre del Molde</p><p>"+data.data[x].nombreMolde     +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre Pintura</p><p>"+data.data[x].nombrePintura   +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Nombre Tarima</p><p>"+data.data[x].nombreTarima    +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Piezas por Caja</p><p>"+data.data[x].piezasPorCaja   +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Scrap</p><p>"+data.data[x].scrap           +"</p></div>" 
-        +"<div class='p-1 m-1 border border-3'><p class='badge bg-secondary'>Std Pintura</p><p>"+data.data[x].std_Pintura     +"</p></div>" 
-
-        +"</section>");
+      
+  
+          $("#pills-tabContent").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Aluminio</p>        <p class='fs-6'>"+data.data[x].aluminio        +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Cajas por Tarima</p><p class='fs-6'>"+data.data[x].cajasPorTarima  +"</p></div>"                                                                                        
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Caja</p>            <p class='fs-6'>"+data.data[x].nombreCaja      +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Cliente</p>         <p class='fs-6'>"+data.data[x].nombreCliente   +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Color</p>           <p class='fs-6'>"+data.data[x].nombreColor     +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Ensamble</p>        <p class='fs-6'>"+data.data[x].nombreEnsamble  +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Hule</p>            <p class='fs-6'>"+data.data[x].nombreHule      +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Inserto</p>         <p class='fs-6'>"+data.data[x].nombreInserto   +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Molde</p>           <p class='fs-6'>"+data.data[x].nombreMolde     +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Pintura</p>         <p class='fs-6'>"+data.data[x].nombrePintura   +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Tarima</p>          <p class='fs-6'>"+data.data[x].nombreTarima    +"</p></div>" 
+        +"<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Piezas por Caja</p> <p class='fs-6'>"+data.data[x].piezasPorCaja   +"</p></div>");
+        $("#part-Image").append("<div class='d-flex flex-wrap'><img  class='img-fluid' style='max-width:50%;'  src='/Uploads//Etiquetas/Partes/"+data.data[x].nombreEtiqueta+".jpg' />"
+        +"<img class='img-fluid' style='max-width:50%;' src='/Uploads//Etiquetas/Cajas/"+data.data[x].nombreEtiquetaDeCaja+".jpg' /></div>")
 
            x++;
     });
@@ -271,8 +378,6 @@ function FillParte(data) {
                     data: {id:idOrdenTrabajo},
                     dataType:"json",
                     success: function(data) {
-                        
-              
                         FillEmpleados(data,idOrdenTrabajo);
                     }
           });
@@ -396,7 +501,7 @@ function EvaluateOTEstado(data) {
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-success");
-            $("#AccionesOrdenTrabajo").append("<button class='btn btn-light bg-gradient m-2' onclick='SetAceptar();' ><strong>Terminar</strong></button>")
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-light bg-gradient m-2' onclick='SetAceptar();' ><strong>Liberar</strong></button>")
             $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetPausa();'><strong>Pausar</strong></button>")
             break;
         case 10:
@@ -404,22 +509,22 @@ function EvaluateOTEstado(data) {
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-warning");
             $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetTerminar();'><strong>Aceptar</strong></button>")
-            $("#AccionesOrdenTrabajo").append("<button class='btn btn-danger bg-gradient m-2' onclick='SetPausa();'><strong>Pausar</strong></button>")
+           
             break;
         case 11:
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-dark");
             $("#AccionesOrdenTrabajo").append("<button class='btn btn-warning bg-gradient m-2' onclick='SetAceptar();'>Regresar</button>")
-           
+           ///NOSE USA
         
             break;
         case 12:
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-danger");
-            $("#AccionesOrdenTrabajo").append("<button class='btn btn-success bg-gradient m-2' onclick='SetActiva();'>Reanudar</button>")
-            $("#AccionesOrdenTrabajo").append("<button class='btn btn-dark bg-gradient m-2'>Terminar</button>")
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-success bg-gradient m-2' onclick='SetReanudar();'>Reanudar</button>")
+           
             break;
         }
   
@@ -427,17 +532,36 @@ function EvaluateOTEstado(data) {
     function SetTerminar() {
         UpdateFechaFinalizacion();
         UpdateOTEstado(11);
+        RegistrarFinalLiberar();
+        MostrarInformeTiemposMuertos();
     }
+function SetReanudar() {
+      RegistrarInicioActiva();
+    RegistrarFinalDetenida();
+      UpdateOTEstado(9);
+}
     function SetActiva() {
          UpdateFechaInicio();
         UpdateOTEstado(9);
+        RegistrarInicioActiva();
     }
     function SetPausa() {
-        UpdateFechaFinalizacion();
-        UpdateOTEstado(12);
+       $("#MotivoCambioEstadoModal").modal('show');
+      var ddc = localStorage.getItem('DropDownChange');
+        
+      if (ddc == 'true') {
+            UpdateFechaFinalizacion();
+
+            UpdateOTEstado(12);
+          RegistrarFinalActiva();
+        } 
+        
     }
     function SetAceptar() {
+        
         UpdateOTEstado(10);
+        RegistrarFinalActiva();
+        RegistrarInicioLiberar();
     } 
 //El valor de cajas recibidas en la tabla de la orden de trabajo sera la llave foreanea para obtener el detalle de la fila .
     function ObtenerCajasRecibidas(){
@@ -467,7 +591,7 @@ function EvaluateOTEstado(data) {
                 type: 'POST',
                 url: '@Url.Action("UpdateCajasRecibidas")',
                 dataType: 'json',   
-                data: {
+                data: {    
                      
                     IdDetalleCajasRecibidas: IdDetalleCajasRecibidas,
                     NumeroCajasRecibidas: NumeroCajasRecibidas,
@@ -561,7 +685,7 @@ function FillFechaFinalizacion(data) {
         $.ajax({
             type:'POST',
             url:'@Url.Action("UpdateFechaInicio")',
-            dataType:'json',
+            dataType:'json', 
             data: {
                 IdOrdenTrabajo:IdOrdenTrabajo
             }, 
@@ -635,15 +759,138 @@ function FillAccesoriosByParteId(data) {
         $("#ShowAccesorios").append("<li class='list-group-item'><p>"+data.data[n].NombreAccesorio+"</p></li>");
     });
 }
-function RegistrarComienzoPausa() 
+// METODO PARA ACTUALIZAR LA DURACION DE LOS ESTADOS 
+   
+function RegistrarDuracionEstado( TipoMovimientoEstado,
+                                  IdOrdenTrabajo,
+                                  IdMotivoCambioEstadoFK,
+                                  IdEstadoOrdenTrabajoFK) {
+      $.ajax({
+        type:"POST",
+        url:'@Url.Action("RegistrarDuracionEstado")',
+        data: {
+            TipoMovimientoEstado:TipoMovimientoEstado,
+            IdOrdenTrabajoFK:IdOrdenTrabajo,
+            IdMotivoCambioEstadoFK:IdMotivoCambioEstadoFK,
+            IdEstadoOrdenTrabajoFK:IdEstadoOrdenTrabajoFK
+        },
+        dataType:"json",
+        success: function(data) {
+           
+            alertify.notify("Cambio de Estado", data.data.result.nombreEstadoOrden, 1, function(){  });
+        }
+    });
+}
+function InsertRespuestaCambioEstado() {
+    var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
+    var IdMotivoCambioEstadoFK = document.getElementById('checkRespuesta').value;
+    RegistrarDuracionEstado(0, IdOrdenTrabajoFK, IdMotivoCambioEstadoFK, 12);
+    SetPausa();
+   
+}
+function CheckRespuestaCambioEstado() {
+   
+    localStorage.setItem('DropDownChange', true);
+  
+}
+
+
+function RegistrarInicioActiva() 
     {
-
+     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
+    
+    RegistrarDuracionEstado(0, IdOrdenTrabajoFK,22, 9);
     }
-function RegistrarFinalPausa() 
+function RegistrarFinalActiva() 
     {
-
+     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
+    
+    RegistrarDuracionEstado(1, IdOrdenTrabajoFK,22, 9);
     }
 
+function RegistrarFinalDetenida() 
+    {   
+    var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
+    RegistrarDuracionEstado(1, IdOrdenTrabajoFK,22, 12);
+    }
+function RegistrarInicioLiberar() 
+    {
+    var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
+    RegistrarDuracionEstado(0, IdOrdenTrabajoFK,22, 10);
+    }
+function RegistrarFinalLiberar() 
+    {
+   var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
+    RegistrarDuracionEstado(1, IdOrdenTrabajoFK,22, 10);
+   
+    }
+function MostrarInformeTiemposMuertos() {
+    var IdOrdenTrabajo = localStorage.getItem("currentOT");
+    $.ajax({
+        type: "POST",
+        url: '@Url.Action("ObtenerTiemposMuertos")',
+        data: {
+            IdOrdenTrabajo: IdOrdenTrabajo
+        },
+        dataType: "json",
+        success: function(data) {
+            FillInformeTiempoMuertos(data);
+        }
+
+    })
+}
+function FillInformeTiempoMuertos(data) {
+  
+    console.log(data);
+    $.each(data.details, function(n) {
+       
+        $("#ResumenContainer").append("<div id='acc-item' class='accordion-item'>"+
+        "<h2 class='accordion-header' id='heading-"+data.details[n].idDuracionEstados+"'>"+
+        "<button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-"+data.details[n].idDuracionEstados+"'><p class='badge bg-primary'>"+n+"</p><p class='badge bg-secondary'>"
+        +data.details[n].nombreEstadoOrden+"</p><p class='badge bg-primary'> De: </p><p class='badge bg-secondary'>"
+        +FormatearDateEstado(data.details[n].inicioEstado)+
+        "</p><p><i class='fas fa-arrow-alt-circle-right' style='font-size:18px'></i></p><p class='badge bg-primary'>A: </p><p class='badge bg-secondary'>"+ FormatearDateEstado(data.details[n].finalEstado)+"</p></button></h2>"+
+        "<div id='collapse-"+data.details[n].idDuracionEstados+"' class='accordion-collapse collapse' aria-labelled='heading-"+data.details[n].idDuracionEstados+"' data-bs-parent='#accordionExample'>"+ 
+        "<div class='accordion-body'>"+ 
+        "<div class='card'><div class='card-body'>"+
+        "<h5 class='card-title'><small class='help-text'>Detalle de registro de tiempo muerto</small></h5>"+
+        "<h6 class='card-title'><small class='help-text'>Motivo de Cambio de Estado: </small>"+data.details[n].nombreMotivoCambioEstado+"</h6>"
+        +"<div class='d-flex flex-row'><strong>Duracion en Segundos:  </strong><p>"+data.details[n].duracion+"</p></div>"
+        
+       
+     
+       
+        +"<div><strong>Derivado</strong><p>"+data.details[n].nombreMotivoCambioEstadoDerivado+"</p></div>"+
+        "</div></div></div></div></div>")
+      
+    });
+    $.each(data.total, function(z) { 
+        console.log(data.total);
+       
+        if (data.total[z].nombreEstado == 'PAUSADA') {
+               $("#ResumenSumDetenida").append("<div><p>Duracion: </p><p>"+data.total[z].duracionEstado+"<p></div>")
+      $("#ResumenSumDetenida").append("<div><p>Estado: </p><p>"+data.total[z].nombreEstado+"<p></div>")
+        } 
+        if (data.total[z].nombreEstado == 'POR LIBERAR') { 
+               $("#ResumenSumPorLiberar").append("<div><p>Duracion: </p><p>"+data.total[z].duracionEstado+"<p></div>")
+      $("#ResumenSumPorLiberar").append("<div><p>Estado: </p><p>"+data.total[z].nombreEstado+"<p></div>")
+        }
+        if (data.total[z].nombreEstado == 'ACTIVA') {
+               $("#ResumenSumActiva").append("<div><p>Duracion: </p><p>"+data.total[z].duracionEstado+"<p></div>")
+      $("#ResumenSumActiva").append("<div><p>Estado: </p><p>"+data.total[z].nombreEstado+"<p></div>")
+        }
+   
+    
+    });
+   
+
+    $("#ResumenTiemposMuertos").modal("show");
+
+}
+function FormatearDateEstado(fecha) {
+    let dateTimeEST = new Date(fecha);
+    return dateTimeEST.toLocaleTimeString();
+}
     </script>
 
 }

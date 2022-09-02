@@ -495,6 +495,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MaW5rc0xvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationColumnEmpleados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZpZ2F0aW9uQ29sdW1uRW1wbGVhZG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationColumnOrdenesTrabajo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZpZ2F0aW9uQ29sdW1uT3JkZW5lc1RyYWJham8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationColumnPartes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZpZ2F0aW9uQ29sdW1uUGFydGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

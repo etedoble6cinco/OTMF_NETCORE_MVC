@@ -98,7 +98,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             {
 
                 if(ordenTrabajo.Otespecial == false){
-
+                    // AGREGAR PREFIJO A LA ORDEN DE TRABAJO 
                     var prefix = _context.PrefixOts.FirstOrDefault(m => m.IdPrefixOt == 1);
                     ordenTrabajo.IdCodigoOrdenTrabajo =   prefix.NombrePrefix + ordenTrabajo.IdCodigoOrdenTrabajo;
                    

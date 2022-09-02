@@ -21,6 +21,7 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual DbSet<Cliente> Clientes { get; set; } = null!;
         public virtual DbSet<Color> Colors { get; set; } = null!;
         public virtual DbSet<DetalleCajasRecibida> DetalleCajasRecibidas { get; set; } = null!;
+        public virtual DbSet<DuracionEstado> DuracionEstados { get; set; } = null!;
         public virtual DbSet<Empleado> Empleados { get; set; } = null!;
         public virtual DbSet<Ensamble> Ensambles { get; set; } = null!;
         public virtual DbSet<EstadoOrden> EstadoOrdens { get; set; } = null!;
@@ -37,6 +38,8 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual DbSet<Maquina> Maquinas { get; set; } = null!;
         public virtual DbSet<MaquinaOrdenTrabajo> MaquinaOrdenTrabajos { get; set; } = null!;
         public virtual DbSet<Molde> Moldes { get; set; } = null!;
+        public virtual DbSet<MotivoCambioEstado> MotivoCambioEstados { get; set; } = null!;
+        public virtual DbSet<MotivoCambioEstadoDerivado> MotivoCambioEstadoDerivados { get; set; } = null!;
         public virtual DbSet<OrdenTrabajo> OrdenTrabajos { get; set; } = null!;
         public virtual DbSet<OrdenTrabajoEmpleado> OrdenTrabajoEmpleados { get; set; } = null!;
         public virtual DbSet<Parte> Partes { get; set; } = null!;
@@ -121,6 +124,41 @@ namespace OTMF_NETCORE_MVC.Models
                     .HasName("PK__DetalleC__DB33E7DD49FF47C7");
 
                 entity.Property(e => e.IdDetalleCajasRecibidas).HasColumnName("idDetalleCajasRecibidas");
+            });
+
+            modelBuilder.Entity<DuracionEstado>(entity =>
+            {
+                entity.HasKey(e => e.IdDuracionEstados)
+                    .HasName("PK__Duracion__34AC96F9A6C1A77D");
+
+                entity.ToTable("DuracionEstado");
+
+                entity.Property(e => e.FinalEstado).HasColumnType("datetime");
+
+                entity.Property(e => e.IdEstadoOrdenFk).HasColumnName("IdEstadoOrdenFK");
+
+                entity.Property(e => e.IdMotivoCambioEstadoFk).HasColumnName("IdMotivoCambioEstadoFK");
+
+                entity.Property(e => e.IdOrdenTrabajoFk).HasColumnName("IdOrdenTrabajoFK");
+
+                entity.Property(e => e.InicioEstado).HasColumnType("datetime");
+
+                entity.HasOne(d => d.IdEstadoOrdenFkNavigation)
+                    .WithMany(p => p.DuracionEstados)
+                    .HasForeignKey(d => d.IdEstadoOrdenFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("DuracionEstado_IdEstadoOrdenFK");
+
+                entity.HasOne(d => d.IdMotivoCambioEstadoFkNavigation)
+                    .WithMany(p => p.DuracionEstados)
+                    .HasForeignKey(d => d.IdMotivoCambioEstadoFk)
+                    .HasConstraintName("DuraciobEstado_IdMotivoCambioEstadoFK");
+
+                entity.HasOne(d => d.IdOrdenTrabajoFkNavigation)
+                    .WithMany(p => p.DuracionEstados)
+                    .HasForeignKey(d => d.IdOrdenTrabajoFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("DuracionEstado_IdOrdenTrabajoFK");
             });
 
             modelBuilder.Entity<Empleado>(entity =>
@@ -339,6 +377,33 @@ namespace OTMF_NETCORE_MVC.Models
                 entity.Property(e => e.NombreMolde)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<MotivoCambioEstado>(entity =>
+            {
+                entity.HasKey(e => e.IdMotivoCambioEstado)
+                    .HasName("PK__MotivoCa__82C6835EA10E1E29");
+
+                entity.ToTable("MotivoCambioEstado");
+
+                entity.Property(e => e.IdMotivoCambioEstadoDerivadoFk).HasColumnName("IdMotivoCambioEstadoDerivadoFK");
+
+                entity.Property(e => e.NombreMotivoCambioEstado).IsUnicode(false);
+
+                entity.HasOne(d => d.IdMotivoCambioEstadoDerivadoFkNavigation)
+                    .WithMany(p => p.MotivoCambioEstados)
+                    .HasForeignKey(d => d.IdMotivoCambioEstadoDerivadoFk)
+                    .HasConstraintName("MotivoCambioEstado_IdMotivoCambioEstadoDerivadoFK");
+            });
+
+            modelBuilder.Entity<MotivoCambioEstadoDerivado>(entity =>
+            {
+                entity.HasKey(e => e.IdMotivoCambioEstadoDerivado)
+                    .HasName("PK__MotivoCa__4BA19F4196FEBE53");
+
+                entity.ToTable("MotivoCambioEstadoDerivado");
+
+                entity.Property(e => e.NombreMotivoCambioEstadoDerivado).IsUnicode(false);
             });
 
             modelBuilder.Entity<OrdenTrabajo>(entity =>
