@@ -23,7 +23,7 @@ fieldset{
     
 }
 legend {
-    background-image: linear-gradient(lightgray, white);
+   
     text-align: center;
     text-shadow: 5px 5px 15px #999999;
     margin:0;
@@ -75,7 +75,7 @@ table td {
     display: none;
 }
 form {
-   background-color:#DEDEDE;
+  
    padding:10px;
 
    

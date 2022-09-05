@@ -43,19 +43,5 @@
 </div>
 
 @section Scripts{
-    <script>
-$(document).ready(function(){
-    ObtenerImagenCaja();
-});
-
-    function ObtenerImagenCaja() {
-
-        var  EtiquetaImagen = document.getElementById("EtiquetaDeCaja").innerHTML;
-        console.log(EtiquetaImagen);
-        $("#imagenCaja").append("<img class='rounded mx-auto d-block' src='/Uploads/Etiquetas/Cajas/"+EtiquetaImagen+".jpeg'/>");
-     
-    }
-
-
-    </script>
+   <script src="~/js/Cajas.js" type="text/javascript"></script>
 }
