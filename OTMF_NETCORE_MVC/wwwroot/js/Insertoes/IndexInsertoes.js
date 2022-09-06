@@ -1,9 +1,7 @@
-﻿
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
 
-    $("#Cajas").DataTable({
+    $("#Insertos").DataTable({
         dom: 'Bfrtip',
         buttons: [
             {
@@ -17,19 +15,9 @@ $(document).ready(function () {
                 }
             }
         ]
-
     });
 
 
-    ObtenerImagenCaja();
+
 
 });
-
-
-function ObtenerImagenCaja() {
-
-    var EtiquetaImagen = document.getElementById("EtiquetaDeCaja").innerHTML;
-    console.log(EtiquetaImagen);
-    $("#imagenCaja").append("<img class='rounded mx-auto d-block' src='/Uploads/Etiquetas/Cajas/" + EtiquetaImagen + ".jpeg'/>");
-
-}

@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
 
-    $("#Accessorios").DataTable({
+    $("#Etiquetas").DataTable({
         dom: 'Bfrtip',
         buttons: [
             {
@@ -22,3 +22,7 @@ $(document).ready(function () {
 
 
 });
+function ObtenerEtiquetaDeCaja(data) {
+    $("#EtiquetaPieza").html("");
+    $("#EtiquetaPieza").append("<div><img width='250' height='200' class='card' src='/Uploads//Etiquetas/Partes/" + data + ".jpeg'/></div>");
+}

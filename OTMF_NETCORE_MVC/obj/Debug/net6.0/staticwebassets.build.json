@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PwqiGq53M5O8n//PuFH+V6IHUHQGekB/4/L37CYKNVA=",
+  "Hash": "7k7cCr+5mSJV/Kan0gaaW+t1R1fNAuLcdetEmi+FI5g=",
   "Source": "OTMF_NETCORE_MVC",
   "BasePath": "_content/OTMF_NETCORE_MVC",
   "Mode": "Default",
@@ -102,12 +102,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Accesorios.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Accesorios\\IndexAccesorios.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Accesorios.js",
+      "RelativePath": "js/Accesorios/IndexAccesorios.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +116,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Accesorios.js"
+      "OriginalItemSpec": "wwwroot\\js\\Accesorios\\IndexAccesorios.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Cajas.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Cajas\\IndexCajas.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Cajas.js",
+      "RelativePath": "js/Cajas/IndexCajas.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Cajas.js"
+      "OriginalItemSpec": "wwwroot\\js\\Cajas\\IndexCajas.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Clientes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Clientes\\IndexClientes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Clientes.js",
+      "RelativePath": "js/Clientes/IndexClientes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,15 +150,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Clientes.js"
+      "OriginalItemSpec": "wwwroot\\js\\Clientes\\IndexClientes.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Colors.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Colors\\IndexColors.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Colors.js",
+      "RelativePath": "js/Colors/IndexColors.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -167,15 +167,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Colors.js"
+      "OriginalItemSpec": "wwwroot\\js\\Colors\\IndexColors.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Confirguracion.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Configuracion\\EstandaresParametros.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Confirguracion.js",
+      "RelativePath": "js/Configuracion/EstandaresParametros.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,7 +184,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Confirguracion.js"
+      "OriginalItemSpec": "wwwroot\\js\\Configuracion\\EstandaresParametros.js"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Configuracion\\IndexConfirguracion.js",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "js/Configuracion/IndexConfirguracion.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Configuracion\\IndexConfirguracion.js"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Configuracion\\Usuarios.js",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "js/Configuracion/Usuarios.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Configuracion\\Usuarios.js"
     },
     {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Dashboard.js",
@@ -221,12 +255,12 @@
       "OriginalItemSpec": "wwwroot\\js\\datatables.min.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Empleadoes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Empleadoes\\IndexEmpleadoes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Empleadoes.js",
+      "RelativePath": "js/Empleadoes/IndexEmpleadoes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -235,15 +269,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Empleadoes.js"
+      "OriginalItemSpec": "wwwroot\\js\\Empleadoes\\IndexEmpleadoes.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Ensambles.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Ensambles\\IndexEnsambles.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Ensambles.js",
+      "RelativePath": "js/Ensambles/IndexEnsambles.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -252,15 +286,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Ensambles.js"
+      "OriginalItemSpec": "wwwroot\\js\\Ensambles\\IndexEnsambles.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\EstadoOrdens.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\EstadoOrdens\\IndexEstadoOrdens.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/EstadoOrdens.js",
+      "RelativePath": "js/EstadoOrdens/IndexEstadoOrdens.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,15 +303,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\EstadoOrdens.js"
+      "OriginalItemSpec": "wwwroot\\js\\EstadoOrdens\\IndexEstadoOrdens.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\EtiquetaDeCaja.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\EtiquetaDeCaja\\IndexEtiquetaDeCaja.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/EtiquetaDeCaja.js",
+      "RelativePath": "js/EtiquetaDeCaja/IndexEtiquetaDeCaja.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -286,15 +320,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\EtiquetaDeCaja.js"
+      "OriginalItemSpec": "wwwroot\\js\\EtiquetaDeCaja\\IndexEtiquetaDeCaja.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Etiquetums.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Etiquetums\\IndexEtiquetums.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Etiquetums.js",
+      "RelativePath": "js/Etiquetums/IndexEtiquetums.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -303,15 +337,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Etiquetums.js"
+      "OriginalItemSpec": "wwwroot\\js\\Etiquetums\\IndexEtiquetums.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Hules.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Hules\\IndexHules.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Hules.js",
+      "RelativePath": "js/Hules/IndexHules.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -320,15 +354,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Hules.js"
+      "OriginalItemSpec": "wwwroot\\js\\Hules\\IndexHules.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Insertoes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Insertoes\\IndexInsertoes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Insertoes.js",
+      "RelativePath": "js/Insertoes/IndexInsertoes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -337,15 +371,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Insertoes.js"
+      "OriginalItemSpec": "wwwroot\\js\\Insertoes\\IndexInsertoes.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\InstructivoPieza.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\InstructivoPieza\\IndexInstructivoPieza.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/InstructivoPieza.js",
+      "RelativePath": "js/InstructivoPieza/IndexInstructivoPieza.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -354,15 +388,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\InstructivoPieza.js"
+      "OriginalItemSpec": "wwwroot\\js\\InstructivoPieza\\IndexInstructivoPieza.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\MaquinaOrdenTrabajoes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\MaquinaOrdenTrabajoes\\IndexMaquinaOrdenTrabajoes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/MaquinaOrdenTrabajoes.js",
+      "RelativePath": "js/MaquinaOrdenTrabajoes/IndexMaquinaOrdenTrabajoes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -371,15 +405,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\MaquinaOrdenTrabajoes.js"
+      "OriginalItemSpec": "wwwroot\\js\\MaquinaOrdenTrabajoes\\IndexMaquinaOrdenTrabajoes.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Maquinas.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Maquinas\\IndexMaquinas.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Maquinas.js",
+      "RelativePath": "js/Maquinas/IndexMaquinas.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -388,15 +422,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Maquinas.js"
+      "OriginalItemSpec": "wwwroot\\js\\Maquinas\\IndexMaquinas.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Moldes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Moldes\\IndexMoldes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Moldes.js",
+      "RelativePath": "js/Moldes/IndexMoldes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -405,15 +439,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Moldes.js"
+      "OriginalItemSpec": "wwwroot\\js\\Moldes\\IndexMoldes.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\OrdenTrabajoEmpleadoes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\OrdenTrabajoEmpleadoes\\OrdenTrabajoEmpleadoes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/OrdenTrabajoEmpleadoes.js",
+      "RelativePath": "js/OrdenTrabajoEmpleadoes/OrdenTrabajoEmpleadoes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -422,15 +456,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\OrdenTrabajoEmpleadoes.js"
+      "OriginalItemSpec": "wwwroot\\js\\OrdenTrabajoEmpleadoes\\OrdenTrabajoEmpleadoes.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\OrdenTrabajoes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\OrdenTrabajoes\\OrdenTrabajoes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/OrdenTrabajoes.js",
+      "RelativePath": "js/OrdenTrabajoes/OrdenTrabajoes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -439,15 +473,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\OrdenTrabajoes.js"
+      "OriginalItemSpec": "wwwroot\\js\\OrdenTrabajoes\\OrdenTrabajoes.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\OTEstado.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\OTEstado\\OTEstado.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/OTEstado.js",
+      "RelativePath": "js/OTEstado/OTEstado.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -456,7 +490,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\OTEstado.js"
+      "OriginalItemSpec": "wwwroot\\js\\OTEstado\\OTEstado.js"
     },
     {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\pagination.js",
@@ -476,12 +510,12 @@
       "OriginalItemSpec": "wwwroot\\js\\pagination.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\ParteAccesorios.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\ParteAccesorios\\IndexParteAccesorios.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/ParteAccesorios.js",
+      "RelativePath": "js/ParteAccesorios/IndexParteAccesorios.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -490,15 +524,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\ParteAccesorios.js"
+      "OriginalItemSpec": "wwwroot\\js\\ParteAccesorios\\IndexParteAccesorios.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Partes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Partes\\CreateParte.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Partes.js",
+      "RelativePath": "js/Partes/CreateParte.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -507,15 +541,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Partes.js"
+      "OriginalItemSpec": "wwwroot\\js\\Partes\\CreateParte.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Pinturas.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Partes\\IndexPartes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Pinturas.js",
+      "RelativePath": "js/Partes/IndexPartes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -524,7 +558,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Pinturas.js"
+      "OriginalItemSpec": "wwwroot\\js\\Partes\\IndexPartes.js"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Pinturas\\IndexPinturas.js",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "js/Pinturas/IndexPinturas.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Pinturas\\IndexPinturas.js"
     },
     {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\site.js",
@@ -544,12 +595,12 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Tarimas.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Tarimas\\IndexTarimas.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Tarimas.js",
+      "RelativePath": "js/Tarimas/IndexTarimas.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -558,15 +609,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Tarimas.js"
+      "OriginalItemSpec": "wwwroot\\js\\Tarimas\\IndexTarimas.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\TipoEmpleadoes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\TipoEmpledoes\\IndexTipoEmpleadoes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/TipoEmpleadoes.js",
+      "RelativePath": "js/TipoEmpledoes/IndexTipoEmpleadoes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -575,15 +626,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\TipoEmpleadoes.js"
+      "OriginalItemSpec": "wwwroot\\js\\TipoEmpledoes\\IndexTipoEmpleadoes.js"
     },
     {
-      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Turnoes.js",
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\js\\Turnoes\\IndexTurnoes.js",
       "SourceId": "OTMF_NETCORE_MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
       "BasePath": "_content/OTMF_NETCORE_MVC",
-      "RelativePath": "js/Turnoes.js",
+      "RelativePath": "js/Turnoes/IndexTurnoes.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -592,7 +643,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Turnoes.js"
+      "OriginalItemSpec": "wwwroot\\js\\Turnoes\\IndexTurnoes.js"
     },
     {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\lib\\alertifyjs\\alertify.js",

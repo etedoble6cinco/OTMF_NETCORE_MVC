@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
 
-    $("#Colors").DataTable({
+    $("#Hule").DataTable({
         dom: 'Bfrtip',
         buttons: [
             {
@@ -9,8 +9,7 @@
                 tittleAttr: 'creadas hoy',
                 className: 'btn btn-lg btn-secondary',
                 action: function () {
-
-                    window.location.href = "@Url.Action("Create")";
+                    window.location.href = '../../Holes/Create';
 
                 }
             }

@@ -8,7 +8,7 @@
                 className: 'btn btn-lg btn-secondary',
                 action: function () {
 
-                    window.location.href = "@Url.Action("Create")";
+                    window.location.href = "../../Clientes/Create";
 
                 }
             }
