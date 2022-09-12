@@ -47,7 +47,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["Accesorios"] = new SelectList(_context.Accesorios, "IdAccesorio", "NombreAccesorio");
             var parte = await _context.Partes
                 .Include(p => p.IdCajaFkNavigation)
                 .Include(p => p.IdClienteFkNavigation)
@@ -66,7 +66,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             {
                 return NotFound();
             }
-
+           
             return View(parte);
         }
 
@@ -326,7 +326,7 @@ namespace OTMF_NETCORE_MVC.Controllers
         {
           return (_context.Partes?.Any(e => e.IdParte == id)).GetValueOrDefault();
         }
-        [HttpGet]
+        [HttpPost]
         public JsonResult ObtenerPartes ()
         {
             var OP = "[ObtenerPartesAllInfo]";

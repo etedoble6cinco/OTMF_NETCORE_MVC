@@ -89,10 +89,14 @@ function GetParteByOTId(idOrdenTrabajo) {
         data: { id: idOrdenTrabajo },
         dataType: "json",
         success: function (data) {
-
+            
             FillParte(data);
         }
     });
+}
+
+function truncate(num, places) {
+    return Math.trunc(num * Math.pow(10, places)) / Math.pow(10, places);
 }
 function FillParte(data) {
 
@@ -102,7 +106,7 @@ function FillParte(data) {
 
 
 
-        $("#pills-tabContent").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Aluminio</p>        <p class='fs-6'>" + data.data[x].aluminio + "</p></div>"
+        $("#pills-tabContent").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Aluminio</p>        <p class='fs-6'>" + truncate(data.data[x].aluminio, 3) + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Cajas por Tarima</p><p class='fs-6'>" + data.data[x].cajasPorTarima + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Caja</p>            <p class='fs-6'>" + data.data[x].nombreCaja + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Cliente</p>         <p class='fs-6'>" + data.data[x].nombreCliente + "</p></div>"
@@ -112,7 +116,8 @@ function FillParte(data) {
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Inserto</p>         <p class='fs-6'>" + data.data[x].nombreInserto + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Molde</p>           <p class='fs-6'>" + data.data[x].nombreMolde + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Pintura</p>         <p class='fs-6'>" + data.data[x].nombrePintura + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Tarima</p>          <p class='fs-6'>" + data.data[x].nombreTarima + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Tarima</p>          <p class='fs-6'>" + data.data[x].nombreTarima + "</p></div>" +
+              "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Instructivo</p>          <p class='fs-6'>" + data.data[x].nombreInstructivoPieza + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Piezas por Caja</p> <p class='fs-6'>" + data.data[x].piezasPorCaja + "</p></div>");
         $("#part-Image").append("<div class='d-flex flex-wrap'><img  class='img-fluid' style='max-width:50%;'  src='/Uploads//Etiquetas/Partes/" + data.data[x].nombreEtiqueta + ".jpg' />"
             + "<img class='img-fluid' style='max-width:50%;' src='/Uploads//Etiquetas/Cajas/" + data.data[x].nombreEtiquetaDeCaja + ".jpg' /></div>")
@@ -522,7 +527,8 @@ function FillAccesoriosByParteId(data) {
 }
 // METODO PARA ACTUALIZAR LA DURACION DE LOS ESTADOS 
 
-function RegistrarDuracionEstado(TipoMovimientoEstado,
+function RegistrarDuracionEstado(
+    TipoMovimientoEstado,
     IdOrdenTrabajo,
     IdMotivoCambioEstadoFK,
     IdEstadoOrdenTrabajoFK) {

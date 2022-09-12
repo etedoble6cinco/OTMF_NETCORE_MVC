@@ -16,7 +16,7 @@ namespace OTMF_NETCORE_MVC.Controllers
     public class CajasController : Controller
     {
         private readonly OTMFContext _context;
-        private readonly FileLocation fileLocation;
+       
         private IWebHostEnvironment webHostEnvironment;
         private readonly string connectionString;
         public CajasController(OTMFContext context, IWebHostEnvironment Environment , IConfiguration configuration)

@@ -22,24 +22,25 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreInserto)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdInserto"    class="btn btn-lg btn-primary">Editar</a> 
-           
-                <a asp-action="Delete" asp-route-id="@item.IdInserto"  class="btn btn-lg btn-danger" >Eliminar</a>
-            </td>
-        </tr>
+                <tr>
+                    <td>
+                        
+                        @Html.DisplayFor(modelItem => item.NombreInserto)
+                    
+                    </td>
+                    <td>
+                        <div class="btns-group">
+                              <a asp-action="Edit" asp-route-id="@item.IdInserto" class="btn btn-primary">Editar</a>     
+                              <a asp-action="Delete" asp-route-id="@item.IdInserto" class="btn btn-danger" >Eliminar</a>
+                        </div>
+                      
+                    
+                    </td>
+                </tr>
 }
-    </tbody>
-</table>
-
-
-
-            </fieldset>
-  
+                </tbody>
+                </table>
+            </fieldset>  
     </div>
     </div>
     
@@ -50,7 +51,7 @@
 
 
 @section Scripts{
-    <script src="~/js/Insertoes.js" type="text/javascript"></script>
+    <script src="~/js/Insertoes/IndexInsertoes.js" type="text/javascript"></script>
 }
 
 

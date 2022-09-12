@@ -67,7 +67,6 @@
                       <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1"></span>
                       </div>
-                      
                       <input type="text" class="form-control" asp-for="IdCodigoOrdenTrabajo" placeholder="Nombre Orden de Trabajo" aria-label="Orden Trabajo normal" id="InputPrefixValue" aria-describedby="basic-addon1">
                       </div>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -120,93 +119,7 @@
 </div>
 
 @section Scripts {
-     <script>
-function CheckChkEspecialValue() {
-    var chk = document.getElementById("flexCheckChecked").checked;
- 
-    if (chk == true) {
-        var inputPrefixValue = document.getElementById("InputNormalot").value;
-        document.getElementById("InputPrefixValue").value = inputPrefixValue;
-        document.getElementById("IdOTespecial").value = true;
-    
-           $('#Createot').submit();
-    }
-    else{
-        var inputPrefixValue = document.getElementById("InputNormalot").value;
-        document.getElementById("IdOTespecial").value = false;
-    
-        $('#Createot').submit();
-    }
-   
-}
-         function Getchkvalue(){
-             var inputPrefixValue = document.getElementById("InputPrefixValue").value;
-             var prefix = document.getElementById("basic-addon1").innerText;
-            
-             $("#prefixOT section").toggle();
-             var chk = document.getElementById("flexCheckChecked").value;
-           
-            
-         }
-
-        $(document).ready(function() {
-   
-            ObtenerPrefixOT();
-            ObtenerUltimoIdOT();
-     
-        var now = new Date();
-        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-        document.getElementById('HoraInicio').value = now.toISOString().slice(0,16);
-        document.getElementById('HoraFinalizacion').value = now.toISOString().slice(0,16);
-        document.getElementById('FechaOrdenTrabajo').value = now.toISOString().slice(0,16);
-         
-        });
-        function ObtenerUltimoIdOT(){
-              $.ajax({
-                type:'GET',
-                url:'@Url.Action("ObtenerUltimoIdOT")',
-                dataType:'json',
-                success: function(data) {
-                    document.getElementById('IdOrdenTrabajo').value = data.data[0].ultimoid+1;
-            
-        }
-    });
-        }
-        function ObtenerPrefixOT() {
-            $.ajax({
-                type:'GET',
-                url:'@Url.Action("ObtenerPrefixOT")',
-                dataType:'json',
-                success: function(data) {
-                    console.log(data.data);
-                    document.getElementById("basic-addon1").innerText = "";
-                    document.getElementById("basic-addon1").innerText = data.data.nombrePrefix;
-                }
-
-            });
-
-        }
-        function UpdatePrefixOT(){
-            var prefixOt = document.getElementById("prefix").value;
-            $.ajax({
-                type:'POST',
-                url:'@Url.Action("UpdatePrefixOT")',
-                dataType:'json',
-                data: {
-                    prefixOt:prefixOt
-                },
-                success: function(data) {
-                    
-                    ObtenerPrefixOT();
-                }
-            });
-        }
-        
-        
-
-
-       
-    </script>
+    <script src="~/js/OrdenTrabajoes/CreateOrdenTrabajoes.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
    
 }

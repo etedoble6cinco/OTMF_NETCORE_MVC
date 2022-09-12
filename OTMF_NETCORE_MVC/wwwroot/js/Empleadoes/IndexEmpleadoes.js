@@ -22,7 +22,7 @@
                 tittleAttr: 'Agregar Nuevo',
                 className: 'btn btn-lg btn-primary',
                 action: function () {
-                    window.location.href = "Empleadoes/Create";
+                    window.location.href = "../../Empleadoes/Create";
                 }
             }
 

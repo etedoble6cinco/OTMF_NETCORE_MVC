@@ -1,5 +1,5 @@
 ﻿
-   <div class="col-3" >
+   <div class="col-3" id="NavigationColumn">
         <fieldset>
             <legend><h5 class="display-6">Gestionar</h5></legend>
         <div class="d-flex flex-column flex-shrink-0 p-1 bg-light">
@@ -49,7 +49,7 @@
         </a>
       </li>
       <li>
-        <a class="nav-link link-dark" asp-controller="Turnoes"  asp-action="Index">
+        <a class="nav-link link-dark" asp-controller="EiquetaDeCaja"  asp-action="Index">
             <svg class="bi me-2" width="16" height="16"></svg>
          Etiqueta de Caja
         </a>
@@ -92,3 +92,7 @@
   </div>
   </fieldset>
     </div>
+    @section Scripts {
+     
+        <script src="~/js/Shared/PartesNavigationColumn.js" type="text/javascript"></script>
+    }

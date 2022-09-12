@@ -24,7 +24,14 @@ namespace OTMF_NETCORE_MVC.Controllers
             var oTMFContext = _context.OrdenTrabajoEmpleados.Include(o => o.IdEmpleadoFkNavigation).Include(o => o.IdOrdenTrabajoFkNavigation);
             return View(await oTMFContext.ToListAsync());
         }
-
+       
+        public JsonResult ObtenerRelacionesOrdenTrabajoEmpleado()
+        {
+            var rel = _context.OrdenTrabajoEmpleados.ToList();
+             
+            return Json(new { data = rel });
+        }
+        
         // GET: OrdenTrabajoEmpleadoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -145,7 +152,7 @@ namespace OTMF_NETCORE_MVC.Controllers
 
             return View(ordenTrabajoEmpleado);
         }
-
+        
         // POST: OrdenTrabajoEmpleadoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

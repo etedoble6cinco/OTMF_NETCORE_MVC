@@ -9,38 +9,38 @@
 <div class="container-fluid">
     <div class="row">
     <partial name="_navigationColumnPartes"/>
-        <div class="col-12">
+        <div class="col-9">
             <fieldset>
                 <legend>Partes</legend>
                      <table class="table table-hover" id="Partes">
    
                          <thead> 
                              <tr>
+                               
                                  <th>Codigo Parte </th>
                                  <th>Aluminio</th>
                                  <th>Cajas por Tarima</th>
                                  <th>Costo</th>
-                                 <th>Estandar por Hora</th>
+                    
                                  <th>Piezas Por Caja</th>
-                                 <th>scrap</th>
-                                 <th>std_Pintura</th>
-                                 <th>Nombre Caja</th>      
-                                 <th>Nombre Color</th>
-                                 <th>Nombre Pintura</th>
-                                 <th>Nombre Tarima</th>
-                                 <th>Nombre Molde</th>
-                                 <th>Nombre Ensamble</th>
-                                 <th>Nombre Estanadar Con Relevo</th>
-                                 <th>Nombre Etiqueta</th>
-                                 <th>Nombre Inserto</th>
-                                 <th>Nombre Hule</th>
-                                 <th>Nombre Estandar</th>
-                                 <th>Nombre Cliente</th>
+                            
+                                 <th>Caja</th>      
+                                 <th>Color</th>
+                                 <th>Pintura</th>
+                                 <th>Tarima</th>
+                                 <th>Molde</th>
+                                 <th>Ensamble</th>
+                               
+                                 <th>Etiqueta</th>
+                                 <th>Inserto</th>
+                                 <th>Hule</th>
+                            
+                                 <th>Cliente</th>
+                                 <th>Acciones</th>
+                                 
                              </tr>
                          </thead>
-                         <tbody>
 
-                         </tbody>
                          <tfoot></tfoot>
                         </table>
             </fieldset>
@@ -48,77 +48,7 @@
     </div>
 </div>
 @section Scripts{
-    <script>
-        
-$(document).ready(function () {
-
-
-    $("#Partes").DataTable({
-        "ajax": {
-            "url": "Partes/ObtenerPartes",
-            "type": "GET",
-            "datatype": "json"
-        },
-           dom: 'Bfrtip',
-        buttons: [
-            {
-                extend: 'excelHtml5',
-                text: '<i class="fas fa-file-excel"></i>',
-                tittleAttr: 'Exportar a Excel',
-                className: 'btn btn-lg btn-success'
-
-            },
-           
-            {
-                text:'<i class="fa fa-plus" aria-hidden="true"></i>',
-                tittleAttr: 'Agregar Nuevo',
-                className:'btn btn-lg btn-primary',
-                action: function() {
-                    window.location.href = "Partes/Create";
-                }
-            }
-
-
-        ],
-        autoFill: false,
-        responsive: true,
-        select:false,
-        rowId:"idParte",
-        "columns": [
-            { "data": "idCodigoParte"},
-            { "data": "aluminio"},
-            { "data": "cajasPorTarima"},
-            { "data": "costo"},
-            { "data": "estandarPorHora"},
-            { "data": "piezasPorCaja"},
-            { "data": "scrap"},
-            { "data": "std_Pintura"},
-            { "data": "nombreCaja"},
-            { "data": "nombreColor"},
-            { "data": "nombrePintura"},     
-            { "data": "nombreTarima"},      
-            { "data": "nombreMolde"},     
-            { "data": "nombreEnsamble"},       
-            { "data": "nombreEstandarConRelevo"},
-            { "data": "nombreEtiqueta"},     
-            { "data": "nombreInserto"},       
-            { "data": "nombreHule"},      
-            { "data": "nombreEstandar"},
-            { "data": "nombreCliente"}
-        ]
-    });
-
-    var table = $('#Partes').DataTable();
-     $('#Partes').on( 'click', 'td', function () {
-    var id = table.row( this ).id();
-    window.location.href = "Partes/Details/" + id;
-     
-     });
-
-});
-
-
-    </script>
+    <script src="~/js/Partes/IndexPartes.js" type="text/javascript"></script>
 }
 
 

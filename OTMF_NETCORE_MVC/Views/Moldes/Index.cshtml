@@ -10,7 +10,7 @@
 
         <div class="col-9">
             <fieldset>
-                <legend>Empleados</legend>
+                <legend>Moldes</legend>
  <table class="table" id="Moldes">
     <thead>
         <tr>
@@ -27,9 +27,11 @@
                 @Html.DisplayFor(modelItem => item.NombreMolde)
             </td>
             <td>
+                <div class="btns-group">
                 <a asp-action="Edit" asp-route-id="@item.IdMolde"    class="btn btn-lg btn-primary">Edit</a> 
-              
                 <a asp-action="Delete" asp-route-id="@item.IdMolde"  class="btn btn-lg btn-danger" >Delete</a>
+                </div>
+          
             </td>
         </tr>
 }
@@ -49,7 +51,7 @@
 
 
 @section Scripts{
-    <script src="~/js/Moldes.js" type="text/javascript"></script>
+    <script src="~/js/Moldes/IndexMoldes.js" type="text/javascript"></script>
 }
 
 

@@ -9,7 +9,7 @@
                 tittleAttr: 'creadas hoy',
                 className: 'btn btn-lg btn-secondary',
                 action: function () {
-                    window.location.href = '../../Holes/Create';
+                    window.location.href = '../../Hules/Create';
 
                 }
             }

@@ -10,59 +10,60 @@
     <h4> Detalle de Parte</h4>
     <hr />
     <div class="row">
-        <div class="col-6 offset-3">
-             <div id="DetalleParte" class="d-flex align-content-start flex-wrap">
+        <div class="col-9">
+             <div id="DetalleParte" class="d-flex  flex-wrap">
 
     </div>
+        </div>
+        <div class="col-3">
+
+           
+                <fieldset>
+                    <legend>Accesorios</legend>
+                     <div id="partesAsignadas">
+
+                     </div>
+                </fieldset>
+           
         </div>
    
     
     </div>
-        <a asp-action="Edit" asp-route-id="@Model?.IdParte" class="btn btn-lg btn-primary">Editar</a> 
-    <a asp-action="Index" class="btn btn-lg btn-danger">Regresar</a>
+    <hr />
+    <div class="btns-group">
+    <a asp-action="Edit" asp-route-id="@Model?.IdParte" class="btn btn-primary">Editar</a> 
+    <a data-bs-toggle="modal" data-bs-target="#modalAccessorios" class="btn  btn-primary">Asignar accesorios</a> 
+    <a asp-action="Index" class="btn  btn-danger">Regresar</a>
+    </div>
+
 </div>
 <div>
 
 </div>
+<!-- Modal -->
+<div class="modal fade" id="modalAccessorios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Asignar Accesorios</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <select class="form-control" id="SelectAccesorios" asp-items="ViewBag.Accesorios">
+                    <option selected disabled>
+                    Eleguir Accesorio
+                    </option>
+            </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="InsertAccesorio();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 @section Scripts{
-    <script>
-
-$(document).ready(function() {
-    ObtenerDetalleParteById();
-});
-
-
-function ObtenerDetalleParteById(){
-    var IdParte = document.getElementById("idParte").value;
-    $.ajax({
-        type:"POST",
-        url:"@Url.Action("ObtenerDetalleParteById")",
-        dataType:"json",
-        data: {
-            IdParte:IdParte
-        },
-        success: function(data) {
-            
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Caja</p><p></div><div><p>"+data.data[0].NombreCaja+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Cliente</p></div><div><p>"+data.data[0].NombreCliente+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Color</p></div><div><p>"+data.data[0].NombreColor+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Ensamble</p></div><div><p>"+data.data[0].NombreEnsamble+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Estandar</p></div><div><p>"+data.data[0].NombreEstandar+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Estandar CR</p></div><div><p>"+data.data[0].NombreEstandarconRelevo+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Etiqueta</p></div><div><p>"+data.data[0].NombreEtiqueta+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Hule</p></div><div><p>"+data.data[0].NombreHule+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Inserto</p></div><div><p>"+data.data[0].NombreInserto+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Molde</p></div><div><p>"+data.data[0].NombreMolde+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Pintura</p></div><div><p>"+data.data[0].NombrePintura+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Tarima</p></div><div><p>"+data.data[0].NombreTarima+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Piezas por Caja</p></div><div><p>"+data.data[0].PiezasPorCaja+"</p></div>");
-            $("#DetalleParte").append("<div><p class='badge bg-primary'>Scrap</p></div><div><p>"+data.data[0].Scrap+"</p></div>");
-        }
-        
-
-    })
-}
-    </script>
+    <script src="~/js/Partes/DetailsParte.js"></script>
 }

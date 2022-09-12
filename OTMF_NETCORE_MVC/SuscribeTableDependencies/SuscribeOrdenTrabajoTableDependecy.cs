@@ -10,7 +10,7 @@ namespace OTMF_NETCORE_MVC.SuscribeTableDependencies
         SqlTableDependency<OrdenTrabajo> TableDependency;
         SqlTableDependency<MaquinaOrdenTrabajo> TableDependency2;
         DashboardHub dashboardHub;
-        private readonly OTMFContext _context;
+       
         private readonly string con;
         public SuscribeOrdenTrabajoTableDependecy(DashboardHub dashboardHub, IConfiguration configuration)
         {
