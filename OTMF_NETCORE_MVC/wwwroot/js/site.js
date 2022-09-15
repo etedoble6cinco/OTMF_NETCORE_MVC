@@ -30,15 +30,24 @@ function AsignacionEmpleadosOrdenTrabajo () {
         '</div>' +
 
                 '<div class="modal-body">'+
-        '<p>Some text in the modal.</p>' +
-       ' <form autocomplete="off" class="d-flex flex-row">'+
-            '<div class="autocomplete">'
-              + ' <input id="myInput"  type="text" name="Ot" placeholder="Clave">'
-           +' </div>'
-        +'<input class="btn btn-sm btn-primary" onclick="ResultadosBusquedaOt()" value="Buscar" type="button">'
-        +'</form>'
-
-                +'</div>'+
+        '<div class="row">'+
+        '<div class= "col-4"><div class="form-check">'+
+        '<input type="radio" class="form-check-input" value="busquedaCodigo" id="busquedaCodigo" name="busqueda">' +
+        '<label class="form-check-label" for="busquedaCodigo">Busqueda por codigo</label></div>' +
+        '</div>'
+        + '<div class= "col-4">' +
+        '<div class="form-check">' +
+        '<input type="radio" class="form-check-input" id="busquedaEstado" value="busquedaEstado" name="busqueda"><label class="form-check-label" for="busquedaEstado"> Busqueda por Estado</label></div>' +
+        '</div >' +
+        '<div class= "col-4">' +
+        '<div class="form-check">' +
+        '<input type="radio" class="form-check-input" id="busquedaFecha" value="busquedaFecha" name="busqueda">' +
+        '<label for="busquedaFecha">Busqueda por Fecha</label>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+               '<div class="container" id="eleccion"></div>'+
+               '<div class="container" id="resultados"></div>'+
                 '<div class="modal-footer">'+
                    ' <button type="button" class="btn btn-default" onclick="CerrarRelacionEmpleados()">Close</button>'+
                 '</div>'+
@@ -47,13 +56,100 @@ function AsignacionEmpleadosOrdenTrabajo () {
         '</div>');
 
 
-    FillRelacionEmpleados();
+    $("#RelacionEmpleadosOrdenTrabajoModal").modal("show");
+    $('input:radio[name="busqueda"]').change(function () {
+
+        if ($(this).is(':checked') && $(this).val() == 'busquedaCodigo') {
+            $("#eleccion").html("");
+            var content = '<form autocomplete="off" class="d-flex flex-row">' +
+                '<div class="autocomplete">'
+                + ' <input id="myInput"  type="text" name="Ot" placeholder="Clave">'
+                + ' </div>'
+                + '<input class="btn btn-sm btn-primary" id="idCode" onclick="ResultadosBusquedaOt()" value="Buscar" type="button">'
+                + '</form>';
+            $("#eleccion").append(content);
+            FillOrdenTrabajoAutoComplete();
+        }
+        if ($(this).is(':checked') && $(this).val() == 'busquedaEstado') {
+            $("#eleccion").html("");
+            var content = '<div class="d-flex flex-row">' +
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="activo">   <label    class="form-check-label" for="activo"   >Activa</label></div>'+
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="liberar">  <label   class="form-check-label" for="liberar"  >Por Liberar</label></div>'+
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="pausada">  <label   class="form-check-label" for="pausada"  >Pausada</label></div>'+
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="planeada"> <label  class="form-check-label" for="planeada" >Planeada</label></div>'+
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="terminada"><label class="form-check-label" for="terminada">Terminada</label></div>'+
+                '</div>';
+            $("#eleccion").append(content);
+            
+        }
+        if ($(this).is(':checked') && $(this).val() == 'busquedaFecha') {
+            $("#eleccion").html("");
+            var content = '<div><input id="busquedaDatePicker" type="text" name="" placeholder></div><button>'
+            +'</div > ';
+            $("#eleccion").append(content);
+            $('#busquedaDatePicker').daterangepicker({
+                "showDropdowns": true,
+                "showWeekNumbers": true,
+                "linkedCalendars": false,
+                "autoUpdateInput": false,
+                "showCustomRangeLabel": false,
+                "startDate": "09/07/2022",
+                "endDate": "09/13/2022"
+            }, function (start, end, label) {
+                ObtenerOrdenTrabajoByDateRange(start, end);
+            });
+        }
+    });
+}
+function AgregarTableResultados(data) {
+    console.log(data);
+    $("#resultados").html("");
+    $("#resultados").append("<table class='table hover'>"
+        +"<thead>"
+        +"<tr>"
+        +"<th>Codigo</th>"
+        +"<th>Pieza</th>"
+        +"<th>Estado</th>"
+        +"</tr > "
+        +"</thead > "
+        +"<tbody id='resultados2'>"
+        
+        + "</tbody>"
+        + "</table > ");
 
 }
-function ResultadosBusquedaOt() {
-    console.log("data");
+
+function ObtenerOrdenTrabajoByDateRange(start, end) {
+    document.getElementById("busquedaDatePicker").value = $(".drp-selected").text();
+    
+    const dateStart = new Date(start._d);
+    const dateEnd = new Date(end._d);
+    ;
+    $.ajax({
+        type: 'POST',
+        url: '../../OrdenTrabajoes/ObtenerOrdenTrabajoByDateRange',
+        data: {
+            dateStart: dateStart.toISOString(),
+            dateEnd: dateEnd.toISOString()
+        },
+        dataType: 'json',
+        success: function (data) {
+            AgregarTableResultados(data);
+        }
+    });
 }
-function FillRelacionEmpleados() {
+function ObtenerOrdenTrabajoByOTCode() {
+    var otCode = document.getElementById("idCode").value;
+    $.ajax({
+        type: 'POST',
+        url: '../../OrdenTrabajoes/ObtenerOrdenTrabajoByOTCode',
+        dataType: 'json',
+        success: function (data) {
+          
+        }
+    });
+}
+function FillOrdenTrabajoAutoComplete() {
     $.ajax({
         type: 'POST',
         url: '../../OrdenTrabajoes/ObtenerOrdenesTrabajo',
@@ -62,9 +158,9 @@ function FillRelacionEmpleados() {
         success: function (data) {
        
             var ot = [];
-            $("#RelacionEmpleadosOrdenTrabajoModal").modal("show");
+          
             for (var x = 0; x < data.data.length; x++) {
-                ot.push(data.data[x].idCodigoParte);
+                ot.push(data.data[x].idCodigoOrdenTrabajo);
             }
             autocomplete(document.getElementById("myInput"), ot);
         }

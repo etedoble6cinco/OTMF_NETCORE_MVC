@@ -12,7 +12,7 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -671124770,
+        "HashCode": 72654096,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -89,7 +89,7 @@
         }
       },
       {
-        "HashCode": 143999713,
+        "HashCode": 64495839,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -167,7 +167,7 @@
         }
       },
       {
-        "HashCode": -1748235014,
+        "HashCode": 1349721836,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView.NotAuthorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -198,7 +198,7 @@
         }
       },
       {
-        "HashCode": -1133917148,
+        "HashCode": -291019710,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView.NotAuthorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -230,7 +230,7 @@
         }
       },
       {
-        "HashCode": -1708515048,
+        "HashCode": 156403029,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView.Authorizing",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -249,7 +249,7 @@
         }
       },
       {
-        "HashCode": 690854087,
+        "HashCode": -1207772410,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView.Authorizing",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -269,7 +269,7 @@
         }
       },
       {
-        "HashCode": -290861135,
+        "HashCode": 1378163269,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -365,7 +365,7 @@
         }
       },
       {
-        "HashCode": 1193607543,
+        "HashCode": -9316886,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -462,7 +462,7 @@
         }
       },
       {
-        "HashCode": -1225490534,
+        "HashCode": -2010206398,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -493,7 +493,7 @@
         }
       },
       {
-        "HashCode": -1695368037,
+        "HashCode": -1174437002,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -525,7 +525,7 @@
         }
       },
       {
-        "HashCode": -1815361803,
+        "HashCode": -24903118,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.NotAuthorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -556,7 +556,7 @@
         }
       },
       {
-        "HashCode": 591632647,
+        "HashCode": 2104208854,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.NotAuthorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -588,7 +588,7 @@
         }
       },
       {
-        "HashCode": 1543593284,
+        "HashCode": 2134916304,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.Authorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -619,7 +619,7 @@
         }
       },
       {
-        "HashCode": 144467398,
+        "HashCode": 1599280291,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.Authorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -651,7 +651,7 @@
         }
       },
       {
-        "HashCode": 940697416,
+        "HashCode": -2100624451,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.Authorizing",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -670,7 +670,7 @@
         }
       },
       {
-        "HashCode": 1193290115,
+        "HashCode": -222969707,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.Authorizing",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -690,7 +690,7 @@
         }
       },
       {
-        "HashCode": -1928804383,
+        "HashCode": 1258416650,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.CascadingAuthenticationState",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -718,7 +718,7 @@
         }
       },
       {
-        "HashCode": 1719434979,
+        "HashCode": 2119663562,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.CascadingAuthenticationState",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -747,7 +747,7 @@
         }
       },
       {
-        "HashCode": 458107936,
+        "HashCode": -1884717191,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.CascadingAuthenticationState.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -766,7 +766,7 @@
         }
       },
       {
-        "HashCode": -1143938456,
+        "HashCode": -2125676404,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.CascadingAuthenticationState.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -786,7 +786,7 @@
         }
       },
       {
-        "HashCode": -638617161,
+        "HashCode": 223731424,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.CascadingValue<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -855,7 +855,7 @@
         }
       },
       {
-        "HashCode": 196792490,
+        "HashCode": -734694508,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.CascadingValue<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -925,7 +925,7 @@
         }
       },
       {
-        "HashCode": 1477738186,
+        "HashCode": 774598489,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.CascadingValue<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -944,7 +944,7 @@
         }
       },
       {
-        "HashCode": -2142944808,
+        "HashCode": -1800029030,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.CascadingValue<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -964,7 +964,7 @@
         }
       },
       {
-        "HashCode": -1251289369,
+        "HashCode": -699629187,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.DynamicComponent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1002,7 +1002,7 @@
         }
       },
       {
-        "HashCode": -1028304675,
+        "HashCode": -1876253178,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.DynamicComponent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1041,7 +1041,7 @@
         }
       },
       {
-        "HashCode": 94153881,
+        "HashCode": 779092129,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.LayoutView",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1079,7 +1079,7 @@
         }
       },
       {
-        "HashCode": -1119214327,
+        "HashCode": -1822643588,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.LayoutView",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1118,7 +1118,7 @@
         }
       },
       {
-        "HashCode": -565916646,
+        "HashCode": -45146425,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.LayoutView.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1137,7 +1137,7 @@
         }
       },
       {
-        "HashCode": -2044471633,
+        "HashCode": 288892651,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.LayoutView.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1157,7 +1157,7 @@
         }
       },
       {
-        "HashCode": -315136457,
+        "HashCode": -545587580,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.RouteView",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1195,7 +1195,7 @@
         }
       },
       {
-        "HashCode": -681495507,
+        "HashCode": 460758122,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.RouteView",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1234,7 +1234,7 @@
         }
       },
       {
-        "HashCode": -468874005,
+        "HashCode": -2037995468,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1333,7 +1333,7 @@
         }
       },
       {
-        "HashCode": 522814971,
+        "HashCode": -77287946,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1433,7 +1433,7 @@
         }
       },
       {
-        "HashCode": 9495083,
+        "HashCode": 1054329441,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.NotFound",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1452,7 +1452,7 @@
         }
       },
       {
-        "HashCode": -123101190,
+        "HashCode": -1170367391,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.NotFound",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1472,7 +1472,7 @@
         }
       },
       {
-        "HashCode": -322946772,
+        "HashCode": 2126962087,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.Found",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1503,7 +1503,7 @@
         }
       },
       {
-        "HashCode": 1486705040,
+        "HashCode": 397961816,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.Found",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1535,7 +1535,7 @@
         }
       },
       {
-        "HashCode": -1632005413,
+        "HashCode": 1549539467,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.Navigating",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1554,7 +1554,7 @@
         }
       },
       {
-        "HashCode": 673177941,
+        "HashCode": 1651946594,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.Navigating",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1574,7 +1574,7 @@
         }
       },
       {
-        "HashCode": -1263954125,
+        "HashCode": -990676457,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator",
         "AssemblyName": "Microsoft.AspNetCore.Components.Forms",
@@ -1591,7 +1591,7 @@
         }
       },
       {
-        "HashCode": -1733939579,
+        "HashCode": -763704560,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator",
         "AssemblyName": "Microsoft.AspNetCore.Components.Forms",
@@ -1609,7 +1609,7 @@
         }
       },
       {
-        "HashCode": -1923852292,
+        "HashCode": -1256647093,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.EditForm",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1705,7 +1705,7 @@
         }
       },
       {
-        "HashCode": -2012055527,
+        "HashCode": 1586013357,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.EditForm",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1802,7 +1802,7 @@
         }
       },
       {
-        "HashCode": 485083793,
+        "HashCode": 1272133948,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.EditForm.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1833,7 +1833,7 @@
         }
       },
       {
-        "HashCode": 206494649,
+        "HashCode": -305709639,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.EditForm.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1865,7 +1865,7 @@
         }
       },
       {
-        "HashCode": -1130017407,
+        "HashCode": -1404462381,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputCheckbox",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1930,7 +1930,7 @@
         }
       },
       {
-        "HashCode": -742143306,
+        "HashCode": -650274429,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputCheckbox",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1996,7 +1996,7 @@
         }
       },
       {
-        "HashCode": -1322354879,
+        "HashCode": 1729431963,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputDate<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2095,7 +2095,7 @@
         }
       },
       {
-        "HashCode": -1435712512,
+        "HashCode": 2056124797,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputDate<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2195,7 +2195,7 @@
         }
       },
       {
-        "HashCode": 755808500,
+        "HashCode": -704214070,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputFile",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2233,7 +2233,7 @@
         }
       },
       {
-        "HashCode": 1790590852,
+        "HashCode": -320546209,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputFile",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2272,7 +2272,7 @@
         }
       },
       {
-        "HashCode": -53036202,
+        "HashCode": -700263359,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputNumber<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2361,7 +2361,7 @@
         }
       },
       {
-        "HashCode": -501875773,
+        "HashCode": -955083516,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputNumber<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2451,7 +2451,7 @@
         }
       },
       {
-        "HashCode": -194464350,
+        "HashCode": -834064319,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadio<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2510,7 +2510,7 @@
         }
       },
       {
-        "HashCode": 645061350,
+        "HashCode": 1953119123,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadio<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2570,7 +2570,7 @@
         }
       },
       {
-        "HashCode": -215205791,
+        "HashCode": 1799441150,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2669,7 +2669,7 @@
         }
       },
       {
-        "HashCode": -1485360851,
+        "HashCode": -1018660834,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2769,7 +2769,7 @@
         }
       },
       {
-        "HashCode": 1920732722,
+        "HashCode": -965291834,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2788,7 +2788,7 @@
         }
       },
       {
-        "HashCode": -1907054608,
+        "HashCode": 263079186,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2808,7 +2808,7 @@
         }
       },
       {
-        "HashCode": -1194875299,
+        "HashCode": -942182848,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2898,7 +2898,7 @@
         }
       },
       {
-        "HashCode": 758914836,
+        "HashCode": -425900797,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2989,7 +2989,7 @@
         }
       },
       {
-        "HashCode": -1527354099,
+        "HashCode": -1704543796,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3008,7 +3008,7 @@
         }
       },
       {
-        "HashCode": 810698004,
+        "HashCode": 289485555,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3028,7 +3028,7 @@
         }
       },
       {
-        "HashCode": 435562136,
+        "HashCode": 685636896,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputText",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3093,7 +3093,7 @@
         }
       },
       {
-        "HashCode": -581855876,
+        "HashCode": 542387982,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputText",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3159,7 +3159,7 @@
         }
       },
       {
-        "HashCode": -246765803,
+        "HashCode": -1451657337,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputTextArea",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3224,7 +3224,7 @@
         }
       },
       {
-        "HashCode": 469649854,
+        "HashCode": -1376560643,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputTextArea",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3290,7 +3290,7 @@
         }
       },
       {
-        "HashCode": 1363624013,
+        "HashCode": 1670177189,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.ValidationMessage<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3340,7 +3340,7 @@
         }
       },
       {
-        "HashCode": 356710207,
+        "HashCode": -1871645990,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.ValidationMessage<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3391,7 +3391,7 @@
         }
       },
       {
-        "HashCode": 59215540,
+        "HashCode": 1237817331,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.ValidationSummary",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3428,7 +3428,7 @@
         }
       },
       {
-        "HashCode": -1483951471,
+        "HashCode": 2125992549,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.ValidationSummary",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3466,7 +3466,7 @@
         }
       },
       {
-        "HashCode": -1812067074,
+        "HashCode": -661085675,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.FocusOnNavigate",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3503,7 +3503,7 @@
         }
       },
       {
-        "HashCode": 1844384441,
+        "HashCode": 1635093735,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.FocusOnNavigate",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3541,7 +3541,7 @@
         }
       },
       {
-        "HashCode": 1022708358,
+        "HashCode": 730411770,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.NavLink",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3598,7 +3598,7 @@
         }
       },
       {
-        "HashCode": 1058007399,
+        "HashCode": 524221383,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.NavLink",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3656,7 +3656,7 @@
         }
       },
       {
-        "HashCode": 20111886,
+        "HashCode": 513874138,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.NavLink.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3675,7 +3675,7 @@
         }
       },
       {
-        "HashCode": -983972116,
+        "HashCode": 1435380106,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.NavLink.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3695,7 +3695,7 @@
         }
       },
       {
-        "HashCode": -1488594133,
+        "HashCode": -1744342979,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3724,7 +3724,7 @@
         }
       },
       {
-        "HashCode": -502244685,
+        "HashCode": -1770101482,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3754,7 +3754,7 @@
         }
       },
       {
-        "HashCode": -1804868479,
+        "HashCode": -2118806717,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadContent.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3773,7 +3773,7 @@
         }
       },
       {
-        "HashCode": 1435974865,
+        "HashCode": 443548102,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadContent.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3793,7 +3793,7 @@
         }
       },
       {
-        "HashCode": -1622705830,
+        "HashCode": -1382301035,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadOutlet",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3810,7 +3810,7 @@
         }
       },
       {
-        "HashCode": -1081656524,
+        "HashCode": -239736502,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadOutlet",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3828,7 +3828,7 @@
         }
       },
       {
-        "HashCode": 1343226408,
+        "HashCode": -1823209171,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.PageTitle",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3857,7 +3857,7 @@
         }
       },
       {
-        "HashCode": -1398474923,
+        "HashCode": -1622596286,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.PageTitle",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3887,7 +3887,7 @@
         }
       },
       {
-        "HashCode": -1511647910,
+        "HashCode": -138839823,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.PageTitle.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3906,7 +3906,7 @@
         }
       },
       {
-        "HashCode": -1823657266,
+        "HashCode": -201526520,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.PageTitle.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3926,7 +3926,7 @@
         }
       },
       {
-        "HashCode": 1522928950,
+        "HashCode": -1475702293,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3984,7 +3984,7 @@
         }
       },
       {
-        "HashCode": -1512900666,
+        "HashCode": 2011508974,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4043,7 +4043,7 @@
         }
       },
       {
-        "HashCode": 791094165,
+        "HashCode": -1981300251,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4062,7 +4062,7 @@
         }
       },
       {
-        "HashCode": 1753862261,
+        "HashCode": 1693879968,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4082,7 +4082,7 @@
         }
       },
       {
-        "HashCode": -83676335,
+        "HashCode": 2141561531,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary.ErrorContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4113,7 +4113,7 @@
         }
       },
       {
-        "HashCode": 1511719334,
+        "HashCode": -288977575,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary.ErrorContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4145,7 +4145,7 @@
         }
       },
       {
-        "HashCode": 973435838,
+        "HashCode": 804715277,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4257,7 +4257,7 @@
         }
       },
       {
-        "HashCode": 753777700,
+        "HashCode": 406292485,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4370,7 +4370,7 @@
         }
       },
       {
-        "HashCode": 2116977229,
+        "HashCode": -696873859,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4401,7 +4401,7 @@
         }
       },
       {
-        "HashCode": 1650504357,
+        "HashCode": 885052061,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4433,7 +4433,7 @@
         }
       },
       {
-        "HashCode": -1662809893,
+        "HashCode": -80446238,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.ItemContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4464,7 +4464,7 @@
         }
       },
       {
-        "HashCode": -1149196001,
+        "HashCode": 1087378780,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.ItemContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4496,7 +4496,7 @@
         }
       },
       {
-        "HashCode": 1575714527,
+        "HashCode": -723924973,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.Placeholder",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4527,7 +4527,7 @@
         }
       },
       {
-        "HashCode": 1243554398,
+        "HashCode": 1705683086,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.Placeholder",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4559,7 +4559,7 @@
         }
       },
       {
-        "HashCode": -349450974,
+        "HashCode": 1795938737,
         "Kind": "Components.EventHandler",
         "Name": "onfocus",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4640,7 +4640,7 @@
         }
       },
       {
-        "HashCode": 401455223,
+        "HashCode": 756070032,
         "Kind": "Components.EventHandler",
         "Name": "onblur",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4721,7 +4721,7 @@
         }
       },
       {
-        "HashCode": 1342933126,
+        "HashCode": 1870102863,
         "Kind": "Components.EventHandler",
         "Name": "onfocusin",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4802,7 +4802,7 @@
         }
       },
       {
-        "HashCode": -2136285833,
+        "HashCode": 913357911,
         "Kind": "Components.EventHandler",
         "Name": "onfocusout",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4883,7 +4883,7 @@
         }
       },
       {
-        "HashCode": 743904805,
+        "HashCode": 1935833243,
         "Kind": "Components.EventHandler",
         "Name": "onmouseover",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4964,7 +4964,7 @@
         }
       },
       {
-        "HashCode": -1666743562,
+        "HashCode": 1236623341,
         "Kind": "Components.EventHandler",
         "Name": "onmouseout",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5045,7 +5045,7 @@
         }
       },
       {
-        "HashCode": 1044512766,
+        "HashCode": -1819744587,
         "Kind": "Components.EventHandler",
         "Name": "onmousemove",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5126,7 +5126,7 @@
         }
       },
       {
-        "HashCode": -1733929969,
+        "HashCode": 623837665,
         "Kind": "Components.EventHandler",
         "Name": "onmousedown",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5207,7 +5207,7 @@
         }
       },
       {
-        "HashCode": -1692764187,
+        "HashCode": -1689472535,
         "Kind": "Components.EventHandler",
         "Name": "onmouseup",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5288,7 +5288,7 @@
         }
       },
       {
-        "HashCode": 1501043979,
+        "HashCode": -1730578788,
         "Kind": "Components.EventHandler",
         "Name": "onclick",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5369,7 +5369,7 @@
         }
       },
       {
-        "HashCode": 740832054,
+        "HashCode": -1197472132,
         "Kind": "Components.EventHandler",
         "Name": "ondblclick",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5450,7 +5450,7 @@
         }
       },
       {
-        "HashCode": -360977294,
+        "HashCode": -1515018593,
         "Kind": "Components.EventHandler",
         "Name": "onwheel",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5531,7 +5531,7 @@
         }
       },
       {
-        "HashCode": -567540603,
+        "HashCode": -569208874,
         "Kind": "Components.EventHandler",
         "Name": "onmousewheel",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5612,7 +5612,7 @@
         }
       },
       {
-        "HashCode": 535643202,
+        "HashCode": 10584931,
         "Kind": "Components.EventHandler",
         "Name": "oncontextmenu",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5693,7 +5693,7 @@
         }
       },
       {
-        "HashCode": 459597927,
+        "HashCode": 2121999349,
         "Kind": "Components.EventHandler",
         "Name": "ondrag",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5774,7 +5774,7 @@
         }
       },
       {
-        "HashCode": -1854537915,
+        "HashCode": -10967053,
         "Kind": "Components.EventHandler",
         "Name": "ondragend",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5855,7 +5855,7 @@
         }
       },
       {
-        "HashCode": -1145367015,
+        "HashCode": -1830436716,
         "Kind": "Components.EventHandler",
         "Name": "ondragenter",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5936,7 +5936,7 @@
         }
       },
       {
-        "HashCode": -1358260720,
+        "HashCode": 648197300,
         "Kind": "Components.EventHandler",
         "Name": "ondragleave",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6017,7 +6017,7 @@
         }
       },
       {
-        "HashCode": -415305943,
+        "HashCode": 620752531,
         "Kind": "Components.EventHandler",
         "Name": "ondragover",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6098,7 +6098,7 @@
         }
       },
       {
-        "HashCode": 1911260203,
+        "HashCode": -1605312142,
         "Kind": "Components.EventHandler",
         "Name": "ondragstart",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6179,7 +6179,7 @@
         }
       },
       {
-        "HashCode": 1967663824,
+        "HashCode": 400934938,
         "Kind": "Components.EventHandler",
         "Name": "ondrop",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6260,7 +6260,7 @@
         }
       },
       {
-        "HashCode": 2094720229,
+        "HashCode": -97623990,
         "Kind": "Components.EventHandler",
         "Name": "onkeydown",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6341,7 +6341,7 @@
         }
       },
       {
-        "HashCode": -500355853,
+        "HashCode": -1423209569,
         "Kind": "Components.EventHandler",
         "Name": "onkeyup",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6422,7 +6422,7 @@
         }
       },
       {
-        "HashCode": -1647547649,
+        "HashCode": 831976158,
         "Kind": "Components.EventHandler",
         "Name": "onkeypress",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6503,7 +6503,7 @@
         }
       },
       {
-        "HashCode": 1097847150,
+        "HashCode": 1841690471,
         "Kind": "Components.EventHandler",
         "Name": "onchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6584,7 +6584,7 @@
         }
       },
       {
-        "HashCode": -345940748,
+        "HashCode": 911548293,
         "Kind": "Components.EventHandler",
         "Name": "oninput",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6665,7 +6665,7 @@
         }
       },
       {
-        "HashCode": -54260485,
+        "HashCode": -991576340,
         "Kind": "Components.EventHandler",
         "Name": "oninvalid",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6746,7 +6746,7 @@
         }
       },
       {
-        "HashCode": -1748834793,
+        "HashCode": -50047344,
         "Kind": "Components.EventHandler",
         "Name": "onreset",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6827,7 +6827,7 @@
         }
       },
       {
-        "HashCode": 759621783,
+        "HashCode": -1274326223,
         "Kind": "Components.EventHandler",
         "Name": "onselect",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6908,7 +6908,7 @@
         }
       },
       {
-        "HashCode": 1618634298,
+        "HashCode": 1744901746,
         "Kind": "Components.EventHandler",
         "Name": "onselectstart",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6989,7 +6989,7 @@
         }
       },
       {
-        "HashCode": 1947735231,
+        "HashCode": -1543635868,
         "Kind": "Components.EventHandler",
         "Name": "onselectionchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7070,7 +7070,7 @@
         }
       },
       {
-        "HashCode": -1440995306,
+        "HashCode": -1784206825,
         "Kind": "Components.EventHandler",
         "Name": "onsubmit",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7151,7 +7151,7 @@
         }
       },
       {
-        "HashCode": -328267324,
+        "HashCode": 734770830,
         "Kind": "Components.EventHandler",
         "Name": "onbeforecopy",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7232,7 +7232,7 @@
         }
       },
       {
-        "HashCode": 101266288,
+        "HashCode": -70726468,
         "Kind": "Components.EventHandler",
         "Name": "onbeforecut",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7313,7 +7313,7 @@
         }
       },
       {
-        "HashCode": -526321622,
+        "HashCode": -1694729329,
         "Kind": "Components.EventHandler",
         "Name": "onbeforepaste",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7394,7 +7394,7 @@
         }
       },
       {
-        "HashCode": -1565332987,
+        "HashCode": -1546813349,
         "Kind": "Components.EventHandler",
         "Name": "oncopy",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7475,7 +7475,7 @@
         }
       },
       {
-        "HashCode": -1751171270,
+        "HashCode": 1297773912,
         "Kind": "Components.EventHandler",
         "Name": "oncut",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7556,7 +7556,7 @@
         }
       },
       {
-        "HashCode": 647763886,
+        "HashCode": -1010912143,
         "Kind": "Components.EventHandler",
         "Name": "onpaste",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7637,7 +7637,7 @@
         }
       },
       {
-        "HashCode": 1774047145,
+        "HashCode": 621329079,
         "Kind": "Components.EventHandler",
         "Name": "ontouchcancel",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7718,7 +7718,7 @@
         }
       },
       {
-        "HashCode": -1167646924,
+        "HashCode": -468517004,
         "Kind": "Components.EventHandler",
         "Name": "ontouchend",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7799,7 +7799,7 @@
         }
       },
       {
-        "HashCode": -744836683,
+        "HashCode": 496139450,
         "Kind": "Components.EventHandler",
         "Name": "ontouchmove",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7880,7 +7880,7 @@
         }
       },
       {
-        "HashCode": 532138727,
+        "HashCode": -1497920749,
         "Kind": "Components.EventHandler",
         "Name": "ontouchstart",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7961,7 +7961,7 @@
         }
       },
       {
-        "HashCode": -612611288,
+        "HashCode": 694121132,
         "Kind": "Components.EventHandler",
         "Name": "ontouchenter",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8042,7 +8042,7 @@
         }
       },
       {
-        "HashCode": 208956016,
+        "HashCode": -846485100,
         "Kind": "Components.EventHandler",
         "Name": "ontouchleave",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8123,7 +8123,7 @@
         }
       },
       {
-        "HashCode": 1039626529,
+        "HashCode": 609393564,
         "Kind": "Components.EventHandler",
         "Name": "ongotpointercapture",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8204,7 +8204,7 @@
         }
       },
       {
-        "HashCode": 874486579,
+        "HashCode": 148029528,
         "Kind": "Components.EventHandler",
         "Name": "onlostpointercapture",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8285,7 +8285,7 @@
         }
       },
       {
-        "HashCode": -504908806,
+        "HashCode": 1298700483,
         "Kind": "Components.EventHandler",
         "Name": "onpointercancel",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8366,7 +8366,7 @@
         }
       },
       {
-        "HashCode": -1497006186,
+        "HashCode": 2040518155,
         "Kind": "Components.EventHandler",
         "Name": "onpointerdown",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8447,7 +8447,7 @@
         }
       },
       {
-        "HashCode": -1860258906,
+        "HashCode": 586456500,
         "Kind": "Components.EventHandler",
         "Name": "onpointerenter",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8528,7 +8528,7 @@
         }
       },
       {
-        "HashCode": -321855680,
+        "HashCode": -127592466,
         "Kind": "Components.EventHandler",
         "Name": "onpointerleave",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8609,7 +8609,7 @@
         }
       },
       {
-        "HashCode": 310374457,
+        "HashCode": 364118510,
         "Kind": "Components.EventHandler",
         "Name": "onpointermove",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8690,7 +8690,7 @@
         }
       },
       {
-        "HashCode": -821085375,
+        "HashCode": 2054486545,
         "Kind": "Components.EventHandler",
         "Name": "onpointerout",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8771,7 +8771,7 @@
         }
       },
       {
-        "HashCode": 1533042194,
+        "HashCode": 1951838444,
         "Kind": "Components.EventHandler",
         "Name": "onpointerover",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8852,7 +8852,7 @@
         }
       },
       {
-        "HashCode": -1407482040,
+        "HashCode": 865182645,
         "Kind": "Components.EventHandler",
         "Name": "onpointerup",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8933,7 +8933,7 @@
         }
       },
       {
-        "HashCode": -726517369,
+        "HashCode": 1089707636,
         "Kind": "Components.EventHandler",
         "Name": "oncanplay",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9014,7 +9014,7 @@
         }
       },
       {
-        "HashCode": 567956867,
+        "HashCode": 1630998486,
         "Kind": "Components.EventHandler",
         "Name": "oncanplaythrough",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9095,7 +9095,7 @@
         }
       },
       {
-        "HashCode": -724632843,
+        "HashCode": 1072528967,
         "Kind": "Components.EventHandler",
         "Name": "oncuechange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9176,7 +9176,7 @@
         }
       },
       {
-        "HashCode": -2143561357,
+        "HashCode": 893284607,
         "Kind": "Components.EventHandler",
         "Name": "ondurationchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9257,7 +9257,7 @@
         }
       },
       {
-        "HashCode": 868213385,
+        "HashCode": 37709198,
         "Kind": "Components.EventHandler",
         "Name": "onemptied",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9338,7 +9338,7 @@
         }
       },
       {
-        "HashCode": -1184624532,
+        "HashCode": 309778985,
         "Kind": "Components.EventHandler",
         "Name": "onpause",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9419,7 +9419,7 @@
         }
       },
       {
-        "HashCode": -683152181,
+        "HashCode": -256516396,
         "Kind": "Components.EventHandler",
         "Name": "onplay",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9500,7 +9500,7 @@
         }
       },
       {
-        "HashCode": -1524228408,
+        "HashCode": 433903036,
         "Kind": "Components.EventHandler",
         "Name": "onplaying",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9581,7 +9581,7 @@
         }
       },
       {
-        "HashCode": -481222007,
+        "HashCode": 1653835508,
         "Kind": "Components.EventHandler",
         "Name": "onratechange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9662,7 +9662,7 @@
         }
       },
       {
-        "HashCode": 327877070,
+        "HashCode": 1779935599,
         "Kind": "Components.EventHandler",
         "Name": "onseeked",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9743,7 +9743,7 @@
         }
       },
       {
-        "HashCode": -948284559,
+        "HashCode": -497533204,
         "Kind": "Components.EventHandler",
         "Name": "onseeking",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9824,7 +9824,7 @@
         }
       },
       {
-        "HashCode": 813646596,
+        "HashCode": -479468825,
         "Kind": "Components.EventHandler",
         "Name": "onstalled",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9905,7 +9905,7 @@
         }
       },
       {
-        "HashCode": -1306452365,
+        "HashCode": -341830799,
         "Kind": "Components.EventHandler",
         "Name": "onstop",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9986,7 +9986,7 @@
         }
       },
       {
-        "HashCode": -1091479327,
+        "HashCode": -1629616623,
         "Kind": "Components.EventHandler",
         "Name": "onsuspend",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10067,7 +10067,7 @@
         }
       },
       {
-        "HashCode": -495016638,
+        "HashCode": 723162006,
         "Kind": "Components.EventHandler",
         "Name": "ontimeupdate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10148,7 +10148,7 @@
         }
       },
       {
-        "HashCode": 1089509734,
+        "HashCode": -1356156907,
         "Kind": "Components.EventHandler",
         "Name": "onvolumechange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10229,7 +10229,7 @@
         }
       },
       {
-        "HashCode": 6334729,
+        "HashCode": 363191388,
         "Kind": "Components.EventHandler",
         "Name": "onwaiting",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10310,7 +10310,7 @@
         }
       },
       {
-        "HashCode": -262353483,
+        "HashCode": 502787847,
         "Kind": "Components.EventHandler",
         "Name": "onloadstart",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10391,7 +10391,7 @@
         }
       },
       {
-        "HashCode": -368320600,
+        "HashCode": -1154877170,
         "Kind": "Components.EventHandler",
         "Name": "ontimeout",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10472,7 +10472,7 @@
         }
       },
       {
-        "HashCode": 238238194,
+        "HashCode": -757291181,
         "Kind": "Components.EventHandler",
         "Name": "onabort",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10553,7 +10553,7 @@
         }
       },
       {
-        "HashCode": 508269884,
+        "HashCode": -1168485566,
         "Kind": "Components.EventHandler",
         "Name": "onload",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10634,7 +10634,7 @@
         }
       },
       {
-        "HashCode": 532062379,
+        "HashCode": 595015465,
         "Kind": "Components.EventHandler",
         "Name": "onloadend",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10715,7 +10715,7 @@
         }
       },
       {
-        "HashCode": -1316382221,
+        "HashCode": -25660880,
         "Kind": "Components.EventHandler",
         "Name": "onprogress",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10796,7 +10796,7 @@
         }
       },
       {
-        "HashCode": -1109267243,
+        "HashCode": -1950637630,
         "Kind": "Components.EventHandler",
         "Name": "onerror",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10877,7 +10877,7 @@
         }
       },
       {
-        "HashCode": 2043302759,
+        "HashCode": -2004206782,
         "Kind": "Components.EventHandler",
         "Name": "onactivate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10958,7 +10958,7 @@
         }
       },
       {
-        "HashCode": -409517994,
+        "HashCode": -709928250,
         "Kind": "Components.EventHandler",
         "Name": "onbeforeactivate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11039,7 +11039,7 @@
         }
       },
       {
-        "HashCode": -1588811287,
+        "HashCode": -824073877,
         "Kind": "Components.EventHandler",
         "Name": "onbeforedeactivate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11120,7 +11120,7 @@
         }
       },
       {
-        "HashCode": 911118191,
+        "HashCode": -1295680154,
         "Kind": "Components.EventHandler",
         "Name": "ondeactivate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11201,7 +11201,7 @@
         }
       },
       {
-        "HashCode": -1769974867,
+        "HashCode": -869400980,
         "Kind": "Components.EventHandler",
         "Name": "onended",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11282,7 +11282,7 @@
         }
       },
       {
-        "HashCode": 1848818928,
+        "HashCode": -343650517,
         "Kind": "Components.EventHandler",
         "Name": "onfullscreenchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11363,7 +11363,7 @@
         }
       },
       {
-        "HashCode": -844921390,
+        "HashCode": -269536549,
         "Kind": "Components.EventHandler",
         "Name": "onfullscreenerror",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11444,7 +11444,7 @@
         }
       },
       {
-        "HashCode": -1009531111,
+        "HashCode": -856109126,
         "Kind": "Components.EventHandler",
         "Name": "onloadeddata",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11525,7 +11525,7 @@
         }
       },
       {
-        "HashCode": 1652791885,
+        "HashCode": 834536557,
         "Kind": "Components.EventHandler",
         "Name": "onloadedmetadata",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11606,7 +11606,7 @@
         }
       },
       {
-        "HashCode": -1632958281,
+        "HashCode": 1047070501,
         "Kind": "Components.EventHandler",
         "Name": "onpointerlockchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11687,7 +11687,7 @@
         }
       },
       {
-        "HashCode": -1257908708,
+        "HashCode": 507850003,
         "Kind": "Components.EventHandler",
         "Name": "onpointerlockerror",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11768,7 +11768,7 @@
         }
       },
       {
-        "HashCode": 401231191,
+        "HashCode": 514007573,
         "Kind": "Components.EventHandler",
         "Name": "onreadystatechange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11849,7 +11849,7 @@
         }
       },
       {
-        "HashCode": -1541606229,
+        "HashCode": -1370505225,
         "Kind": "Components.EventHandler",
         "Name": "onscroll",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11930,7 +11930,7 @@
         }
       },
       {
-        "HashCode": -575938977,
+        "HashCode": -1218840762,
         "Kind": "Components.EventHandler",
         "Name": "ontoggle",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -12011,7 +12011,7 @@
         }
       },
       {
-        "HashCode": -1357777725,
+        "HashCode": 461906664,
         "Kind": "Components.Splat",
         "Name": "Attributes",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -12050,7 +12050,7 @@
         }
       },
       {
-        "HashCode": -1366300013,
+        "HashCode": -1151605199,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.Razor",
@@ -12365,7 +12365,7 @@
         }
       },
       {
-        "HashCode": -1546335250,
+        "HashCode": -839439773,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12562,7 +12562,7 @@
         }
       },
       {
-        "HashCode": -1153515150,
+        "HashCode": 643858188,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.CacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12689,7 +12689,7 @@
         }
       },
       {
-        "HashCode": 1280237114,
+        "HashCode": 712428492,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ComponentTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12744,7 +12744,7 @@
         }
       },
       {
-        "HashCode": -435728488,
+        "HashCode": 455367068,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.DistributedCacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12876,7 +12876,7 @@
         }
       },
       {
-        "HashCode": 1544771068,
+        "HashCode": 601771864,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.EnvironmentTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12922,7 +12922,7 @@
         }
       },
       {
-        "HashCode": 1055661605,
+        "HashCode": -2024891683,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13339,7 +13339,7 @@
         }
       },
       {
-        "HashCode": -1749608677,
+        "HashCode": 1142378580,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13441,7 +13441,7 @@
         }
       },
       {
-        "HashCode": 1988531007,
+        "HashCode": -695175529,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ImageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13487,7 +13487,7 @@
         }
       },
       {
-        "HashCode": -336197830,
+        "HashCode": 481363227,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13557,7 +13557,7 @@
         }
       },
       {
-        "HashCode": 1300415732,
+        "HashCode": -570220574,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13590,7 +13590,7 @@
         }
       },
       {
-        "HashCode": -1225904540,
+        "HashCode": 1672585285,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13786,7 +13786,7 @@
         }
       },
       {
-        "HashCode": 875384980,
+        "HashCode": 1379431285,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13814,7 +13814,7 @@
         }
       },
       {
-        "HashCode": 203261176,
+        "HashCode": 1360235883,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13895,7 +13895,7 @@
         }
       },
       {
-        "HashCode": -1218182918,
+        "HashCode": 359016891,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.PersistComponentStateTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13924,7 +13924,7 @@
         }
       },
       {
-        "HashCode": -1138353986,
+        "HashCode": -31486039,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14077,7 +14077,7 @@
         }
       },
       {
-        "HashCode": -1349257759,
+        "HashCode": -849543120,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14136,7 +14136,7 @@
         }
       },
       {
-        "HashCode": -861656010,
+        "HashCode": -427682661,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14178,7 +14178,7 @@
         }
       },
       {
-        "HashCode": -3495447,
+        "HashCode": 657233551,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14211,7 +14211,7 @@
         }
       },
       {
-        "HashCode": 1384570883,
+        "HashCode": 106518140,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14245,7 +14245,7 @@
         }
       },
       {
-        "HashCode": -382973902,
+        "HashCode": -1929800806,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14314,7 +14314,7 @@
         }
       },
       {
-        "HashCode": -520806478,
+        "HashCode": 1964754106,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14392,7 +14392,7 @@
         }
       },
       {
-        "HashCode": 1649041244,
+        "HashCode": 687954202,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14470,7 +14470,7 @@
         }
       },
       {
-        "HashCode": -310627042,
+        "HashCode": -854330312,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14554,7 +14554,7 @@
         }
       },
       {
-        "HashCode": 1044885606,
+        "HashCode": -1130145494,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14638,7 +14638,7 @@
         }
       },
       {
-        "HashCode": 604070568,
+        "HashCode": -943663310,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14722,7 +14722,7 @@
         }
       },
       {
-        "HashCode": 1920084619,
+        "HashCode": -381243219,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14806,7 +14806,7 @@
         }
       },
       {
-        "HashCode": 219315138,
+        "HashCode": 90470941,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14890,7 +14890,7 @@
         }
       },
       {
-        "HashCode": 1825572904,
+        "HashCode": 43577481,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14974,7 +14974,7 @@
         }
       },
       {
-        "HashCode": 219697060,
+        "HashCode": 340055611,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15058,7 +15058,7 @@
         }
       },
       {
-        "HashCode": 238121241,
+        "HashCode": -1554745285,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15142,7 +15142,7 @@
         }
       },
       {
-        "HashCode": -1789148952,
+        "HashCode": -1159378448,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15226,7 +15226,7 @@
         }
       },
       {
-        "HashCode": 142411757,
+        "HashCode": -1800161569,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15310,7 +15310,7 @@
         }
       },
       {
-        "HashCode": 1098382479,
+        "HashCode": 429557845,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15394,7 +15394,7 @@
         }
       },
       {
-        "HashCode": -1922548959,
+        "HashCode": 24773719,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15478,7 +15478,7 @@
         }
       },
       {
-        "HashCode": 602839932,
+        "HashCode": 296523769,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15556,7 +15556,7 @@
         }
       },
       {
-        "HashCode": 675692374,
+        "HashCode": 1023762365,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15634,7 +15634,7 @@
         }
       },
       {
-        "HashCode": 938699335,
+        "HashCode": 1804797379,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputCheckbox",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15675,7 +15675,7 @@
         }
       },
       {
-        "HashCode": -549543483,
+        "HashCode": -1787052221,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputCheckbox",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15717,7 +15717,7 @@
         }
       },
       {
-        "HashCode": 1168831508,
+        "HashCode": -510280666,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputDate<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15758,7 +15758,7 @@
         }
       },
       {
-        "HashCode": 1165254213,
+        "HashCode": -594654456,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputDate<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15800,7 +15800,7 @@
         }
       },
       {
-        "HashCode": 500859964,
+        "HashCode": -1232380134,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputNumber<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15841,7 +15841,7 @@
         }
       },
       {
-        "HashCode": -1928654062,
+        "HashCode": 310088351,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputNumber<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15883,7 +15883,7 @@
         }
       },
       {
-        "HashCode": 346819080,
+        "HashCode": 778199481,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15924,7 +15924,7 @@
         }
       },
       {
-        "HashCode": -1436502546,
+        "HashCode": -987920408,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15966,7 +15966,7 @@
         }
       },
       {
-        "HashCode": -1414070214,
+        "HashCode": -1078618108,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16007,7 +16007,7 @@
         }
       },
       {
-        "HashCode": -1946114725,
+        "HashCode": 876886936,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16049,7 +16049,7 @@
         }
       },
       {
-        "HashCode": 1588627743,
+        "HashCode": -9465236,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputText",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16090,7 +16090,7 @@
         }
       },
       {
-        "HashCode": -2077406523,
+        "HashCode": 719351367,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputText",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16132,7 +16132,7 @@
         }
       },
       {
-        "HashCode": 1144827695,
+        "HashCode": -2026688008,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputTextArea",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16173,7 +16173,7 @@
         }
       },
       {
-        "HashCode": -60879857,
+        "HashCode": 1702143864,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputTextArea",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16215,7 +16215,7 @@
         }
       },
       {
-        "HashCode": 409430137,
+        "HashCode": 1127070237,
         "Kind": "Components.Ref",
         "Name": "Ref",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -16254,7 +16254,7 @@
         }
       },
       {
-        "HashCode": 438471582,
+        "HashCode": -195640293,
         "Kind": "Components.Key",
         "Name": "Key",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -16298,33 +16298,8 @@
   "RootNamespace": "OTMF_NETCORE_MVC",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Empleadoes\\Index.cshtml",
-      "TargetPath": "Views\\Empleadoes\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes\\Edit.cshtml",
-      "TargetPath": "Views\\Instructivoes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes\\Details.cshtml",
-      "TargetPath": "Views\\Instructivoes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_LinksLogin.cshtml",
-      "TargetPath": "Views\\Shared\\_LinksLogin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoes\\Index.cshtml",
-      "TargetPath": "Views\\OrdenTrabajoes\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Details.cshtml",
-      "TargetPath": "Views\\Hules\\Details.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Create.cshtml",
+      "TargetPath": "Views\\EstadoOrdens\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16333,268 +16308,18 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars - Retirado\\Details.cshtml",
+      "TargetPath": "Views\\Estandars - Retirado\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Delete.cshtml",
-      "TargetPath": "Views\\Etiquetums\\Delete.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Insertoes\\Details.cshtml",
+      "TargetPath": "Views\\Insertoes\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Edit.cshtml",
-      "TargetPath": "Views\\Hules\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Usuarios\\Login.cshtml",
-      "TargetPath": "Views\\Usuarios\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Delete.cshtml",
-      "TargetPath": "Views\\Maquinas\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Edit.cshtml",
-      "TargetPath": "Views\\Colors\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Create.cshtml",
-      "TargetPath": "Views\\Cajas\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars\\Index.cshtml",
-      "TargetPath": "Views\\Estandars\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Turnoes\\Details.cshtml",
-      "TargetPath": "Views\\Turnoes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Delete.cshtml",
-      "TargetPath": "Views\\Clientes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Create.cshtml",
-      "TargetPath": "Views\\ParteAccesorios\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Create.cshtml",
-      "TargetPath": "Views\\Partes\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Edit.cshtml",
-      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars\\Edit.cshtml",
-      "TargetPath": "Views\\Estandars\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Tarimas\\Edit.cshtml",
-      "TargetPath": "Views\\Tarimas\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Usuarios\\Registro.cshtml",
-      "TargetPath": "Views\\Usuarios\\Registro.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Delete.cshtml",
-      "TargetPath": "Views\\Accesorios\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes\\Create.cshtml",
-      "TargetPath": "Views\\Instructivoes\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\InstructivoPieza\\Edit.cshtml",
-      "TargetPath": "Views\\InstructivoPieza\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars\\Create.cshtml",
-      "TargetPath": "Views\\Estandars\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes\\Index.cshtml",
-      "TargetPath": "Views\\EstandarConRelevoes\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Moldes\\Delete.cshtml",
-      "TargetPath": "Views\\Moldes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Details.cshtml",
-      "TargetPath": "Views\\EstadoOrdens\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Delete.cshtml",
-      "TargetPath": "Views\\Partes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Delete.cshtml",
-      "TargetPath": "Views\\EstadoOrdens\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Configuracion\\EstandaresParametros.cshtml",
-      "TargetPath": "Views\\Configuracion\\EstandaresParametros.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Index.cshtml",
-      "TargetPath": "Views\\Partes\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Details.cshtml",
-      "TargetPath": "Views\\ParteAccesorios\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes\\Create.cshtml",
-      "TargetPath": "Views\\EstandarConRelevoes\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Index.cshtml",
-      "TargetPath": "Views\\Maquinas\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Turnoes\\Delete.cshtml",
-      "TargetPath": "Views\\Turnoes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Index.cshtml",
-      "TargetPath": "Views\\Ensambles\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Create.cshtml",
-      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Usuarios\\_Layout.cshtml",
-      "TargetPath": "Views\\Usuarios\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Turnoes\\Edit.cshtml",
-      "TargetPath": "Views\\Turnoes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\MaquinaOrdenTrabajoes\\Details.cshtml",
-      "TargetPath": "Views\\MaquinaOrdenTrabajoes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoes\\Delete.cshtml",
-      "TargetPath": "Views\\OrdenTrabajoes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Edit.cshtml",
-      "TargetPath": "Views\\Maquinas\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Index.cshtml",
-      "TargetPath": "Views\\Colors\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Tarimas\\Details.cshtml",
-      "TargetPath": "Views\\Tarimas\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Details.cshtml",
-      "TargetPath": "Views\\Cajas\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\InstructivoPieza\\Index.cshtml",
-      "TargetPath": "Views\\InstructivoPieza\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Edit.cshtml",
-      "TargetPath": "Views\\Ensambles\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Create.cshtml",
-      "TargetPath": "Views\\Ensambles\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Details.cshtml",
-      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Create.cshtml",
-      "TargetPath": "Views\\EstadoOrdens\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Insertoes\\Index.cshtml",
-      "TargetPath": "Views\\Insertoes\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Details.cshtml",
-      "TargetPath": "Views\\Partes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EtiquetaDeCaja\\Create.cshtml",
-      "TargetPath": "Views\\EtiquetaDeCaja\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Tarimas\\Create.cshtml",
-      "TargetPath": "Views\\Tarimas\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Moldes\\Details.cshtml",
-      "TargetPath": "Views\\Moldes\\Details.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Insertoes\\Delete.cshtml",
+      "TargetPath": "Views\\Insertoes\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16603,28 +16328,73 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Delete.cshtml",
-      "TargetPath": "Views\\Hules\\Delete.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EtiquetaDeCaja\\Create.cshtml",
+      "TargetPath": "Views\\EtiquetaDeCaja\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EtiquetaDeCaja\\Index.cshtml",
-      "TargetPath": "Views\\EtiquetaDeCaja\\Index.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Index.cshtml",
+      "TargetPath": "Views\\Ensambles\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Usuarios\\_Layout.cshtml",
+      "TargetPath": "Views\\Usuarios\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Delete.cshtml",
-      "TargetPath": "Views\\Colors\\Delete.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Create.cshtml",
+      "TargetPath": "Views\\ParteAccesorios\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Delete.cshtml",
-      "TargetPath": "Views\\Pinturas\\Delete.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Configuracion\\Usuarios.cshtml",
+      "TargetPath": "Views\\Configuracion\\Usuarios.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Create.cshtml",
+      "TargetPath": "Views\\Cajas\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Details.cshtml",
+      "TargetPath": "Views\\Maquinas\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Index.cshtml",
+      "TargetPath": "Views\\Etiquetums\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Insertoes\\Index.cshtml",
+      "TargetPath": "Views\\Insertoes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Details.cshtml",
+      "TargetPath": "Views\\Clientes\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Index.cshtml",
+      "TargetPath": "Views\\Pinturas\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Details.cshtml",
+      "TargetPath": "Views\\Hules\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Delete.cshtml",
+      "TargetPath": "Views\\Clientes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OTEstado\\OrdenesDeTrabajoAsignadas.cshtml",
+      "TargetPath": "Views\\OTEstado\\OrdenesDeTrabajoAsignadas.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16633,8 +16403,303 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Create.cshtml",
-      "TargetPath": "Views\\Hules\\Create.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Create.cshtml",
+      "TargetPath": "Views\\Colors\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Delete.cshtml",
+      "TargetPath": "Views\\Pinturas\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Turnoes\\Delete.cshtml",
+      "TargetPath": "Views\\Turnoes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Details.cshtml",
+      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Index.cshtml",
+      "TargetPath": "Views\\Accesorios\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\InstructivoPieza\\Delete.cshtml",
+      "TargetPath": "Views\\InstructivoPieza\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_navigationToolMenu.cshtml",
+      "TargetPath": "Views\\Shared\\_navigationToolMenu.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Index.cshtml",
+      "TargetPath": "Views\\Partes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes - Retirado\\Create.cshtml",
+      "TargetPath": "Views\\EstandarConRelevoes - Retirado\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars - Retirado\\Edit.cshtml",
+      "TargetPath": "Views\\Estandars - Retirado\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\InstructivoPieza\\Create.cshtml",
+      "TargetPath": "Views\\InstructivoPieza\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Delete.cshtml",
+      "TargetPath": "Views\\Cajas\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Create.cshtml",
+      "TargetPath": "Views\\Maquinas\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Delete.cshtml",
+      "TargetPath": "Views\\TipoEmpleadoes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars - Retirado\\Create.cshtml",
+      "TargetPath": "Views\\Estandars - Retirado\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_LinksLogin.cshtml",
+      "TargetPath": "Views\\Shared\\_LinksLogin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Edit.cshtml",
+      "TargetPath": "Views\\Clientes\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Details.cshtml",
+      "TargetPath": "Views\\Accesorios\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Moldes\\Index.cshtml",
+      "TargetPath": "Views\\Moldes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Details.cshtml",
+      "TargetPath": "Views\\Colors\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoes\\Delete.cshtml",
+      "TargetPath": "Views\\OrdenTrabajoes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Edit.cshtml",
+      "TargetPath": "Views\\Cajas\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Index.cshtml",
+      "TargetPath": "Views\\Clientes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Configuracion\\Index.cshtml",
+      "TargetPath": "Views\\Configuracion\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Moldes\\Delete.cshtml",
+      "TargetPath": "Views\\Moldes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Empleadoes\\Index.cshtml",
+      "TargetPath": "Views\\Empleadoes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_navigationColumnOrdenesTrabajo.cshtml",
+      "TargetPath": "Views\\Shared\\_navigationColumnOrdenesTrabajo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Edit.cshtml",
+      "TargetPath": "Views\\Accesorios\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Details.cshtml",
+      "TargetPath": "Views\\Pinturas\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Delete.cshtml",
+      "TargetPath": "Views\\Partes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Edit.cshtml",
+      "TargetPath": "Views\\TipoEmpleadoes\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Delete.cshtml",
+      "TargetPath": "Views\\Maquinas\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_navigationColumnEmpleados.cshtml",
+      "TargetPath": "Views\\Shared\\_navigationColumnEmpleados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\MaquinaOrdenTrabajoes\\Edit.cshtml",
+      "TargetPath": "Views\\MaquinaOrdenTrabajoes\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Create.cshtml",
+      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Index.cshtml",
+      "TargetPath": "Views\\Cajas\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Details.cshtml",
+      "TargetPath": "Views\\Cajas\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Turnoes\\Details.cshtml",
+      "TargetPath": "Views\\Turnoes\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes - Retirado\\Edit.cshtml",
+      "TargetPath": "Views\\Instructivoes - Retirado\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars - Retirado\\Index.cshtml",
+      "TargetPath": "Views\\Estandars - Retirado\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\MaquinaOrdenTrabajoes\\Create.cshtml",
+      "TargetPath": "Views\\MaquinaOrdenTrabajoes\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Delete.cshtml",
+      "TargetPath": "Views\\Ensambles\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Index.cshtml",
+      "TargetPath": "Views\\ParteAccesorios\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Details.cshtml",
+      "TargetPath": "Views\\Etiquetums\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Tarimas\\Create.cshtml",
+      "TargetPath": "Views\\Tarimas\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Index.cshtml",
+      "TargetPath": "Views\\Maquinas\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Tarimas\\Details.cshtml",
+      "TargetPath": "Views\\Tarimas\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Edit.cshtml",
+      "TargetPath": "Views\\Partes\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoes\\Create.cshtml",
+      "TargetPath": "Views\\OrdenTrabajoes\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Edit.cshtml",
+      "TargetPath": "Views\\Hules\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Create.cshtml",
+      "TargetPath": "Views\\Partes\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Delete.cshtml",
+      "TargetPath": "Views\\ParteAccesorios\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes - Retirado\\Details.cshtml",
+      "TargetPath": "Views\\Instructivoes - Retirado\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Create.cshtml",
+      "TargetPath": "Views\\Ensambles\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Tarimas\\Edit.cshtml",
+      "TargetPath": "Views\\Tarimas\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Create.cshtml",
+      "TargetPath": "Views\\TipoEmpleadoes\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Delete.cshtml",
+      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EtiquetaDeCaja\\Index.cshtml",
+      "TargetPath": "Views\\EtiquetaDeCaja\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16648,38 +16713,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Turnoes\\Create.cshtml",
-      "TargetPath": "Views\\Turnoes\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Details.cshtml",
-      "TargetPath": "Views\\Etiquetums\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Edit.cshtml",
-      "TargetPath": "Views\\ParteAccesorios\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Index.cshtml",
-      "TargetPath": "Views\\Clientes\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Details.cshtml",
-      "TargetPath": "Views\\Colors\\Details.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Delete.cshtml",
+      "TargetPath": "Views\\Colors\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16688,188 +16723,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OTEstado\\Index.cshtml",
-      "TargetPath": "Views\\OTEstado\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Index.cshtml",
-      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Empleadoes\\Create.cshtml",
-      "TargetPath": "Views\\Empleadoes\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Delete.cshtml",
-      "TargetPath": "Views\\Cajas\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Delete.cshtml",
-      "TargetPath": "Views\\ParteAccesorios\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Delete.cshtml",
-      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\MaquinaOrdenTrabajoes\\Edit.cshtml",
-      "TargetPath": "Views\\MaquinaOrdenTrabajoes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Create.cshtml",
-      "TargetPath": "Views\\Clientes\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes\\Details.cshtml",
-      "TargetPath": "Views\\EstandarConRelevoes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Details.cshtml",
-      "TargetPath": "Views\\Maquinas\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Index.cshtml",
-      "TargetPath": "Views\\Pinturas\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Edit.cshtml",
-      "TargetPath": "Views\\Etiquetums\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Create.cshtml",
-      "TargetPath": "Views\\Accesorios\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Edit.cshtml",
-      "TargetPath": "Views\\Pinturas\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Delete.cshtml",
-      "TargetPath": "Views\\Ensambles\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Configuracion\\Index.cshtml",
-      "TargetPath": "Views\\Configuracion\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Insertoes\\Details.cshtml",
-      "TargetPath": "Views\\Insertoes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Details.cshtml",
-      "TargetPath": "Views\\Pinturas\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars\\Delete.cshtml",
-      "TargetPath": "Views\\Estandars\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes\\Delete.cshtml",
-      "TargetPath": "Views\\Instructivoes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Tarimas\\Index.cshtml",
-      "TargetPath": "Views\\Tarimas\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Details.cshtml",
-      "TargetPath": "Views\\Ensambles\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes\\Delete.cshtml",
-      "TargetPath": "Views\\EstandarConRelevoes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Details.cshtml",
-      "TargetPath": "Views\\TipoEmpleadoes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Moldes\\Edit.cshtml",
-      "TargetPath": "Views\\Moldes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Index.cshtml",
-      "TargetPath": "Views\\Cajas\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Create.cshtml",
-      "TargetPath": "Views\\Etiquetums\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Edit.cshtml",
-      "TargetPath": "Views\\Accesorios\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Index.cshtml",
-      "TargetPath": "Views\\Accesorios\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes\\Edit.cshtml",
-      "TargetPath": "Views\\EstandarConRelevoes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Edit.cshtml",
-      "TargetPath": "Views\\Clientes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Empleadoes\\Delete.cshtml",
-      "TargetPath": "Views\\Empleadoes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Index.cshtml",
-      "TargetPath": "Views\\Hules\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes\\Index.cshtml",
-      "TargetPath": "Views\\Instructivoes\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoes\\Create.cshtml",
-      "TargetPath": "Views\\OrdenTrabajoes\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Details.cshtml",
-      "TargetPath": "Views\\Accesorios\\Details.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\MaquinaOrdenTrabajoes\\Index.cshtml",
+      "TargetPath": "Views\\MaquinaOrdenTrabajoes\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16878,98 +16733,48 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Index.cshtml",
-      "TargetPath": "Views\\ParteAccesorios\\Index.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Index.cshtml",
+      "TargetPath": "Views\\Hules\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Insertoes\\Delete.cshtml",
-      "TargetPath": "Views\\Insertoes\\Delete.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Empleadoes\\Create.cshtml",
+      "TargetPath": "Views\\Empleadoes\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Create.cshtml",
-      "TargetPath": "Views\\TipoEmpleadoes\\Create.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Delete.cshtml",
+      "TargetPath": "Views\\Accesorios\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars\\Details.cshtml",
-      "TargetPath": "Views\\Estandars\\Details.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes - Retirado\\Create.cshtml",
+      "TargetPath": "Views\\Instructivoes - Retirado\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Index.cshtml",
-      "TargetPath": "Views\\TipoEmpleadoes\\Index.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Details.cshtml",
+      "TargetPath": "Views\\Partes\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\MaquinaOrdenTrabajoes\\Create.cshtml",
-      "TargetPath": "Views\\MaquinaOrdenTrabajoes\\Create.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Create.cshtml",
-      "TargetPath": "Views\\Colors\\Create.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Delete.cshtml",
+      "TargetPath": "Views\\Etiquetums\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Moldes\\Index.cshtml",
-      "TargetPath": "Views\\Moldes\\Index.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Details.cshtml",
+      "TargetPath": "Views\\Ensambles\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Create.cshtml",
-      "TargetPath": "Views\\Pinturas\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Index.cshtml",
-      "TargetPath": "Views\\EstadoOrdens\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OTEstado\\OrdenesDeTrabajoAsignadas.cshtml",
-      "TargetPath": "Views\\OTEstado\\OrdenesDeTrabajoAsignadas.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Create.cshtml",
-      "TargetPath": "Views\\Maquinas\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Details.cshtml",
-      "TargetPath": "Views\\Clientes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Delete.cshtml",
-      "TargetPath": "Views\\TipoEmpleadoes\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Index.cshtml",
-      "TargetPath": "Views\\Etiquetums\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Insertoes\\Edit.cshtml",
-      "TargetPath": "Views\\Insertoes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Partes\\Edit.cshtml",
-      "TargetPath": "Views\\Partes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Edit.cshtml",
-      "TargetPath": "Views\\EstadoOrdens\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Configuracion\\Usuarios.cshtml",
-      "TargetPath": "Views\\Configuracion\\Usuarios.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes - Retirado\\Index.cshtml",
+      "TargetPath": "Views\\Instructivoes - Retirado\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16978,18 +16783,143 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\MaquinaOrdenTrabajoes\\Index.cshtml",
-      "TargetPath": "Views\\MaquinaOrdenTrabajoes\\Index.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\InstructivoPieza\\Index.cshtml",
+      "TargetPath": "Views\\InstructivoPieza\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\InstructivoPieza\\Create.cshtml",
-      "TargetPath": "Views\\InstructivoPieza\\Create.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Edit.cshtml",
-      "TargetPath": "Views\\TipoEmpleadoes\\Edit.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoes\\Index.cshtml",
+      "TargetPath": "Views\\OrdenTrabajoes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Details.cshtml",
+      "TargetPath": "Views\\EstadoOrdens\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Moldes\\Details.cshtml",
+      "TargetPath": "Views\\Moldes\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Usuarios\\Login.cshtml",
+      "TargetPath": "Views\\Usuarios\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\InstructivoPieza\\Edit.cshtml",
+      "TargetPath": "Views\\InstructivoPieza\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_navigationColumnPartes.cshtml",
+      "TargetPath": "Views\\Shared\\_navigationColumnPartes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Create.cshtml",
+      "TargetPath": "Views\\Etiquetums\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Estandars - Retirado\\Delete.cshtml",
+      "TargetPath": "Views\\Estandars - Retirado\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Edit.cshtml",
+      "TargetPath": "Views\\Pinturas\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Edit.cshtml",
+      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Instructivoes - Retirado\\Delete.cshtml",
+      "TargetPath": "Views\\Instructivoes - Retirado\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Etiquetums\\Edit.cshtml",
+      "TargetPath": "Views\\Etiquetums\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Accesorios\\Create.cshtml",
+      "TargetPath": "Views\\Accesorios\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Details.cshtml",
+      "TargetPath": "Views\\ParteAccesorios\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OrdenTrabajoEmpleadoes\\Index.cshtml",
+      "TargetPath": "Views\\OrdenTrabajoEmpleadoes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Turnoes\\Create.cshtml",
+      "TargetPath": "Views\\Turnoes\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes - Retirado\\Details.cshtml",
+      "TargetPath": "Views\\EstandarConRelevoes - Retirado\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes - Retirado\\Index.cshtml",
+      "TargetPath": "Views\\EstandarConRelevoes - Retirado\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Moldes\\Edit.cshtml",
+      "TargetPath": "Views\\Moldes\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Turnoes\\Edit.cshtml",
+      "TargetPath": "Views\\Turnoes\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Details.cshtml",
+      "TargetPath": "Views\\TipoEmpleadoes\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Index.cshtml",
+      "TargetPath": "Views\\EstadoOrdens\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Edit.cshtml",
+      "TargetPath": "Views\\EstadoOrdens\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16998,13 +16928,103 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\InstructivoPieza\\Delete.cshtml",
-      "TargetPath": "Views\\InstructivoPieza\\Delete.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\ParteAccesorios\\Edit.cshtml",
+      "TargetPath": "Views\\ParteAccesorios\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Cajas\\Edit.cshtml",
-      "TargetPath": "Views\\Cajas\\Edit.cshtml",
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Ensambles\\Edit.cshtml",
+      "TargetPath": "Views\\Ensambles\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Delete.cshtml",
+      "TargetPath": "Views\\Hules\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Edit.cshtml",
+      "TargetPath": "Views\\Colors\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\MaquinaOrdenTrabajoes\\Details.cshtml",
+      "TargetPath": "Views\\MaquinaOrdenTrabajoes\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Pinturas\\Create.cshtml",
+      "TargetPath": "Views\\Pinturas\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Usuarios\\Registro.cshtml",
+      "TargetPath": "Views\\Usuarios\\Registro.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Maquinas\\Edit.cshtml",
+      "TargetPath": "Views\\Maquinas\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes - Retirado\\Delete.cshtml",
+      "TargetPath": "Views\\EstandarConRelevoes - Retirado\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstadoOrdens\\Delete.cshtml",
+      "TargetPath": "Views\\EstadoOrdens\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\TipoEmpleadoes\\Index.cshtml",
+      "TargetPath": "Views\\TipoEmpleadoes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Colors\\Index.cshtml",
+      "TargetPath": "Views\\Colors\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Empleadoes\\Delete.cshtml",
+      "TargetPath": "Views\\Empleadoes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Clientes\\Create.cshtml",
+      "TargetPath": "Views\\Clientes\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Tarimas\\Index.cshtml",
+      "TargetPath": "Views\\Tarimas\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Configuracion\\EstandaresParametros.cshtml",
+      "TargetPath": "Views\\Configuracion\\EstandaresParametros.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\EstandarConRelevoes - Retirado\\Edit.cshtml",
+      "TargetPath": "Views\\EstandarConRelevoes - Retirado\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Hules\\Create.cshtml",
+      "TargetPath": "Views\\Hules\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\Insertoes\\Edit.cshtml",
+      "TargetPath": "Views\\Insertoes\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\Views\\OTEstado\\Index.cshtml",
+      "TargetPath": "Views\\OTEstado\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

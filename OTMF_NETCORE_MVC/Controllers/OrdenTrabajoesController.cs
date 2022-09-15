@@ -355,6 +355,25 @@ namespace OTMF_NETCORE_MVC.Controllers
             await _context.SaveChangesAsync();
             return Json(new {data = "Guardado"});
         }
+        [HttpPost]
+        public JsonResult ObtenerOrdenTrabajoByDateRange(string dateStart , string dateEnd)
+        {
+            var procedure = "[ObtenerOrdenTrabajoByDateRange]";
+            using(var connection  =  new SqlConnection(connectionString))
+            {
+                var OrdenTrabajo = connection.Query(procedure, new
+                {
+                    start = dateStart,
+                    end = dateEnd
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = OrdenTrabajo });
+            }
+
+            
+        }
+
+
+
 
 
     }
