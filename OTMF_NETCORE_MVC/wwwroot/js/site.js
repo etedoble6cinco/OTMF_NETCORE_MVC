@@ -21,7 +21,7 @@ function GetDetailsOrdenesTrabajo() {
 }
 //--------------------------------------------------------------------------modal para busqueda de ordenes de trabajo
 function AsignacionEmpleadosOrdenTrabajo () {
-    $("body").append('<div class= "modal fade" id="RelacionEmpleadosOrdenTrabajoModal" >'+
+    $("body").append('<div class= "modal fade modal-dialog-scrollable " id="RelacionEmpleadosOrdenTrabajoModal" >'+
         '<div class="modal-dialog">'+
             '<div class="modal-content">'+
                 '<div class="modal-header">'+
@@ -102,24 +102,90 @@ function AsignacionEmpleadosOrdenTrabajo () {
     });
 }
 function AgregarTableResultados(data) {
-    console.log(data);
+   
     $("#resultados").html("");
-    $("#resultados").append("<table class='table hover'>"
+    $("#resultados").append("<table id='OrdenTrabajo' class='table hover'>"
         +"<thead>"
         +"<tr>"
         +"<th>Codigo</th>"
         +"<th>Pieza</th>"
         +"<th>Estado</th>"
+        +"<th>Acciones</th>"
         +"</tr > "
         +"</thead > "
         +"<tbody id='resultados2'>"
         
         + "</tbody>"
         + "</table > ");
+    $("#resultados2").html("");
+    $.each(data.data, function (n) {
+       
+        $("#resultados2").append("<tr>" +
+            "<td>" + data.data[n].IdCodigoOrdenTrabajo + "</td>" +
+            "<td>" + data.data[n].IdCodigoParte + "</td>" +
+            "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
+            "<td><button class='btn btn-lg btn-primary m-1 p-2'  onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"
 
+            + "</tr>");
+    });
+    $("#OrdenTrabajo").DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text: '<i class="fa fa-plus" aria-hidden="true"><div class="badge"></div></i>',
+                tittleAttr: 'creadas hoy',
+                className: 'btn btn-lg btn-secondary',
+                action: function () {
+
+                    window.location.href = "../../OrdenTrabajoes/Create";
+
+                }
+            }
+        ]
+    });
+}
+function ObtenerDetallesOrdenTrabajo(IdOrdenTrabajo) {
+  
+    $.ajax({
+        type: 'POST',
+        url: '../../OrdenTrabajoes/ObtenerOrdenesTrabajoDetallesById',
+        data: {
+            IdOrdenTrabajo:IdOrdenTrabajo
+        },
+        dataType: 'json',
+        success: function (data) {
+            FillDetallesOrdenTrabajo(data);
+        }
+        });
+}
+function FillDetallesOrdenTrabajo(data) {
+  
+    $("#DetallesOrdenTrabajo").remove();
+    $("body").append('<div class="offcanvas offcanvas-start" id="DetallesOrdenTrabajo" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">'
+            +'<div class="offcanvas-header">'
+               + '<h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>'
+                +'<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>'
+            +'</div>'
+            +'<div class="offcanvas-body">'
+            + '<div id="OffCanvasContent">'
+                +'</div>'
+            +'</div>'
+        + '</div>');
+    $("#OffCanvasContent").html("");
+    console.log(data.data);
+    $.each(data.data, function (n) {
+
+        $("#OffCanvasContent").append("<div>" +
+            "<div>" + data.data[n].IdOrdenTrabajo     + "</td>" +
+            "<div>" + data.data[n].IdCodigoParte      + "</td>" +
+            "<div>" + data.data[n].NombreEstadoOrden  + "</td>" 
+
+            + "</div>");
+    });
 }
 
 function ObtenerOrdenTrabajoByDateRange(start, end) {
+    document.getElementById("busquedaDatePicker").value = "";
     document.getElementById("busquedaDatePicker").value = $(".drp-selected").text();
     
     const dateStart = new Date(start._d);
