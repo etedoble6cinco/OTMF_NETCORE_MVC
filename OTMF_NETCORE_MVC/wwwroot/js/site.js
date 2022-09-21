@@ -84,8 +84,7 @@ function AsignacionEmpleadosOrdenTrabajo () {
         }
         if ($(this).is(':checked') && $(this).val() == 'busquedaFecha') {
             $("#eleccion").html("");
-            var content = '<div><input id="busquedaDatePicker" type="text" name="" placeholder></div><button>'
-            +'</div > ';
+            var content = '<div><input id="busquedaDatePicker" type="text" name="" placeholder></div>';
             $("#eleccion").append(content);
             $('#busquedaDatePicker').daterangepicker({
                 "showDropdowns": true,
@@ -124,7 +123,7 @@ function AgregarTableResultados(data) {
             "<td>" + data.data[n].IdCodigoOrdenTrabajo + "</td>" +
             "<td>" + data.data[n].IdCodigoParte + "</td>" +
             "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
-            "<td><button class='btn btn-lg btn-primary m-1 p-2'  onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"
+            "<td><button class='btn btn-lg btn-primary m-1 p-2'    onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"
 
             + "</tr>");
     });
@@ -161,18 +160,30 @@ function ObtenerDetallesOrdenTrabajo(IdOrdenTrabajo) {
 function FillDetallesOrdenTrabajo(data) {
   
     $("#DetallesOrdenTrabajo").remove();
-    $("body").append('<div class="offcanvas offcanvas-start" id="DetallesOrdenTrabajo" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">'
-            +'<div class="offcanvas-header">'
-               + '<h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>'
-                +'<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>'
-            +'</div>'
-            +'<div class="offcanvas-body">'
-            + '<div id="OffCanvasContent">'
-                +'</div>'
-            +'</div>'
-        + '</div>');
-    $("#OffCanvasContent").html("");
-    console.log(data.data);
+    $("body").append('<div class= "modal fade modal-dialog-scrollable " id="DetallesOrdenTrabajo" >' +
+        '<div class="modal-dialog">' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '<button type="button" class="btn" onclick="CerrarRelacionEmpleados()">&times;</button>' +
+        '<h4 class="modal-title">Buscar Orden Trabajo</h4>' +
+        '</div>' +
+
+        '<div class="modal-body">' +
+        '<div class="row">' +
+        '<div class= "col-4"><div class="form-check">' +
+        '<input type="radio" class="form-check-input" value="busquedaCodigo" id="busquedaCodigo" name="busqueda">' +
+        '<label class="form-check-label" for="busquedaCodigo">Busqueda por codigo</label></div>' +
+        '</div>'
+        +'</div>' +
+        '<div class="container" id="resultados"></div>' +
+        '<div class="modal-footer">' +
+        ' <button type="button" class="btn btn-default" >Close</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>');
+    $("#OrdenTrabajoContent").html("");
+  
     $.each(data.data, function (n) {
 
         $("#OffCanvasContent").append("<div>" +
@@ -182,6 +193,9 @@ function FillDetallesOrdenTrabajo(data) {
 
             + "</div>");
     });
+
+  
+ 
 }
 
 function ObtenerOrdenTrabajoByDateRange(start, end) {
@@ -211,7 +225,7 @@ function ObtenerOrdenTrabajoByOTCode() {
         url: '../../OrdenTrabajoes/ObtenerOrdenTrabajoByOTCode',
         dataType: 'json',
         success: function (data) {
-          
+         
         }
     });
 }
