@@ -8,593 +8,593 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OTMF_NETCORE_MVC
 build_property.RootNamespace = OTMF_NETCORE_MVC
-build_property.ProjectDir = C:\Users\analista.sistemas\source\repos\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC\
+build_property.ProjectDir = G:\eduar\Documents\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\analista.sistemas\source\repos\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC
+build_property.MSBuildProjectDirectory = G:\eduar\Documents\OTMF_NETCORE_MVC\OTMF_NETCORE_MVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvcmlvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvcmlvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvcmlvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvcmlvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Accesorios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvcmlvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Clientes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Colors/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Configuracion/EstandaresParametros.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Configuracion/EstandaresParametros.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvblxFc3RhbmRhcmVzUGFyYW1ldHJvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Configuracion/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Configuracion/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Configuracion/Usuarios.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Configuracion/Usuarios.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvblxVc3Vhcmlvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9lc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9lc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9lc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9lc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Empleadoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9lc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5zYW1ibGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5zYW1ibGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5zYW1ibGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5zYW1ibGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Ensambles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5zYW1ibGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvT3JkZW5zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvT3JkZW5zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvT3JkZW5zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvT3JkZW5zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstadoOrdens/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvT3JkZW5zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJDb25SZWxldm9lcyAtIFJldGlyYWRvXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJDb25SZWxldm9lcyAtIFJldGlyYWRvXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJDb25SZWxldm9lcyAtIFJldGlyYWRvXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJDb25SZWxldm9lcyAtIFJldGlyYWRvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EstandarConRelevoes - Retirado/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJDb25SZWxldm9lcyAtIFJldGlyYWRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJzIC0gUmV0aXJhZG9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJzIC0gUmV0aXJhZG9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJzIC0gUmV0aXJhZG9cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJzIC0gUmV0aXJhZG9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Estandars - Retirado/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YW5kYXJzIC0gUmV0aXJhZG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EtiquetaDeCaja/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EtiquetaDeCaja/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldGFEZUNhamFcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EtiquetaDeCaja/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/EtiquetaDeCaja/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldGFEZUNhamFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldHVtc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldHVtc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldHVtc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldHVtc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Etiquetums/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXRpcXVldHVtc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Home/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Home/Privacy.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHVsZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHVsZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHVsZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHVsZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Hules/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHVsZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zZXJ0b2VzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zZXJ0b2VzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zZXJ0b2VzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zZXJ0b2VzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Insertoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zZXJ0b2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3Rpdm9lcyAtIFJldGlyYWRvXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3Rpdm9lcyAtIFJldGlyYWRvXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3Rpdm9lcyAtIFJldGlyYWRvXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3Rpdm9lcyAtIFJldGlyYWRvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Instructivoes - Retirado/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3Rpdm9lcyAtIFJldGlyYWRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/InstructivoPieza/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/InstructivoPieza/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3Rpdm9QaWV6YVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/InstructivoPieza/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/InstructivoPieza/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3Rpdm9QaWV6YVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/InstructivoPieza/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/InstructivoPieza/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3Rpdm9QaWV6YVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/InstructivoPieza/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/InstructivoPieza/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3Rpdm9QaWV6YVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYU9yZGVuVHJhYmFqb2VzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYU9yZGVuVHJhYmFqb2VzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYU9yZGVuVHJhYmFqb2VzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYU9yZGVuVHJhYmFqb2VzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/MaquinaOrdenTrabajoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYU9yZGVuVHJhYmFqb2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Maquinas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFxdWluYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9sZGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9sZGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9sZGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9sZGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Moldes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9sZGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvRW1wbGVhZG9lc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvRW1wbGVhZG9lc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvRW1wbGVhZG9lc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvRW1wbGVhZG9lc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvRW1wbGVhZG9lc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OTEstado/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OTEstado/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT1RFc3RhZG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OTEstado/OrdenesDeTrabajoAsignadas.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OTEstado/OrdenesDeTrabajoAsignadas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT1RFc3RhZG9cT3JkZW5lc0RlVHJhYmFqb0FzaWduYWRhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVBY2Nlc29yaW9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVBY2Nlc29yaW9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVBY2Nlc29yaW9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVBY2Nlc29yaW9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/ParteAccesorios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVBY2Nlc29yaW9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Partes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGludHVyYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGludHVyYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGludHVyYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGludHVyYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Pinturas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGludHVyYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/Error.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_LinksLogin.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_LinksLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MaW5rc0xvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationColumnEmpleados.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationColumnEmpleados.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZpZ2F0aW9uQ29sdW1uRW1wbGVhZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationColumnOrdenesTrabajo.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationColumnOrdenesTrabajo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZpZ2F0aW9uQ29sdW1uT3JkZW5lc1RyYWJham8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationColumnPartes.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationColumnPartes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZpZ2F0aW9uQ29sdW1uUGFydGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationToolMenu.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_navigationToolMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZpZ2F0aW9uVG9vbE1lbnUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyaW1hc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyaW1hc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyaW1hc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyaW1hc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Tarimas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyaW1hc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0VtcGxlYWRvZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0VtcGxlYWRvZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0VtcGxlYWRvZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0VtcGxlYWRvZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/TipoEmpleadoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0VtcGxlYWRvZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Create.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9lc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Delete.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9lc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Details.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9lc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Edit.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9lc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Index.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Turnoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9lc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Usuarios/Login.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Usuarios/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Usuarios/Registro.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Usuarios/Registro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcUmVnaXN0cm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Usuarios/_Layout.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Usuarios/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/_ViewImports.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/_ViewStart.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_Layout.cshtml]
+[G:/eduar/Documents/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-19zf2o9t6e
