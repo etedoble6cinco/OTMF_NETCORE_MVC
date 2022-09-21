@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "G:\\eduar\\Documents\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC.csproj": {}
+    "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC.csproj": {}
   },
   "projects": {
-    "G:\\eduar\\Documents\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC.csproj": {
+    "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\eduar\\Documents\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC.csproj",
+        "projectUniqueName": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC.csproj",
         "projectName": "OTMF_NETCORE_MVC",
-        "projectPath": "G:\\eduar\\Documents\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC.csproj",
-        "packagesPath": "C:\\Users\\eduar\\.nuget\\packages\\",
-        "outputPath": "G:\\eduar\\Documents\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\obj\\",
+        "projectPath": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC.csproj",
+        "packagesPath": "C:\\Users\\analista.sistemas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\eduar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\analista.sistemas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,8 +107,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -116,7 +119,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
