@@ -117,7 +117,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                     ordenTrabajo.EstandarPorHorasCalculado = (decimal)EstandarPorHoras.NombreEstandarPorHora;
                     ordenTrabajo.HorasTrabajadasCalculado = (decimal)turnoOt.HorasTrabajadas;
                     ordenTrabajo.PorcentajeScrapCalculado = (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido;
-                ordenTrabajo.FracEstandarConRelevo = (decimal)fraccionEstandarRelevo.FracEstandarRelevo;
+                    ordenTrabajo.FracEstandarConRelevo = (decimal)fraccionEstandarRelevo.FracEstandarRelevo;
                     ordenTrabajo.IdInstructivoFk = 3;   
                 _context.Add(ordenTrabajo);
              
@@ -372,8 +372,35 @@ namespace OTMF_NETCORE_MVC.Controllers
             
         }
 
+        [HttpPost]
 
+        public JsonResult ObtenerOrdenTrabajoByOtCode(string IdClaveOrdenTrabajo)
+        {
+            var procedure = "[ObtenerOrdenesTrabajoDetallesByOtCode]";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var OrdenTrabajo = connection.Query(procedure, new
+                {
+                    IdOtCode = IdClaveOrdenTrabajo
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = OrdenTrabajo });
+            }
+             
+        }
+        [HttpPost]
 
+        public JsonResult ObtenerOrdenTrabajoByState()
+        {
+            var procedure = "[ObtenerOrdenTrabajoByState]";
+            using (var connection =  new SqlConnection(connectionString))
+            {
+                var OrdenTrabajo = connection.Query(procedure, new
+                {
+
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = OrdenTrabajo });
+            }
+        }
 
 
     }
