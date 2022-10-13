@@ -10,14 +10,15 @@
                 className: 'btn btn-lg btn-secondary',
                 action: function () {
 
-                    window.location.href = "../../Ensables/Create";
+                    window.location.href = "../../Ensambles/Create";
 
                 }
             }
         ]
     });
 
-
+    var menuItem = document.getElementById("EnsamblesMenuItem");
+    menuItem.classList.add("active");
 
 
 });

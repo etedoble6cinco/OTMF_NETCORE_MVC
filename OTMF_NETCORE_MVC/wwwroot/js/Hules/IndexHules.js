@@ -15,7 +15,8 @@
             }
         ]
     });
-
+    var menuItem = document.getElementById("HulesMenuItem");
+    menuItem.classList.add("active");
 
 
 

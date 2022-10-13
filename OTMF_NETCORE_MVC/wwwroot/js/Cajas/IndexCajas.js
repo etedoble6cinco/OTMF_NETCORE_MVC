@@ -21,15 +21,9 @@ $(document).ready(function () {
     });
 
 
-    ObtenerImagenCaja();
-
+   
+    var menuItem = document.getElementById("CajasMenuItem");
+    menuItem.classList.add("active");
 });
 
 
-function ObtenerImagenCaja() {
-
-    var EtiquetaImagen = document.getElementById("EtiquetaDeCaja").innerHTML;
-    console.log(EtiquetaImagen);
-    $("#imagenCaja").append("<img class='rounded mx-auto d-block' src='/Uploads/Etiquetas/Cajas/" + EtiquetaImagen + ".jpeg'/>");
-
-}

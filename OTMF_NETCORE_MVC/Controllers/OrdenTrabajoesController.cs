@@ -92,7 +92,7 @@ namespace OTMF_NETCORE_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdEmpleadoMoldeadorFk,IdEmpleadoEmpacadorFk,IdOrdenTrabajo,IdMaquinaFk,FechaOrdenTrabajo,IdParteFk,CantidadPiezasPororden,CajasRecibidas,PiezasRealizadas,IdInstructivoFk,HoraInicio,HoraFinalizacion,IdEmpeadoSupervisorFk,IdEstadoOrdenFk,EtiquetaDeCaja,IdEstandarConRelevoFk,IdEstandarPorHoraFk,MaxScrap,IdCodigoOrdenTrabajo,Otespecial,IdTurnoOtFk")] OrdenTrabajo ordenTrabajo)
+        public async Task<IActionResult> Create([Bind("IdEmpleadoMoldeadorFk,IdEmpleadoEmpacadorFk,IdOrdenTrabajo,IdMaquinaFk,FechaOrdenTrabajo,IdParteFk,CantidadPiezasPororden,CajasRecibidas,PiezasRealizadas,IdInstructivoFk,HoraInicio,HoraFinalizacion,IdEmpeadoSupervisorFk,IdEstadoOrdenFk,EtiquetaDeCaja,IdEstandarConRelevoFk,IdEstandarPorHoraFk,MaxScrap,IdCodigoOrdenTrabajo,Otespecial,IdTurnoOtFk,NumeroCabidadesPieza")] OrdenTrabajo ordenTrabajo)
         {
             if (ModelState.IsValid)
             {
@@ -185,7 +185,7 @@ namespace OTMF_NETCORE_MVC.Controllers
 
          
         [HttpPost]
-        public JsonResult UpdateOrdenTrabajo (int IdOrdenTrabajo ,int IdParteFK , int CantidadPiezasPorOrden , int IdInstructivoFK  , int IdEstadoOrdenFK)
+        public JsonResult UpdateOrdenTrabajo (int IdOrdenTrabajo ,int IdParteFK , int CantidadPiezasPorOrden , int IdInstructivoFK  , int IdEstadoOrdenFK , int NumeroCabidadesPieza)
         {
             IdInstructivoFK = 3;
             using(var connection  =  new SqlConnection(connectionString))
@@ -198,7 +198,8 @@ namespace OTMF_NETCORE_MVC.Controllers
                     IdParteFK = IdParteFK , 
                     CantidadPiezasPorOrden = CantidadPiezasPorOrden ,
                     IdInstructivoFK = IdInstructivoFK ,
-                    IdEstadoOrdenFK = IdEstadoOrdenFK
+                    IdEstadoOrdenFK = IdEstadoOrdenFK ,
+                    NumeroCabidadesPieza = NumeroCabidadesPieza
 
                 } ,commandType: CommandType.StoredProcedure);
                 return Json( new { data = confirm});
@@ -387,19 +388,20 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
              
         }
+       
         [HttpPost]
-
-        public JsonResult ObtenerOrdenTrabajoByState()
+        public JsonResult ObtenerOrdenesTrabajoDetallesByState(int EstadoOrden)
         {
-            var procedure = "[ObtenerOrdenTrabajoByState]";
-            using (var connection =  new SqlConnection(connectionString))
+            var procedure = "[ObtenerOrdenesTrabajoDetallesByState]";
+            using (var connection = new SqlConnection(connectionString))
             {
                 var OrdenTrabajo = connection.Query(procedure, new
                 {
-
+                    IdEstadoOrden = EstadoOrden   
                 }, commandType: CommandType.StoredProcedure);
                 return Json(new { data = OrdenTrabajo });
             }
+            
         }
 
 

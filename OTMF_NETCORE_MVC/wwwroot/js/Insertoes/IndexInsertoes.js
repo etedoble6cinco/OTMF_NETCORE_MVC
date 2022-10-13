@@ -18,6 +18,7 @@
     });
 
 
-
+    var menuItem = document.getElementById("InsertoesMenuItem");
+    menuItem.classList.add("active");
 
 });

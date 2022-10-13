@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OTMF_NETCORE_MVC.Models;
 
@@ -129,7 +130,89 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
                 
         }
-    
+        [HttpPost]
+
+        public async Task<IActionResult> ObtenerMaquinas()
+        {
+            return Json(new{data = await _context.Maquinas.ToListAsync()});
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ObtenerRelacionMaquinasUsuarios( int IdUsuarioFK)
+        {
+            var procedure = "ObtenerRelacionMaquinasUsuarios";
+            using (var connection = new SqlConnection(con)) {
+                var UsuarioMaquina = 
+                    await connection.QueryAsync(procedure, 
+                    new
+                { 
+                        IdUsuarioFK = IdUsuarioFK 
+               }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = UsuarioMaquina });
+            } 
+        }
+        [HttpPost]
+        public async Task<IActionResult> InsertRelacionMaquinasUsuarios(
+            int IdUsuarioFK , 
+            int IdMaquinaFK , 
+            string NombreMaquina)
+        {
+            UsuarioMaquina u = new UsuarioMaquina();
+            Maquina maquina = new Maquina();    
+            //u.IdUsuarioMaquina = 0;
+            u.IdUsuarioFk = IdUsuarioFK;
+            u.IdMaquinaFk = IdMaquinaFK;
+            u.NombreUsuarioMaquina = "";
+
+            _context.Add(u);
+            await _context.SaveChangesAsync();
+            try
+            {
+                maquina.IdMaquina = IdMaquinaFK;
+                maquina.EstadoMaquina = false;
+                maquina.NombreMaquina = NombreMaquina;
+                //ACTUALIZACION DE ESTADO  DE LA MAQUINA  
+                _context.Update(maquina);
+                await _context.SaveChangesAsync();  
+            }catch (Exception e)
+            {
+                Console.WriteLine(e.Message.ToString());   
+            }
+            
+            return Json(new { data = "Insercion Realizada" });  
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteRelacionMaquinasUsuarios (int IdUsuariosMaquinas ,
+            int IdMaquinaFK, string NombreMaquina)
+        {
+            try
+            {   //eliminando relacion maquina usuario
+                if (_context.UsuarioMaquinas == null)
+                {
+                    return Json(new { data = "No existen elementos" });
+                }
+                var UsuariosMaquinas = await _context.UsuarioMaquinas.FindAsync(IdUsuariosMaquinas);
+                if (UsuariosMaquinas != null)
+                {
+                _context.UsuarioMaquinas.Remove(UsuariosMaquinas);
+                }
+                await _context.SaveChangesAsync();
+                //desbloqueando maquina tras eliminar relacion , regresando el estado de la maquina a disponible 
+                Maquina maquina = new Maquina();
+                maquina.IdMaquina = IdMaquinaFK;
+                maquina.EstadoMaquina = true;
+                maquina.NombreMaquina = NombreMaquina;
+                _context.Update(maquina);
+                await _context.SaveChangesAsync();
+                
+                return Json(new { data = "" }); 
+            }catch (Exception e)
+            {
+                Console.WriteLine(e.Message.ToString());
+            }
+            return null; 
+        }
+
 
     }
 }

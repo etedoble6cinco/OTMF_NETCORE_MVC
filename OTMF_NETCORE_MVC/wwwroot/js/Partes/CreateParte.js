@@ -50,3 +50,13 @@ function updateProgressbar() {
     progress.style.width =
         ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
 }
+function EvaluateSelect() {
+    var e = document.getElementById("ClienteSelect");
+    var text = e.options[e.selectedIndex].text;
+    if (text === "AZTEC") {
+        const $selectEtiquetaParte = document.querySelector('#etiquetaParte');
+        $selectEtiquetaParte.value = 569;
+        const $selectEtiquetaCaja = document.querySelector('#etiquetaCaja');
+        $selectEtiquetaCaja.value = 571;
+    }
+}

@@ -17,7 +17,8 @@
         ]
     });
 
-
+    var menuItem = document.getElementById("ColorsMenuItem");
+    menuItem.classList.add("active");
 
 
 });

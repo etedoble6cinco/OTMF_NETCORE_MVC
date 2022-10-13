@@ -54,6 +54,7 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual DbSet<Turno> Turnos { get; set; } = null!;
         public virtual DbSet<TurnoOt> TurnoOts { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
+        public virtual DbSet<UsuarioMaquina> UsuarioMaquinas { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -806,6 +807,30 @@ namespace OTMF_NETCORE_MVC.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.PasswordHash).IsUnicode(false);
+            });
+
+            modelBuilder.Entity<UsuarioMaquina>(entity =>
+            {
+                entity.HasKey(e => e.IdUsuarioMaquina)
+                    .HasName("PK__UsuarioM__0C34856F303F57C7");
+
+                entity.ToTable("UsuarioMaquina");
+
+                entity.Property(e => e.IdMaquinaFk).HasColumnName("IdMaquinaFK");
+
+                entity.Property(e => e.IdUsuarioFk).HasColumnName("IdUsuarioFK");
+
+                entity.Property(e => e.NombreUsuarioMaquina).IsUnicode(false);
+
+                entity.HasOne(d => d.IdMaquinaFkNavigation)
+                    .WithMany(p => p.UsuarioMaquinas)
+                    .HasForeignKey(d => d.IdMaquinaFk)
+                    .HasConstraintName("UsuarioMaquina_IdMaquinaFK");
+
+                entity.HasOne(d => d.IdUsuarioFkNavigation)
+                    .WithMany(p => p.UsuarioMaquinas)
+                    .HasForeignKey(d => d.IdUsuarioFk)
+                    .HasConstraintName("UsuarioMaquina_IdUsuarioFK");
             });
 
             OnModelCreatingPartial(modelBuilder);

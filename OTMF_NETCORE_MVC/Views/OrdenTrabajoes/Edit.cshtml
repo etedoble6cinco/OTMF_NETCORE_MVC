@@ -5,10 +5,10 @@
 }
 
 <div class="container">
-    <div class="row">
+    <div class="row mt-2">
     <div class="col-4">
      
-        <h1><input type="hidden" asp-for="IdOrdenTrabajo" id="IdOrdenTrabajo" /></h1>
+        <input type="hidden" asp-for="IdOrdenTrabajo" id="IdOrdenTrabajo" />
         <form>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
          <!----------------------------------------------------------------------->
@@ -39,9 +39,18 @@
                 <input asp-for="CantidadPiezasPororden" id="CantidadPiezasPorOrden" class="form-control" />
                 <span asp-validation-for="CantidadPiezasPororden" class="text-danger"></span>
             </div>
+              <div class="form-group">
+                <label asp-for="NumeroCabidadesPieza" class="control-label">Cabidades por Pieza</label>
+                <input asp-for="NumeroCabidadesPieza" id="NumeroCabidadesPieza" type="number" />
+                <span asp-validation-for="NumeroCabidadesPieza" class="text-danger"></span>
+            </div>
             <div class="form-group mt-3">
-                <input type="button" value="Save" onclick="UpdateOrdenTrabajo()" class="btn btn-primary btn-lg" />
-                 <a asp-action="Index" class="btn btn-info btn-lg">Back to List</a>
+                <div class="btns-group">
+                        <a asp-action="Index" class="btn btn-danger btn-lg">Regresar</a>
+                      <input type="button" value="Guardar" onclick="UpdateOrdenTrabajo()" class="btn btn-primary btn-lg" />
+             
+                </div>
+              
             </div>
         </form>
     </div>

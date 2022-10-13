@@ -28,9 +28,11 @@
                 @Html.DisplayFor(modelItem => item.NombrePintura)
             </td>
             <td>
+                <div class="btns-group">
                 <a asp-action="Edit" asp-route-id="@item.IdPintura"    class="btn btn-lg btn-primary">Edit</a> 
          
                 <a asp-action="Delete" asp-route-id="@item.IdPintura"  class="btn btn-lg btn-danger" >Delete</a>
+                </div>
             </td>
         </tr>
 }
@@ -50,34 +52,7 @@
 
 
 @section Scripts{
-    <script>
-        
-$(document).ready(function () {
-
-
-    $("#Pinturas").DataTable({
-          dom:'Bfrtip',
-        buttons:[
-             {
-                text:'<i class="fa fa-plus" aria-hidden="true"><div class="badge"></div></i>',
-                tittleAttr: 'creadas hoy',
-                className:'btn btn-lg btn-secondary',
-                action: function() {
-                    
-                    window.location.href = "@Url.Action("Create")";
-                 
-                }
-            }
-        ]
-    });
-
-   
-
-
-});
-
-
-    </script>
+    <script src="~/js/Pinturas/IndexPinturas.js"></script>
 }
 
 

@@ -23,7 +23,7 @@ function GetIdentificadorOT() {
                 
                 document.getElementById(arr[i]).innerText = ot.ot.idCodigoOrdenTrabajo;
             }, error: function (err) {
-                console.log(err)
+               
             }
         });
     }
@@ -68,6 +68,8 @@ function FillDetalles(data) {
 
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Numero de Parte</p><p>" + data.data[x].idCodigoParte + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Cantidad Piezas por Orden</p><p>" + data.data[x].cantidadPiezasPorOrden + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Numero de Cabidades por Pieza</p><p>" + data.data[x].numeroCabidadesPieza +
+            "<button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#EditModalNCP'><i class='fas fa-edit'></i></button></p></div>"
 
 
 
@@ -119,8 +121,9 @@ function FillParte(data) {
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Tarima</p>          <p class='fs-6'>" + data.data[x].nombreTarima + "</p></div>" +
               "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Instructivo</p>          <p class='fs-6'>" + data.data[x].nombreInstructivoPieza + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Piezas por Caja</p> <p class='fs-6'>" + data.data[x].piezasPorCaja + "</p></div>");
-        $("#part-Image").append("<div class='d-flex flex-wrap'><img  class='img-fluid' style='max-width:50%;'  src='/Uploads//Etiquetas/Partes/" + data.data[x].nombreEtiqueta + ".jpg' />"
-            + "<img class='img-fluid' style='max-width:50%;' src='/Uploads//Etiquetas/Cajas/" + data.data[x].nombreEtiquetaDeCaja + ".jpg' /></div>")
+        $("#part-Image").append("<div class='d-flex flex-wrap'>" +
+            "<fieldset style='max-width:50%;'><legend><p class='badge bg-primary'>Etiqueta de Parte</p></legend> <img class='img-fluid border border-dark' style='max-width:100%;' src='/Uploads//Etiquetas/Partes/" + data.data[x].nombreEtiqueta + ".jpg' /></fieldset> "
+            + "<fieldset  style='max-width:50%;'><legend><p class='badge bg-primary'>Etiqueta de Caja</p></legend><img class='img-fluid border border-dark' style='max-width:100%;' src='/Uploads//Etiquetas/Cajas/" + data.data[x].nombreEtiquetaDeCaja + ".jpg' /></fieldset></div>")
 
         x++;
     });
@@ -164,16 +167,16 @@ function FillEmpleados(data, idOrdenTrabajo) {
             $("#EmpleadosRelacionados").append("<section id='empleadoEmpacador' class='p-1 m-1 bg-secondary'>"
                 + "<div class='badge bg-light text-dark'><h5>Empacador </h5><p>"
                 + data.data[x].nombreEmpleado + "</p></div>" +
-                "<button class='btn btn-lg btn-primary m-1 p-2' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick=\"SetEditEmpleado(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fas fa-edit'></i></button>" +
-                "<button class='btn btn-lg btn-primary m-1 p-2'  onclick=\"DeleteAsignacionEmpleadoOTById(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fa fa-trash' aria-hidden='true'></i></button> </section>");
+                "<div class='btns-group'><button class='btn  btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick=\"SetEditEmpleado(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fas fa-edit'></i></button>" +
+                "<button class='btn  btn-primary'  onclick=\"DeleteAsignacionEmpleadoOTById(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fa fa-trash' aria-hidden='true'></i></button></div> </section>");
 
         }
         if (data.data[x].idTipoEmpleadoFK == 6) {
             $("#EmpleadosRelacionados").append("<section id='empleadoMoldeador' class='p-1 m-1 bg-secondary'>"
                 + "<div class='badge bg-light text-dark'><h5>Moldeador </h5><p>"
                 + data.data[x].nombreEmpleado + "</p></div>" +
-                "<button class='btn btn-lg btn-primary m-1 p-2' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick=\"SetEditEmpleado(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fas fa-edit' ></i></button>" +
-                "<button class='btn btn-lg btn-primary m-1 p-2'  onclick=\"DeleteAsignacionEmpleadoOTById(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fa fa-trash' aria-hidden='true'></i></button> </section>");
+                "<div class='btns-group'><button class='btn  btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick=\"SetEditEmpleado(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fas fa-edit' ></i></button>" +
+                "<button class='btn  btn-primary'  onclick=\"DeleteAsignacionEmpleadoOTById(\'" + data.data[x].idEmpleadoOrdenTrabajo + "\');\"><i class='fa fa-trash' aria-hidden='true'></i></button></div> </section>");
 
 
 
@@ -440,11 +443,11 @@ function ObtenerFechaInicio() {
 }
 function FillFechaInicio(data) {
     $("#ShowHoraInicio").html("");
-    $("#ShowHoraInicio").append("<div><p class='badge bg-primary'> <strong>Fecha de Inicio : </strong>" + data.data[0].HoraInicio + "</p></div>")
+    $("#ShowHoraInicio").append("<p class='badge bg-primary'> <strong>Fecha de Inicio : </strong>" + data.data[0].HoraInicio + "</p>")
 }
 function FillFechaFinalizacion(data) {
     $("#ShowHoraFinalizacion").html("");
-    $("#ShowHoraFinalizacion").append("<div><p class='badge bg-primary'> <strong> Fecha de Finalizacion : </strong>" + data.data[0].HoraFinalizacion + "</p></div>");
+    $("#ShowHoraFinalizacion").append("<p class='badge bg-primary'> <strong> Fecha de Finalizacion : </strong>" + data.data[0].HoraFinalizacion + "</p>");
 }
 function UpdateFechaInicio() {
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
@@ -603,7 +606,7 @@ function MostrarInformeTiemposMuertos() {
 }
 function FillInformeTiempoMuertos(data) {
 
-    console.log(data);
+   
     $.each(data.details, function (n) {
 
         $("#ResumenContainer").append("<div id='acc-item' class='accordion-item'>" +
@@ -627,7 +630,7 @@ function FillInformeTiempoMuertos(data) {
 
     });
     $.each(data.total, function (z) {
-        console.log(data.total);
+     
 
         if (data.total[z].nombreEstado == 'PAUSADA') {
             $("#ResumenSumDetenida").append("<div><p>Duracion: </p><p>" + data.total[z].duracionEstado + "<p></div>")
@@ -652,4 +655,23 @@ function FillInformeTiempoMuertos(data) {
 function FormatearDateEstado(fecha) {
     let dateTimeEST = new Date(fecha);
     return dateTimeEST.toLocaleTimeString();
+}
+function UpdateNumeroCabidades() {
+    var numCab = $("#NumeroCabidades").val();
+    var IdOrdenTrabajo = localStorage.getItem('currentOT');
+    $.ajax({
+        type: "POST",
+        url: '../../OtEstado/UpdateNumeroCabidades',
+        data: {
+            IdOrdenTrabajo: IdOrdenTrabajo,
+            numCab: numCab
+        },
+        dataType: "json",
+        success: function (data) {
+            GetOrdenTrabajo(IdOrdenTrabajo)
+            $("#EditModalNCP").modal("hide");
+        }
+
+    });
+
 }

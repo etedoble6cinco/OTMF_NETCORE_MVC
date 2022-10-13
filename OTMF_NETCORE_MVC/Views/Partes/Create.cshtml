@@ -40,7 +40,7 @@
                 <div class="col-6">
                       <div class="form-group">
         <label asp-for="IdClienteFk" class="control-label">Cliente</label>
-        <select asp-for="IdClienteFk" class ="form-control" asp-items="ViewBag.IdClienteFk" required>
+        <select asp-for="IdClienteFk" id="ClienteSelect" class ="form-control" onchange="EvaluateSelect()" asp-items="ViewBag.IdClienteFk" required>
             <option selected disabled>
                 Seleccionar Cliente
             </option>
@@ -164,7 +164,7 @@
     <div class="col-3">
      <div class="form-group">
         <label asp-for="IdEtiquetaFk" class="control-label">Etiqueta de Parte</label>
-        <select asp-for="IdEtiquetaFk" class ="form-control" asp-items="ViewBag.IdEtiquetaFK" required>
+        <select asp-for="IdEtiquetaFk" id="etiquetaParte" class ="form-control" asp-items="ViewBag.IdEtiquetaFK" required>
             <option selected disabled> Seleccionar Etiqueta</option>
         </select>
     </div>
@@ -172,7 +172,7 @@
                <div class="col-6">
                       <div class="form-group">
         <label asp-for="IdEtiquetaCajaFk" class="control-label">Etiqueta de Caja</label>
-        <select asp-for="IdEtiquetaCajaFk" class ="form-control" asp-items="ViewBag.IdEtiquetaCajaFk" required>
+        <select asp-for="IdEtiquetaCajaFk" id="etiquetaCaja" class ="form-control" asp-items="ViewBag.IdEtiquetaCajaFk" required>
             <option selected disabled>
                 Seleccionar Etiqueta de la Caja 
             </option>

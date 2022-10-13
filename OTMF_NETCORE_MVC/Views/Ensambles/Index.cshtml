@@ -10,7 +10,7 @@
     <div class="row">
    <partial name="_navigationColumnPartes"/>
 
-        <div class="col-3">
+        <div class="col-9">
             <fieldset>
                 <legend>Ensamble</legend>
   <table class="table" id="Ensamble">
@@ -29,8 +29,12 @@
                 @Html.DisplayFor(modelItem => item.NombreEnsamble)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdEnsamble"   class="btn btn-lg btn-primary">Editar</a> 
+                <div class="btns-group">
+                          <a asp-action="Edit" asp-route-id="@item.IdEnsamble"   class="btn btn-lg btn-primary">Editar</a> 
                 <a asp-action="Delete" asp-route-id="@item.IdEnsamble" class="btn btn-lg btn-danger" >Eliminar</a>
+
+                </div>
+          
             </td>
         </tr>
 }

@@ -1,13 +1,13 @@
 ﻿
 $(document).ready(function () {
 
-
+ 
     $("#Partes").DataTable({
         "processing": true,
-        "serverSide": true,
+        "serverside" : true,
         "searching": true,
         "info": true,
-        "autoWidth":false,
+        "autoWidth": false,
         "ajax": {
             "url": "../../Partes/ObtenerPartes",
             "type": "POST",
@@ -61,22 +61,18 @@ $(document).ready(function () {
             { "data": "nombreInserto" },
             { "data": "nombreHule" },
 
-            { "data": "nombreCliente" },
-            {
-                "data": null,
-                "targets": -1,
-                "defaultContent": '<div class="d-flex"><button id="buttonDetails" class="btn btn-primary">Ver mas</button>' + '<button id="buttonDetails" class="btn btn-primary">Accesorios Asinados</button></div>'
-            },
+            { "data": "nombreCliente" }
            
         ]
     });
     var table = $('#Partes').DataTable();
-    $('#Partes').on('click', '#buttonDetails', function () {
+    $('#Partes').on('click', 'td', function () {
         var id = table.row(this).id();
         window.location.href = "Partes/Details/" + id;
 
     });
     
-
+    var menuItem = document.getElementById("PartesMenuItem");
+    menuItem.classList.add("active");
 });
 

@@ -28,9 +28,11 @@
                 @Html.DisplayFor(modelItem => item.NombreEtiqueta)
             </td>
             <td>
-       
+            <div class="btns-group">
                 <a asp-action="Details" onclick="ObtenerEtiquetaDeCaja('@item.NombreEtiqueta')" data-bs-toggle="modal" data-bs-target="#exampleModal"   class="btn btn-lg btn-warning">Detalles</a>
                 <a asp-action="Delete" asp-route-id="@item.IdEtiqueta" class="btn btn-lg btn-danger">Delete</a>
+            </div>
+    
             </td>
         </tr>
 }

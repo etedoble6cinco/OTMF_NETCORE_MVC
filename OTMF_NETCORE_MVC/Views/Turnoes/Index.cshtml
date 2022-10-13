@@ -70,9 +70,13 @@
                 @Html.DisplayFor(modelItem => item.HoraEntrada)
             </td>
             <td>
+                <div class="btns-group">
+
                 <a asp-action="Edit" asp-route-id="@item.IdTurno"     class="btn btn-lg btn-primary">Edit</a> 
-              
                 <a asp-action="Delete" asp-route-id="@item.IdTurno"   class="btn btn-lg btn-danger" >Delete</a>
+
+                </div>
+            
             </td>
         </tr>
 }

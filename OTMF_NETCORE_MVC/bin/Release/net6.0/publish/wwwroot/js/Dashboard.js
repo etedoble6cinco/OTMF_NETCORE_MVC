@@ -17,7 +17,7 @@
         });
     }
 connection.on("ReceivedOrdenTrabajo", function (data) {
-    console.log(data);
+  
     $("#OrdenesDeTrabajo tbody").html("");
    
     $.each(data.data, function (n) {
@@ -41,7 +41,7 @@ connection.on("ReceivedOrdenTrabajo", function (data) {
 });
 
 function EvaluarFechaOrdenTrabajo(data) {
-    console.log(data);
+   
             let dateTimeEST = new Date(data);
             let currentTime = new Date();
             if (dateTimeEST.getDate() == currentTime.getDate()) {

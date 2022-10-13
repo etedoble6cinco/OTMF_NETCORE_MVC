@@ -13,8 +13,12 @@
           <div class="d-flex flex-wrap border border-dark" id="OTDetailsCal"></div>
       </div>
        <div class="form-group">
-               <a asp-action="Edit" asp-route-id="@Model?.IdOrdenTrabajo" class="btn bg-primary btn-lg text-white">Editar</a> 
-    <a asp-action="Index" class="btn bg-danger btn-lg text-white">Regresar</a>
+           <div class="btns-group">
+                <a asp-action="Index" class="btn bg-danger btn-lg text-white">Regresar</a>
+          <a asp-action="Edit" asp-route-id="@Model?.IdOrdenTrabajo" class="btn bg-primary btn-lg text-white">Editar</a> 
+         
+           </div>
+               
        </div>
        
 

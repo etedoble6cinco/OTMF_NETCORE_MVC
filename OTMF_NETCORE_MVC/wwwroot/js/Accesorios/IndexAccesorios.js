@@ -18,7 +18,8 @@ $(document).ready(function () {
         ]
     });
 
-
+    var menuItem = document.getElementById("AccesoriosMenuItem");
+    menuItem.classList.add("active");
 
 
 });

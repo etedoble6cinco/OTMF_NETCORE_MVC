@@ -1,29 +1,59 @@
-﻿@model IEnumerable<OTMF_NETCORE_MVC.Models.Maquina>
+﻿@model IEnumerable<OTMF_NETCORE_MVC.Entities.ObtenerRelacionMaquinasUsuarios>
 @{
 }
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-9 offset-2">
+<div class="container mt-5 p-5 bg-dark">
+
+    <div class="row bg-dark">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner bg-dark">
+    <div class="carousel-item active">
+         <div class="d-flex justify-content-center">
+                <h5 class="text-white">Seleccione una estacion de trabajo</h5>
+         </div>
+
+    </div>
+         @foreach (var item in Model) {
+
+         
+          <div class="carousel-item">
+              <div class="container bg-white p-5">
+                  <div class="d-flex justify-content-center">
+                      <a class="btn btn-lg btn-primary" asp-controller="OTEstado" asp-action="OrdenesDeTrabajoAsignadas" asp-route-id="@item.IdMaquinaFK">@Html.DisplayFor(modelItem => item.NombreMaquina)</a>
            
-           <div id="ContenedorMaquina" class="d-flex aling-content-start flex-wrap">
-           @foreach (var item in Model) {
-           <a  class="btn btn-light " asp-action="OrdenesDeTrabajoAsignadas" asp-route-id="@item.IdMaquina"> 
-           <div class='border-3 p-5 m-3 bg-success shadow-lg'>
-           <small class='text-white'>@Html.DisplayFor(modelItem => item.NombreMaquina)</small> </div> </a>
+                  </div>
+                      
+              </div>
+  
+    </div>
+  
+    
        }
-    </div>
+
+  
+  </div>
+  <button class="carousel-control-prev bg-dark" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next bg-dark" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
     </div>
-
-
 </div>
+ 
+      
+  
+
+   
 
 
 @section Scripts{
-
+     <script src="~/js/pagination.js"></script>
    <script src="~/js/OTEstado/IndexOTEstado.js" type="text/javascript"></script>
-   <script src="~/js/pagination.js"></script>
+  
 }

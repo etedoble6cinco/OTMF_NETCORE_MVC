@@ -21,8 +21,8 @@ function GetDetailsOrdenesTrabajo() {
 }
 //--------------------------------------------------------------------------modal para busqueda de ordenes de trabajo
 function AsignacionEmpleadosOrdenTrabajo () {
-    $("body").append('<div class= "modal fade" id="RelacionEmpleadosOrdenTrabajoModal" >'+
-        '<div class="modal-dialog">'+
+    $("body").append('<div class= "modal fade " id="RelacionEmpleadosOrdenTrabajoModal" >'+
+        '<div class="modal-dialog  modal-lg">'+
             '<div class="modal-content">'+
                 '<div class="modal-header">'+
                     '<button type="button" class="btn" onclick="CerrarRelacionEmpleados()">&times;</button>'+
@@ -74,12 +74,12 @@ function AsignacionEmpleadosOrdenTrabajo () {
         if ($(this).is(':checked') && $(this).val() == 'busquedaEstado') {
             $("#eleccion").html("");
             $("#resultados").html("");
-            var content = '<div class="d-flex flex-row">' +
-                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="activo">   <label class="form-check-label" for="activo">Activa</label></div>'+
-                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="liberar">  <label class="form-check-label" for="liberar">Por Liberar</label></div>'+
-                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="pausada">  <label class="form-check-label" for="pausada">Pausada</label></div>'+
-                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="planeada"> <label class="form-check-label" for="planeada">Planeada</label></div>'+
-                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" id="terminada"><label class="form-check-label" for="terminada">Terminada</label></div>'+
+            var content = '<div class="d-flex flex-row justify-content-center" id="eleccionEstado" onclick="evaluarEstadoSeleccionado()">' +
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" value="activo" id="activo">   <label class="form-check-label" for="activo">Activa</label></div>'+
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" value="liberar" id="liberar">  <label class="form-check-label" for="liberar">Liberar</label></div>'+
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" value="pausada" id="pausada">  <label class="form-check-label" for="pausada">Pausada</label></div>'+
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" value="planeada" id="planeada"> <label class="form-check-label" for="planeada">Planeada</label></div>'+
+                '<div class="form-check"><input type="radio" class="form-check-input" name="estado" value="terminada" id="terminada"><label class="form-check-label" for="terminada">Terminada</label></div>'+
                 '</div>';
             $("#eleccion").append(content);
             
@@ -105,6 +105,43 @@ function AsignacionEmpleadosOrdenTrabajo () {
         }
     });
 }
+function evaluarEstadoSeleccionado() {
+    $('input:radio[name="estado"]').change(function () {
+        if ($(this).is(':checked') && $(this).val() == 'activo')
+        {
+            ObtenerOrdenesTrabajoDetallesByState(9);
+        }
+        if ($(this).is(':checked') && $(this).val() == 'liberar')
+        {
+            ObtenerOrdenesTrabajoDetallesByState(10);
+        }
+        if ($(this).is(':checked') && $(this).val() == 'pausada')
+        {
+            ObtenerOrdenesTrabajoDetallesByState(12);
+        }
+        if ($(this).is(':checked') && $(this).val() == 'planeada')
+        {
+            ObtenerOrdenesTrabajoDetallesByState(7);
+        }
+        if ($(this).is(':checked') && $(this).val() == 'terminada')
+        {
+            ObtenerOrdenesTrabajoDetallesByState(11);
+        }
+    });
+}
+function ObtenerOrdenesTrabajoDetallesByState(IdEstadoOrdenFK) {
+    $.ajax({
+        type: 'POST',
+        url: '../../OrdenTrabajoes/ObtenerOrdenesTrabajoDetallesByState',
+        data: {
+            EstadoOrden: IdEstadoOrdenFK
+        }, dataType: 'json',
+        success: function (data) {
+            AgregarTableResultados(data);
+        }
+    });
+}
+
 function ResultadosBusquedaOt() {
     var stringBusqueda = document.getElementById("myInput").value;
 
@@ -116,7 +153,7 @@ function ResultadosBusquedaOt() {
         },
         dataType: 'json',
         success: function (data) {
-            console.log(data);
+            AgregarTableResultados(data);
         }
     });
 }
@@ -148,19 +185,8 @@ function AgregarTableResultados(data) {
             + "</tr>");
     });
     $("#OrdenTrabajo").DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            {
-                text: '<i class="fa fa-plus" aria-hidden="true"><div class="badge"></div></i>',
-                tittleAttr: 'creadas hoy',
-                className: 'btn btn-lg btn-secondary',
-                action: function () {
-
-                    window.location.href = "../../OrdenTrabajoes/Create";
-
-                }
-            }
-        ]
+        dom: 'Plfrtip'
+       
     });
 }
 
@@ -179,7 +205,7 @@ function ObtenerDetallesOrdenTrabajo(IdOrdenTrabajo) {
         });
 }
 function FillDetallesOrdenTrabajo(data) {
-    console.log(data);
+ 
     $("#DetallesOrdenTrabajo").remove();
     $("body").append('<div class= "modal fade modal-dialog-scrollable " id="DetallesOrdenTrabajo" >' +
         '<div class="modal-dialog">' +
@@ -195,7 +221,7 @@ function FillDetallesOrdenTrabajo(data) {
         +'</div>' +
         '<div class="container" id="resultados"></div>' +
         '<div class="modal-footer">' +
-        '<button type="button" class="btn btn-default">Close</button>' +
+        '<button type="button" class="btn btn-default" onclick="RegresarModal">Close</button>' +
         '</div>' +
         '</div>' +
         '</div>' +

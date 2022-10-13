@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kKvl7R4AagWkq6q3t55NVoKi3CzjXm6Nbw11vWxDaq0=",
+  "Hash": "VBxNgkMzBof+9ab3DWwWxwQdcjiIJj6adzf7MAX0AgQ=",
   "Source": "OTMF_NETCORE_MVC",
   "BasePath": "_content/OTMF_NETCORE_MVC",
   "Mode": "Default",
@@ -18800,6 +18800,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Cajas\\no label.JPG"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Cajas\\NO NECESITA ETIQUETA.jpg",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "Uploads/Etiquetas/Cajas/NO NECESITA ETIQUETA.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Cajas\\NO NECESITA ETIQUETA.jpg"
     },
     {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Cajas\\RD051BR-P.JPG",
@@ -40509,6 +40526,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Partes\\MP102RA-G-P.JPG"
+    },
+    {
+      "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Partes\\NO NECESITA ETIQUETA.jpg",
+      "SourceId": "OTMF_NETCORE_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\",
+      "BasePath": "_content/OTMF_NETCORE_MVC",
+      "RelativePath": "Uploads/Etiquetas/Partes/NO NECESITA ETIQUETA.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Etiquetas\\Partes\\NO NECESITA ETIQUETA.jpg"
     },
     {
       "Identity": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\wwwroot\\Uploads\\Etiquetas\\Partes\\nolabel.JPG",

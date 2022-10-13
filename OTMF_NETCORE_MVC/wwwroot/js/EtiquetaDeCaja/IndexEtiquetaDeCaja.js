@@ -19,10 +19,12 @@ $(document).ready(function () {
     });
 
 
+    var menuItem = document.getElementById("EtiquetaDeCajaMenuItem");
+    menuItem.classList.add("active");
 
 
 });
 function ObtenerEtiquetaDeCaja(data) {
     $("#EtiquetaDeCajaImage").html("");
-    $("#EtiquetaDeCajaImage").append("<div><img width='250' height='180' class='card' src='/Uploads//Etiquetas/Cajas/" + data + ".jpeg'/></div>");
+    $("#EtiquetaDeCajaImage").append("<div><img width='250' height='180' class='card' src='Uploads//Etiquetas/Cajas/" + data + ".jpg'/></div>");
 }

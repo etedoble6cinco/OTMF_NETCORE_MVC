@@ -51,7 +51,7 @@ $(document).ready(function () {
     var table = $('#OrdenesDeTrabajo').DataTable();
     $('#OrdenesDeTrabajo').on('click', 'td', function () {
         var id = table.row(this).id();
-        window.location.href = "OrdenTrabajoes/Details/" + id;
+        window.location.href = "../../OrdenTrabajoes/Details/" + id;
 
     });
 

@@ -64,9 +64,13 @@
                 @Html.DisplayFor(modelItem => item.EstadoMaquina)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMaquina"    class="btn btn-lg btn-primary">Edit</a> 
+                <div class="btns-group">
+                 <a asp-action="Edit" asp-route-id="@item.IdMaquina"    class="btn btn-lg btn-primary">Edit</a> 
            
                 <a asp-action="Delete" asp-route-id="@item.IdMaquina"  class="btn btn-lg btn-danger" >Delete</a>
+
+                </div>
+             
             </td>
         </tr>
 }

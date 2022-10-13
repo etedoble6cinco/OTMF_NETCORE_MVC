@@ -43,7 +43,7 @@
 
         <div class="col-9">
             <fieldset>
-                <legend>Ordenes de Trabajo</legend>
+                <legend>Estados de O.T.</legend>
                <table class="table" id="EstadoOrdenes">
     <thead>
         <tr>
@@ -66,9 +66,11 @@
                 @Html.DisplayFor(modelItem => item.EstadoOrdenNumero)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdEstadoOrden"   class="btn btn-lg btn-primary">Editar</a> 
-              
+                <div class="btns-group">
+                <a asp-action="Edit" asp-route-id="@item.IdEstadoOrden"   class="btn btn-lg btn-primary">Editar</a>
                 <a asp-action="Delete" asp-route-id="@item.IdEstadoOrden" class="btn btn-lg btn-danger" >Eliminar</a>
+                </div>
+            
             </td>
         </tr>
 }

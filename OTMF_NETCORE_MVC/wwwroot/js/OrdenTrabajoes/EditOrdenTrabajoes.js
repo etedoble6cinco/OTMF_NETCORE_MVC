@@ -191,6 +191,7 @@ function UpdateOrdenTrabajo() {
     var CantidadPiezasPorOrden = $("#CantidadPiezasPorOrden").val();
     var IdInstructivoFK = $("#IdInstructivoFK").val();
     var IdEstadoOrdenFK = $("#IdEstadoOrdenFK").val();
+    var NumeroCabidadesPieza = $("#NumeroCabidadesPieza").val();
     $.ajax({
         type: "POST",
         url: "../../OrdenTrabajoes/UpdateOrdenTrabajo",
@@ -199,7 +200,8 @@ function UpdateOrdenTrabajo() {
             IdParteFK: IdParteFK,
             CantidadPiezasPorOrden: CantidadPiezasPorOrden,
             IdInstructivoFK: IdInstructivoFK,
-            IdEstadoOrdenFK: IdEstadoOrdenFK
+            IdEstadoOrdenFK: IdEstadoOrdenFK,
+            NumeroCabidadesPieza: NumeroCabidadesPieza
         },
         dataType: "json",
         success: function (data) {

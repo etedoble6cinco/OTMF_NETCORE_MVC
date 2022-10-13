@@ -25,7 +25,7 @@
         public string IdCodigoParte { get; set; }   
         public int IdMaquinaFK { get; set; }
         public string NombreMaquina { get; set; }
-       
+        public int NumeroCabidadesPieza { get; set; }
 
     }
 }

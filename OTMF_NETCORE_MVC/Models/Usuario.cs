@@ -8,6 +8,7 @@ namespace OTMF_NETCORE_MVC.Models
         public Usuario()
         {
             RolesUsuarios = new HashSet<RolesUsuario>();
+            UsuarioMaquinas = new HashSet<UsuarioMaquina>();
         }
 
         public int IdUsuarios { get; set; }
@@ -16,5 +17,6 @@ namespace OTMF_NETCORE_MVC.Models
         public string? PasswordHash { get; set; }
 
         public virtual ICollection<RolesUsuario> RolesUsuarios { get; set; }
+        public virtual ICollection<UsuarioMaquina> UsuarioMaquinas { get; set; }
     }
 }

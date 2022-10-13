@@ -8,6 +8,7 @@ namespace OTMF_NETCORE_MVC.Models
         public Maquina()
         {
             MaquinaOrdenTrabajos = new HashSet<MaquinaOrdenTrabajo>();
+            UsuarioMaquinas = new HashSet<UsuarioMaquina>();
         }
 
         public int IdMaquina { get; set; }
@@ -15,5 +16,6 @@ namespace OTMF_NETCORE_MVC.Models
         public bool? EstadoMaquina { get; set; }
 
         public virtual ICollection<MaquinaOrdenTrabajo> MaquinaOrdenTrabajos { get; set; }
+        public virtual ICollection<UsuarioMaquina> UsuarioMaquinas { get; set; }
     }
 }

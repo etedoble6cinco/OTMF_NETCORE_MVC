@@ -19,10 +19,12 @@ $(document).ready(function () {
     });
 
 
+    var menuItem = document.getElementById("EtiquetumsMenuItem");
+    menuItem.classList.add("active");
 
 
 });
 function ObtenerEtiquetaDeCaja(data) {
     $("#EtiquetaPieza").html("");
-    $("#EtiquetaPieza").append("<div><img width='250' height='200' class='card' src='/Uploads//Etiquetas/Partes/" + data + ".jpeg'/></div>");
+    $("#EtiquetaPieza").append("<div><img width='250' height='200' class='card' src='Uploads//Etiquetas/Partes/" + data + ".jpg'/></div>");
 }

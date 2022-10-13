@@ -41,7 +41,8 @@
                       <thead>
                           <tr>
                               <th>Email</th>
-                              <th>Acciones</th>
+                              <th>Acciones</th>  
+                         
                           </tr>
                       </thead>
                       <tbody>
@@ -51,8 +52,14 @@
                                 <td>
                                     @item.Email
                                 </td>
-                                <td>
+                            
+                                <td> 
+                                <div class="btns-group">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="ObtenerRolesUsuariosByIdUsuario('@item.IdUsuarios')" data-bs-target="#exampleModal">Asignar Rol</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="ObtenerRolesUsuariosByIdUsuarioAsignacionMaquinas('@item.IdUsuarios')" data-bs-target="#AsignacionMaquinas">Asignar Maquina</button>
+
+                                </div>
+                                     
                              
                                 </td>
                      
@@ -80,6 +87,47 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" onclick="UpsertRolesUsuariosByIdUsuario()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="AsignacionMaquinas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Asignar Maquinas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check" id="MaquinaCheckGroup">
+        <p class="text-start text-muted">Este usuario no esta registrado como operador...</p>
+        <p class="text-start text-muted">Asigne el rol de operador para asignar maquinas</p>
+        </div>
+        <div id="MaquinaSelectControl">
+
+        </div>
+        <div id="MaquinasSelected">
+
+        </div>
+        <div id="MaquinasRelacionadas">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Maquina</th>
+                         <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="MaquinasAsignadas">
+
+                </tbody>
+            </table>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="InsertRelacionMaquinasUsuarios()">Save changes</button>
       </div>
     </div>
   </div>

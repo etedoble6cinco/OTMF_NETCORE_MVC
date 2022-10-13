@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
     $("#mainNav").hide();
-
+  
 
 });
 
@@ -35,3 +35,4 @@ function FillMaquinas(data) {
 
 
 }
+

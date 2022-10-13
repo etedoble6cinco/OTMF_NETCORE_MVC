@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OTMF_NETCORE_MVC.Entities;
 using OTMF_NETCORE_MVC.Models;
+using OTMF_NETCORE_MVC.Services;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -13,19 +14,33 @@ namespace OTMF_NETCORE_MVC.Controllers
     public class OTEstadoController : Controller
     {
         private readonly OTMFContext _context;
-
+        private readonly IServicioUsuarios _services;
         private readonly string connectionString;
-        public OTEstadoController(OTMFContext context, IConfiguration configuration)
+        public OTEstadoController(OTMFContext context, IConfiguration configuration , IServicioUsuarios servicioUsuario)
         {
             connectionString = configuration.GetConnectionString("DefaultConnection");
             _context = context;
+            _services = servicioUsuario;
         }
         // GET: OTEstadoController
         public async Task<IActionResult> Index()
         {
-            return _context.Maquinas != null ?
-                        View(await _context.Maquinas.ToListAsync()) :
-                        Problem("Entity set 'OTMFContext.Insertos'  is null.");
+            
+            var procedure = "ObtenerRelacionMaquinasUsuarios";
+            using (var connection = new SqlConnection(connectionString))
+            {
+               var UsuarioMaquinaRes =
+                    await connection.QueryAsync<ObtenerRelacionMaquinasUsuarios>(procedure,
+                    new
+                    {
+                        IdUsuarioFK = _services.ObtenerUsuarioId()
+                    }, commandType: CommandType.StoredProcedure);
+                return _context.Maquinas != null ?
+                      View(UsuarioMaquinaRes) :
+                      Problem("Entity set 'OTMFContext.Insertos'  is null.");
+            }
+
+         
         }
         public JsonResult ObtenerMaquinas()
         {
@@ -428,6 +443,29 @@ namespace OTMF_NETCORE_MVC.Controllers
 
         }
 
+
+        [HttpPost]
+
+        public async Task<IActionResult>  UpdateNumeroCabidades(int IdOrdenTrabajo , int numCab)
+        {
+            
+                var OrdenTrabajo = await _context.OrdenTrabajos.FindAsync(IdOrdenTrabajo);
+                OrdenTrabajo.NumeroCabidadesPieza = numCab;
+                try { 
+                
+                    _context.Update(OrdenTrabajo);
+                    await _context.SaveChangesAsync();
+
+                return Json(new {data = OrdenTrabajo});
+
+
+            } catch (Exception e)
+            {
+                return null;
+            }
+            
+            
+        }
 
 
 
