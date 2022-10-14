@@ -35,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvcmlvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/BitacoraOrdenTrabajo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQml0YWNvcmFPcmRlblRyYWJham9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/Cajas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -397,6 +401,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoEmpleadoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvRW1wbGVhZG9lc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Cancel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZW5UcmFiYWpvZXNcQ2FuY2VsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/analista.sistemas/source/repos/OTMF_NETCORE_MVC/OTMF_NETCORE_MVC/Views/OrdenTrabajoes/Create.cshtml]

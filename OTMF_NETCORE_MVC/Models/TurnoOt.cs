@@ -7,6 +7,7 @@ namespace OTMF_NETCORE_MVC.Models
     {
         public TurnoOt()
         {
+            BitacoraOrdenTrabajos = new HashSet<BitacoraOrdenTrabajo>();
             OrdenTrabajos = new HashSet<OrdenTrabajo>();
         }
 
@@ -14,6 +15,7 @@ namespace OTMF_NETCORE_MVC.Models
         public string? NombreTurno { get; set; }
         public decimal? HorasTrabajadas { get; set; }
 
+        public virtual ICollection<BitacoraOrdenTrabajo> BitacoraOrdenTrabajos { get; set; }
         public virtual ICollection<OrdenTrabajo> OrdenTrabajos { get; set; }
     }
 }

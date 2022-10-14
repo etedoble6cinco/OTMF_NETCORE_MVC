@@ -3,127 +3,78 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div class="container">
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <h1>Eliminar</h1>
 
-<h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>OrdenTrabajo</h4>
-    <hr />
-    <dl class="row">
+        </div>
+    </div>  
+    
+    <div class="row">
+        <div class="d-flex justify-content-center">
+        
+<h3>Estas seguro que deseas eliminar esta orden de trabajo?</h3>
+
+        </div>
+    </div>
+      <dl class="row">
+          <dt class="col-sm-2">
+             Clave
+          </dt>
+          <dd class="col-sm-10">
+              @Html.DisplayFor(model => model.IdCodigoOrdenTrabajo)
+          </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEmpleadoMoldeadorFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEmpleadoMoldeadorFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEmpleadoEmpacadorFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEmpleadoEmpacadorFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdMaquinaFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdMaquinaFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaOrdenTrabajo)
+          Fecha de creacion
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FechaOrdenTrabajo)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CantidadPiezasPororden)
+            Cantidad de piezas por orden
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CantidadPiezasPororden)
         </dd>
+      
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CajasRecibidas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CajasRecibidas)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PiezasRealizadas)
+            Piezas realizadas
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PiezasRealizadas)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HoraInicio)
+            Hora de Inicio
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.HoraInicio)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HoraFinalizacion)
+         Hora de finalizacion
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.HoraFinalizacion)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEmpeadoSupervisorFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEmpeadoSupervisorFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EtiquetaDeCaja)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EtiquetaDeCaja)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstandarConRelevoFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstandarConRelevoFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstandarPorHoraFk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstandarPorHoraFk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxScrap)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxScrap)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCodigoOrdenTrabajo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdCodigoOrdenTrabajo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstadoOrdenFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstadoOrdenFkNavigation.IdEstadoOrden)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdInstructivoFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdInstructivoFkNavigation.IdInstructivo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdParteFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdParteFkNavigation.IdParte)
-        </dd>
+      
     </dl>
-    
-    <form asp-action="Delete">
+   
+    <hr />
+  <div class="row">
+      <div class="col-6">
+
+      </div>
+      <form asp-action="Delete">
         <input type="hidden" asp-for="IdOrdenTrabajo" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+        <div class="btns-group">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-primary">Cancelar</a>
+   
+        </div>
+         </form>
+
+  </div>
+    
+    
 </div>

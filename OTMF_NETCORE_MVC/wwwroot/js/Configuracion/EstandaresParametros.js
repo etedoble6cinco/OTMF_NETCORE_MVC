@@ -108,7 +108,7 @@ function UpdatePorcentajeScrapPermitido() {
     var PorcentajeScrapPermitido = document.getElementById("PorcentajeScrapPermitido").value;
     $.ajax({
         type: 'POST',
-        url: '../../Configuracion/UpdatePorcentajeScrapPermitido")',
+        url: '../../Configuracion/UpdatePorcentajeScrapPermitido',
         dataType: 'json',
         data: {
             PorcentajeScrapPermitido: PorcentajeScrapPermitido

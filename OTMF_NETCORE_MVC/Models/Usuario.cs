@@ -7,6 +7,7 @@ namespace OTMF_NETCORE_MVC.Models
     {
         public Usuario()
         {
+            BitacoraOrdenTrabajos = new HashSet<BitacoraOrdenTrabajo>();
             RolesUsuarios = new HashSet<RolesUsuario>();
             UsuarioMaquinas = new HashSet<UsuarioMaquina>();
         }
@@ -16,6 +17,7 @@ namespace OTMF_NETCORE_MVC.Models
         public string? EmailNormalizado { get; set; }
         public string? PasswordHash { get; set; }
 
+        public virtual ICollection<BitacoraOrdenTrabajo> BitacoraOrdenTrabajos { get; set; }
         public virtual ICollection<RolesUsuario> RolesUsuarios { get; set; }
         public virtual ICollection<UsuarioMaquina> UsuarioMaquinas { get; set; }
     }

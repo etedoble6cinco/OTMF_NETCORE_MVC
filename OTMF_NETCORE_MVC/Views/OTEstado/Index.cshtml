@@ -3,45 +3,22 @@
 }
 
 
-<div class="container mt-5 p-5 bg-dark">
+<div class="container">
 
-    <div class="row bg-dark">
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner bg-dark">
-    <div class="carousel-item active">
-         <div class="d-flex justify-content-center">
-                <h5 class="text-white">Seleccione una estacion de trabajo</h5>
-         </div>
-
-    </div>
+    <div class="row mt-5">
+          
          @foreach (var item in Model) {
-
-         
-          <div class="carousel-item">
-              <div class="container bg-white p-5">
+                <div class="container bg-white">
                   <div class="d-flex justify-content-center">
-                      <a class="btn btn-lg btn-primary" asp-controller="OTEstado" asp-action="OrdenesDeTrabajoAsignadas" asp-route-id="@item.IdMaquinaFK">@Html.DisplayFor(modelItem => item.NombreMaquina)</a>
-           
+                      <a class="btn btn-lg btn-primary m-2" asp-controller="OTEstado" asp-action="OrdenesDeTrabajoAsignadas" asp-route-id="@item.IdMaquinaFK">@Html.DisplayFor(modelItem => item.NombreMaquina)</a>
                   </div>
-                      
-              </div>
-  
     </div>
   
     
        }
 
   
-  </div>
-  <button class="carousel-control-prev bg-dark" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next bg-dark" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-   <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+ 
 
     </div>
 </div>

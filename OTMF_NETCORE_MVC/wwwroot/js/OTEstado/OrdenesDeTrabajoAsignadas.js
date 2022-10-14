@@ -1,10 +1,14 @@
 ﻿
-
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.body.style.opacity = "100";
+    }, 500);
+});
 
 $(document).ready(function () {
     $("#mainNav").hide();
     GetIdentificadorOT();
-
+    ObtenerRelacionMaquinasUsuarios();
    
 });
 //METODO PARA OBTENER LA INFORMACION DE LAS PESTANAS 
@@ -674,4 +678,37 @@ function UpdateNumeroCabidades() {
 
     });
 
+}
+
+
+function ObtenerRelacionMaquinasUsuarios() {
+    $.ajax({
+        type: "POST",
+        url: '../../OtEstado/ObtenerRelacionMaquinasUsuarios',
+        dataType: "json",
+        success: function (data) {
+            FillRelacionMaquinasUsuarios(data);
+        }
+    });
+}
+function FillRelacionMaquinasUsuarios(data) {
+    const url = window.location.href;
+    var queryString = url.split('/');
+    console.log(queryString[queryString.length - 1]);
+    console.warn(data);
+    if (data.data.length > 0) {
+       
+        data.data.forEach((c) => {
+            if (queryString[queryString.length - 1] == c.idMaquinaFK) {
+                $("#MaquinasAsignadas").append("<li id='MaquinaItem' class='nav-item'><a class='nav-link active' href='../../OtEstado/OrdenesDeTrabajoAsignadas/" + c.idMaquinaFK + "'>" + c.nombreMaquina + "</a></li>");
+            } else {
+                $("#MaquinasAsignadas").append("<li id='MaquinaItem' class='nav-item'><a class='nav-link' href='../../OtEstado/OrdenesDeTrabajoAsignadas/" + c.idMaquinaFK + "'>" + c.nombreMaquina + "</a></li>");
+            }
+           
+
+        });
+
+
+
+    }
 }

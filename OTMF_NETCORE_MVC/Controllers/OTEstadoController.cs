@@ -72,12 +72,8 @@ namespace OTMF_NETCORE_MVC.Controllers
                 // ViewData["TipoEmpleado"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "NombreTipoEmpleado");
                 return View(ot.ToList());
             }
-
-
-
-
-
         }
+
 
         //METODO PARA OBTENER EL DETALLE DE LA ORDEN DE TRABAJO 
         [HttpPost]
@@ -446,25 +442,44 @@ namespace OTMF_NETCORE_MVC.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult>  UpdateNumeroCabidades(int IdOrdenTrabajo , int numCab)
+        public async Task<IActionResult> UpdateNumeroCabidades(int IdOrdenTrabajo, int numCab)
         {
-            
-                var OrdenTrabajo = await _context.OrdenTrabajos.FindAsync(IdOrdenTrabajo);
-                OrdenTrabajo.NumeroCabidadesPieza = numCab;
-                try { 
-                
-                    _context.Update(OrdenTrabajo);
-                    await _context.SaveChangesAsync();
 
-                return Json(new {data = OrdenTrabajo});
-
-
-            } catch (Exception e)
+            var OrdenTrabajo = await _context.OrdenTrabajos.FindAsync(IdOrdenTrabajo);
+            OrdenTrabajo.NumeroCabidadesPieza = numCab;
+            try
             {
-                return null;
+
+                _context.Update(OrdenTrabajo);
+                await _context.SaveChangesAsync();
+
+                return Json(new { data = OrdenTrabajo });
+
+
             }
-            
-            
+            catch (Exception e)
+            {
+                return Json(new { data = e.Message.ToString() });
+            }
+
+
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ObtenerRelacionMaquinasUsuarios()
+        {
+            var procedure = "ObtenerRelacionMaquinasUsuarios";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var UsuarioMaquinaRes =
+                     await connection.QueryAsync<ObtenerRelacionMaquinasUsuarios>(procedure,
+                     new
+                     {
+                         IdUsuarioFK = _services.ObtenerUsuarioId()
+                     }, commandType: CommandType.StoredProcedure);
+                return Json( new { data = UsuarioMaquinaRes} );
+            }
         }
 
 
