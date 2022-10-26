@@ -79,4 +79,19 @@ function UpdatePrefixOT() {
     });
 }
 
+function GetchkvalueCantidadPiezasPorOrden() {
 
+    $("#CantidadPiezasPorOrden").toggle();
+    if (document.getElementById("CantidadPiezasPorOrdenChk").checked  == true) {
+
+        document.getElementById("IdCantidadPiezasOtflag").value = true;
+      
+
+    }
+    else {
+
+        document.getElementById("IdCantidadPiezasOtflag").value = false;
+    }
+
+    
+}

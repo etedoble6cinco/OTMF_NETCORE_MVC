@@ -5,6 +5,11 @@ namespace OTMF_NETCORE_MVC.Models
 {
     public partial class DuracionEstado
     {
+        public DuracionEstado()
+        {
+            BitacoraOrdenTrabajoDuracionEstados = new HashSet<BitacoraOrdenTrabajoDuracionEstado>();
+        }
+
         public int IdDuracionEstados { get; set; }
         public int? IdMotivoCambioEstadoFk { get; set; }
         public DateTime? InicioEstado { get; set; }
@@ -16,5 +21,6 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual EstadoOrden? IdEstadoOrdenFkNavigation { get; set; }
         public virtual MotivoCambioEstado? IdMotivoCambioEstadoFkNavigation { get; set; }
         public virtual OrdenTrabajo? IdOrdenTrabajoFkNavigation { get; set; }
+        public virtual ICollection<BitacoraOrdenTrabajoDuracionEstado> BitacoraOrdenTrabajoDuracionEstados { get; set; }
     }
 }

@@ -42,6 +42,7 @@ namespace OTMF_NETCORE_MVC.Models
         public decimal? PorcentajeScrapCalculado { get; set; }
         public decimal? FracEstandarConRelevo { get; set; }
         public int? NumeroCabidadesPieza { get; set; }
+        public bool? CantidadPiezasOtflag { get; set; }
 
         public virtual EstadoOrden? IdEstadoOrdenFkNavigation { get; set; }
         public virtual Instructivo? IdInstructivoFkNavigation { get; set; }

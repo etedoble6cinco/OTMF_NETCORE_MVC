@@ -92,15 +92,16 @@ namespace OTMF_NETCORE_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdEmpleadoMoldeadorFk,IdEmpleadoEmpacadorFk,IdOrdenTrabajo,IdMaquinaFk,FechaOrdenTrabajo,IdParteFk,CantidadPiezasPororden,CajasRecibidas,PiezasRealizadas,IdInstructivoFk,HoraInicio,HoraFinalizacion,IdEmpeadoSupervisorFk,IdEstadoOrdenFk,EtiquetaDeCaja,IdEstandarConRelevoFk,IdEstandarPorHoraFk,MaxScrap,IdCodigoOrdenTrabajo,Otespecial,IdTurnoOtFk,NumeroCabidadesPieza")] OrdenTrabajo ordenTrabajo)
+        public async Task<IActionResult> Create([Bind("IdEmpleadoMoldeadorFk,IdEmpleadoEmpacadorFk,IdOrdenTrabajo,IdMaquinaFk,FechaOrdenTrabajo,IdParteFk,CantidadPiezasPororden,CajasRecibidas,PiezasRealizadas,IdInstructivoFk,HoraInicio,HoraFinalizacion,IdEmpeadoSupervisorFk,IdEstadoOrdenFk,EtiquetaDeCaja,IdEstandarConRelevoFk,IdEstandarPorHoraFk,MaxScrap,IdCodigoOrdenTrabajo,Otespecial,IdTurnoOtFk,NumeroCabidadesPieza,CantidadPiezasOtflag")] OrdenTrabajo ordenTrabajo)
         {
             if (ModelState.IsValid)
             {
+                
 
                 if(ordenTrabajo.Otespecial == false){
                     // AGREGAR PREFIJO A LA ORDEN DE TRABAJO 
                     var prefix = _context.PrefixOts.FirstOrDefault(m => m.IdPrefixOt == 1);
-                    ordenTrabajo.IdCodigoOrdenTrabajo =   prefix.NombrePrefix + ordenTrabajo.IdCodigoOrdenTrabajo;
+                    ordenTrabajo.IdCodigoOrdenTrabajo = prefix.NombrePrefix + ordenTrabajo.IdCodigoOrdenTrabajo;
                    
                 }
                     var turnoOt = await _context.TurnoOts
@@ -111,7 +112,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                     == 1);
                     var Parte = await _context.Partes.FirstOrDefaultAsync(g => g.IdParte == ordenTrabajo.IdParteFk);
                     var EstandarPorHoras = await _context.EstandarPorHoras.FirstOrDefaultAsync(d => d.IdEstandarPorHora == Parte.IdEstandarPorHoraFk);
-                    ordenTrabajo.ScrapCalculado = CalularScrap((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas, (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido);
+                    ordenTrabajo.ScrapCalculado = CalcularScrap((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas, (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido);
                     ordenTrabajo.EstandarCalculado = CalcularEstandar((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas);
                     ordenTrabajo.EstandarConRelevoCalculado = CalcularEstandarConRelevo((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas, (decimal)fraccionEstandarRelevo.FracEstandarRelevo);
                     ordenTrabajo.EstandarPorHorasCalculado = (decimal)EstandarPorHoras.NombreEstandarPorHora;
@@ -142,7 +143,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
             return View(ordenTrabajo);
         }
-        public decimal CalularScrap(decimal estandarPorHora , decimal horasTrabajadas , decimal porcentajeScrapPermitido)
+        public decimal CalcularScrap(decimal estandarPorHora , decimal horasTrabajadas , decimal porcentajeScrapPermitido)
         {
             decimal result = (estandarPorHora * horasTrabajadas);
             return result * porcentajeScrapPermitido;
@@ -175,6 +176,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 var empleados = connection.Query<ObtenerEmpleadoConcatType>(OE,
                commandType: CommandType.StoredProcedure);
                 ViewData["Empleado"] = new SelectList(empleados, "IdEmpleado", "NombreEmpleado");
+           
             }
             ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
             ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo", ordenTrabajo.IdInstructivoFk);

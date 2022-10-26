@@ -55,26 +55,21 @@ namespace OTMF_NETCORE_MVC.Controllers
         //METODO PARA OBTENER DETALLES DE LAS ORDENES DE TRABAJO  
         public ActionResult OrdenesDeTrabajoAsignadas(int? id)
         {
-
-
             using (var connection = new SqlConnection(connectionString))
             {
                 var OE = "[ObtenerEmpleadoConcatType]";
-
-                var empleados = connection.Query<ObtenerEmpleadoConcatType>(OE,
-                    commandType: CommandType.StoredProcedure);
+                var empleados = connection.Query<ObtenerEmpleadoConcatType>(OE,commandType: CommandType.StoredProcedure);
                 var procedure = "[ObtenerOTAsignadas]";
                 var ot = connection.Query<ObtenerOTAsignadas>(procedure, new { idMaquina = id }, commandType: CommandType.StoredProcedure);
                 ViewData["Empleado"] = new SelectList(empleados, "IdEmpleado", "NombreEmpleado");
                 ViewData["EstadoOrden"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden");
                 ViewData["MotivoCambioEstado"] = new SelectList(_context.MotivoCambioEstados, "IdMotivoCambioEstado", "NombreMotivoCambioEstado");
                 ViewData["MotivoCambioEstadoDerivados"] = new SelectList(_context.MotivoCambioEstadoDerivados, "IdMotivoCambioEstadoDerivados", "MotivoCambioEstadoDerivadosNombre");
+               
                 // ViewData["TipoEmpleado"] = new SelectList(_context.TipoEmpleados, "IdTipoEmpleado", "NombreTipoEmpleado");
                 return View(ot.ToList());
             }
         }
-
-
         //METODO PARA OBTENER EL DETALLE DE LA ORDEN DE TRABAJO 
         [HttpPost]
         public JsonResult DetalleDeOT(int id)
@@ -86,10 +81,6 @@ namespace OTMF_NETCORE_MVC.Controllers
 
                 return Json(new { data = ot });
             }
-
-
-
-
         }
         //METODO PARA OBTENER LA PARTE DE LA ORDEN DE TRABAJO
         [HttpPost]
@@ -363,11 +354,12 @@ namespace OTMF_NETCORE_MVC.Controllers
         public JsonResult RegistrarDuracionEstado (
             int TipoMovimientoEstado,
             int IdOrdenTrabajoFK,
-           
-            int IdMotivoCambioEstadoFK ,  
-            int IdEstadoOrdenTrabajoFK 
+            int IdMotivoCambioEstadoFK,  
+            int IdEstadoOrdenTrabajoFK
+
             )
         {
+           
             var procedure = "[InsertDuracionEstado]";
             using(var connection = new SqlConnection(connectionString))
             {
@@ -377,11 +369,10 @@ namespace OTMF_NETCORE_MVC.Controllers
                    IdEstadoOrdenFK = IdEstadoOrdenTrabajoFK,
                    IdMotivoCambioEstadoFK = IdMotivoCambioEstadoFK,
                    TipoMovimientoEstado =  TipoMovimientoEstado
+                 
                 }, commandType: CommandType.StoredProcedure);
-                var estado = _context.EstadoOrdens.FindAsync(IdEstadoOrdenTrabajoFK);
-                return Json(new { data = estado });
+                return Json(new { data = confirm });
             }
-           
         }
 
         [HttpPost]
@@ -432,11 +423,6 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json(new { details = data,
                     total =  tiempoEstadosOrdenTrabajos  });
             }
-          
-
-
-
-
         }
 
 
@@ -481,7 +467,19 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json( new { data = UsuarioMaquinaRes} );
             }
         }
+        [HttpPost]
+        public JsonResult ObtenerUsuario()
+        {
+            var IdUsuarioFK =  _services.ObtenerUsuarioId();
+            return Json(new { data = IdUsuarioFK });
+        }
+        [HttpPost]
+        public async Task<IActionResult> ObtenerOrdenTrabajo( int IdOrdenTrabajo)
+        {
+            var OrdenTrabajo = await _context.OrdenTrabajos.FindAsync(IdOrdenTrabajo);
 
+            return Json(new { data = OrdenTrabajo });
+        }
 
 
     }

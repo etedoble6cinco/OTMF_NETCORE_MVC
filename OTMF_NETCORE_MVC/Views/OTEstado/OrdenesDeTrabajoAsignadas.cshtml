@@ -40,10 +40,21 @@
         </div>
        
     </div>
-    <div class="tab-content d-flex flex-wrap" id="pills-tabContent">
-      
+    <!--BITACORA ORDEN DE TRABAJO-->
+    <div class="row">
+        <div class="col-12">
+           
+            <div id="BitacoraOrdenTrabajo" class="d-flex flex-wrap">
+            
+                
+            
+            </div>
+       </div>
     </div>
-      <div class="tab-content card " id="part-Image">
+    <div class="tab-content d-flex flex-wrap" id="pills-tabContent">
+              
+    </div>
+    <div class="tab-content card " id="part-Image">
       
     </div>
     <div class="row">
@@ -177,6 +188,9 @@
     </div>
   </div>
 </div>
+<!--
+    Modal Resumen de tiempos muertos 
+-->
 <div class="modal fade" id="ResumenTiemposMuertos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
@@ -206,7 +220,7 @@
                   <div class="col">
                         <div class=" bg-success m-1 p-1 rounded" >
                         <div class="bg-white" id="ResumenSumActiva">
-
+                         
                         </div>
                   </div>
                   </div>
@@ -233,8 +247,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
+        <button type="button" class="btn btn-primary" onclick="UpdateBitacoraOrdenTrabajoProdTerminada()">Guardar</button>
+      </div> <!---->
     </div>
   </div>
 </div>
@@ -267,6 +281,7 @@
     </div>
   </div>
 </div>
+
 
 
 @section Scripts{
