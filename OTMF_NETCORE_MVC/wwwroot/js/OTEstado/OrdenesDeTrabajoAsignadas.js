@@ -46,7 +46,7 @@ function GetOrdenTrabajo(idOrdenTrabajo) {
         data: { id: idOrdenTrabajo },
         dataType: "json",
         success: function (data) {
-
+            $("#BitacoraOrdenTrabajo").html("");
             FillDetalles(data);
             GetParteByOTId(idOrdenTrabajo);
             GetEmpleadosByOTId(idOrdenTrabajo);
@@ -55,6 +55,8 @@ function GetOrdenTrabajo(idOrdenTrabajo) {
             ObtenerFechaInicio();
             ObtenerFechaFinalizacion();
             ObtenerParteIdByOTId();
+            ValidateIfExistsBitacoraOrdenTrabajo(); 
+           
         }
     });
 }
@@ -68,12 +70,11 @@ function FillDetalles(data) {
 
         $("#pills-tabContent").append(
 
-            "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Codigo Orden de Trabajo</p><p>" + data.data[x].idCodigoOrdenTrabajo + "</p></div>"
-
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Numero de Parte</p><p>" + data.data[x].idCodigoParte + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Cantidad Piezas por Orden</p><p>" + data.data[x].cantidadPiezasPorOrden + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary'>Numero de Cabidades por Pieza</p><p>" + data.data[x].numeroCabidadesPieza +
-            "<button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#EditModalNCP'><i class='fas fa-edit'></i></button></p></div>"
+              "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'> Codigo Orden de Trabajo</p>  <p class='displayResult'>" +   data.data[x].idCodigoOrdenTrabajo + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Numero de Parte</p>           <p class='displayResult'>" +           data.data[x].idCodigoParte + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Cantidad Piezas por Orden</p> <p class='displayResult'>" + data.data[x].cantidadPiezasPorOrden + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Numero de Cabidades </p class='displayResult'><button class='btn btn-primary btn-CabidadesPieza' data-bs-toggle='modal' data-bs-target='#EditModalNCP'><strong>"+ data.data[x].numeroCabidadesPieza + "</strong></button>"
+            +"</div>"
 
 
 
@@ -113,19 +114,20 @@ function FillParte(data) {
 
 
 
-        $("#pills-tabContent").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Aluminio</p>        <p class='fs-6'>" + truncate(data.data[x].aluminio, 3) + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Cajas por Tarima</p><p class='fs-6'>" + data.data[x].cajasPorTarima + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Caja</p>            <p class='fs-6'>" + data.data[x].nombreCaja + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Cliente</p>         <p class='fs-6'>" + data.data[x].nombreCliente + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Color</p>           <p class='fs-6'>" + data.data[x].nombreColor + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Ensamble</p>        <p class='fs-6'>" + data.data[x].nombreEnsamble + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Hule</p>            <p class='fs-6'>" + data.data[x].nombreHule + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Inserto</p>         <p class='fs-6'>" + data.data[x].nombreInserto + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Molde</p>           <p class='fs-6'>" + data.data[x].nombreMolde + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Pintura</p>         <p class='fs-6'>" + data.data[x].nombrePintura + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Tarima</p>          <p class='fs-6'>" + data.data[x].nombreTarima + "</p></div>" +
-              "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Instructivo</p>          <p class='fs-6'>" + data.data[x].nombreInstructivoPieza + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Piezas por Caja</p> <p class='fs-6'>" + data.data[x].piezasPorCaja + "</p></div>");
+        $("#pills-tabContent").append(
+              "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Aluminio</p>                        <p class='displayResult'>" + truncate(data.data[x].aluminio, 3) + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Cajas por Tarima</p>                <p class='displayResult'>" + data.data[x].cajasPorTarima + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Caja</p>                            <p class='displayResult'>" + data.data[x].nombreCaja + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Cliente</p>                         <p class='displayResult'>" + data.data[x].nombreCliente + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Color</p>                           <p class='displayResult'>" + data.data[x].nombreColor + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Ensamble</p>                        <p class='displayResult'>" + data.data[x].nombreEnsamble + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Hule</p>                            <p class='displayResult'>" + data.data[x].nombreHule + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Inserto</p>                         <p class='displayResult'>" + data.data[x].nombreInserto + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Molde</p>                           <p class='displayResult'>" + data.data[x].nombreMolde + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Pintura</p>                         <p class='displayResult'>" + data.data[x].nombrePintura + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Tarima</p>                          <p class='displayResult'>" + data.data[x].nombreTarima + "</p></div>" +
+              "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Instructivo</p>                     <p class='displayResult'>" + data.data[x].nombreInstructivoPieza + "</p></div>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap displayResult'>Piezas por Caja</p>                 <p class='displayResult'>" + data.data[x].piezasPorCaja + "</p></div>");
         $("#part-Image").append("<div class='d-flex flex-wrap'>" +
             "<fieldset style='max-width:50%;'><legend><p class='badge bg-primary'>Etiqueta de Parte</p></legend> <img class='img-fluid border border-dark' style='max-width:100%;' src='/Uploads//Etiquetas/Partes/" + data.data[x].nombreEtiqueta + ".jpg' /></fieldset> "
             + "<fieldset  style='max-width:50%;'><legend><p class='badge bg-primary'>Etiqueta de Caja</p></legend><img class='img-fluid border border-dark' style='max-width:100%;' src='/Uploads//Etiquetas/Cajas/" + data.data[x].nombreEtiquetaDeCaja + ".jpg' /></fieldset></div>")
@@ -311,17 +313,20 @@ function SetTerminar() {
     UpdateOTEstado(11);
     RegistrarFinalLiberar();
     MostrarInformeTiemposMuertos();
+    setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
+
 }
 function SetReanudar() {
     RegistrarInicioActiva();
     RegistrarFinalDetenida();
     UpdateOTEstado(9);
     UpdateRegistroBitacoraOrdenTrabajo();
-   
+    setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
+  
 }
 function SetActiva() {
     InsertRegistroBitacoraOrdenTrabajo();
-    ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo();
+
     //SE REGISTRA EL INICIO DE LA BITACORA 
     UpdateFechaInicio();
     UpdateOTEstado(9);
@@ -337,16 +342,17 @@ function SetPausa() {
         UpdateFechaFinalizacion();
         UpdateOTEstado(12);
         RegistrarFinalActiva();
-       
+        setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
     }
-
+   
 }
 
 function SetAceptar() {
-
+  
     UpdateOTEstado(10);
     RegistrarFinalActiva();
     RegistrarInicioLiberar();
+    setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
 }
 //El valor de cajas recibidas en la tabla de la orden de trabajo sera la llave foreanea para obtener su detalle de la misma .
 function ObtenerCajasRecibidas() {
@@ -570,7 +576,7 @@ function RegistrarDuracionEstado(
 }
 //- Bitacora Orden Trabajo
 //- INSERT REGISTRO BITACORA ORDEN DE TRABAJO 
- function InsertRegistroBitacoraOrdenTrabajo() {
+ function  InsertRegistroBitacoraOrdenTrabajo() {
 
     $.ajax({
         type: "POST",
@@ -580,8 +586,9 @@ function RegistrarDuracionEstado(
         },
         dataType: "json",
         success: function (data) {
-            console.log(data);
-            ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo();
+         
+          setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
+           
         }
     }); 
 }
@@ -598,7 +605,7 @@ function UpdateRegistroBitacoraOrdenTrabajo() {
         },
         dataType: "json",
         success: function (data) {
-            console.log(data);
+           
             ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo();
         }
     });
@@ -614,10 +621,11 @@ function UpdateBitacoraOrdenTrabajoProdTerminada() {
         },
         dataType: "json",
         success: function (data) {
-            console.log(data.data);
+           
             ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo();
+            $("#ResumenTiemposMuertos").modal("hide");
             EvaluarProduccionCompletada();
-
+            
         }
     });
 }
@@ -677,7 +685,7 @@ function FillInformeTiempoMuertos(data) {
 
    
     $.each(data.details, function (n) {
-
+        $("#ResumenContainer").html("");
         $("#ResumenContainer").append("<div id='acc-item' class='accordion-item'>" +
             "<h2 class='accordion-header' id='heading-" + data.details[n].idDuracionEstados + "'>" +
             "<button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-" + data.details[n].idDuracionEstados + "'><p class='badge bg-primary'>" + n + "</p><p class='badge bg-secondary'>"
@@ -698,8 +706,11 @@ function FillInformeTiempoMuertos(data) {
             "</div></div></div></div></div>")
 
     });
+    $("#ResumenSumDetenida").html("");
+    $("#ResumenSumPorLiberar").html("");
+    $("#ResumenSumActiva").html("");
     $.each(data.total, function (z) {
-     
+      
 
         if (data.total[z].nombreEstado == 'PAUSADA') {
             $("#ResumenSumDetenida").append("<div><p>Duracion: </p><p>" + data.total[z].duracionEstado + "<p></div>")
@@ -787,19 +798,20 @@ function EvaluarProduccionCompletada() {
         },
         dataType: "json",
         success: function (data) {
-            console.log(data);
+        
             if (data.data == false) {
                 UpdateOTEstado(7);
-                console.log(data.data);
+            
             } 
             if (data.data == true) {
-                UpdateOTEstado(10);
-                console.log(data.data)
+                $("#ModalFinalProduccion").modal("show");
+            
             }
         }
     });
 }
 //Obtener la bitacora que se va agregar en la vista para mantener visible el estado de la orden de trabajo 
+//al iniciar la orden de trabajo despues de el estado de planeado 
 function ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo() {
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
     $.ajax({
@@ -810,25 +822,61 @@ function ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo() {
         },
         dataType: "json",
         success: function (data) {
-            
+
             FillBitacoraOrdenTrabajoByIdOrdenTrabajo(data);
-      
+
+        }, error: function (data) {
+            console.log("No hay cantidades a sumar");
         }
     });
 }
 function FillBitacoraOrdenTrabajoByIdOrdenTrabajo(data) {
     console.log(data);
     $("#BitacoraOrdenTrabajo").html("");
- 
-    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Piezas Faltantes</p><p>"
-        + data.data.cantidadPiezasPorOrdenRealizadas + "</p></div>");
-    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap' >Estandar</p><p>"+data.data.estandarCalculado+"</p></div>");
-    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Estandar con Relevo</p><p>"+data.data.estandarConRelevoCalculado+"</p></div>");
-    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Estandar por Horas</p><p>"+data.data.estandarPorHorasCalculado+"</p></div>");
-    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Fraccion estandar con Relevo</p><p>"+data.data.fracEstandarConRelevo+"</p></div>");
-    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Horas Trabajadas</p><p>" + data.data.horasTrabajadasCalculado +"</p></div>");
-    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Id Bitacora orden de trabajo</p><p>" + data.data.idBitacoraOrdenTrabajo +"</p></div>");
-    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary text-wrap'>Porcentaje scrap </p><p>" + data.data.porcentajeScrapCalculado +"</p></div>");
+    let cantidadPiezasPorOrdenRealizadas = 0;
+    let estandar = 0;
+    let estandarPorHora = 0;
+    let estandarConRelevo = 0;
+    let scrap = 0;
+    
+    if (data.data.cantidadPiezasPorOrdenRealizadas == null) {
+
+    } else {
+        cantidadPiezasPorOrdenRealizadas = data.data.cantidadPiezasPorOrdenRealizadas;
+    }
+    if (data.data.estandarCalculado == null) {
+
+    } else {
+        estandar = data.data.estandarCalculado;
+      
+    } 
+    if (data.data.estandarPorHorasCalculado == null) {
+
+    } else {
+
+        estandarPorHora = data.data.estandarPorHorasCalculado;
+       
+    }
+    if (data.data.estandarConRelevoCalculado == null) {
+       
+    } else {
+        estandarConRelevo = data.data.estandarConRelevoCalculado;
+    }
+    if (data.data.scrapCalculado == null) {
+
+    } else {
+        scrap = data.data.scrapCalculado;
+    }
+    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white displayResult'><p class='badge bg-secondary text-wrap displayResult'>Piezas Faltantes</p><p class='displayResult'>"
+        + cantidadPiezasPorOrdenRealizadas + "</p></div>");
+    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white displayResult'><p class='badge bg-secondary text-wrap displayResult'>Estandar</p><p class='displayResult'>" +truncate(estandar,0)+"</p></div>");
+    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white displayResult'><p class='badge bg-secondary text-wrap displayResult'>Estandar con Relevo</p><p class='displayResult'>"+ truncate(estandarConRelevo,0)+"</p></div>");
+    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white displayResult'><p class='badge bg-secondary text-wrap displayResult'>Estandar por Horas</p><p class='displayResult'>" + estandarPorHora + "</p></div>");
+    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white displayResult'><p class='badge bg-secondary text-wrap displayResult'>Scrap</p><p class='displayResult'>" + truncate(scrap,0) + "</p></div>");
+  
+
+    ObtenerSumBitacoraOrdenTrabajoProduccion();
+
 
 }
 function ObtenerAllBitacorasOtByOtId() {
@@ -846,5 +894,105 @@ function ObtenerAllBitacorasOtByOtId() {
     });
 }
 function FillAllBitacorasOtById(data) {
-    console.log(data);
+    $("#BitacoraOrdenTrabajo").append("<div class='accordion accordion-flush' id='AccordionHistorialBitacora'></div>");
+    $("#AccordionHistorialBitacora").append("<div class='accordion-item'>" +
+        "<h2 class='accordion-item' id='flush-headingOne'>" +
+        "<button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne'>"
+        +"Historial de Bitacora"
+        +"</button>" +
+        "</h2>" +
+        "<div id='flush-collapseOne' class='accordion-collapse collapse' aria-labelledby='flush-headingOne' data-bs-parent='#accordionFlushExample'>" +
+        "<div class='accordion-body'><table class='table'>"
+        +"<thead><tr>" +
+        "<th>Cajas Recibidas</th>"+
+        "<th>Pieza por Orden</th>"+
+        "<th>Piezas faltantes</th>"+
+        "<th>Estandar</th>"+
+        "<th>Estandar por horas</th>"+
+        "<th>Estandar c/ Relevo</th>"+
+        "<th>Fecha de Creacion</th>"+
+        "<th>Horas Trabajadas</th>"+
+        "<th>Piezas Realizadas por Turno</th>"+
+        "<th>Piezas Recibidas</th>"+
+        "</tr></thead>"
+        + "<tbody id='DetalleBitacoraOrdenTrabajo'></tbody></table></div> " +
+        "</div>" +
+        "</div>")
+
+    data.data.forEach((x) => {
+
+        $("#DetalleBitacoraOrdenTrabajo").append("<tr>" +
+            "<td>" + x.cajasRecibidas + "</td>" +
+            "<td>" + x.cantidadPiezasPorOrden + "</td>" +
+            "<td>" + x.cantidadPiezasPorOrdenRealizadas + "</td>" +
+            "<td>" + x.estandarCalculado + "</td>" +
+            "<td>" + x.estandarConRelevoCalculado + "</td>" +
+            "<td>" + x.estandarPorHorasCalculado + "</td>" +
+            "<td>" + x.fechaOrdenTrabajo + "</td>" +
+            "<td>" + x.horasTrabajadasCalculado + "</td>" +
+            "<td>" + x.numeroPiezasRealizadas + "</td>" +
+            "<td>" + x.piezasRecibidas + "</td>" 
+            + "</tr>");
+    });
+
+}
+
+function ObtenerSumBitacoraOrdenTrabajoProduccion() {
+    var IdOrdenTrabajo = localStorage.getItem('currentOT');
+    $.ajax({
+        type: "POST",
+        url: '../../BitacoraOrdenTrabajo/ObtenerSumBitacoraOrdenTrabajoProduccion',
+        data: {
+            IdOrdenTrabajo: IdOrdenTrabajo
+        },
+        success: function (data) {
+            FillSumProduccionActual(data);
+
+        }
+    });
+}
+function FillSumProduccionActual(data) {
+    $("#ProduccionTotal").remove();
+    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white displayResult' id='ProduccionTotal'><p class='badge bg-secondary text-wrap displayResult'>Produccion Total</p><p class='displayResult'>" + data + "</p></div>");
+}
+function ValidateSumBitacoraOrdenTrabajoProduccion() {
+    var IdOrdenTrabajo = localStorage.getItem('currentOT');
+    console.log("validadoSum");
+    $.ajax({
+        type: "POST",
+        url: '../../BitacoraOrdenTrabajo/ValidateSumBitacoraOrdenTrabajoProduccion',
+        data: {
+            IdOrdenTrabajo: IdOrdenTrabajo
+        },
+        success: function (data) {
+            console.log(data);
+            if (data.data == true) {
+           
+                setTimeout(ObtenerSumBitacoraOrdenTrabajoProduccion(), 7000);
+            } else {
+              
+            }
+        }
+    });
+}
+function ValidateIfExistsBitacoraOrdenTrabajo() {
+    var IdOrdenTrabajo = localStorage.getItem('currentOT');
+    $.ajax({
+        type: "POST",
+        url: '../../BitacoraOrdenTrabajo/ValidateIfExistsBitacoraOrdenTrabajo',
+        data: {
+            IdOrdenTrabajo: IdOrdenTrabajo
+        },
+        success: function (data) {
+            console.log(data);
+            if (data == true) {
+
+                setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
+                ValidateSumBitacoraOrdenTrabajoProduccion();
+            } else {
+
+            }
+        }
+
+    });
 }

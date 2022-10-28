@@ -283,3 +283,13 @@ input {
     background-color: DodgerBlue !important;
     color: #ffffff;
 }
+.displayResult {
+    margin-bottom: 0rem;
+}
+.btn-CabidadesPieza {
+    padding: .1em;
+    margin: .1em;
+}
+#BitacoraOrdenTrabajo {
+   background-color:#845600;
+}

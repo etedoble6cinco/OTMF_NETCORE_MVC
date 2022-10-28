@@ -40,19 +40,20 @@
         </div>
        
     </div>
+    
+    <div class="tab-content d-flex flex-wrap" id="pills-tabContent">
+              
+    </div>
     <!--BITACORA ORDEN DE TRABAJO-->
     <div class="row">
         <div class="col-12">
            
-            <div id="BitacoraOrdenTrabajo" class="d-flex flex-wrap">
+            <div id="BitacoraOrdenTrabajo" class="d-flex flex-wrap justify-content-center">
             
                 
             
             </div>
        </div>
-    </div>
-    <div class="tab-content d-flex flex-wrap" id="pills-tabContent">
-              
     </div>
     <div class="tab-content card " id="part-Image">
       
@@ -169,8 +170,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Motivo de cambio de estado</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLabel">Especificar motivo de Pausa</h5>
+       
       </div>
       <div class="modal-body">
           <div class="form-group">
@@ -277,6 +278,30 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary" onclick="UpdateNumeroCabidades()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="ModalFinalProduccion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Orden de trabajo terminada</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         
+         <div class="form-group">
+           
+           
+          <p>El numero de piezas producidas a sido satisfecho!</p>
+           
+      
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Cerrar</button>
       </div>
     </div>
   </div>

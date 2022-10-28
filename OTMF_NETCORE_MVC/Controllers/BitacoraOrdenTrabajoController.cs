@@ -117,7 +117,10 @@ namespace OTMF_NETCORE_MVC.Controllers
                 CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado = await CalcularHorasTrabajadas((decimal)turnoOt.HorasTrabajadas, DuracionDetenida.DuracionEstado);
                 CurrentBitacoraOrdenTrabajo.PorcentajeScrapCalculado = (decimal)PorcentajeEstandarConRelevo.PorcentajeScrapPermitido;
                 CurrentBitacoraOrdenTrabajo.FracEstandarConRelevo = (decimal)fraccionEstandarRelevo.FracEstandarRelevo;
+
             }
+                
+            
 
             
             _context.Update(CurrentBitacoraOrdenTrabajo);
@@ -207,7 +210,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return data; 
             }
         }
-        //OBTENER LA SUMA DE TODAS LAS PRODUCCIONES LIGADAS A UNA ORDEN DE TRABAJO 
+        //OBTENER LA SUMA DE TODAS LAS PRODUCCIONES LIGADAS A UNA ORDEN DE TRABAJO ,AGREGANDO LA ULTIMA PRODUCCION AL FINAL 
         public async Task<int> ObtenerSumProduccionByIdBitacoraOrdenTrabajo(int IdOrdenTrabajo ,  int NumeroPiezasRealizadas)
         {
             var procedure = "[SumProduccionByIdBitacoraOrdenTrabajo]";
@@ -275,6 +278,29 @@ namespace OTMF_NETCORE_MVC.Controllers
 
 
         }
+        [HttpPost]
+        public async Task<bool> ValidateIfExistsBitacoraOrdenTrabajo(int IdOrdenTrabajo)
+        {
+            return await _context.BitacoraOrdenTrabajos.AnyAsync(q => q.IdOrdenTrabajoFk == IdOrdenTrabajo);
+          
+        }
+        public async Task<bool> ValidateSumBitacoraOrdenTrabajo(int IdOrdenTrabajo)
+        {
+            if ( _context.BitacoraOrdenTrabajos.Any(q => q.IdOrdenTrabajoFk == IdOrdenTrabajo)) return true;
+            return false ;
+        }
+        [HttpPost]
+        public async Task<IActionResult> ValidateSumBitacoraOrdenTrabajoProduccion(int IdOrdenTrabajo)
+        {
+            var BitacoraOrdenTrabajo = await _context.BitacoraOrdenTrabajos.FirstOrDefaultAsync(q => q.IdOrdenTrabajoFk == IdOrdenTrabajo);
+            if ( await ObtenerSumBitacoraOrdenTrabajoProduccion(IdOrdenTrabajo) > 0 ) {
+                return Json(new { data = true }); } 
+         
+            
+            return Json(new {data = false});
+        }
+        [HttpPost]
+       
         public async Task<int> ObtenerSumBitacoraOrdenTrabajoProduccion(int IdOrdenTrabajo)
         {
             var procedure = "[ObtenerSumBitacoraOrdenTrabajoProduccion]";
@@ -288,6 +314,7 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return data;
             }
         }
+       
         [HttpPost]
         public async Task<IActionResult> EvaluarProduccionCompletada(int IdOrdenTrabajo)
         {
