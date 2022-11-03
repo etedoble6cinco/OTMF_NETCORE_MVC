@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GOvk9MNLbwHrk76vW0OrHckWGHqrLmbK0gcmj85ECpvoX7CZ14Mso/VYgBg8uTvPpLfTxjoPVGkoj1CGIA8ETg==",
+  "dgSpecHash": "cANH95mryvPt6/3u8ycvXByhUn71wwmk9vBslWZwIovRdw8x8UKgfj4P0L645IV7lHLOGT25vOU+Kwe+AQfiYA==",
   "success": true,
   "projectFilePath": "C:\\Users\\analista.sistemas\\source\\repos\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC\\OTMF_NETCORE_MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\analista.sistemas\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
-    "C:\\Users\\analista.sistemas\\.nuget\\packages\\epplus\\6.0.5\\epplus.6.0.5.nupkg.sha512",
+    "C:\\Users\\analista.sistemas\\.nuget\\packages\\epplus\\6.0.8\\epplus.6.0.8.nupkg.sha512",
     "C:\\Users\\analista.sistemas\\.nuget\\packages\\epplus.interfaces\\6.0.0\\epplus.interfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\analista.sistemas\\.nuget\\packages\\epplus.system.drawing\\6.0.0\\epplus.system.drawing.6.0.0.nupkg.sha512",
     "C:\\Users\\analista.sistemas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

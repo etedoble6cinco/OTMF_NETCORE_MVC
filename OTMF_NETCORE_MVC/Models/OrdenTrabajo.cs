@@ -11,6 +11,7 @@ namespace OTMF_NETCORE_MVC.Models
             DuracionEstados = new HashSet<DuracionEstado>();
             MaquinaOrdenTrabajos = new HashSet<MaquinaOrdenTrabajo>();
             OrdenTrabajoEmpleados = new HashSet<OrdenTrabajoEmpleado>();
+            ReporteProduccionMoldeos = new HashSet<ReporteProduccionMoldeo>();
         }
 
         public int? IdEmpleadoMoldeadorFk { get; set; }
@@ -52,5 +53,6 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual ICollection<DuracionEstado> DuracionEstados { get; set; }
         public virtual ICollection<MaquinaOrdenTrabajo> MaquinaOrdenTrabajos { get; set; }
         public virtual ICollection<OrdenTrabajoEmpleado> OrdenTrabajoEmpleados { get; set; }
+        public virtual ICollection<ReporteProduccionMoldeo> ReporteProduccionMoldeos { get; set; }
     }
 }

@@ -468,3 +468,4 @@ $RECYCLE.BIN/
 *.sentinel
 *.json
 *.json
+OTMF_NETCORE_MVC/bin/Debug/net6.0/appsettings.json

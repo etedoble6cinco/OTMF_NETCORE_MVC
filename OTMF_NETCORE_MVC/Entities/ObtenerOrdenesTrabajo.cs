@@ -4,7 +4,7 @@
     {
 
         public int      IdOrdenTrabajo { get; set; }
-        public DateTime FechaOrdenTrabajo { get; set; }   
+        public string FechaOrdenTrabajo { get; set; }   
         public int      CantidadPiezasPorOrden { get; set; } = 0;
         public int      CajasRecibidas { get; set; } = 0;
         public int      PiezasRealizadas { get; set; } = 0;  

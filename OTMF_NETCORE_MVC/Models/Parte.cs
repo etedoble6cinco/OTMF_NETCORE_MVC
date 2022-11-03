@@ -9,6 +9,7 @@ namespace OTMF_NETCORE_MVC.Models
         {
             OrdenTrabajos = new HashSet<OrdenTrabajo>();
             ParteAccesorios = new HashSet<ParteAccesorio>();
+            ReporteProduccionMoldeos = new HashSet<ReporteProduccionMoldeo>();
         }
 
         public int IdParte { get; set; }
@@ -54,5 +55,6 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual Tarima? IdTarimaFkNavigation { get; set; }
         public virtual ICollection<OrdenTrabajo> OrdenTrabajos { get; set; }
         public virtual ICollection<ParteAccesorio> ParteAccesorios { get; set; }
+        public virtual ICollection<ReporteProduccionMoldeo> ReporteProduccionMoldeos { get; set; }
     }
 }

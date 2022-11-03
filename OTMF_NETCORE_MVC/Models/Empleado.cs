@@ -7,7 +7,9 @@ namespace OTMF_NETCORE_MVC.Models
     {
         public Empleado()
         {
+            BitacoraOrdenTrabajos = new HashSet<BitacoraOrdenTrabajo>();
             OrdenTrabajoEmpleados = new HashSet<OrdenTrabajoEmpleado>();
+            ReporteProduccionMoldeos = new HashSet<ReporteProduccionMoldeo>();
         }
 
         public int IdEmpleado { get; set; }
@@ -19,6 +21,8 @@ namespace OTMF_NETCORE_MVC.Models
 
         public virtual TipoEmpleado? IdTipoEmpleadoFkNavigation { get; set; }
         public virtual Turno? IdTurnoFkNavigation { get; set; }
+        public virtual ICollection<BitacoraOrdenTrabajo> BitacoraOrdenTrabajos { get; set; }
         public virtual ICollection<OrdenTrabajoEmpleado> OrdenTrabajoEmpleados { get; set; }
+        public virtual ICollection<ReporteProduccionMoldeo> ReporteProduccionMoldeos { get; set; }
     }
 }

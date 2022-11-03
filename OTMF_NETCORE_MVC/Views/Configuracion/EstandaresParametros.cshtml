@@ -7,35 +7,11 @@
 
 <div class="container-fluid">
     <div class="row">
-    <div class="col-3" >
-        <fieldset>
-            <legend><h5 class="display-6">Gestionar</h5></legend>
-        <div class="d-flex flex-column flex-shrink-0 p-1 bg-light">
-  
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-   
-      <li>
-        <a class="nav-link link-dark" asp-controller="Configuracion" asp-action="Usuarios">
-            <svg class="bi me-2" width="16" height="16"></svg>
-         Usuarios
-        </a>
-      </li>
-      
-      <li>
-        <a class="nav-link link-dark active" asp-controller="Configuracion"  asp-action="EstandaresParametros">
-            <svg class="bi me-2" width="16" height="16"></svg>
-         Estandares & Parametros 
-        </a>  
-      
-      </li>
-    </ul>
-    <hr>
-  
-  </div>
-  </fieldset>
-    </div>
-        <div class="col-9">
+  <div class="col-1 bg-gradient-primary">
+                 <partial name="_navigationColumnPartes"/>
+        
+        </div>
+   <div class="col-10 offset-1">
             <fieldset>
 
                 <legend>Configuracion</legend>

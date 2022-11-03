@@ -29,8 +29,13 @@ namespace OTMF_NETCORE_MVC.Models
         public int? IdUsuarioFk { get; set; }
         public DateTime? FechaOrdenTrabajo { get; set; }
         public int? CantidadPiezasPorOrdenRealizadas { get; set; }
+        public int? NumeroCavidades { get; set; }
+        public int? IdEmpleadoMoldeoFk { get; set; }
+        public int? IdMaquinaFk { get; set; }
 
+        public virtual Empleado? IdEmpleadoMoldeoFkNavigation { get; set; }
         public virtual EstadoOrden? IdEstadoOrdenFkNavigation { get; set; }
+        public virtual Maquina? IdMaquinaFkNavigation { get; set; }
         public virtual OrdenTrabajo? IdOrdenTrabajoFkNavigation { get; set; }
         public virtual TurnoOt? IdTurnoOtFkNavigation { get; set; }
         public virtual Usuario? IdUsuarioFkNavigation { get; set; }

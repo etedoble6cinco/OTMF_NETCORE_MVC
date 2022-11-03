@@ -1,6 +1,7 @@
 ﻿
-$(document).ready(function () {
 
+$(document).ready(function () {
+   
 
     $("#OrdenesDeTrabajo").DataTable({
         "processing": true,
@@ -31,20 +32,40 @@ $(document).ready(function () {
                     window.location.href = "OrdenTrabajoes/Create";
                 }
             }
+            ,
+            {
+                text: '<i class="fa fa-file" aria-hidden="true"></i>',
+                tittleAttr: 'Obtener Reporte',
+                className: 'btn btn-lg btn-warning',
+                action: function () {
+                    window.location.href = "Produccion/Reporte";
+                }
+            }
+            ,
+            {
+                text: '<i class="fa fa-search" aria-hidden="true"></i>',
+                tittleAttr: 'Obtener Reporte',
+                className: 'btn btn-lg btn-warning',
+                action: function () {
+                    AsignacionEmpleadosOrdenTrabajo();
+                }
+            }
 
 
-        ],
+        ]
+       ,
         autoFill: true,
         responsive: true,
         select: true,
         rowId: "idOrdenTrabajo",
         "columns": [
-            { "data": "fechaOrdenTrabajo" },
-            { "data": "horaInicio" },
-            { "data": "horaFinalizacion" },
-            { "data": "nombreEstadoOrden" },
+            { "data": "nombreMaquina" },
             { "data": "idCodigoOrdenTrabajo" },
-            { "data": "idCodigoParte" }
+            { "data": "idCodigoParte" },
+            { "data": "fechaOrdenTrabajo"},
+            { "data": "nombreEstadoOrden" }
+            
+            
            
         ]
     });

@@ -6,39 +6,14 @@
 
 <div class="container-fluid">
     <div class="row">
-    <div class="col-3" >
-        <fieldset>
-            <legend><h5 class="display-6">Gestionar</h5></legend>
-        <div class="d-flex flex-column flex-shrink-0 p-1 bg-light">
-  
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a  asp-controller="OrdenTrabajoes"  asp-action="Index" class="nav-link active" aria-current="page">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-          Ordenes de Trabajo
-        </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="Maquinas"  asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
-          Maquina
-        </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="EstadoOrdens"  asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
-         Estado OT
-        </a>
-      </li> 
-    </ul>
-    <hr>
-  
-  </div>
-  </fieldset>
-    </div>
+        <div class="col-1 bg-gradient-primary">
 
-        <div class="col-9">
+            <partial name="_navigationColumnPartes"/>
+
+        </div>
+           
+
+        <div class="col-10 offset-1">
 
             <fieldset>
                 <legend>Ordenes de Trabajo</legend>
@@ -47,17 +22,16 @@
    
                          <thead> 
                              <tr> 
-                                 
-                                 <th> Fecha de Creacion</th>
-                              
-                                 <th> Hora de Inicio</th>
-                                 <th> Hora de Finalizacion</th>
-                                
-                                
-                                 <th> Estado</th>
-                                     <th> Codigo</th>
+                                    <th>Maquina</th>
                             
-                                 <th> Codigo de la Parte</th>
+                                 <th>Numero Orden Trabajo</th>
+
+                                 <th>Numero de Parte</th>
+                                 
+                                 <th>Fecha de Creacion</th>
+                         
+                                 <th>Estado</th>
+                              
                              </tr>
                          </thead>
                          <tbody>
@@ -80,6 +54,7 @@
 
 @section Scripts{
     <script src="~/js/OrdenTrabajoes/IndexOrdenTrabajoes.js"  type="text/javascript"></script>
+
 }
 
 

@@ -48,6 +48,35 @@ namespace OTMF_NETCORE_MVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> UpsertCantidadMeta (int CantidadMeta)
+        {
+            var meta = await _context.Meta.FirstOrDefaultAsync(m => m.IdMeta == 1);
+            meta.CantidadMeta = CantidadMeta;
+            _context.Update(meta);
+            await _context.SaveChangesAsync();
+            return Json( new { data = ""});
+        }
+
+        [HttpGet]
+        public async Task<int> ObtenerTotalPiezas()
+        {
+            var procedure = "[ObtenerSumTotalProduccion]";
+            using (var connection = new SqlConnection(con))
+            {
+                int TotalPiezas = await connection.QueryFirstAsync<int>(procedure,  commandType: CommandType.StoredProcedure);
+                return TotalPiezas;
+            }
+               
+        }
+        [HttpGet]
+        public async Task<int> ObtenerCantidadMeta()
+        {
+
+            var meta = await _context.Meta.FirstOrDefaultAsync( m => m.IdMeta == 1);
+            return (int)meta.CantidadMeta;
+        }
+
         public async Task<IActionResult> CheckRole()
         {
             var estaAutenticado = User.Identity.IsAuthenticated;

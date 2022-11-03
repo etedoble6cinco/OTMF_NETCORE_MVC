@@ -39,6 +39,7 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual DbSet<InstructivoPieza> InstructivoPiezas { get; set; } = null!;
         public virtual DbSet<Maquina> Maquinas { get; set; } = null!;
         public virtual DbSet<MaquinaOrdenTrabajo> MaquinaOrdenTrabajos { get; set; } = null!;
+        public virtual DbSet<Metum> Meta { get; set; } = null!;
         public virtual DbSet<Molde> Moldes { get; set; } = null!;
         public virtual DbSet<MotivoCambioEstado> MotivoCambioEstados { get; set; } = null!;
         public virtual DbSet<MotivoCambioEstadoDerivado> MotivoCambioEstadoDerivados { get; set; } = null!;
@@ -48,6 +49,8 @@ namespace OTMF_NETCORE_MVC.Models
         public virtual DbSet<ParteAccesorio> ParteAccesorios { get; set; } = null!;
         public virtual DbSet<Pintura> Pinturas { get; set; } = null!;
         public virtual DbSet<PrefixOt> PrefixOts { get; set; } = null!;
+        public virtual DbSet<ReporteProduccionMoldeo> ReporteProduccionMoldeos { get; set; } = null!;
+        public virtual DbSet<ReporteProduccionTotalMoldeo> ReporteProduccionTotalMoldeos { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<RolesUsuario> RolesUsuarios { get; set; } = null!;
         public virtual DbSet<ScrapPermitido> ScrapPermitidos { get; set; } = null!;
@@ -100,7 +103,11 @@ namespace OTMF_NETCORE_MVC.Models
 
                 entity.Property(e => e.HorasTrabajadasCalculado).HasColumnType("decimal(30, 10)");
 
+                entity.Property(e => e.IdEmpleadoMoldeoFk).HasColumnName("IdEmpleadoMoldeoFK");
+
                 entity.Property(e => e.IdEstadoOrdenFk).HasColumnName("IdEstadoOrdenFK");
+
+                entity.Property(e => e.IdMaquinaFk).HasColumnName("IdMaquinaFK");
 
                 entity.Property(e => e.IdOrdenTrabajoFk).HasColumnName("IdOrdenTrabajoFK");
 
@@ -112,11 +119,23 @@ namespace OTMF_NETCORE_MVC.Models
 
                 entity.Property(e => e.ScrapCalculado).HasColumnType("decimal(30, 10)");
 
+                entity.HasOne(d => d.IdEmpleadoMoldeoFkNavigation)
+                    .WithMany(p => p.BitacoraOrdenTrabajos)
+                    .HasForeignKey(d => d.IdEmpleadoMoldeoFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("BitacoraOrdenTrabajo_IdEmpleadoMoldeoFK");
+
                 entity.HasOne(d => d.IdEstadoOrdenFkNavigation)
                     .WithMany(p => p.BitacoraOrdenTrabajos)
                     .HasForeignKey(d => d.IdEstadoOrdenFk)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("BitacoraOrdenTrabajo_IdEstadoOrdenFK");
+
+                entity.HasOne(d => d.IdMaquinaFkNavigation)
+                    .WithMany(p => p.BitacoraOrdenTrabajos)
+                    .HasForeignKey(d => d.IdMaquinaFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("BitacoraOrdenTrabajo_IdMaquinaFK");
 
                 entity.HasOne(d => d.IdOrdenTrabajoFkNavigation)
                     .WithMany(p => p.BitacoraOrdenTrabajos)
@@ -450,6 +469,12 @@ namespace OTMF_NETCORE_MVC.Models
                     .HasConstraintName("MaquinOrdenTrabajo_IdOrdenTrabajoFK");
             });
 
+            modelBuilder.Entity<Metum>(entity =>
+            {
+                entity.HasKey(e => e.IdMeta)
+                    .HasName("PK__Meta__4D7E99907FF42096");
+            });
+
             modelBuilder.Entity<Molde>(entity =>
             {
                 entity.HasKey(e => e.IdMolde)
@@ -779,6 +804,85 @@ namespace OTMF_NETCORE_MVC.Models
                 entity.Property(e => e.NombrePrefix)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ReporteProduccionMoldeo>(entity =>
+            {
+                entity.HasKey(e => e.IdReporteProduccionMoldeo)
+                    .HasName("PK__ReporteP__E14B9EC060CCC194");
+
+                entity.ToTable("ReporteProduccionMoldeo");
+
+                entity.Property(e => e.CausaTiempoMuerto1).IsUnicode(false);
+
+                entity.Property(e => e.CausaTiempoMuerto2).IsUnicode(false);
+
+                entity.Property(e => e.Eficiencia).HasColumnType("decimal(30, 10)");
+
+                entity.Property(e => e.EstandarPropuesto).HasColumnType("decimal(30, 10)");
+
+                entity.Property(e => e.FechaReporteProduccion).HasColumnType("datetime");
+
+                entity.Property(e => e.HorasTrabajoCalculado).HasColumnType("decimal(30, 10)");
+
+                entity.Property(e => e.IdEmpleadoFk).HasColumnName("IdEmpleadoFK");
+
+                entity.Property(e => e.IdMaquinaFk).HasColumnName("IdMaquinaFK");
+
+                entity.Property(e => e.IdMoldeFk).HasColumnName("IdMoldeFK");
+
+                entity.Property(e => e.IdOrdenTrabajoFk).HasColumnName("IdOrdenTrabajoFK");
+
+                entity.Property(e => e.IdParteFk).HasColumnName("IdParteFK");
+
+                entity.Property(e => e.Produccion).HasColumnType("decimal(30, 10)");
+
+                entity.Property(e => e.TurnoOtFk).HasColumnName("TurnoOtFK");
+
+                entity.HasOne(d => d.IdEmpleadoFkNavigation)
+                    .WithMany(p => p.ReporteProduccionMoldeos)
+                    .HasForeignKey(d => d.IdEmpleadoFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("ReporteProduccion_IdEmpleadoFK");
+
+                entity.HasOne(d => d.IdMaquinaFkNavigation)
+                    .WithMany(p => p.ReporteProduccionMoldeos)
+                    .HasForeignKey(d => d.IdMaquinaFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("ReporteProduccion_IdMaquinaFK");
+
+                entity.HasOne(d => d.IdMoldeFkNavigation)
+                    .WithMany(p => p.ReporteProduccionMoldeos)
+                    .HasForeignKey(d => d.IdMoldeFk)
+                    .HasConstraintName("ReporteProduccion_IdMoldeFK");
+
+                entity.HasOne(d => d.IdOrdenTrabajoFkNavigation)
+                    .WithMany(p => p.ReporteProduccionMoldeos)
+                    .HasForeignKey(d => d.IdOrdenTrabajoFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("ReporteProduccion_IdOrdenTrabajoFK");
+
+                entity.HasOne(d => d.IdParteFkNavigation)
+                    .WithMany(p => p.ReporteProduccionMoldeos)
+                    .HasForeignKey(d => d.IdParteFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("ReporteProduccion_IdParteFK");
+            });
+
+            modelBuilder.Entity<ReporteProduccionTotalMoldeo>(entity =>
+            {
+                entity.HasKey(e => e.IdProduccionTotal)
+                    .HasName("PK__ReporteP__CF62E77D1BE446F5");
+
+                entity.ToTable("ReporteProduccionTotalMoldeo");
+
+                entity.Property(e => e.FechaReporteProduccionTotalMoldeo).HasColumnType("datetime");
+
+                entity.Property(e => e.IdReporteProduccionMoldeoFk).HasColumnName("IdReporteProduccionMoldeoFK");
+
+                entity.Property(e => e.TotalEficiencia).HasColumnType("decimal(30, 10)");
+
+                entity.Property(e => e.TotalProduccion).HasColumnType("decimal(30, 10)");
             });
 
             modelBuilder.Entity<Role>(entity =>

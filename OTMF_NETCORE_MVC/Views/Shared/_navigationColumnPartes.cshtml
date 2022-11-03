@@ -1,98 +1,224 @@
 ﻿
-   <div class="col-3" id="NavigationColumn">
-        <fieldset>
-            <legend><h5 class="display-6">Gestionar</h5></legend>
-        <div class="d-flex flex-column flex-shrink-0 p-1 bg-light">
-  
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a class="nav-link link-dark" asp-controller="Partes" id="PartesMenuItem" asp-action="Index">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+
+    
+
+
+         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+           <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html"> -->
+               <!-- <div class="sidebar-brand-icon rotate-n-15"> -->
+               <!---     <i class="fas fa-laugh-wink"></i> -->
+                <!--- </div>-->
+                <!---<div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>-->
+           <!--- </a>-->
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" asp-action="index" asp-controller="Home">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>MES</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Ordenes de Trabajo</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                         <a  asp-controller="OrdenTrabajoes"  asp-action="Index" class="collapse-item" aria-current="page">
+     
+          Ordenes de Trabajo
+        </a>
+         <a class="collapse-item" asp-controller="Maquinas"  asp-action="Index">
+         
+          Maquina
+        </a>
+           <a class="collapse-item" asp-controller="EstadoOrdens"  asp-action="Index">
+     
+         Estado OT
+        </a>
+               
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Partes</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Utilities:</h6>
+                       <a class="collapse-item" asp-controller="Partes" id="PartesMenuItem" asp-action="Index">
+        
           Partes
         </a>
-      </li> <li class="nav-item">
-        <a class="nav-link link-dark" asp-controller="Moldes" id="MoldesMenuItem" asp-action="Index">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+    
+        <a class="collapse-item" asp-controller="Moldes" id="MoldesMenuItem" asp-action="Index">
+    
            Molde
         </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="Accesorios" id="AccesoriosMenuItem" asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+
+    
+        <a class="collapse-item" asp-controller="Accesorios" id="AccesoriosMenuItem" asp-action="Index">
+           
          Accessorio
         </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="Insertoes" id="InsertoesMenuItem"  asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+      
+     
+        <a class="collapse-item" asp-controller="Insertoes" id="InsertoesMenuItem"  asp-action="Index">
+       
          Inserto
         </a>
-      </li> 
-      <li>
-        <a class="nav-link link-dark" asp-controller="Pinturas" id="PinturasMenuItem" asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+      
+      
+        <a class="collapse-item" asp-controller="Pinturas" id="PinturasMenuItem" asp-action="Index">
+           
          Pintura
         </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="Hules"  id="HulesMenuItem" asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+
+        <a class="collapse-item" asp-controller="Hules"  id="HulesMenuItem" asp-action="Index">
+
          Hule
         </a>
-      </li>
      
-      <li>
-        <a class="nav-link link-dark" asp-controller="Ensambles" id="EnsamblesMenuItem"  asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+        <a class="collapse-item" asp-controller="Ensambles" id="EnsamblesMenuItem"  asp-action="Index">
+            
          Ensamble
         </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="EtiquetaDeCaja" id="EtiquetaDeCajaMenuItem"  asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+     
+        <a class="collapse-item" asp-controller="EtiquetaDeCaja" id="EtiquetaDeCajaMenuItem"  asp-action="Index">
+           
          Etiqueta de Caja
         </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="Etiquetums" id="EtiquetumsMenuItem" asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+      
+        <a class="collapse-item" asp-controller="Etiquetums" id="EtiquetumsMenuItem" asp-action="Index">
+           
          Etiqueta de Pieza
         </a>
-      </li>
       
-      <li>
-        <a class="nav-link link-dark" asp-controller="Tarimas" id="TarimasMenuItem" asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+        <a class="collapse-item" asp-controller="Tarimas" id="TarimasMenuItem" asp-action="Index">
+           
          Tarima
         </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="Colors"  id="ColorsMenuItem" asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+      
+        <a class="collapse-item" asp-controller="Colors"  id="ColorsMenuItem" asp-action="Index">
+           
          Color
         </a>
-      </li>
-
-      <li>
-        <a class="nav-link link-dark" asp-controller="Cajas" id="CajasMenuItem"  asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+      
+        <a class="collapse-item" asp-controller="Cajas" id="CajasMenuItem"  asp-action="Index">
+      
          Caja
         </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="Clientes" id="ClientesMenuItem" asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
+      
+        <a class="collapse-item" asp-controller="Clientes" id="ClientesMenuItem" asp-action="Index">
+           
          Clientes
         </a>
-      </li>
-    </ul>
-    <hr>
-  
-  </div>
-  </fieldset>
-    </div>
+      
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Gestion de recursos
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Empleados</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" asp-action="Index" asp-controller="Empleadoes">Empleados</a>
+                        <a class="collapse-item" asp-action="Index" asp-controller="TipoEmpleadoes">Tipos de Empleado</a>
+                        <a class="collapse-item" asp-action="Index" asp-controller="Turnoes">Turnos de Empleado</a>
+                        
+                    </div>
+                </div>
+            </li>   <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseParametros"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Configuracion</span>
+                </a>
+                <div id="collapseParametros" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion de Parametros</h6>
+                     
+
+                        <a class="collapse-item" asp-controller="Configuracion" asp-action="Usuarios">
+          
+         Usuarios
+        </a>
+ 
+        <a class="collapse-item" asp-controller="Configuracion"  asp-action="EstandaresParametros">
+            
+         Estandares
+        </a> 
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </li>
+
+   
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Maquinas">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Maquinas</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+         
+
+        </ul>
     @section Scripts {
      
         <script src="~/js/Shared/PartesNavigationColumn.js" type="text/javascript"></script>
+            <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/js/Dashboard/sb-admin-2.min.js"></script>
     }

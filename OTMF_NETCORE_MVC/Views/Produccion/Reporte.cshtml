@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+     <div class="col-1 bg-gradient-primary">
+
+            <partial name="_navigationColumnPartes"/>
+
+        </div>
+    
+
+        <div class="col-10 offset-1">
+            <div class="form-group">
+               
+                <input  type="datetime-local" id="FechaReporte" />
+               
+
+                   <button type="button" onclick="ObtenerReporteProduccion()" class="btn btn-primary">Registro Produccion</button>
+                   <div class="card" id="ResultDownload">
+
+                   </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+   <script src="~/js/Produccion/Reporte.js" type="text/javascript"></script>
+ 
+
+}

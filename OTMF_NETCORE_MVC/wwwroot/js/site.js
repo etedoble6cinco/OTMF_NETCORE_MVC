@@ -1,6 +1,7 @@
 ﻿
 
 
+
 function GetDetailsPartes() {
     $.ajax({
         type: 'GET',
@@ -22,7 +23,7 @@ function GetDetailsOrdenesTrabajo() {
 //--------------------------------------------------------------------------modal para busqueda de ordenes de trabajo
 function AsignacionEmpleadosOrdenTrabajo () {
     $("body").append('<div class= "modal fade " id="RelacionEmpleadosOrdenTrabajoModal" >'+
-        '<div class="modal-dialog  modal-lg">'+
+        '<div class="modal-dialog  modal-xl">'+
             '<div class="modal-content">'+
                 '<div class="modal-header">'+
                     '<button type="button" class="btn" onclick="CerrarRelacionEmpleados()">&times;</button>'+
@@ -163,11 +164,12 @@ function AgregarTableResultados(data) {
     $("#resultados").append("<table id='OrdenTrabajo' class='table hover'>"
         +"<thead>"
         +"<tr>"
-        +"<th>Codigo</th>"
-        +"<th>Pieza</th>"
+        +"<th>Numero Orden</th>"
+        +"<th>Numero Parte</th>"
         +"<th>Estado</th>"
+        +"<th>Piezas Realizadas</th>"
         +"<th>Acciones</th>"
-        +"</tr > "
+        +"</tr> "
         +"</thead > "
         +"<tbody id='resultados2'>"
         
@@ -175,20 +177,49 @@ function AgregarTableResultados(data) {
         + "</table > ");
     $("#resultados2").html("");
     $.each(data.data, function (n) {
-       
-        $("#resultados2").append("<tr>" +
-            "<td>" + data.data[n].IdCodigoOrdenTrabajo + "</td>" +
-            "<td>" + data.data[n].IdCodigoParte + "</td>" +
-            "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
-            "<td><button class='btn btn-lg btn-primary m-1 p-2'    onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"
+        setTimeout(() => {
+            $("#resultados2").append("<tr>" +
+                "<td>" + data.data[n].IdCodigoOrdenTrabajo + "</td>" +
+                "<td>" + data.data[n].IdCodigoParte + "</td>" +
+                "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
+                "<td id='PiezasRealizadasTotal_" + n + "'>" + ObtenerPiezasRealizadas(data.data[n].IdOrdenTrabajo, n) + "</td>" +
+                "<td><button class='btn btn-lg btn-primary m-1 p-2'    onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"
 
-            + "</tr>");
+                + "</tr>")
+        }, 300);
     });
     $("#OrdenTrabajo").DataTable({
         dom: 'Plfrtip'
        
     });
 }
+function ObtenerPiezasRealizadas(IdOrdenTrabajo,n) {
+
+    $.ajax({
+        type: 'POST',
+        url: '../../BitacoraOrdenTrabajo/ObtenerSumBitacoraOrdenTrabajoProduccion',
+        data: {
+            IdOrdenTrabajo: IdOrdenTrabajo
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data == undefined) {
+                setTimeout(() => {
+                    document.getElementById("PiezasRealizadasTotal_" + n).innerText = "No hay produccin registrada";
+                }, 100);
+            }
+        
+            setTimeout(() => {
+                document.getElementById("PiezasRealizadasTotal_" + n).innerText = data;
+            }, 100);
+           
+            console.log("PiezasRealizadasTotal_" + n);
+        }
+    });
+   
+}
+
 
 function ObtenerDetallesOrdenTrabajo(IdOrdenTrabajo) {
   
@@ -291,7 +322,7 @@ function ObtenerOrdenTrabajoByOTCode() {
 }
 function FillOrdenTrabajoAutoComplete() {
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: '../../OrdenTrabajoes/ObtenerOrdenesTrabajo',
         dataType: 'json',
        

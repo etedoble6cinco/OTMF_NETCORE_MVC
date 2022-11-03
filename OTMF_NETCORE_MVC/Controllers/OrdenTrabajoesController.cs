@@ -120,6 +120,10 @@ namespace OTMF_NETCORE_MVC.Controllers
                     ordenTrabajo.PorcentajeScrapCalculado = (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido;
                     ordenTrabajo.FracEstandarConRelevo = (decimal)fraccionEstandarRelevo.FracEstandarRelevo;
                     ordenTrabajo.IdInstructivoFk = 3;   
+                    MaquinaOrdenTrabajo maquinaOrdenTrabajo = new MaquinaOrdenTrabajo();
+                maquinaOrdenTrabajo.IdOrdenTrabajoFk = ordenTrabajo.IdOrdenTrabajo;
+                maquinaOrdenTrabajo.IdMaquinaFk = 79; //IdMaquina No asignada
+                _context.Add(maquinaOrdenTrabajo);  
                 _context.Add(ordenTrabajo);
              
                 await _context.SaveChangesAsync();
@@ -256,7 +260,7 @@ namespace OTMF_NETCORE_MVC.Controllers
           return (_context.OrdenTrabajos?.Any(e => e.IdOrdenTrabajo == id)).GetValueOrDefault();
         }
 
-
+        [HttpGet]
         public JsonResult ObtenerOrdenesTrabajo()
         {
             var OOT = "[ObtenerOrdenesTrabajoAllInfo]";

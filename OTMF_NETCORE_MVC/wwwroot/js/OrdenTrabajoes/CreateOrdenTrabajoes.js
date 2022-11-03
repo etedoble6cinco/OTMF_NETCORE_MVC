@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     ObtenerPrefixOT();
     ObtenerUltimoIdOT();
-
+    SetDefaultEstado();
     var now = new Date();
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     document.getElementById('HoraInicio').value = now.toISOString().slice(0, 16);
@@ -94,4 +94,10 @@ function GetchkvalueCantidadPiezasPorOrden() {
     }
 
     
+}
+
+
+function SetDefaultEstado() {
+    const $selectEtiquetaParte = document.querySelector('#IdEstadoOrdenFk');
+    $selectEtiquetaParte.value =7 ;
 }

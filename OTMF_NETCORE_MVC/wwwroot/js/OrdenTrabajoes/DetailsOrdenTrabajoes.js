@@ -15,7 +15,7 @@ function ObtenerDetallesOT() {
         success: function (data) {
             console.log(data);
 
-            $("#OTTittle").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Codigo de Parte</p> <p>" + data.data[0].IdCodigoParte + "</p></div>");
+            $("#OTTittle").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Numero de Parte</p> <p>" + data.data[0].IdCodigoParte + "</p></div>");
             $("#OTTittle").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Estado de la orden de trabajo</p><p>" + data.data[0].NombreEstadoOrden + "</p></div>");
 
             $("#OTDetails").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Fecha de Creacion</p><p>" + data.data[0].FechaOrdenTrabajo + "</p></div>");

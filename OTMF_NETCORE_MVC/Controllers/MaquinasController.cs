@@ -158,5 +158,9 @@ namespace OTMF_NETCORE_MVC.Controllers
         {
           return (_context.Maquinas?.Any(e => e.IdMaquina == id)).GetValueOrDefault();
         }
+
+        
+
+
     }
 }

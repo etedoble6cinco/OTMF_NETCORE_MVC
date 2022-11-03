@@ -11,7 +11,7 @@
           "lib/net5.0/Dapper.dll": {}
         }
       },
-      "EPPlus/6.0.5": {
+      "EPPlus/6.0.8": {
         "type": "package",
         "dependencies": {
           "EPPlus.Interfaces": "6.0.0",
@@ -3314,15 +3314,15 @@
         "lib/netstandard2.0/Dapper.xml"
       ]
     },
-    "EPPlus/6.0.5": {
-      "sha512": "q6hZICsuIi/j5+1e5NxUl05R4T0eAg7BSE4JZVz9WxONpNLZz58uYx3Q88iR00LSXq9VgPhQfQ7B8q55+V76wA==",
+    "EPPlus/6.0.8": {
+      "sha512": "AmeE6La29lh3Jw/8LqLfNmtp3a/xtsK0uUZg8LWPtetN2m8xWEPAbMq5C91homwsYofiE48FiuCgDf6NliGNGg==",
       "type": "package",
-      "path": "epplus/6.0.5",
+      "path": "epplus/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "EPPlusLogo.png",
-        "epplus.6.0.5.nupkg.sha512",
+        "epplus.6.0.8.nupkg.sha512",
         "epplus.nuspec",
         "lib/net35/EPPlus.dll",
         "lib/net35/EPPlus.xml",
@@ -10178,7 +10178,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Dapper >= 2.0.123",
-      "EPPlus >= 6.0.5",
+      "EPPlus >= 6.0.8",
       "Microsoft.AspNet.Identity.Core >= 2.2.3",
       "Microsoft.EntityFrameworkCore >= 6.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.6",
@@ -10242,7 +10242,7 @@
           },
           "EPPlus": {
             "target": "Package",
-            "version": "[6.0.5, )"
+            "version": "[6.0.8, )"
           },
           "Microsoft.AspNet.Identity.Core": {
             "target": "Package",

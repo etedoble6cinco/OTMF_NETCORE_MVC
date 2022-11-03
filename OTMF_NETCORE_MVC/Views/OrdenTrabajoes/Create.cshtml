@@ -5,7 +5,7 @@
 }
 
 
-<div class="container">
+<div class="container mt-1">
     <h6>Crear Orden Trabajo</h6>
 
 
@@ -36,6 +36,7 @@
                 <input asp-for="IdInstructivoFk" type="hidden" id="IdInstructivoFk" />
                 <input asp-for="Otespecial" type="hidden" id="IdOTespecial" />
                 <input asp-for="CantidadPiezasOtflag" value="false" type="hidden" id="IdCantidadPiezasOtflag" />
+                  <input asp-for="NumeroCabidadesPieza" type="hidden" value="0" />
                 <!------>
 
             <div class="form-group">
@@ -58,10 +59,9 @@
                     <option selected disabled> Seleccionar Pieza </option>
                 </select>
             </div> 
-            <div class="form-group">
-                <label asp-for="NumeroCabidadesPieza" class="control-label">Cabidades por Pieza</label>
-                <input asp-for="NumeroCabidadesPieza" type="number" />
-            </div>
+            
+              
+            
     </div>
     <div class="col-6">
         
@@ -76,7 +76,7 @@
                       <input type="text" class="form-control" asp-for="IdCodigoOrdenTrabajo" placeholder="Nombre Orden de Trabajo" aria-label="Orden Trabajo normal" id="InputPrefixValue" aria-describedby="basic-addon1">
                       </div>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  <i class="fa-solid fa-gear"></i>
+  <i class="fas fa-fw fa-cog"></i>
 </button>
         </section>
             <section class="form-group" style="display:none;" id="otespecial">
@@ -101,7 +101,7 @@
           <div class="form-group">
               <div class="row g-3 align-items-center">
   <div class="col-auto">
-       <input class="form-check-input" onchange="Getchkvalue()" type="checkbox" value="true"  id="flexCheckChecked">
+       <input onchange="Getchkvalue()" type="checkbox" value="true"  id="flexCheckChecked">
   </div>
   <div class="col-auto">
    <label class="form-check-label" for="flexCheckChecked">Orden Trabajo Especial</label>
@@ -114,7 +114,7 @@
           <div  class="form-group">
               <div class="row g-3 align-items-center">
                      <div class="col-auto">
-       <input class="form-check-input" onchange="GetchkvalueCantidadPiezasPorOrden()" type="checkbox" value="true"  id="CantidadPiezasPorOrdenChk">
+       <input onchange="GetchkvalueCantidadPiezasPorOrden()" type="checkbox" value="true"  id="CantidadPiezasPorOrdenChk">
 
   </div>
   <div class="col-auto">

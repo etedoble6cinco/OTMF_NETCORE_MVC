@@ -170,6 +170,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             var OrdenTrabajoOriginal = await _context.OrdenTrabajos.FirstOrDefaultAsync(m => m.IdOrdenTrabajo == UltimoRegistroBitacora.IdOrdenTrabajoFk);
             UltimoRegistroBitacora.CajasRecibidas = (await ObtenerCajasRecibidas(IdOrdenTrabajo)).NumeroCajasRecibidas;
             UltimoRegistroBitacora.PiezasRecibidas = (await ObtenerCajasRecibidas(IdOrdenTrabajo)).NumeroPiezasSueltasRecibidas;
+            UltimoRegistroBitacora.NumeroCavidades = OrdenTrabajoOriginal.NumeroCabidadesPieza;
             if ( await ValidarRegistroProduccion(IdOrdenTrabajo) == true)
             // VALIDAR SI LA ORDEN DE TRABAJO YA TERMINO O EXCEDE  LA DEMANDA ESTABLECIDA EN LA ORDEN DE TRABAJO ORIGINAL
             {// VALIDAR SI LA ORDEN DE TRABAJO TIENE MAS COPIAS DENTRO DEL LA BASE DE DATOS 
@@ -370,6 +371,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
 
         }
+        
 
     }
 }
