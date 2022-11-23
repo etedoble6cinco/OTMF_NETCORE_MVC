@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<OTMF_NETCORE_MVC.Models.Maquina>
+
+@{
+    ViewData["Title"] = "Vista General";
+}
+<div class="container-fluid">
+    <div class="row">
+         <div class="col-12">
+            <table class="table">
+    <thead>
+        <tr>
+            <th>Nombre Maquina</th>
+            <th>Numero Orden Trabajo</th>
+            <th>Numero Parte</th>
+            <th>Indicador</th>
+        </tr>
+    </thead>
+    <tbody id="MaquinaList">
+          
+    </tbody>
+</table>
+
+         </div>
+    </div>
+
+</div>
+   
+
+@section Scripts{
+        <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/Dashboard/GeneralView.js"></script>
+}

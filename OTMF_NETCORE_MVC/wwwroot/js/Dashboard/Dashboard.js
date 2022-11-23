@@ -11,6 +11,7 @@
         });
         ObtenerTotalPiezas();
         ObtenerMeta();
+       
     });
 
     function InvokeOrdenTrabajo() {
@@ -19,24 +20,37 @@
         });
     }
 connection.on("ReceivedOrdenTrabajo", function (data) {
-  
-    $("#OrdenesDeTrabajo tbody").html("");
    
-    $.each(data.data, function (n) {
-        if (EvaluarFechaOrdenTrabajo(data.data[n].fechaOrdenTrabajo)) { 
-        $("#OrdenesDeTrabajo tbody").append("<tr>" +
-            "<td>" + data.data[n].idCodigoOrdenTrabajo + "</td>" +
-            "<td>" + data.data[n].idCodigoParte + "</td>" +
-            "<td>" + EvaluarEstadoOT(data.data[n].idEstadoOrden) + "</td>" +
-            "<td> " + data.data[n].nombreEstadoOrden + "</td>" +
-            "<td> " + FormatearFechaOT(data.data[n].horaInicio) + "</td>" +
-            "<td> " + FormatearFechaOT(data.data[n].horaFinalizacion) + "</td>" +
-            "<td> " + data.data[n].nombreMaquina + "</td>" +
-            "</tr>");
-    }        
-    });
-
   
+    var planeada = 0, activa = 0, paraliberar = 0, terminada = 0, pausada=0;
+    $.each(data.data, function (n) {
+      
+        switch (data.data[n].idEstadoOrden) {
+            case 7:  //PLEANEADO
+                planeada++;
+                break;
+            case 9:  //ACTIVA 
+                activa++;
+                break;
+            case 10:  //PARA LIBERAR
+                paraliberar++;
+                break;
+            case 11:  //TERMINADA
+                terminada++;
+                break;
+            case 12:  //PAUSADA
+                pausada++;
+                break;
+
+        }
+       
+            
+          
+    });
+    
+    ObteneroOtProgressBar(planeada, activa, terminada, pausada, paraliberar);
+ 
+    ObtenerTotalPiezas();
 
    
      
@@ -54,29 +68,8 @@ function EvaluarFechaOrdenTrabajo(data) {
         }
 
 function EvaluarEstadoOT(idEstadoOrden) {
-
-    switch (idEstadoOrden) {
-        case 7:  //PLEANEADO
-            return "<svg width='80' height='80' class='planeado'> <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:#00FFE8;' /> </svg>";
-            break;
-        case 8:  //INICIADO
-            return "<svg width='80' height='80' class='iniciado'> <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:orange;' /> </svg>";
-            break;
-        case 9:  //ACTIVA 
-            return "<svg width='80' height='80' class='activa'> <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:#1FAB00;' /> </svg>";
-            break;
-        case 10:  //ACEPTADA
-            return "<svg width='80' height='80' class='aceptada' > <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:yellow;' /> </svg>";
-            break;
-        case 11:  //TERMINADA
-            return "<svg width='80' height='80' class='terminada' > <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:black;' /> </svg>";
-            break;
-        case 12:  //RECHAZADA
-            return "<svg width='80' height='80' class='rechazada' > <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:red;' /> </svg>";
-            break;
-
-    }
-  
+   
+   
 
 }
 function FormatearFechaOT(fecha) {
@@ -85,14 +78,20 @@ function FormatearFechaOT(fecha) {
 }
 
 function ObtenerTotalPiezas() {
+    const d = new Date();
+    var mes  = d.getMonth()+1;
     $.ajax({
-        type: 'GET',
-        url: '../../Home/ObtenerTotalPiezas',
+        type: 'POST',
+        url: '../../Home/ObtenerSumTotalProduccionByMonth',
         dataType: 'json',
+        data: {
+            mes:mes
+        }
+        ,
         success: function (data) {
            
             document.getElementById("TotalPiezas").innerText = data;
-
+            PorcenajeProdMeta();
         }
     });
 }
@@ -126,7 +125,57 @@ function UpsertMeta() {
         }
     });
 }
+//PORCENTAJE CUMPLIDO DE LA META EN PRODUCCION 
+function PorcenajeProdMeta() {
+    var ppm = 0;
+    var TotalPiezas = document.getElementById("TotalPiezas").innerText;
+    var Meta = document.getElementById("MetaCantidad").innerText;
+    setTimeout(function () {
+        let x = TotalPiezas * 100;
+        ppm = x / Meta;
+        document.getElementById("PorcentajeProdMeta").innerText = ppm + "%";
+        $("#progressbarcontent").html("");
+        $("#progressbarcontent").append("<div class='progress progress-sm mr-2'>" +
+            "<div class= 'progress-bar bg-info' role='progressbar'"+
+             "style='width: "+ppm+"%' aria-valuenow='"+ppm+"' aria-valuemin='0' aria-valuemax='100'></div></div>");
 
+
+   
+    }
+
+        , 1000);
+
+}
+//CALCULAR MAS MAQUINAS POR DIA
+//GRAFICA PARA FILTRAR POR DIA PARA SABER LAS ORDENDES DE TRABAJO POR DIA  
+function ObteneroOtProgressBar(planeada, activa, terminada, pausada, paraliberar) {
+    $("#OtProgressBar").html("");
+    $("#OtProgressBar").append('<h4 class="small font-weight-bold"> Pausadas <span class="float-right">' + pausada + '</span></h4>' +
+        '<div class="progress mb-4">' +
+        '<div class="progress-bar bg-danger" role="progressbar" style="width:' + pausada + '%"' +
+        'aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>' +
+        '</div>' +
+        '<h4 class="small font-weight-bold">Por liberar<span class="float-right">' + paraliberar + '</span></h4>' +
+        '<div class="progress mb-4">' +
+        '<div class="progress-bar bg-warning" role="progressbar" style="width:' + paraliberar + '%"' +
+        'aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>' +
+        '</div>' +
+        '<h4 class="small font-weight-bold">Planeadas <span class="float-right">' + planeada + '</span></h4>' +
+        '<div class="progress mb-4">' +
+        '<div class="progress-bar bg-info" role="progressbar" style="width:' + planeada + '%"' +
+        'aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>' +
+        '</div>' +
+        '<h4 class="small font-weight-bold">Terminadas <span class="float-right">' + terminada + '</span></h4>' +
+        '<div class="progress mb-4">' +
+        '<div class="progress-bar bg-dark" role="progressbar" style="width:'+terminada+'%"' +
+                'aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>'+
+        '</div>' +
+        '<h4 class="small font-weight-bold">Activas<span class="float-right">'+activa+'</span></h4>' +
+        '<div class="progress">'+
+        '<div class="progress-bar bg-success" role="progressbar" style="width:'+activa+'%"'+
+        'aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>'+
+        '</div>');
+}
 
 
 

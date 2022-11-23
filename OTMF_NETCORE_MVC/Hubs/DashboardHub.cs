@@ -8,21 +8,17 @@ namespace OTMF_NETCORE_MVC.Hubs
     {
         RepositorioOrdenTrabajo repositorioOrdenesTrabajo;
         
-        
         public DashboardHub(IConfiguration configuration)
         {
             var _configuration = configuration.GetConnectionString("DefaultConnection");
             repositorioOrdenesTrabajo = new RepositorioOrdenTrabajo(_configuration);
         }
-        
-
         public async Task SendOrdenTrabajo()
         {
-            var ot =  repositorioOrdenesTrabajo.ObtenerOrdenesTrabajo().ToList();
-
-            Console.WriteLine(ot);
+            var ot = await repositorioOrdenesTrabajo.ObtenerOrdenesTrabajo();
             await Clients.All.SendAsync("ReceivedOrdenTrabajo", new { data = ot } );
 
         }
+       
     }
 }

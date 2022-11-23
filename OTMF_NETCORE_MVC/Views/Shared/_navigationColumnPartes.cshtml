@@ -40,7 +40,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
+                        <h6 class="collapse-header">Gestion de Ordenes de Trabajo</h6>
                          <a  asp-controller="OrdenTrabajoes"  asp-action="Index" class="collapse-item" aria-current="page">
      
           Ordenes de Trabajo
@@ -58,7 +58,7 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- GESTION DE PARAMETROS PARA PARTES -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -68,7 +68,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <h6 class="collapse-header">Gestion de Partes</h6>
                        <a class="collapse-item" asp-controller="Partes" id="PartesMenuItem" asp-action="Index">
         
           Partes
@@ -158,14 +158,14 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
+                        <h6 class="collapse-header">Gestion Empleados</h6>
                         <a class="collapse-item" asp-action="Index" asp-controller="Empleadoes">Empleados</a>
                         <a class="collapse-item" asp-action="Index" asp-controller="TipoEmpleadoes">Tipos de Empleado</a>
                         <a class="collapse-item" asp-action="Index" asp-controller="Turnoes">Turnos de Empleado</a>
                         
                     </div>
                 </div>
-            </li>   <!-- Nav Item - Pages Collapse Menu -->
+            </li>   <!--Configuracion estandares y gestion de parametros-->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseParametros"
                     aria-expanded="true" aria-controls="collapsePages">
@@ -200,9 +200,34 @@
    
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Maquinas">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Maquinas</span></a>
+                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMaquinas"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Maquinas</span>
+                </a>
+                <div id="collapseMaquinas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion de Maquinas</h6>
+                     
+
+                        <a class="collapse-item" asp-controller="Maquinas" asp-action="Index">
+          
+         Maquinas
+        </a>
+ 
+        <a class="collapse-item" asp-controller="Maquinas"  asp-action="EstadisticasMaquinas">
+            
+         Estadisticas Maquinas
+        </a> 
+
+
+
+
+
+
+
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->

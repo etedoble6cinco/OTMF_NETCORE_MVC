@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-12">
+            <div class="d-flex justify-content-center mt-3">
+                 <label class="form-label"> Seleccione Fecha de consulta</label>
+                 <input type="datetime-local" class="form-control" onchange="SetChart()" name="MaquinasActivasSelectDate" id="MaquinasActivasDateSelect"/>
+                
+            </div>
+                   
+        </div>
+    </div>
+</div>
+<div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                                        <canvas id="MaquinasActivas" width="1014" height="320" style="display: block; width: 1014px; height: 320px;" class="chartjs-render-monitor"></canvas>
+                                    </div>
+
+@section Scripts{
+      <script src="~/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/js/Maquinas/EstadisticasMaquinas.js" type="text/javascript"></script>
+}

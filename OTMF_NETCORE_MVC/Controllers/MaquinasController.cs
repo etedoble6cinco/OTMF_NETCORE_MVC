@@ -5,25 +5,29 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OTMF_NETCORE_MVC.Entities;
 using OTMF_NETCORE_MVC.Models;
+using OTMF_NETCORE_MVC.Services;
 
 namespace OTMF_NETCORE_MVC.Controllers
 {
     public class MaquinasController : Controller
     {
         private readonly OTMFContext _context;
+        private readonly IServicioMaquinas _servicioMaquinas;
 
-        public MaquinasController(OTMFContext context)
+        public MaquinasController(OTMFContext context, IServicioMaquinas servicioMaquinas)
         {
+            _servicioMaquinas = servicioMaquinas;
             _context = context;
         }
 
         // GET: Maquinas
         public async Task<IActionResult> Index()
         {
-              return _context.Maquinas != null ? 
-                          View(await _context.Maquinas.ToListAsync()) :
-                          Problem("Entity set 'OTMFContext.Maquinas'  is null.");
+            return _context.Maquinas != null ?
+                        View(await _context.Maquinas.ToListAsync()) :
+                        Problem("Entity set 'OTMFContext.Maquinas'  is null.");
         }
 
         // GET: Maquinas/Details/5
@@ -149,18 +153,59 @@ namespace OTMF_NETCORE_MVC.Controllers
             {
                 _context.Maquinas.Remove(maquina);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MaquinaExists(int id)
         {
-          return (_context.Maquinas?.Any(e => e.IdMaquina == id)).GetValueOrDefault();
+            return (_context.Maquinas?.Any(e => e.IdMaquina == id)).GetValueOrDefault();
         }
+        public async Task<IActionResult> EstadisticasMaquinas()
+        {
 
-        
+            return View();
+        }
+        [HttpPost]  //OBTENER POR CADA DIA DEL MES NUMERO DE MAQUINAS ACTIVAS
+        public async Task<IActionResult> ObtenerFechaSumIdMaquinasBitacoraOrdenTrabajo([FromBody] MaquinasActivasViewModel input)
+        {
+         
 
+            List<MaquinasActivas> DiasMaquinasActivas = new List<MaquinasActivas>();
+            if (_context.Maquinas != null)
+            {
+                var maquinas = await _context.Maquinas.ToListAsync();
+           
+                int MaquinasActivasCounter = 0;
+              
 
+                for (int x = 1; x <= input.dias; x++)
+                {
+                    foreach (var maquina in maquinas)
+                    {
+                        int SumMaquina = await _servicioMaquinas.ObtenerSumIdMaquinaBitacoraOrdenTrabajo(
+                    maquina.IdMaquina, input.date.Year, x, input.date.Month, 3);
+                        if (SumMaquina > 0)
+                        {
+                            MaquinasActivasCounter++; //CONTADOR DE MAQUINAS ACTIVAS
+
+                        }
+                    }
+                    MaquinasActivas DiaMaquinaActiva = new MaquinasActivas();
+                    DiaMaquinaActiva.DiaMaquinasActivas = x;
+                    DiaMaquinaActiva.NumeroMaquinasActivas = MaquinasActivasCounter;
+                    DiasMaquinasActivas.Add(DiaMaquinaActiva);
+                    MaquinasActivasCounter = 0;
+                  //ASIGNACION DE VALOR DE CONTADOR DE MAQUINAS A 0 
+                }
+
+            }
+
+            return Json(new { data = DiasMaquinasActivas });
+
+        }
+        //UNA FECHA PARA TODAS LAS MAQUINAS 
+        //OBTENER ANIO Y MES , RECORRER TODOS LOS DIAS DE ESE MES  
     }
 }

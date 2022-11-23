@@ -70,7 +70,7 @@ function FillDetalles(data) {
 
         $("#pills-tabContent").append(
 
-              "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'> Codigo Orden de Trabajo</p>  <p class='displayResult'>" +   data.data[x].idCodigoOrdenTrabajo + "</p></div>"
+              "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Codigo Orden de Trabajo</p>  <p class='displayResult'>" +   data.data[x].idCodigoOrdenTrabajo + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Numero de Parte</p>           <p class='displayResult'>" +           data.data[x].idCodigoParte + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Cantidad Piezas por Orden</p> <p class='displayResult'>" + data.data[x].cantidadPiezasPorOrden + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Numero de Cabidades </p class='displayResult'><button class='btn btn-primary btn-CabidadesPieza' data-bs-toggle='modal' data-bs-target='#EditModalNCP'><strong>"+ data.data[x].numeroCabidadesPieza + "</strong></button>"
@@ -390,7 +390,7 @@ function UpdateCajasRecibidas() {
         },
         success: function (data) {
             ObtenerCajasRecibidas();
-        },
+        }
 
     });
 }

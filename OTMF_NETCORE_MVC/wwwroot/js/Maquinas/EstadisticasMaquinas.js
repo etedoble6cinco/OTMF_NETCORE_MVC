@@ -1,73 +1,88 @@
+﻿
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
-$(document).ready( async function(){
-    var months = [];
-    var date = new Date();
-    var month = date.getMonth();
+async function daysInMonth(month, year) {
 
-    for (let index = 1; index <= month+1; index++) {
-  
-        var ProduccionByMonth = await PostMonth(index);
-        months.push(ProduccionByMonth);
-    }
-
-    
-
-   
- await SetChartValues(months[0],
-        months[1],
-        months[2],
-        months[3],
-        months[4],
-        months[5],
-        months[6],
-        months[7],
-        months[8],
-        months[9],
-        months[10],
-        months[11]
-    );
- 
-});
-async function PostMonth(monthNumber) {
-    const response = await fetch('../../../Home/ObtenerSumTotalProduccionByMonthChart/' + monthNumber);
-    return response.json();
-} 
-
-function number_format(number, decimals, dec_point, thousands_sep) {
-  // *     example: number_format(1234.56, 2, ',', ' ');
-  // *     return: '1 234,56'
-  number = (number + '').replace(',', '').replace(' ', '');
-  var n = !isFinite(+number) ? 0 : +number,
-    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
-    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
-    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
-    s = '',
-    toFixedFix = function(n, prec) {
-      var k = Math.pow(10, prec);
-      return '' + Math.round(n * k) / k;
-    };
-  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
-  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
-  if (s[0].length > 3) {
-    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
-  }
-  if ((s[1] || '').length < prec) {
-    s[1] = s[1] || '';
-    s[1] += new Array(prec - s[1].length + 1).join('0');
-  }
-  return s.join(dec);
+    return new Date(year, month, 0).getDate();
 }
 
- async function SetChartValues(jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec) {
+
+
+async function SetChart() {
+  await  ObtenerFechaConsulta().then(async function (data) {
+        await SetChartValues(data.data);
+    });
+  
+
+}
+async function ObtenerFechaConsulta() {
+    var date = document.getElementById("MaquinasActivasDateSelect").value;
+    var formatDate = new Date(date);
+  
+    const response = await fetch('../../Maquinas/ObtenerFechaSumIdMaquinasBitacoraOrdenTrabajo', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json; charset=utf-8',
+            'Content-Type': 'application/json;charset=UTF-8'
+        },
+        body: JSON.stringify({
+            dias: await daysInMonth(formatDate.getMonth() + 1, formatDate.getFullYear()),
+            date: formatDate.toJSON()
+        })
+    });
+    const MaquinasActivas = await response.json();
+    return MaquinasActivas;
+
+   
+}
+
+function number_format(number, decimals, dec_point, thousands_sep) {
+    // *     example: number_format(1234.56, 2, ',', ' ');
+    // *     return: '1 234,56'
+    number = (number + '').replace(',', '').replace(' ', '');
+    var n = !isFinite(+number) ? 0 : +number,
+        prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+        sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+        dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+        s = '',
+        toFixedFix = function (n, prec) {
+            var k = Math.pow(10, prec);
+            return '' + Math.round(n * k) / k;
+        };
+    // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+    if (s[0].length > 3) {
+        s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+    }
+    if ((s[1] || '').length < prec) {
+        s[1] = s[1] || '';
+        s[1] += new Array(prec - s[1].length + 1).join('0');
+    }
+    return s.join(dec);
+}
+var myLineChart = null;
+async function SetChartValues(data) {
+
+    var dias = data.map(function (value, index) {
+        return value.diaMaquinasActivas;
+    });
+    // mapear valor de array para solo devolver una sola columna  
+    var maquinas = data.map(function (value, index) {
+        return value.numeroMaquinasActivas;
+    });
+    $("#MaquinasActivas").html("");
     // Area Chart Example
-    var ctx = document.getElementById("myAreaChart");
-    var myLineChart = new Chart(ctx, {
+    var ctx = document.getElementById("MaquinasActivas");
+    
+    if (myLineChart != null) {
+        myLineChart.destroy();
+    }
+     myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            labels: dias,
             datasets: [{
-                label: "Partes",
+                label: "Maquinas Activas",
                 lineTension: 0.3,
                 backgroundColor: "rgba(78, 115, 223, 0.05)",
                 borderColor: "rgba(78, 115, 223, 1)",
@@ -79,7 +94,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
                 pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                 pointHitRadius: 10,
                 pointBorderWidth: 2,
-                data: [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec],
+                data: maquinas,
             }],
         },
         options: {
@@ -111,7 +126,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
                         padding: 10,
                         // Include a dollar sign in the ticks
                         callback: function (value, index, values) {
-                            return  number_format(value);
+                            return number_format(value);
                         }
                     },
                     gridLines: {
@@ -143,7 +158,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
                 callbacks: {
                     label: function (tooltipItem, chart) {
                         var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                        return datasetLabel +" : "+ number_format(tooltipItem.yLabel);
+                        return datasetLabel + " : " + number_format(tooltipItem.yLabel);
                     }
                 }
             }

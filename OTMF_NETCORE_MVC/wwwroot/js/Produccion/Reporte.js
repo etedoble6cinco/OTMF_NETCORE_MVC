@@ -18,7 +18,7 @@ function ObtenerReporteProduccion() {
           
         },
         success: function (data) {
-
+            console.log(data)
             $("#ResultDownload").append("<a href="+data.data+">Descargar</a>");
         }
     });

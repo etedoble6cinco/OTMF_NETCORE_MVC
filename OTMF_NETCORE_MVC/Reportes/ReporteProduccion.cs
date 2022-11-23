@@ -85,40 +85,42 @@ namespace OTMF_NETCORE_MVC.Reportes
                 int initialRowMaquinas = 7;
                 int mp = 1;
                 var maquinas = await _context.Maquinas.OrderBy(m => m.NombreMaquina).ToListAsync();
-                Console.WriteLine(maquinas.Count);
+               
                 worksheet.Cells[4, 9].Value = ReporteDate.Day.ToString();
                 worksheet.Cells[4, 10].Value = ReporteDate.Month.ToString();
                 worksheet.Cells[4, 11].Value = ReporteDate.Year.ToString();
                 foreach (var n in maquinas)
                 {
-                    worksheet.Cells[initialRowMaquinas, 1].Value = n.NombreMaquina;
+                   
                     var bitacora = await RegistrarReporteProduccion(ReporteDate, n.IdMaquina);
                    
-                    foreach(var m in bitacora)
+                    foreach (var m in bitacora)
                     {
-                        if(m.IdMaquinaFk == n.IdMaquina)
-                        {
-                            int IdParteFK = (int)(await _context.OrdenTrabajos.FirstOrDefaultAsync(r => r.IdOrdenTrabajo == m.IdOrdenTrabajoFk)).IdParteFk;
-
-                            worksheet.Cells[initialRow, 2].Value = (await _context.Empleados.FirstOrDefaultAsync(x => x.IdEmpleado == m.IdEmpleadoMoldeoFk)).ClaveEmpleado;
-                            worksheet.Cells[initialRow, 3].Value = (await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == IdParteFK)).IdCodigoParte;
-                            worksheet.Cells[initialRow, 4].Value = m.NumeroCavidades;
-                            worksheet.Cells[initialRow, 5].Value = m.HorasTrabajadasCalculado;
+                            
+                            int IdParteFK = (int)(await _context.OrdenTrabajos.FirstOrDefaultAsync(r => r.IdOrdenTrabajo == m.IdOrdenTrabajoFK)).IdParteFk;
+                            worksheet.Cells[initialRow, 1].Value = m.NombreMaquina;
+                            worksheet.Cells[initialRow, 2].Value = (await _context.Empleados.FirstOrDefaultAsync(x => x.IdEmpleado == m.IdEmpleadoMoldeoFK)) == null ? "NO REGISTRADO" : (await _context.Empleados.FirstOrDefaultAsync(x => x.IdEmpleado == m.IdEmpleadoMoldeoFK)).ClaveEmpleado;
+                            worksheet.Cells[initialRow, 3].Value = (await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == IdParteFK)) == null ? "NO REGISTRADO" : (await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == IdParteFK)).IdCodigoParte;
+                            worksheet.Cells[initialRow, 4].Value = m.NumeroCavidades == null ? 0 : m.NumeroCavidades.Value;
+                            worksheet.Cells[initialRow, 5].Value = m.HorasTrabajadasCalculado == null ? 0 : m.HorasTrabajadasCalculado.Value;
                             worksheet.Cells[initialRow, 6].Value = "";
-                            worksheet.Cells[initialRow, 7].Value = m.EstandarPorHorasCalculado;
-                            worksheet.Cells[initialRow, 8].Value = m.EstandarCalculado;
+                            worksheet.Cells[initialRow, 7].Value = m.EstandarPorHorasCalculado == null ? 0 : m.EstandarPorHorasCalculado.Value;
+                            worksheet.Cells[initialRow, 8].Value = m.EstandarCalculado == null ? 0 : m.EstandarCalculado.Value;
                             worksheet.Cells[initialRow, 9].Value = "";
-                            worksheet.Cells[initialRow, 10].Value = m.NumeroPiezasRealizadas;
+                            worksheet.Cells[initialRow, 10].Value = m.NumeroPiezasRealizadas == null ? 0 : m.NumeroPiezasRealizadas.Value;
+                        
+
+                       initialRow++;    
 
 
 
-                            initialRow++;
-                        }
+                     
+                        
                        
                         
                     }
-                    initialRowMaquinas++;
-                    mp++;
+                
+                    
 
                 }
                 // var ReporteProduccion = await _context.ReporteProduccionMoldeos.FirstOrDefaultAsync(m => m.IdReporteProduccionMoldeo == IdReporteProduccion);
@@ -150,19 +152,20 @@ namespace OTMF_NETCORE_MVC.Reportes
 
                 //Crear cliente web para descargar para 
 
-                excelPackage.SaveAs(new FileInfo(GetFilePath(fileName)));
+                excelPackage.SaveAs(new FileInfo(Path.Combine(@"P:\\BITACORAMF\\Registro de producción\\2022\\REGISTRO PRODUCCION SISTEMA\\", fileName)));
 
                 var uri = new System.Uri(GetFilePath(fileName));
                 var converted = uri.AbsoluteUri;
-             
 
-                return converted;
+
+                return webHostEnvironment.WebRootPath;
 
             }
 
            
            
         }
+     
         public async Task<List<CausasTiempoMuertoReporteProduccion>> ObtenerCausasTiempoMuertoReporteProduccion(int IdOrdenTrabajo , DateTime ReporteDate)
         {
 
@@ -185,12 +188,12 @@ namespace OTMF_NETCORE_MVC.Reportes
 
 
         }
-        public async Task<List<BitacoraOrdenTrabajo>> RegistrarReporteProduccion(DateTime ReporteDate , int IdMaquinaFK  )
+        public async Task<List<ObtenerReporteProduccionByDate>> RegistrarReporteProduccion(DateTime ReporteDate , int IdMaquinaFK  )
         {
             var procedure = "[ObtenerReporteProduccionByDate]";
             using (var connection = new SqlConnection(connectionString)) {
 
-                var IdReporteProduccion = await connection.QueryAsync<BitacoraOrdenTrabajo>(procedure, new
+                var IdReporteProduccion = await connection.QueryAsync<ObtenerReporteProduccionByDate>(procedure, new
                 {
                     IdMaquinaFK = IdMaquinaFK,
                     ReporteDate = ReporteDate

@@ -5,47 +5,15 @@
 }
 
 <div class="container-fluid">
-   <div class="col-1 bg-gradient-primary">
+    <div class="row">
+    <div class="col-1 bg-gradient-primary">
 
             <partial name="_navigationColumnPartes"/>
 
         </div>
     
 
-        <div class="col-10 offset-1">
-        <fieldset>
-            <legend><h5 class="display-6">Gestionar</h5></legend>
-        <div class="d-flex flex-column flex-shrink-0 p-1 bg-light">
-  
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a asp-controller="Empleadoes" asp-action="Index" class="nav-link link-dark" aria-current="page">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-           Empleados
-        </a>
-      </li> <li class="nav-item">
-        <a class="nav-link active" asp-controller="TipoEmpleadoes"  asp-action="Index">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-           Tipos
-        </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" asp-controller="Turnoes"  asp-action="Index">
-            <svg class="bi me-2" width="16" height="16"></svg>
-         Turno
-        </a>
-      </li>
-     
-     
-    </ul>
-    <hr>
-  
-  </div>
-  </fieldset>
-    </div>
-
-        <div class="col-9">
+        <div class="col-9 offset-1">
             <fieldset>
                 <legend>Tipo de Empleados</legend>
                      <table class="table" id="Tipos">
@@ -80,11 +48,7 @@
   
     </div>
     </div>
-    
-
-
-
-</div>
+  </div>  
 
 
 @section Scripts{

@@ -355,23 +355,22 @@ namespace OTMF_NETCORE_MVC.Controllers
             
             
         }
-
-        [HttpPost]
-        public async Task<IActionResult> ObtenerAllBitacorasOtByOtId(int IdOrdenTrabajo)
+        //OBTENER TODAS LAS BITACORAS POR ID ORDEN DE TRABAJO
+        [HttpGet]
+        public async Task<IActionResult> ObtenerAllBitacorasOtByOtId(int? Id)
         {
             var procedure = "[ObtenerAllBitacorasOtByOtId]";
             using (var connection = new SqlConnection(connectionString))
             {
                 var data  = await  connection.QueryAsync<BitacoraOrdenTrabajo>(procedure, new
                 {
-                    IdOrdenTrabajo = IdOrdenTrabajo
+                    IdOrdenTrabajo = Id
                 },commandType:CommandType.StoredProcedure);    
                 
                 return Json( new { data = data });  
             }
 
         }
-        
 
     }
 }

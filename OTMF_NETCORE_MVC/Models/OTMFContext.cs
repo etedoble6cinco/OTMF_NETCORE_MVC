@@ -452,6 +452,10 @@ namespace OTMF_NETCORE_MVC.Models
 
                 entity.ToTable("MaquinaOrdenTrabajo");
 
+                entity.Property(e => e.CreationDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
                 entity.Property(e => e.IdMaquinaFk).HasColumnName("IdMaquinaFK");
 
                 entity.Property(e => e.IdOrdenTrabajoFk).HasColumnName("IdOrdenTrabajoFK");

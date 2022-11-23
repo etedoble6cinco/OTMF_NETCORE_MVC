@@ -30,9 +30,11 @@ builder.Services.AddHttpContextAccessor();
 //builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
 builder.Services.AddTransient<IServicioUsuarios, ServicioUsuarios>();
+builder.Services.AddTransient<IServicioMaquinas, ServicioMaquinas>();
 builder.Services.AddTransient<IReporteProduccion, ReporteProduccion>();
+builder.Services.AddTransient<IServicioNotify, ServicioNotify>(); 
 builder.Services.AddTransient<IUserStore<Usuario>, UsuarioStore>();
-builder.Services.AddTransient < SignInManager<Usuario>>();
+builder.Services.AddTransient <SignInManager<Usuario>>();
 builder.Services.AddIdentityCore<Usuario>();
 builder.Services.AddAuthentication(options =>
 {

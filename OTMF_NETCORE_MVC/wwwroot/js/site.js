@@ -20,19 +20,18 @@ function GetDetailsPartes() {
 function GetDetailsOrdenesTrabajo() {
 
 }
-//--------------------------------------------------------------------------modal para busqueda de ordenes de trabajo
-function AsignacionEmpleadosOrdenTrabajo () {
-    $("body").append('<div class= "modal fade " id="RelacionEmpleadosOrdenTrabajoModal" >'+
-        '<div class="modal-dialog  modal-xl">'+
-            '<div class="modal-content">'+
-                '<div class="modal-header">'+
-                    '<button type="button" class="btn" onclick="CerrarRelacionEmpleados()">&times;</button>'+
-                    '<h4 class="modal-title">Buscar Orden Trabajo</h4>'+
+$(document).ready(function () {
+    $("body").append('<div class="modal fade" id="RelacionEmpleadosOrdenTrabajoModal" aria-hidden="true" aria-labelledby="RelacionEmpleadosOrdenTrabajoModal" tabindex="-1" >' +
+        '<div class="modal-dialog  modal-xl">' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '<button type="button" class="btn" data-bs-dismiss="modal">&times;</button>' +
+        '<h4 class="modal-title">Buscar Orden Trabajo</h4>' +
         '</div>' +
 
-                '<div class="modal-body">'+
-        '<div class="row">'+
-        '<div class= "col-4"><div class="form-check">'+
+        '<div class="modal-body">' +
+        '<div class="row">' +
+        '<div class= "col-4"><div class="form-check">' +
         '<input type="radio" class="form-check-input" value="busquedaCodigo" id="busquedaCodigo" name="busqueda">' +
         '<label class="form-check-label" for="busquedaCodigo">Busqueda por codigo</label></div>' +
         '</div>'
@@ -44,20 +43,24 @@ function AsignacionEmpleadosOrdenTrabajo () {
         '<div class="form-check">' +
         '<input type="radio" class="form-check-input" id="busquedaFecha" value="busquedaFecha" name="busqueda">' +
         '<label for="busquedaFecha">Busqueda por Fecha</label>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-               '<div class="container" id="eleccion"></div>'+
-               '<div class="container" id="resultados"></div>'+
-                '<div class="modal-footer">'+
-                   ' <button type="button" class="btn btn-default" onclick="CerrarRelacionEmpleados()">Close</button>'+
-                '</div>'+
-            '</div>'+
-        '</div>'+
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="container" id="eleccion"></div>' +
+        '<div class="container" id="resultados"></div>' +
+        '<div class="modal-footer">' +
+        ' <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
         '</div>');
+});
+//--------------------------------------------------------------------------modal para busqueda de ordenes de trabajo
+function AsignacionEmpleadosOrdenTrabajo () {
+    
 
 
-    $("#RelacionEmpleadosOrdenTrabajoModal").modal("show");
+   
     $('input:radio[name="busqueda"]').change(function () {
         $(".daterangepicker").remove();
         if ($(this).is(':checked') && $(this).val() == 'busquedaCodigo') {
@@ -168,7 +171,8 @@ function AgregarTableResultados(data) {
         +"<th>Numero Parte</th>"
         +"<th>Estado</th>"
         +"<th>Piezas Realizadas</th>"
-        +"<th>Acciones</th>"
+        + "<th>Acciones</th>"
+        + "<th>Acciones</th>"
         +"</tr> "
         +"</thead > "
         +"<tbody id='resultados2'>"
@@ -183,16 +187,15 @@ function AgregarTableResultados(data) {
                 "<td>" + data.data[n].IdCodigoParte + "</td>" +
                 "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
                 "<td id='PiezasRealizadasTotal_" + n + "'>" + ObtenerPiezasRealizadas(data.data[n].IdOrdenTrabajo, n) + "</td>" +
-                "<td><button class='btn btn-lg btn-primary m-1 p-2'    onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"
-
-                + "</tr>")
+                "<td><button type='button' class='btn btn-lg btn-primary m-1 p-2'  onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"+
+                "<td><button type='button' class='btn btn-lg btn-primary m-1 p-2'   onclick=\"ObtenerAllBitacorasOtByOtId(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-info-circle' aria-hidden='true'></i></button></td>"+
+                   
+                 "</tr>")
         }, 300);
     });
-    $("#OrdenTrabajo").DataTable({
-        dom: 'Plfrtip'
-       
-    });
+  
 }
+
 function ObtenerPiezasRealizadas(IdOrdenTrabajo,n) {
 
     $.ajax({
@@ -219,7 +222,90 @@ function ObtenerPiezasRealizadas(IdOrdenTrabajo,n) {
     });
    
 }
+function ObtenerAllBitacorasOtByOtId(IdOrdenTrabajo) {
+    $.ajax({
+        type: 'GET',
+        url: '../../BitacoraOrdenTrabajo/ObtenerAllBitacorasOtByOtId',
+        data: {
+            Id: IdOrdenTrabajo
+        },
+        dataType: 'json',
+        success: function (data) {
 
+            FillAllBitacorasOtByOtId(data);
+        }
+    });
+}
+function FillAllBitacorasOtByOtId(data) {
+    console.log(data);
+    $("#DetalleBitcoraOrdenTrabajo").remove();
+    $("body").append('<div class="modal fade" id="DetalleBitacoraOrdenTrabajo" aria-hidden="true" aria-labelledby="DetalleBitacoraOrdenTrabajo" tabindex="-1">' +
+        '<div class="modal-dialog modal-xl">' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '<button type="button" class="btn"  data-bs-dismiss="modal"  ><i class="fa fa-arrow-left" aria-hidden="true"></i></button>' +
+        '<h4 class="modal-title">Detalle Bitacora Orden Trabajo</h4>' + 
+        '</div>' +
+
+        '<div class="modal-body">' +
+        '<div class="container-fluid">' +
+        '<div>' +
+        '<table>' +
+        '<thead><tr>' +
+        '<th>Cajas Recibidas</th>' +
+        '<th>Piezas por Orden</th>' +
+        '<th>Piezas realizadas</th>' +
+        '<th>Estandar</th>' +
+        '<th>Estandar con Relevo</th>' +
+        '<th>Estandar por Horas</th>' +
+        '<th>Fecha de Creacion</th>' +
+        '<th>Horas Trabajadas</th>' +
+        '<th>idBitacoraOrdenFK</th>' +
+        '<th>idMaquinaFK</th>' +
+        '<th>idUsuarioFK</th>' +
+    
+
+        '</tr></thead>' +
+        '<tbody id="ContenidoDetalleBitacoraOrdenTrabajo">' +
+        '</tbody>'
+
+        + '</table>'
+
+
+        + '</div>'
+        + '</div>' +
+        '<div class="container" id="resultados"></div>' +
+        '<div class="modal-footer">' +
+        '<button type="button" class="btn btn-default"  data-bs-dismiss="modal">Close</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>');
+    $("#ContenidoDetalleBitacoraOrdenTrabajo").html("");
+
+    $.each(data.data, function (n) {
+
+        $("#ContenidoDetalleBitacoraOrdenTrabajo").append("<tr>" +
+            "<td>" + data.data[n].cajasRecibidas              + "</td>" +
+            "<td>" + data.data[n].cantidadPiezasPorOrden          + "</td>" +
+            "<td>" + data.data[n].cantidadPiezasPorOrdenRealizadas      + "</td>" +
+            "<td>" + data.data[n].estandarCalculado + "</td>" +
+            "<td>" + data.data[n].estandarConRelevoCalculado + "</td>" +
+            "<td>" + data.data[n].estandarPorHorasCalculado + "</td>" +
+            "<td>" + data.data[n].fechaOrdenTrabajo + "</td>" +
+            "<td>" + data.data[n].horasTrabajadasCalculado    + "</td>" +
+            "<td>" + data.data[n].idBitacoraOrdenTrabajo          + "</td>" +
+            "<td>" + data.data[n].idMaquinaFk      + "</td>" +
+            "<td>" + data.data[n].idUsuarioFk           + "</td>" +
+
+            "</tr>");
+    });
+
+    $("#DetalleBitacoraOrdenTrabajo").modal("show");
+
+
+
+}
 
 function ObtenerDetallesOrdenTrabajo(IdOrdenTrabajo) {
   
@@ -238,12 +324,12 @@ function ObtenerDetallesOrdenTrabajo(IdOrdenTrabajo) {
 function FillDetallesOrdenTrabajo(data) {
  
     $("#DetallesOrdenTrabajo").remove();
-    $("body").append('<div class= "modal fade modal-dialog-scrollable " id="DetallesOrdenTrabajo" >' +
-        '<div class="modal-dialog">' +
+    $("body").append('<div class= "modal fade" id="DetallesOrdenTrabajo" aria-hidden="true" aria-labelledby="DetallesOrdenTrabajo" tabindex="-1" >' +
+        '<div class="modal-dialog  modal-xl">' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '<button type="button" class="btn" onclick="RegresarModal()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>' +
-        '<h4 class="modal-title">Buscar Orden Trabajo</h4>' +
+        '<button type="button" class="btn"  data-bs-dismiss="modal"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>' +
+        '<h4 class="modal-title">Detalle de Orden Trabajo</h4>' +
         '</div>' +
 
         '<div class="modal-body">' +
@@ -252,7 +338,7 @@ function FillDetallesOrdenTrabajo(data) {
         +'</div>' +
         '<div class="container" id="resultados"></div>' +
         '<div class="modal-footer">' +
-        '<button type="button" class="btn btn-default" onclick="RegresarModal">Close</button>' +
+        '<button type="button" class="btn btn-default" data-bs-dismiss="modal" >Close</button>' +
         '</div>' +
         '</div>' +
         '</div>' +
@@ -279,16 +365,13 @@ function FillDetallesOrdenTrabajo(data) {
             "<div><strong>Scrap</strong>:" + data.data[n].ScrapCalculado + "</div> " +
              "</div>");
     });
-    $("#RelacionEmpleadosOrdenTrabajoModal").modal("hide");
+
     $("#DetallesOrdenTrabajo").modal("show");
-  
  
 }
 
-function RegresarModal() {
-    $("#RelacionEmpleadosOrdenTrabajoModal").modal("show");
-    $("#DetallesOrdenTrabajo").modal("hide");
-}
+
+
 
 function ObtenerOrdenTrabajoByDateRange(start, end) {
     document.getElementById("busquedaDatePicker").value = "";
@@ -337,11 +420,7 @@ function FillOrdenTrabajoAutoComplete() {
         }
     });
 }
-function CerrarRelacionEmpleados() {
-    $("#RelacionEmpleadosOrdenTrabajoModal").modal("hide");
-    $("#RelacionEmpleadosOrdenTrabajoModal").remove();
 
-}
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
