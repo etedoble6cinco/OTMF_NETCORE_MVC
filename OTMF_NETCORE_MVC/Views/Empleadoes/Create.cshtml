@@ -1,13 +1,19 @@
 ﻿@model OTMF_NETCORE_MVC.Models.Empleado
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear empleado";
 }
 
 
 <div class="container">
-<h6>Nuevo Empleado</h6>
-<hr />
+    <div class="row">
+     <div class="offset-3 col-6">
+         <h6 class="display-6"><strong> Nuevo Empleado</strong></h6>
+        <hr />
+     </div>
+
+    </div>
+
 <div class="row">
     <div class="offset-3 col-6">
         <form asp-action="Create">
@@ -48,9 +54,6 @@
     </div>
 </div>
 
-<div>
-   
-</div>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -244,3 +244,6 @@ body {
 #BitacoraOrdenTrabajo {
    background-color:#845600;
 }
+.modal-xl {
+    max-width: 1325px;
+}

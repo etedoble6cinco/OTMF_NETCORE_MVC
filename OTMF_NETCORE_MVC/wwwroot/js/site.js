@@ -113,22 +113,27 @@ function evaluarEstadoSeleccionado() {
     $('input:radio[name="estado"]').change(function () {
         if ($(this).is(':checked') && $(this).val() == 'activo')
         {
+         
             ObtenerOrdenesTrabajoDetallesByState(9);
         }
         if ($(this).is(':checked') && $(this).val() == 'liberar')
         {
+            
             ObtenerOrdenesTrabajoDetallesByState(10);
         }
         if ($(this).is(':checked') && $(this).val() == 'pausada')
         {
+            
             ObtenerOrdenesTrabajoDetallesByState(12);
         }
         if ($(this).is(':checked') && $(this).val() == 'planeada')
         {
+        
             ObtenerOrdenesTrabajoDetallesByState(7);
         }
         if ($(this).is(':checked') && $(this).val() == 'terminada')
         {
+            
             ObtenerOrdenesTrabajoDetallesByState(11);
         }
     });
@@ -162,36 +167,35 @@ function ResultadosBusquedaOt() {
     });
 }
 function AgregarTableResultados(data) {
-  
+
     $("#resultados").html("");
     $("#resultados").append("<table id='OrdenTrabajo' class='table hover'>"
         +"<thead>"
         +"<tr>"
-        +"<th>Numero Orden</th>"
-        +"<th>Numero Parte</th>"
+        +"<th>Orden de Trabajo</th>"
+        +"<th>Numero de Parte</th>"
         +"<th>Estado</th>"
         +"<th>Piezas Realizadas</th>"
-        + "<th>Acciones</th>"
-        + "<th>Acciones</th>"
+        + "<th>Detalles</th>"
+        + "<th>Detalles</th>"
         +"</tr> "
         +"</thead > "
         +"<tbody id='resultados2'>"
-        
         + "</tbody>"
-        + "</table > ");
+        + "</table> ");
     $("#resultados2").html("");
     $.each(data.data, function (n) {
-        setTimeout(() => {
+      
             $("#resultados2").append("<tr>" +
                 "<td>" + data.data[n].IdCodigoOrdenTrabajo + "</td>" +
                 "<td>" + data.data[n].IdCodigoParte + "</td>" +
                 "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
                 "<td id='PiezasRealizadasTotal_" + n + "'>" + ObtenerPiezasRealizadas(data.data[n].IdOrdenTrabajo, n) + "</td>" +
-                "<td><button type='button' class='btn btn-lg btn-primary m-1 p-2'  onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"+
-                "<td><button type='button' class='btn btn-lg btn-primary m-1 p-2'   onclick=\"ObtenerAllBitacorasOtByOtId(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-info-circle' aria-hidden='true'></i></button></td>"+
+                "<td><button type='button' class='btn btn-lg btn-primary m-1 p-2' data-bs-toggle='tooltip'' data-bs-placement='top' title='Detalles Orden de Trabajo' onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"+
+            "<td><button type='button' class='btn btn-lg btn-primary m-1 p-2' data-bs-toggle='tooltip' data-bs-placement='top' title='Detalle de Bitacora de Orden Trabajo'  onclick=\"ObtenerAllBitacorasOtByOtId(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-info-circle' aria-hidden='true'></i></button></td>"+
                    
                  "</tr>")
-        }, 300);
+    
     });
   
 }
@@ -207,15 +211,15 @@ function ObtenerPiezasRealizadas(IdOrdenTrabajo,n) {
         dataType: 'json',
         success: function (data) {
             console.log(data);
-            if (data == undefined) {
+            if (data === undefined && typeof data == 'undefined' ) {
                 setTimeout(() => {
-                    document.getElementById("PiezasRealizadasTotal_" + n).innerText = "No hay produccin registrada";
-                }, 100);
+                    document.getElementById("PiezasRealizadasTotal_" + n).innerText = "No hay produccion registrada";
+                }, 500);
             }
         
             setTimeout(() => {
                 document.getElementById("PiezasRealizadasTotal_" + n).innerText = data;
-            }, 100);
+            }, 500);
            
             console.log("PiezasRealizadasTotal_" + n);
         }
@@ -237,7 +241,7 @@ function ObtenerAllBitacorasOtByOtId(IdOrdenTrabajo) {
     });
 }
 function FillAllBitacorasOtByOtId(data) {
-    console.log(data);
+ 
     $("#DetalleBitcoraOrdenTrabajo").remove();
     $("body").append('<div class="modal fade" id="DetalleBitacoraOrdenTrabajo" aria-hidden="true" aria-labelledby="DetalleBitacoraOrdenTrabajo" tabindex="-1">' +
         '<div class="modal-dialog modal-xl">' +
@@ -246,11 +250,10 @@ function FillAllBitacorasOtByOtId(data) {
         '<button type="button" class="btn"  data-bs-dismiss="modal"  ><i class="fa fa-arrow-left" aria-hidden="true"></i></button>' +
         '<h4 class="modal-title">Detalle Bitacora Orden Trabajo</h4>' + 
         '</div>' +
-
         '<div class="modal-body">' +
         '<div class="container-fluid">' +
         '<div>' +
-        '<table>' +
+        '<table class="table table-strip">' +
         '<thead><tr>' +
         '<th>Cajas Recibidas</th>' +
         '<th>Piezas por Orden</th>' +
@@ -260,18 +263,11 @@ function FillAllBitacorasOtByOtId(data) {
         '<th>Estandar por Horas</th>' +
         '<th>Fecha de Creacion</th>' +
         '<th>Horas Trabajadas</th>' +
-        '<th>idBitacoraOrdenFK</th>' +
-        '<th>idMaquinaFK</th>' +
-        '<th>idUsuarioFK</th>' +
-    
 
         '</tr></thead>' +
         '<tbody id="ContenidoDetalleBitacoraOrdenTrabajo">' +
         '</tbody>'
-
         + '</table>'
-
-
         + '</div>'
         + '</div>' +
         '<div class="container" id="resultados"></div>' +
@@ -292,12 +288,8 @@ function FillAllBitacorasOtByOtId(data) {
             "<td>" + data.data[n].estandarCalculado + "</td>" +
             "<td>" + data.data[n].estandarConRelevoCalculado + "</td>" +
             "<td>" + data.data[n].estandarPorHorasCalculado + "</td>" +
-            "<td>" + data.data[n].fechaOrdenTrabajo + "</td>" +
+            "<td>" + FormatDate(data.data[n].fechaOrdenTrabajo) + "</td>" +
             "<td>" + data.data[n].horasTrabajadasCalculado    + "</td>" +
-            "<td>" + data.data[n].idBitacoraOrdenTrabajo          + "</td>" +
-            "<td>" + data.data[n].idMaquinaFk      + "</td>" +
-            "<td>" + data.data[n].idUsuarioFk           + "</td>" +
-
             "</tr>");
     });
 
@@ -348,18 +340,18 @@ function FillDetallesOrdenTrabajo(data) {
     $.each(data.data, function (n) {
 
         $("#ContenidoDetalleOrdenTrabajo").append("<div>" +
-            "<div><strong>Codigo Pieza</strong>:" + data.data[n].IdCodigoParte      + "</div>" +
+            "<div><strong>Numero de Parte</strong>:" + data.data[n].IdCodigoParte      + "</div>" +
             "<div><strong>Estado de la Orden</strong>:" + data.data[n].NombreEstadoOrden + "</div>" +
-            "<div><strong>Codigo de la Orden Trabajo</strong>:" + data.data[n].IdCodigoOrdenTrabajo + "</div>" +
+            "<div><strong>Orden Trabajo</strong>:" + data.data[n].IdCodigoOrdenTrabajo + "</div>" +
             "<div><strong>Cantidad Piezas por Orden</strong>:" + data.data[n].CantidadPiezasPororden + "</div>" +
             "<div><strong>Estandar </strong>:" + data.data[n].EstandarCalculado + "</div> " +
             "<div><strong>Estandar Con Relevo </strong>:" + data.data[n].EstandarConRelevoCalculado + "</div> " +
             "<div><strong>Estandar Por Hora</strong>:" + data.data[n].EstandarPorHorasCalculado + "</div> " +
             "<div><strong>Etiqueta de Caja</strong>:" + data.data[n].EtiquetaDeCaja + "</div> " +
-            "<div><strong>Fecha de Creacion</strong>:" + data.data[n].FechaOrdenTrabajo + "</div> " +
+            "<div><strong>Fecha de Creacion</strong>:" + FormatDate(data.data[n].FechaOrdenTrabajo) + "</div> " +
             "<div><strong>Fraccion Estandar c/ Relevo</strong>:" + data.data[n].FracEstandarConRelevo + "</div> " +
-            "<div><strong>Hora Finalizacion</strong>:" + data.data[n].HoraFinalizacion + "</div> " +
-            "<div><strong>Hora Inicio</strong>:" + data.data[n].HoraInicio + "</div> " +
+            "<div><strong>Hora Finalizacion</strong>:" + FormatTime(data.data[n].HoraFinalizacion) + "</div> " +
+            "<div><strong>Hora Inicio</strong>:" + FormatTime(data.data[n].HoraInicio) + "</div> " +
             "<div><strong>Horas Trabajadas</strong>:" + data.data[n].HorasTrabajadasCalculado + "</div> " +
             "<div><strong>Porcentaje Scrap</strong>:" + data.data[n].PorcentajeScrapCalculado + "</div> " +
             "<div><strong>Scrap</strong>:" + data.data[n].ScrapCalculado + "</div> " +
@@ -519,5 +511,14 @@ function autocomplete(inp, arr) {
    
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
     
+}
+
+function FormatDate(fecha) {
+    let dateTimeEST = new Date(fecha);
+    return dateTimeEST.toLocaleDateString();
+}
+function FormatTime(fecha) {
+    let dateTimeEST = new Date(fecha);
+    return dateTimeEST.toLocaleTimeString();
 }
 //-------------------------------------------------------modal para busqueda de ordenes de trabajo

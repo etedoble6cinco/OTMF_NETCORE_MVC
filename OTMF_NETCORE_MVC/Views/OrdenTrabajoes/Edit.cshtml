@@ -29,7 +29,7 @@
                
          <!------------------------------------------------------------------------>
            <div class="form-group">
-                <label asp-for="IdParteFk" class="control-label"> Nombre de Pieza</label>
+                <label asp-for="IdParteFk" class="control-label"> Numero de Pieza</label>
                 <select asp-for="IdParteFk" id="IdParteFK" class="form-control" asp-items="ViewBag.IdParteFk"></select>
                 <span asp-validation-for="IdParteFk"  class="text-danger"></span>
            </div>
@@ -40,7 +40,7 @@
                 <span asp-validation-for="CantidadPiezasPororden" class="text-danger"></span>
             </div>
               <div class="form-group">
-                <label asp-for="NumeroCabidadesPieza" class="control-label">Cabidades por Pieza</label>
+                <label asp-for="NumeroCabidadesPieza" class="control-label">Cavidades</label>
                 <input asp-for="NumeroCabidadesPieza" id="NumeroCabidadesPieza" type="number" />
                 <span asp-validation-for="NumeroCabidadesPieza" class="text-danger"></span>
             </div>

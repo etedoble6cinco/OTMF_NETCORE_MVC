@@ -18,7 +18,7 @@ async function ObtenerPieChartData() {
         }
     });
     const PieChartData = await response.json();
-    console.log("mmdas")
+  
     return PieChartData;
 }
 
@@ -36,7 +36,7 @@ async function SetPieChart(data) {
     var myPieChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["Maquinas Activas", "Maquinas Inactivas"],
+            labels: ["Lineas Activas", "Lineas Inactivas"],
             datasets: [{
                 data: [data.totalActivas, data.totalInactivas],
                 backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],

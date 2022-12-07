@@ -40,14 +40,14 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion de Ordenes de Trabajo</h6>
+                        <h6 class="collapse-header">Gestion de O.T.</h6>
                          <a  asp-controller="OrdenTrabajoes"  asp-action="Index" class="collapse-item" aria-current="page">
      
           Ordenes de Trabajo
         </a>
          <a class="collapse-item" asp-controller="Maquinas"  asp-action="Index">
          
-          Maquina
+          Linea
         </a>
            <a class="collapse-item" asp-controller="EstadoOrdens"  asp-action="Index">
      
@@ -203,21 +203,21 @@
                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMaquinas"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Maquinas</span>
+                    <span>Lineas</span>
                 </a>
                 <div id="collapseMaquinas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion de Maquinas</h6>
+                        <h6 class="collapse-header">Gestion de Lineas</h6>
                      
 
                         <a class="collapse-item" asp-controller="Maquinas" asp-action="Index">
           
-         Maquinas
+         Lineas
         </a>
  
         <a class="collapse-item" asp-controller="Maquinas"  asp-action="EstadisticasMaquinas">
             
-         Estadisticas Maquinas
+         Estadisticas Lineas
         </a> 
 
 
@@ -243,7 +243,7 @@
         </ul>
     @section Scripts {
      
-        <script src="~/js/Shared/PartesNavigationColumn.js" type="text/javascript"></script>
+
             <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="~/js/Dashboard/sb-admin-2.min.js"></script>
     }

@@ -80,6 +80,8 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return n.IdBitacoraOrdenTrabajo;
             }
         }
+
+      
         //CALCULO DE ESTANDARES DE LA ORDEN DE TRABAJO TRAS PAUSAR ORDEN DE TRABAJO 
         public async Task<BitacoraOrdenTrabajo> ObtenerCalculoRegistro(int IdOrdenTrabajoFK)
         {
@@ -370,6 +372,24 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return Json( new { data = data });  
             }
 
+        }
+
+        [HttpPost]
+        public async Task<int> ObtenerUltimoRegistroBitacoraDuracionEstado(int IdOrdenTrabajoFK)
+        {
+            //metodo para obtener el ultimo registro de la bitcora , para acoplarlo ala duracion del estado 
+            var procedure = "[ObtenerUltimoRegistroBitacoraDuracionEstado]";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var UltimoRegistroBitacoraOT = await connection.QueryFirstOrDefaultAsync<ObtenerUltimoRegistroBitacoraByOtIdAndDate>
+                    (procedure, new
+                    {
+                        IdOrdenTrabajoFK = IdOrdenTrabajoFK
+                    }, commandType: CommandType.StoredProcedure);
+                ObtenerUltimoRegistroBitacoraByOtIdAndDate n = new ObtenerUltimoRegistroBitacoraByOtIdAndDate();
+                n.IdBitacoraOrdenTrabajo = UltimoRegistroBitacoraOT.IdBitacoraOrdenTrabajo;
+                return n.IdBitacoraOrdenTrabajo;
+            }
         }
 
     }

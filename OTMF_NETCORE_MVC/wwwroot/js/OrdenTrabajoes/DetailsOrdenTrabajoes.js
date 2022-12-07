@@ -18,9 +18,9 @@ function ObtenerDetallesOT() {
             $("#OTTittle").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Numero de Parte</p> <p>" + data.data[0].IdCodigoParte + "</p></div>");
             $("#OTTittle").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Estado de la orden de trabajo</p><p>" + data.data[0].NombreEstadoOrden + "</p></div>");
 
-            $("#OTDetails").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Fecha de Creacion</p><p>" + data.data[0].FechaOrdenTrabajo + "</p></div>");
-            $("#OTDetails").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Fecha de Finalizacion</p><p>" + data.data[0].HoraFinalizacion + "</p></div>");
-            $("#OTDetails").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Fecha de Inicio</p><p>" + data.data[0].HoraInicio + "</p></div>");
+            $("#OTDetails").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Fecha de Creacion</p><p>" + FormatDate(data.data[0].FechaOrdenTrabajo) + "</p></div>");
+            $("#OTDetails").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Fecha de Finalizacion</p><p>" + FormatDate(data.data[0].HoraFinalizacion) + "</p></div>");
+            $("#OTDetails").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Fecha de Inicio</p><p>" + FormatDate(data.data[0].HoraInicio) + "</p></div>");
 
 
             $("#OTDetailsCal").append("<div class='p-1 m-1 border border-dark'><p class='badge bg-primary'>Estandar</p><p>" + data.data[0].EstandarCalculado + "</p></div>");
@@ -37,4 +37,8 @@ function ObtenerDetallesOT() {
 
 function FillDetallesOT() {
 
+}
+function FormatDate(fecha) {
+    let dateTimeEST = new Date(fecha);
+    return dateTimeEST.toLocaleDateString();
 }

@@ -15,11 +15,11 @@
     });
 
     function InvokeOrdenTrabajo() {
-        connection.invoke("SendOrdenTrabajo").catch(function (err) {
+        connection.invoke("SendOrdenTrabajoNoFilter").catch(function (err) {
             return console.error(err.toString());
         });
     }
-connection.on("ReceivedOrdenTrabajo", function (data) {
+connection.on("ReceivedOrdenTrabajoNoFilter", function (data) {
    
   
     var planeada = 0, activa = 0, paraliberar = 0, terminada = 0, pausada=0;
@@ -51,7 +51,7 @@ connection.on("ReceivedOrdenTrabajo", function (data) {
     ObteneroOtProgressBar(planeada, activa, terminada, pausada, paraliberar);
  
     ObtenerTotalPiezas();
-
+    SetNumeroSemana();
    
      
 });
@@ -127,10 +127,11 @@ function UpsertMeta() {
 }
 //PORCENTAJE CUMPLIDO DE LA META EN PRODUCCION 
 function PorcenajeProdMeta() {
-    var ppm = 0;
-    var TotalPiezas = document.getElementById("TotalPiezas").innerText;
-    var Meta = document.getElementById("MetaCantidad").innerText;
+   
     setTimeout(function () {
+        var ppm = 0;
+        var TotalPiezas = document.getElementById("TotalPiezas").innerText;
+        var Meta = document.getElementById("MetaCantidad").innerText;
         let x = TotalPiezas * 100;
         ppm = x / Meta;
         document.getElementById("PorcentajeProdMeta").innerText = ppm + "%";
@@ -141,9 +142,7 @@ function PorcenajeProdMeta() {
 
 
    
-    }
-
-        , 1000);
+    },2000);
 
 }
 //CALCULAR MAS MAQUINAS POR DIA
@@ -178,4 +177,30 @@ function ObteneroOtProgressBar(planeada, activa, terminada, pausada, paraliberar
 }
 
 
+//metodo para obtenerNumeroSemana
+async function ObtenerNumeroSemana() {
+    const response = await fetch('../../Home/ObtenerNumeroSemanasDashBoard', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json; charset=utf-8',
+            'Content-Type': 'application/json;charset=UTF-8'
+        }
+    });
+    const NumeroSemanaData = await response.json();
+  
+    return NumeroSemanaData;
 
+}
+
+//metodo para llamar obtner numero de la semana
+async function SetNumeroSemana() {
+    await ObtenerNumeroSemana().then(async function (data) {
+       
+        await FillNumeroSemana(data);
+    });
+}
+//metodo para llenar contenido del numero de la semana 
+async function FillNumeroSemana(data) {
+   
+    document.getElementById("NumeroSemana").innerText = data.data;
+}

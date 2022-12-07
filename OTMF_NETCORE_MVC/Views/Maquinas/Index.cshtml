@@ -15,15 +15,15 @@
         <div class="col-10 offset-1">
        
             <fieldset>
-                <legend>Maquinas</legend>
+                <legend>Lineas</legend>
                      <table class="table" id="Maquinas">
     <thead>
         <tr>
             <th>
-                Nombre Maquina
+                Nombre Linea
             </th>
             <th>
-                Estado Maquina
+                Estado Linea
             </th>
             <th></th>
         </tr>
@@ -35,7 +35,11 @@
                 @Html.DisplayFor(modelItem => item.NombreMaquina)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EstadoMaquina)
+                 @{if(@item.EstadoMaquina == true){
+                         <p>Disponible para asignarse a un Usuario</p>
+                 }else{
+                         <p>No disponible para asignarse a un Usuario</p>
+                 } }
             </td>
             <td>
                 <div class="btns-group">

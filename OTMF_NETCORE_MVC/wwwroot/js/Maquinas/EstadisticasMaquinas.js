@@ -82,7 +82,7 @@ async function SetChartValues(data) {
         data: {
             labels: dias,
             datasets: [{
-                label: "Maquinas Activas",
+                label: "Lineas Activas",
                 lineTension: 0.3,
                 backgroundColor: "rgba(78, 115, 223, 0.05)",
                 borderColor: "rgba(78, 115, 223, 1)",

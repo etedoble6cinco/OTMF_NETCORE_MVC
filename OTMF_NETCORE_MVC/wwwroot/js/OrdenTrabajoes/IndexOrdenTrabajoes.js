@@ -43,11 +43,13 @@ $(document).ready(function () {
             }
             ,
             {
-                text: '<i class="fa fa-search" aria-hidden="true"></i>',
+                text: ' <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-bs-toggle="modal" href="#RelacionEmpleadosOrdenTrabajoModal" onclick="AsignacionEmpleadosOrdenTrabajo()"><i class="fas fa-search"></i> Buscar Orden Trabajo</a>',
                 tittleAttr: 'Obtener Reporte',
                 className: 'btn btn-lg btn-warning',
                 action: function () {
-                    AsignacionEmpleadosOrdenTrabajo();
+                   
+
+                   
                 }
             }
 

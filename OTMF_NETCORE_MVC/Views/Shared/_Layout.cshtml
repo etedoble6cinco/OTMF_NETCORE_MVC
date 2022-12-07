@@ -3,25 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OTMF</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-   <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/OTMF_NETCORE_MVC.styles.css" asp-append-version="true" />
-        <link rel="stylesheet" type="text/css" href="~/lib/datatables/datatables.min.css"/>
-   
+        <title>@ViewData["Title"] - OTMF</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/OTMF_NETCORE_MVC.styles.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/lib/datatables/datatables.min.css"/> 
         <link rel="stylesheet" type="text/css" href="~/lib/daterangepicker/daterangepicker.css" />
-    <!-- include the style -->
-<link rel="stylesheet" href="~/lib/alertifyjs/css/alertify.min.css" />
-<!-- include a theme -->
-<link rel="stylesheet" href="~/lib/alertifyjs/css/themes/bootstrap.min.css" />
-<link href="~/css/sb-admin-2.min.css" rel="stylesheet" />
- <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+        <!-- include the style -->
+        <link rel="stylesheet" href="~/lib/alertifyjs/css/alertify.min.css" />
+        <!-- include a theme -->
+        <link rel="stylesheet" href="~/lib/alertifyjs/css/themes/bootstrap.min.css" />
+        <link href="~/css/sb-admin-2.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
     </head>
 <body>
-    <header>
+    <header id="page-top">
         <nav id="mainNav" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark bg-gradient border-bottom box-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="img-brand" src="~/lib/brand/24261dba-3824-4484-9149-5ba298ae777d.jpeg" width="70" height="50" /></a>
@@ -32,19 +29,19 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="OrdenTrabajoes" asp-action="Index"><div class="btn btn-outline-secondary me-2"> <div class="badge bg-primary"><i class="fa-solid fa-industry"></i></div> Ordenes de Trabajo</div></a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="OrdenTrabajoes" asp-action="Index"><div class="btn btn-outline-secondary me-2"> <div class="badge bg-primary"><i class="fas fa-tasks"></i></div> Ordenes de Trabajo</div></a>
                         </li>  
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Empleadoes" asp-action="Index"><div class="btn btn-outline-secondary me-2"><div class="badge bg-primary"><i class="fa-solid fa-person"></i></div> Empleados</div></a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Empleadoes" asp-action="Index"><div class="btn btn-outline-secondary me-2"><div class="badge bg-primary"><i class="fas fa-user"></i></div> Empleados</div></a>
                         </li>   
                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Partes" asp-action="Index"><div class="btn btn-outline-secondary me-2"><div class="badge bg-primary"><i class="fa-solid fa-box"></i></div> Partes</div></a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Partes" asp-action="Index"><div class="btn btn-outline-secondary me-2"><div class="badge bg-primary"><i class="fas fa-tools"></i></div> Partes</div></a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="OTEstado" asp-action="Index"><div class="btn btn-outline-secondary me-2"><div class="badge bg-primary"><i class="fa-solid fa-box"></i></div>Estado O.T.</div></a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="OTEstado" asp-action="Index"><div class="btn btn-outline-secondary me-2"><div class="badge bg-primary"><i class="fas fa-play"></i></div>Estado O.T.</div></a>
                         </li>
-                    
+                    <!--Barra de navegacion-->
                     </ul>
                     <partial name="_LinksLogin"/>
                 </div>

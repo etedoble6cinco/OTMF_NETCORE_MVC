@@ -20,19 +20,24 @@ connection.on("ReceivedOrdenTrabajo", async function (data) {
     
     $("#MaquinaList").html("");
     for await (const n of data.data) {
-        if (await FilterByEstadoOT(n.idEstadoOrden, n.idOrdenTrabajo)) {
-            $("#MaquinaList"
-            ).append(
+
+            $("#MaquinaList").append(
 
                 "<tr>" +
-                "<td> " + n.nombreMaquina + "</td > " +
-                "<td> " + n.idCodigoOrdenTrabajo + "</td > " +
-                "<td>" + n.idCodigoParte + "</td>" +
-                "<td>" +  await EvaluarEstadoOT(n.idEstadoOrden) + "</td>" +
+                "<td> <strong> " + n.nombreMaquina + "</strong></td > " +
+                "<td><strong>" + n.idCodigoOrdenTrabajo + " </strong></td > " +
+                "<td><strong>" + n.idCodigoParte + "</strong></td>" +
+                "<td><strong>" + EvaluarEstadoOT(n.idEstadoOrden) + "</strong></td>" +
                 "</tr>"
             );
-        }
+
     }
+
+    for await (const n of data.data) {
+
+        await FilterByEstadoOT(n.idEstadoOrden, n.idOrdenTrabajo);
+    }
+   
  });
 
   // await ObtenerListaMaquinas();
@@ -48,26 +53,26 @@ async function EvaluarFechaOrdenTrabajo(data) {
 
 }
 
-function EvaluarEstadoOT(idEstadoOrden) {
+ function EvaluarEstadoOT(idEstadoOrden) {
 
     switch (idEstadoOrden) {
         case 7:  //PLEANEADO
-            return "<svg width='100' height='100' class='planeado'> <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:#00FFE8;' /> </svg>";
+            return "<svg width='50' height='50' class='planeado'> <rect x='1' x='1' rx='20' ry='20' width='50' height='50' style='fill:#00FFE8;'  /> </svg>";
             break;
         case 8:  //INICIADO
-            return "<svg width='100' height='100' class='iniciado'> <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:orange;' /> </svg>";
+            return "<svg width='50' height='50' class='iniciado'> <rect x='1' x='1' rx='20' ry='20' width='50' height='50' style='fill:orange;'  /> </svg>";
             break;
         case 9:  //ACTIVA 
-            return "<svg width='100' height='100' class='activa'> <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:#1FAB00;' /> </svg>";
+            return "<svg width='50' height='50' class='activa'> <rect x='1' x='1' rx='20' ry='20' width='50' height='50' style='fill:#1FAB00;'  /> </svg>";
             break;
         case 10:  //ACEPTADA
-            return "<svg width='100' height='100' class='aceptada' > <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:yellow;' /> </svg>";
+            return "<svg width='50' height='50' class='aceptada' > <rect x='1' x='1' rx='20' ry='20' width='50' height='50' style='fill:yellow;'  /> </svg>";
             break;
         case 11:  //TERMINADA
-            return "<svg width='100' height='100' class='terminada' > <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:black;' /> </svg>";
+            return "<svg width='50' height='50' class='terminada' > <rect x='1' x='1' rx='20' ry='20' width='50' height='50' style='fill:black;'  /> </svg>";
             break;
         case 12:  //RECHAZADA
-            return "<svg width='100' height='100' class='rechazada' > <rect x='10' y='10' rx='10' ry='10' width='20' height='20' style='fill:red;' /> </svg>";
+            return "<svg width='50' height='50' class='rechazada' > <rect x='1' x='1' rx='20' ry='20' width='50' height='50' style='fill:red;'  /> </svg>";
             break;
 
     }
@@ -125,7 +130,7 @@ async function SendNotify(idOrdenTrabajo) {
 
     await postNotify(`../../Home/SendNotify/` + idOrdenTrabajo)
         .then(response => {
-            console.log(response);
+      
            ShowNotification();
         });
 }

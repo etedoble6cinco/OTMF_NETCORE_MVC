@@ -1,12 +1,6 @@
 ﻿
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        document.body.style.opacity = "100";
-    }, 500);
-});
 
 $(document).ready(function () {
-    $("#mainNav").hide();
     GetIdentificadorOT();
     ObtenerRelacionMaquinasUsuarios();
    
@@ -39,6 +33,7 @@ function GetOrdenTrabajo(idOrdenTrabajo) {
     localStorage.clear();
 
     localStorage.setItem('currentOT', idOrdenTrabajo);
+
     GetEstadoOT();
     $.ajax({
         type: "POST",
@@ -56,6 +51,7 @@ function GetOrdenTrabajo(idOrdenTrabajo) {
             ObtenerFechaFinalizacion();
             ObtenerParteIdByOTId();
             ValidateIfExistsBitacoraOrdenTrabajo(); 
+            SetCurrentBitacoraOrdenTrabajo(); /// metodo para guardar en localstorage el id de la bitacora Orden Trabajo
            
         }
     });
@@ -326,7 +322,6 @@ function SetReanudar() {
 }
 function SetActiva() {
     InsertRegistroBitacoraOrdenTrabajo();
-
     //SE REGISTRA EL INICIO DE LA BITACORA 
     UpdateFechaInicio();
     UpdateOTEstado(9);
@@ -547,7 +542,12 @@ function FillAccesoriosByParteId(data) {
         $("#ShowAccesorios").append("<li class='list-group-item'><p>" + data.data[n].NombreAccesorio + "</p></li>");
     });
 }
-// METODO PARA ACTUALIZAR LA DURACION DE LOS ESTADOS 
+// METODO PARA ACTUALIZAR LA DURACION DE LOS ESTADOS
+// CREAR METODO PARA RELACIONAR LA DURACION DE LOS ESTADOS CON LA BITACORA ORDEN DE TRABAJO
+// DEBE CONTENER EL ID DE LA BITACORA ACTUAL Y
+// EL ID DEL CAMBIO DE ESTADO REGISTRANDO CADA QUE SE CAMBIA DE ESTADO
+// ESTO PARA PODER CREAR LA CONSULTA
+// 
 
 function RegistrarDuracionEstado(
     TipoMovimientoEstado,
@@ -569,11 +569,10 @@ function RegistrarDuracionEstado(
             if (data.data.length > 0) {
                
             }//Se guarda el id del cambio de estado
-
-            alertify.notify("Cambio de Estado");
         }
     });
 }
+
 //- Bitacora Orden Trabajo
 //- INSERT REGISTRO BITACORA ORDEN DE TRABAJO 
  function  InsertRegistroBitacoraOrdenTrabajo() {
@@ -586,7 +585,7 @@ function RegistrarDuracionEstado(
         },
         dataType: "json",
         success: function (data) {
-         
+            console.log(data);
           setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
            
         }
@@ -643,29 +642,66 @@ function CheckRespuestaCambioEstado() {
 
 }
 
-
+//registrar inicio de estado activo 
 function RegistrarInicioActiva() {
-    
-
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
+
     RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 9);
 }
+//resgistrar final de estado activo 
 function RegistrarFinalActiva() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
     RegistrarDuracionEstado(1, IdOrdenTrabajoFK, 22, 9);
+
 }
+//registrar final de estado detenido
 function RegistrarFinalDetenida() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
     RegistrarDuracionEstado(1, IdOrdenTrabajoFK, 22, 12);
 }
+//registrar inicio de estado por liberar
 function RegistrarInicioLiberar() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
     RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 10);
 }
+//registrar final de estado por liberar 
 function RegistrarFinalLiberar() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
     RegistrarDuracionEstado(1, IdOrdenTrabajoFK, 22, 10);
 }
+
+
+function ObtenerUltimoRegistroBitacoraDuracionEstado(IdOrdenTrabajo) {
+    var IdOrdenTrabajo = localStorage.getItem("currentOT");
+    $.ajax({
+        type: "POST",
+        url: "../../BitacoraOrdenTrabajo/ObtenerUltimoRegistroBitacoraDuracionEstado",
+
+        data: {
+
+        }, dataType: "json",
+        success: function (data) {
+           
+        }
+
+    });
+}
+function InsertUltimoRegistroBitacoraDuracionEstado(IdUltimoRegistroBitacora) {
+    $.ajax({
+        type: "POST",
+        url: "",
+        data: {
+            IdUltimoRegistroBitacora:IdUltimoRegistroBitacora
+        },
+        dataType: "json",
+        success: function () {
+
+        }
+    });
+
+}
+
+
 function MostrarInformeTiemposMuertos() {
     var IdOrdenTrabajo = localStorage.getItem("currentOT");
     $.ajax({
@@ -676,6 +712,7 @@ function MostrarInformeTiemposMuertos() {
         },
         dataType: "json",
         success: function (data) {
+           
             FillInformeTiempoMuertos(data);
         }
 
@@ -683,7 +720,7 @@ function MostrarInformeTiemposMuertos() {
 }
 function FillInformeTiempoMuertos(data) {
 
-   
+   /*
     $.each(data.details, function (n) {
         $("#ResumenContainer").html("");
         $("#ResumenContainer").append("<div id='acc-item' class='accordion-item'>" +
@@ -709,6 +746,7 @@ function FillInformeTiempoMuertos(data) {
     $("#ResumenSumDetenida").html("");
     $("#ResumenSumPorLiberar").html("");
     $("#ResumenSumActiva").html("");
+    */
     $.each(data.total, function (z) {
       
 
@@ -727,7 +765,7 @@ function FillInformeTiempoMuertos(data) {
 
 
     });
-
+    
 
     $("#ResumenTiemposMuertos").modal("show");
 
@@ -784,7 +822,7 @@ function FillRelacionMaquinasUsuarios(data) {
         });
 
 
-
+        
     }
 }
 //Bitacora Orden Trabajo
@@ -810,8 +848,7 @@ function EvaluarProduccionCompletada() {
         }
     });
 }
-//Obtener la bitacora que se va agregar en la vista para mantener visible el estado de la orden de trabajo 
-//al iniciar la orden de trabajo despues de el estado de planeado 
+
 function ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo() {
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
     $.ajax({
@@ -826,12 +863,12 @@ function ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo() {
             FillBitacoraOrdenTrabajoByIdOrdenTrabajo(data);
 
         }, error: function (data) {
-            console.log("No hay cantidades a sumar");
+           
         }
     });
 }
 function FillBitacoraOrdenTrabajoByIdOrdenTrabajo(data) {
-    console.log(data);
+  
     $("#BitacoraOrdenTrabajo").html("");
     let cantidadPiezasPorOrdenRealizadas = 0;
     let estandar = 0;
@@ -957,7 +994,7 @@ function FillSumProduccionActual(data) {
 }
 function ValidateSumBitacoraOrdenTrabajoProduccion() {
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
-    console.log("validadoSum");
+
     $.ajax({
         type: "POST",
         url: '../../BitacoraOrdenTrabajo/ValidateSumBitacoraOrdenTrabajoProduccion',
@@ -965,7 +1002,7 @@ function ValidateSumBitacoraOrdenTrabajoProduccion() {
             IdOrdenTrabajo: IdOrdenTrabajo
         },
         success: function (data) {
-            console.log(data);
+      
             if (data.data == true) {
            
                 setTimeout(ObtenerSumBitacoraOrdenTrabajoProduccion(), 7000);
@@ -984,7 +1021,7 @@ function ValidateIfExistsBitacoraOrdenTrabajo() {
             IdOrdenTrabajo: IdOrdenTrabajo
         },
         success: function (data) {
-            console.log(data);
+           
             if (data == true) {
 
                 setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
