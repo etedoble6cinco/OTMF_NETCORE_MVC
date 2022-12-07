@@ -240,6 +240,23 @@ function ObtenerAllBitacorasOtByOtId(IdOrdenTrabajo) {
         }
     });
 }
+function ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(IdBitacoraOrdenTrabajoFK) {
+    $.ajax({
+        type: 'POST',
+        url: '../../BitacoraOrdenTrabajo/ObtenerAllBitacorasOtByOtId',
+        data: {
+            IdBitacoraOrdenTrabajoFK: IdBitacoraOrdenTrabajoFK
+        },
+        dataType: 'json',
+        success: function (data) {
+
+            console.log(data);
+            $("DetalleDuracionEstados").append("<p>"+data+"</p>")
+        }
+    });
+
+    
+}
 function FillAllBitacorasOtByOtId(data) {
  
     $("#DetalleBitcoraOrdenTrabajo").remove();
@@ -263,7 +280,7 @@ function FillAllBitacorasOtByOtId(data) {
         '<th>Estandar por Horas</th>' +
         '<th>Fecha de Creacion</th>' +
         '<th>Horas Trabajadas</th>' +
-
+        '<th>Detalles</th'+
         '</tr></thead>' +
         '<tbody id="ContenidoDetalleBitacoraOrdenTrabajo">' +
         '</tbody>'
@@ -271,7 +288,7 @@ function FillAllBitacorasOtByOtId(data) {
         + '</div>'
         + '</div>' +
         '<div class="container" id="resultados"></div>' +
-        '<div class="modal-footer">' +
+        '<div class="modal-footer" id="DetalleDuracionEstados">' +
         '<button type="button" class="btn btn-default"  data-bs-dismiss="modal">Close</button>' +
         '</div>' +
         '</div>' +
@@ -289,7 +306,9 @@ function FillAllBitacorasOtByOtId(data) {
             "<td>" + data.data[n].estandarConRelevoCalculado + "</td>" +
             "<td>" + data.data[n].estandarPorHorasCalculado + "</td>" +
             "<td>" + FormatDate(data.data[n].fechaOrdenTrabajo) + "</td>" +
-            "<td>" + data.data[n].horasTrabajadasCalculado    + "</td>" +
+            "<td>" + data.data[n].horasTrabajadasCalculado + "</td>" +
+            "<td><button type='button' class='btn btn-primary'onclick=\"ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(\'" + data.data[n].idBitacoraOrdenTrabajo + "\');\">Duracion de estados</button></td>" +
+
             "</tr>");
     });
 

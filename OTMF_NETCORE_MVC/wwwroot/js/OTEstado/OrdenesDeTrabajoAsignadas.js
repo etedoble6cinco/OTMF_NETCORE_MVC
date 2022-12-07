@@ -553,7 +553,8 @@ function RegistrarDuracionEstado(
     TipoMovimientoEstado,
     IdOrdenTrabajo,
     IdMotivoCambioEstadoFK,
-    IdEstadoOrdenTrabajoFK) {
+    IdEstadoOrdenTrabajoFK,
+    IdBitacoraOrdenTrabajoFK) {
     $.ajax({
         type: "POST",
         url: '../../OtEstado/RegistrarDuracionEstado',
@@ -561,7 +562,8 @@ function RegistrarDuracionEstado(
             TipoMovimientoEstado: TipoMovimientoEstado,
             IdOrdenTrabajoFK: IdOrdenTrabajo,
             IdMotivoCambioEstadoFK: IdMotivoCambioEstadoFK,
-            IdEstadoOrdenTrabajoFK: IdEstadoOrdenTrabajoFK
+            IdEstadoOrdenTrabajoFK: IdEstadoOrdenTrabajoFK,
+            IdBitacoraOrdenTrabajoFK: IdBitacoraOrdenTrabajoFK
         },
         dataType: "json",
         success: function (data) {
@@ -585,7 +587,7 @@ function RegistrarDuracionEstado(
         },
         dataType: "json",
         success: function (data) {
-            console.log(data);
+        
           setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
            
         }
@@ -628,11 +630,13 @@ function UpdateBitacoraOrdenTrabajoProdTerminada() {
         }
     });
 }
-
+//RegistrarInicioPausa
 function InsertRespuestaCambioEstado() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
     var IdMotivoCambioEstadoFK = document.getElementById('checkRespuesta').value;
-    RegistrarDuracionEstado(0, IdOrdenTrabajoFK, IdMotivoCambioEstadoFK, 12);
+    ObtenerUltimoRegistroBitacoraDuracionEstado();
+    var IdBitacoraOrdenTrabajo = localStorage.getItem('currentBOT');
+    RegistrarDuracionEstado(0, IdOrdenTrabajoFK, IdMotivoCambioEstadoFK, 12, IdBitacoraOrdenTrabajo);
     SetPausa();
 
 }
@@ -641,65 +645,63 @@ function CheckRespuestaCambioEstado() {
     localStorage.setItem('DropDownChange', true);
 
 }
+//PRIMARY KEY CAMBIO DE ESTADO
+//7 - PLANEADO
+//9 - ACTIVA
+//10 - PARA LIBERAR
+//11 - TERMINADA
+//12 - PAUSADA
+
 
 //registrar inicio de estado activo 
 function RegistrarInicioActiva() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
+    setTimeout(ObtenerUltimoRegistroBitacoraDuracionEstado(), 1000);
+    var IdBitacoraOrdenTrabajo = localStorage.getItem('currentBOT');
+    setTimeout(RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 9, IdBitacoraOrdenTrabajo), 7000);
 
-    RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 9);
 }
 //resgistrar final de estado activo 
 function RegistrarFinalActiva() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
-    RegistrarDuracionEstado(1, IdOrdenTrabajoFK, 22, 9);
+    RegistrarDuracionEstado(1, IdOrdenTrabajoFK, 22, 9, 0);
 
 }
 //registrar final de estado detenido
 function RegistrarFinalDetenida() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
-    RegistrarDuracionEstado(1, IdOrdenTrabajoFK, 22, 12);
+    RegistrarDuracionEstado(1, IdOrdenTrabajoFK, 22, 12,0);
 }
 //registrar inicio de estado por liberar
 function RegistrarInicioLiberar() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
-    RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 10);
+    ObtenerUltimoRegistroBitacoraDuracionEstado();
+    var IdBitacoraOrdenTrabajo = localStorage.getItem('currentBOT');
+    RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 10, IdBitacoraOrdenTrabajo);
 }
 //registrar final de estado por liberar 
 function RegistrarFinalLiberar() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
-    RegistrarDuracionEstado(1, IdOrdenTrabajoFK, 22, 10);
+    RegistrarDuracionEstado(1, IdOrdenTrabajoFK, 22, 10,0);
 }
 
 
-function ObtenerUltimoRegistroBitacoraDuracionEstado(IdOrdenTrabajo) {
+function ObtenerUltimoRegistroBitacoraDuracionEstado() {
     var IdOrdenTrabajo = localStorage.getItem("currentOT");
     $.ajax({
         type: "POST",
         url: "../../BitacoraOrdenTrabajo/ObtenerUltimoRegistroBitacoraDuracionEstado",
 
         data: {
-
+            IdOrdenTrabajoFK: IdOrdenTrabajo
         }, dataType: "json",
-        success: function (data) {
-           
+        success: function (IdBitacoraOrdenTrabajo) {
+            localStorage.setItem('currentBOT', IdBitacoraOrdenTrabajo);
         }
 
     });
 }
-function InsertUltimoRegistroBitacoraDuracionEstado(IdUltimoRegistroBitacora) {
-    $.ajax({
-        type: "POST",
-        url: "",
-        data: {
-            IdUltimoRegistroBitacora:IdUltimoRegistroBitacora
-        },
-        dataType: "json",
-        success: function () {
 
-        }
-    });
-
-}
 
 
 function MostrarInformeTiemposMuertos() {

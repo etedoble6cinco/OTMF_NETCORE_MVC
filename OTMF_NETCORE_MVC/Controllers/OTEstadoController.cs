@@ -355,7 +355,8 @@ namespace OTMF_NETCORE_MVC.Controllers
             int TipoMovimientoEstado,
             int IdOrdenTrabajoFK,
             int IdMotivoCambioEstadoFK,  
-            int IdEstadoOrdenTrabajoFK
+            int IdEstadoOrdenTrabajoFK,
+            int IdBitacoraOrdenTrabajoFK
 
             )
         {
@@ -368,7 +369,8 @@ namespace OTMF_NETCORE_MVC.Controllers
                    IdOrdenTrabajoFK = IdOrdenTrabajoFK,
                    IdEstadoOrdenFK = IdEstadoOrdenTrabajoFK,
                    IdMotivoCambioEstadoFK = IdMotivoCambioEstadoFK,
-                   TipoMovimientoEstado =  TipoMovimientoEstado
+                   TipoMovimientoEstado =  TipoMovimientoEstado,
+                   IdBitacoraOrdenTrabajoFK = IdBitacoraOrdenTrabajoFK
                  
                 }, commandType: CommandType.StoredProcedure);
                 return Json(new { data = confirm });

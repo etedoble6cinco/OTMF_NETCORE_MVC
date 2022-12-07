@@ -373,7 +373,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
 
         }
-
+        //METODO PARA RELACION LA DURACION DEL ESTADO CON LA BITACORA
         [HttpPost]
         public async Task<int> ObtenerUltimoRegistroBitacoraDuracionEstado(int IdOrdenTrabajoFK)
         {
@@ -392,5 +392,21 @@ namespace OTMF_NETCORE_MVC.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<List<DuracionEstado>> ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(int IdBitacoraOrdenTrabajoFK)
+        {
+            var procedure = "[ObtenerUltimoRegistroBitacoraDuracionEstado]";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var DuracionEstadosByIdBOT = await connection.QueryAsync<DuracionEstado>
+                    (procedure, new
+                    {
+                        IdBitacoraOrdenTrabajoFK = IdBitacoraOrdenTrabajoFK
+                    }, commandType: CommandType.StoredProcedure);
+
+
+                return DuracionEstadosByIdBOT.ToList();
+            }
+        }
     }
 }
