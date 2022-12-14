@@ -18,7 +18,10 @@ namespace OTMF_NETCORE_MVC.Controllers
         private SignInManager<Usuario> signInManager;
         private readonly string con;
         private readonly IServicioUsuarios servicio;
-        public UsuariosController(UserManager<Usuario> userManager,
+        private readonly OTMFContext _context;
+
+
+        public UsuariosController(OTMFContext context, UserManager<Usuario> userManager,
             SignInManager<Usuario>signInManager ,
             IConfiguration configuration,
            IServicioUsuarios _services)
@@ -110,7 +113,12 @@ namespace OTMF_NETCORE_MVC.Controllers
                 return View(modelo);
             }
         }
-
+      /*  [HttpPost]
+        public async Task<string> ObtenerUsuario()
+        {
+            int usuario = servicio.ObtenerUsuarioId();
+            var  
+        } */
         [HttpPost]
         public async Task<IActionResult> Logout()
         {

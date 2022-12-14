@@ -29,13 +29,13 @@
                
          <!------------------------------------------------------------------------>
            <div class="form-group">
-                <label asp-for="IdParteFk" class="control-label"> Numero de Pieza</label>
+                <label asp-for="IdParteFk" class="control-label"> Numero de Parte</label>
                 <select asp-for="IdParteFk" id="IdParteFK" class="form-control" asp-items="ViewBag.IdParteFk"></select>
                 <span asp-validation-for="IdParteFk"  class="text-danger"></span>
            </div>
                          
             <div class="form-group">
-                <label asp-for="CantidadPiezasPororden" class="control-label">Cantidad de Piezas por Orden</label>
+                <label asp-for="CantidadPiezasPororden" class="control-label">Cantidad de Partes por Orden</label>
                 <input asp-for="CantidadPiezasPororden" id="CantidadPiezasPorOrden" class="form-control" />
                 <span asp-validation-for="CantidadPiezasPororden" class="text-danger"></span>
             </div>
@@ -73,7 +73,7 @@
     <div class="container">
    <div class="row">
 
-        <h5>Empleado asignados</h5>
+        <h5>Operadores asignados</h5>
     <div class="form-group">
    
 
@@ -84,7 +84,7 @@
 
    </div>
    <div class="row">
-       <h5>Maquinas Asignadas</h5>
+       <h5>Lineas Asignadas</h5>
     <div class="form-group">
    
 
@@ -138,7 +138,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Eleguir Empleados</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eleguir Linea</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -146,14 +146,14 @@
             <form>
               <div class="m-2">
                    <select id="EleccionMaquina" class ="form-control" asp-items="ViewBag.Maquinas">
-                     <option disabled selected> Seleccionar Maquina</option>
+                     <option disabled selected> Seleccionar Linea</option>
                    </select>
               </div>
             </form>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
         <button type="button" class="btn btn-primary" onclick="UpsertMaquinasAsignadasByOTId()">Guardar</button>
       </div>
     </div>

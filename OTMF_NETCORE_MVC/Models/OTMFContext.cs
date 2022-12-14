@@ -18,7 +18,6 @@ namespace OTMF_NETCORE_MVC.Models
 
         public virtual DbSet<Accesorio> Accesorios { get; set; } = null!;
         public virtual DbSet<BitacoraOrdenTrabajo> BitacoraOrdenTrabajos { get; set; } = null!;
-        public virtual DbSet<BitacoraOrdenTrabajoDuracionEstado> BitacoraOrdenTrabajoDuracionEstados { get; set; } = null!;
         public virtual DbSet<Caja> Cajas { get; set; } = null!;
         public virtual DbSet<Cliente> Clientes { get; set; } = null!;
         public virtual DbSet<Color> Colors { get; set; } = null!;
@@ -91,6 +90,8 @@ namespace OTMF_NETCORE_MVC.Models
 
                 entity.ToTable("BitacoraOrdenTrabajo");
 
+                entity.Property(e => e.CreationDate).HasColumnType("datetime");
+
                 entity.Property(e => e.EstandarCalculado).HasColumnType("decimal(30, 10)");
 
                 entity.Property(e => e.EstandarConRelevoCalculado).HasColumnType("decimal(30, 10)");
@@ -156,30 +157,6 @@ namespace OTMF_NETCORE_MVC.Models
                     .HasConstraintName("BitacoraOrdenTrabajo_IdUsuarioFK");
             });
 
-            modelBuilder.Entity<BitacoraOrdenTrabajoDuracionEstado>(entity =>
-            {
-                entity.HasKey(e => e.IdBitacoraOrdenTrabajoDuracionEstado)
-                    .HasName("PK__Bitacora__E60BB78F2022DF70");
-
-                entity.ToTable("BitacoraOrdenTrabajoDuracionEstado");
-
-                entity.Property(e => e.IdBitacoraOrdenTrabajoFk).HasColumnName("IdBitacoraOrdenTrabajoFK");
-
-                entity.Property(e => e.IdDuracionEstadoFk).HasColumnName("IdDuracionEstadoFK");
-
-                entity.HasOne(d => d.IdBitacoraOrdenTrabajoFkNavigation)
-                    .WithMany(p => p.BitacoraOrdenTrabajoDuracionEstados)
-                    .HasForeignKey(d => d.IdBitacoraOrdenTrabajoFk)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("BitacoraOrdenTrabajoDuracionEstado_IdBitacoraOrdenTrabajoFK");
-
-                entity.HasOne(d => d.IdDuracionEstadoFkNavigation)
-                    .WithMany(p => p.BitacoraOrdenTrabajoDuracionEstados)
-                    .HasForeignKey(d => d.IdDuracionEstadoFk)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("BitacoraOrdenTrabajoDuracionEstado_IdDuracionEstadoFK");
-            });
-
             modelBuilder.Entity<Caja>(entity =>
             {
                 entity.HasKey(e => e.IdCaja)
@@ -235,7 +212,11 @@ namespace OTMF_NETCORE_MVC.Models
 
                 entity.ToTable("DuracionEstado");
 
+                entity.Property(e => e.CreationDate).HasColumnType("datetime");
+
                 entity.Property(e => e.FinalEstado).HasColumnType("datetime");
+
+                entity.Property(e => e.IdBitacoraOrdenTrabajoFk).HasColumnName("IdBitacoraOrdenTrabajoFK");
 
                 entity.Property(e => e.IdEstadoOrdenFk).HasColumnName("IdEstadoOrdenFK");
 
@@ -244,6 +225,12 @@ namespace OTMF_NETCORE_MVC.Models
                 entity.Property(e => e.IdOrdenTrabajoFk).HasColumnName("IdOrdenTrabajoFK");
 
                 entity.Property(e => e.InicioEstado).HasColumnType("datetime");
+
+                entity.HasOne(d => d.IdBitacoraOrdenTrabajoFkNavigation)
+                    .WithMany(p => p.DuracionEstados)
+                    .HasForeignKey(d => d.IdBitacoraOrdenTrabajoFk)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("DuracionEstado_IdBitacoraOrdenTrabajoFK");
 
                 entity.HasOne(d => d.IdEstadoOrdenFkNavigation)
                     .WithMany(p => p.DuracionEstados)

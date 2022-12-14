@@ -36,15 +36,11 @@
                 <input asp-for="IdInstructivoFk" type="hidden" id="IdInstructivoFk" />
                 <input asp-for="Otespecial" type="hidden" id="IdOTespecial" />
                 <input asp-for="CantidadPiezasOtflag" value="false" type="hidden" id="IdCantidadPiezasOtflag" />
-                  <input asp-for="NumeroCabidadesPieza" type="hidden" value="0" />
+                <input asp-for="NumeroCabidadesPieza" type="hidden" value="0" />
+                <input asp-for="IdEstadoOrdenFk" type="hidden" value="7" />
                 <!------>
 
-            <div class="form-group">
-                <label asp-for="IdEstadoOrdenFk" class="control-label">Estado inicial de la Orden Trabajo</label>
-                   <select asp-for="IdEstadoOrdenFk" id="IdEstadoOrdenFk"  class ="form-control" asp-items="ViewBag.IdEstadoOrdenFk" required>
-                       <option value="0" selected disabled>Seleccionar Estado de la Orden de Trabajo</option>
-                   </select>
-            </div>  
+          
          
             <div class="form-group">
                 <label asp-for="IdTurnoOtFk" class="control-label">Turno Orden Trabajo</label>
@@ -67,7 +63,7 @@
         
         <div id="prefixOT">
               <section class="form-group" id="otnormal">
-                    <label>Codigo Orden Trabajo</label>
+                    <label> Orden Trabajo</label>
               <div class="input-group mb-1 mt-1">
                 
                       <div class="input-group-prepend">

@@ -85,11 +85,12 @@ namespace OTMF_NETCORE_MVC.Controllers
         //CALCULO DE ESTANDARES DE LA ORDEN DE TRABAJO TRAS PAUSAR ORDEN DE TRABAJO 
         public async Task<BitacoraOrdenTrabajo> ObtenerCalculoRegistro(int IdOrdenTrabajoFK)
         {
-            TiempoEstadosOrdenTrabajo DuracionDetenida = new TiempoEstadosOrdenTrabajo();
+            List<TiempoEstadosOrdenTrabajo> DuracionEstados = new List<TiempoEstadosOrdenTrabajo>();
 
-            DuracionDetenida = await ObtenerTiemposMuertos(IdOrdenTrabajoFK);
+         
 
             int IdBitacoraOrdenTrabajo = await ObtenerUltimoRegistroBitacoraByOtIdAndDate(IdOrdenTrabajoFK);
+            DuracionEstados = await ObtenerTiemposMuertosByIdBitacoraOrdenTrabajo(IdBitacoraOrdenTrabajo);
             var CurrentBitacoraOrdenTrabajo = await _context.BitacoraOrdenTrabajos.FirstOrDefaultAsync(m => m.IdBitacoraOrdenTrabajo == IdBitacoraOrdenTrabajo);
 
             var turnoOt = await _context.TurnoOts.FirstOrDefaultAsync(m => m.IdTurnoOt == CurrentBitacoraOrdenTrabajo.IdTurnoOtFk);
@@ -98,28 +99,64 @@ namespace OTMF_NETCORE_MVC.Controllers
             var OriginalOrdenTrabajo = await _context.OrdenTrabajos.FirstOrDefaultAsync(x => x.IdOrdenTrabajo == CurrentBitacoraOrdenTrabajo.IdOrdenTrabajoFk);
             var Parte = await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == OriginalOrdenTrabajo.IdParteFk);
             var EstandarPorHoras = await _context.EstandarPorHoras.FirstOrDefaultAsync(x => x.IdEstandarPorHora == Parte.IdEstandarPorHoraFk);
-            if (CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado > 0  && CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado is not null)
+            if (CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado > 0  && CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado is not null)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
             {
-                decimal NuevasHorasTrabajadas = await CalcularHorasTrabajadas((decimal)CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado, DuracionDetenida.DuracionEstado);
-                CurrentBitacoraOrdenTrabajo.ScrapCalculado = await CalcularScrap((decimal)EstandarPorHoras.NombreEstandarPorHora, NuevasHorasTrabajadas, (decimal)PorcentajeEstandarConRelevo.PorcentajeScrapPermitido);
-                CurrentBitacoraOrdenTrabajo.EstandarCalculado = await CalcularEstandar((decimal)EstandarPorHoras.NombreEstandarPorHora,NuevasHorasTrabajadas);
-                CurrentBitacoraOrdenTrabajo.EstandarConRelevoCalculado = await CalcularEstandarConRelevo((decimal)EstandarPorHoras.NombreEstandarPorHora, NuevasHorasTrabajadas, (decimal)fraccionEstandarRelevo.FracEstandarRelevo);
-                CurrentBitacoraOrdenTrabajo.EstandarPorHorasCalculado = (decimal)EstandarPorHoras.NombreEstandarPorHora;
-                CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado = NuevasHorasTrabajadas;
-                CurrentBitacoraOrdenTrabajo.PorcentajeScrapCalculado = (decimal)CurrentBitacoraOrdenTrabajo.PorcentajeScrapCalculado;
-                CurrentBitacoraOrdenTrabajo.FracEstandarConRelevo = (decimal)CurrentBitacoraOrdenTrabajo.FracEstandarConRelevo;
+                decimal NuevasHorasTrabajadas = await CalcularHorasTrabajadas
+                    ((decimal)CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado,
+                    DuracionEstados[0].DuracionEstado);
 
+                CurrentBitacoraOrdenTrabajo.ScrapCalculado = await CalcularScrap
+                    ((decimal)EstandarPorHoras.NombreEstandarPorHora,
+                    NuevasHorasTrabajadas, 
+                    (decimal)PorcentajeEstandarConRelevo.PorcentajeScrapPermitido);
+
+                CurrentBitacoraOrdenTrabajo.EstandarCalculado = await CalcularEstandar
+                    ((decimal)EstandarPorHoras.NombreEstandarPorHora,
+                    NuevasHorasTrabajadas);
+
+                CurrentBitacoraOrdenTrabajo.EstandarConRelevoCalculado = await CalcularEstandarConRelevo
+                    ((decimal)EstandarPorHoras.NombreEstandarPorHora,
+                    NuevasHorasTrabajadas, 
+                    (decimal)fraccionEstandarRelevo.FracEstandarRelevo);
+
+                CurrentBitacoraOrdenTrabajo.EstandarPorHorasCalculado = 
+                    (decimal)EstandarPorHoras.NombreEstandarPorHora;
+
+                CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado = 
+                    NuevasHorasTrabajadas; 
+
+                CurrentBitacoraOrdenTrabajo.PorcentajeScrapCalculado =
+                    (decimal)CurrentBitacoraOrdenTrabajo.PorcentajeScrapCalculado;
+
+                CurrentBitacoraOrdenTrabajo.FracEstandarConRelevo = 
+                    (decimal)CurrentBitacoraOrdenTrabajo.FracEstandarConRelevo;
+
+                CurrentBitacoraOrdenTrabajo.HorasTrabajadasAcumulado = 
+                    DuracionEstados[1].DuracionEstado;
+                //
             }
             else
             {
-                CurrentBitacoraOrdenTrabajo.ScrapCalculado = await CalcularScrap((decimal)EstandarPorHoras.NombreEstandarPorHora, await CalcularHorasTrabajadas((decimal)turnoOt.HorasTrabajadas, DuracionDetenida.DuracionEstado), (decimal)PorcentajeEstandarConRelevo.PorcentajeScrapPermitido);
-                CurrentBitacoraOrdenTrabajo.EstandarCalculado = await CalcularEstandar((decimal)EstandarPorHoras.NombreEstandarPorHora, await CalcularHorasTrabajadas((decimal)turnoOt.HorasTrabajadas, DuracionDetenida.DuracionEstado));
-                CurrentBitacoraOrdenTrabajo.EstandarConRelevoCalculado = await CalcularEstandarConRelevo((decimal)EstandarPorHoras.NombreEstandarPorHora, await CalcularHorasTrabajadas((decimal)turnoOt.HorasTrabajadas, DuracionDetenida.DuracionEstado), (decimal)fraccionEstandarRelevo.FracEstandarRelevo);
-                CurrentBitacoraOrdenTrabajo.EstandarPorHorasCalculado = (decimal)EstandarPorHoras.NombreEstandarPorHora;
-                CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado = await CalcularHorasTrabajadas((decimal)turnoOt.HorasTrabajadas, DuracionDetenida.DuracionEstado);
+                CurrentBitacoraOrdenTrabajo.ScrapCalculado = await CalcularScrap
+                    ((decimal)EstandarPorHoras.NombreEstandarPorHora, await CalcularHorasTrabajadas
+                    ((decimal)turnoOt.HorasTrabajadas,
+                    DuracionEstados[0].DuracionEstado),
+                    (decimal)PorcentajeEstandarConRelevo.PorcentajeScrapPermitido);
+                CurrentBitacoraOrdenTrabajo.EstandarCalculado = await CalcularEstandar
+                    ((decimal)EstandarPorHoras.NombreEstandarPorHora, await CalcularHorasTrabajadas
+                    ((decimal)turnoOt.HorasTrabajadas, DuracionEstados[0].DuracionEstado));
+                CurrentBitacoraOrdenTrabajo.EstandarConRelevoCalculado = await CalcularEstandarConRelevo
+                    ((decimal)EstandarPorHoras.NombreEstandarPorHora, await CalcularHorasTrabajadas
+                    ((decimal)turnoOt.HorasTrabajadas, 
+                    DuracionEstados[0].DuracionEstado),
+                    (decimal)fraccionEstandarRelevo.FracEstandarRelevo);
+                CurrentBitacoraOrdenTrabajo.EstandarPorHorasCalculado =
+                    (decimal)EstandarPorHoras.NombreEstandarPorHora;
+                CurrentBitacoraOrdenTrabajo.HorasTrabajadasCalculado = await CalcularHorasTrabajadas
+                    ((decimal)turnoOt.HorasTrabajadas, DuracionEstados[0].DuracionEstado);
                 CurrentBitacoraOrdenTrabajo.PorcentajeScrapCalculado = (decimal)PorcentajeEstandarConRelevo.PorcentajeScrapPermitido;
                 CurrentBitacoraOrdenTrabajo.FracEstandarConRelevo = (decimal)fraccionEstandarRelevo.FracEstandarRelevo;
-
+                CurrentBitacoraOrdenTrabajo.HorasTrabajadasAcumulado = DuracionEstados[1].DuracionEstado;
             }
                 
             
@@ -150,6 +187,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             decimal result = horasTrabajadas + fracEstandarConRelevo;
             return result * estandarPorHora;
         }
+     
         //OBTENER BITACORA ORDEN TRABAJO POR MEDIO DEL ID DE LA ORDEN DE TRABAJO 
 
         [HttpPost]
@@ -162,7 +200,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             return Json(new { data = UltimaBitacoraOrdenTrabajo });
 
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> UpdateBitacoraOrdenTrabajoProdTerminada(int IdOrdenTrabajo)
         {
@@ -249,31 +287,44 @@ namespace OTMF_NETCORE_MVC.Controllers
             return PiezasRestantesResult;
         }
         //CALCULO DE TIEMPOS MUERTOS - OBTENER TIEMPO DE PAUSA POR CUALQUIER RAZON DE LA PAUSA 
-        public async Task<TiempoEstadosOrdenTrabajo> ObtenerTiemposMuertos(int IdOrdenTrabajo)
+        public async Task<List<TiempoEstadosOrdenTrabajo>> ObtenerTiemposMuertosByIdBitacoraOrdenTrabajo(int IdBitacoraOrdenTrabajo)
         {
-        
-            var procedure = "[ObtenerTiemposMuertos]";
+            
+            var procedure = "[ObtenerTiemposMuertosByBitacoraOrdenTrabajo]";
             using (var connection = new SqlConnection(connectionString))
             {
                 var data = await connection.QueryAsync<ObtenerTiempoMuertos>(procedure, new
                 {
-                    IdOrdenTrabajo = IdOrdenTrabajo
+                    IdBitacoraOrdenTrabajo = IdBitacoraOrdenTrabajo   
                 }, commandType: CommandType.StoredProcedure);
                 
                 List<ObtenerTiempoMuertos> result = new List<ObtenerTiempoMuertos>();
                 result =  data.ToList();
                 int DetenidaSegundos = 0;
+                int ActivaSegundos = 0;
                 for (int x = 0; x < result.Count; x++)
                 {
                     if (result[x].NombreEstadoOrden.Equals("PAUSADA"))
                     {
                         DetenidaSegundos = DetenidaSegundos + result[x].Duracion;
                     }
+                    if (result[x].NombreEstadoOrden.Equals("ACTIVA")) { 
+                    
+                     ActivaSegundos = ActivaSegundos + result[x].Duracion;
+                    }
+
                 }
+                List<TiempoEstadosOrdenTrabajo> DuracionEstados = new List<TiempoEstadosOrdenTrabajo>();    
                 TiempoEstadosOrdenTrabajo DuracionDetenida = new TiempoEstadosOrdenTrabajo();
                 DuracionDetenida.NombreEstado = "PAUSADA";
                 DuracionDetenida.DuracionEstado = DetenidaSegundos;
-                return DuracionDetenida;
+                TiempoEstadosOrdenTrabajo DuracionActiva = new TiempoEstadosOrdenTrabajo();
+                DuracionActiva.NombreEstado = "ACTIVA";
+                DuracionActiva.DuracionEstado = ActivaSegundos;
+                DuracionEstados.Add(DuracionDetenida);
+                DuracionEstados.Add(DuracionActiva);
+               
+                return DuracionEstados.ToList();
             }
 
 
@@ -393,20 +444,21 @@ namespace OTMF_NETCORE_MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<List<DuracionEstado>> ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(int IdBitacoraOrdenTrabajoFK)
+        public async Task<JsonResult> ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(int IdBitacoraOrdenTrabajoFK)
         {
-            var procedure = "[ObtenerUltimoRegistroBitacoraDuracionEstado]";
+            var procedure = "[ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo]";
             using (var connection = new SqlConnection(connectionString))
             {
-                var DuracionEstadosByIdBOT = await connection.QueryAsync<DuracionEstado>
+                var DuracionEstadosByIdBOT = await connection.QueryAsync
                     (procedure, new
                     {
                         IdBitacoraOrdenTrabajoFK = IdBitacoraOrdenTrabajoFK
                     }, commandType: CommandType.StoredProcedure);
 
 
-                return DuracionEstadosByIdBOT.ToList();
+                return Json(new { data = DuracionEstadosByIdBOT.ToList()});
             }
         }
+      
     }
 }

@@ -26,7 +26,7 @@ namespace OTMF_NETCORE_MVC.Controllers
         public async Task<IActionResult> ObtenerReporteProduccion(DateTime ReporteDate)
         { 
             string fileLocation = string.Empty;
-            fileLocation = await _reporte.CrearReporteProduccion(ReporteDate);
+            //fileLocation = await _reporte.CrearReporteProduccion(ReporteDate);
             return Json( new {data = fileLocation});
         }
     }

@@ -41,6 +41,10 @@ function GetOrdenTrabajo(idOrdenTrabajo) {
         data: { id: idOrdenTrabajo },
         dataType: "json",
         success: function (data) {
+            AddOtLoader();
+            setTimeout(function () {
+                RemoveOtLoader();
+            }, 7000);
             $("#BitacoraOrdenTrabajo").html("");
             FillDetalles(data);
             GetParteByOTId(idOrdenTrabajo);
@@ -50,9 +54,8 @@ function GetOrdenTrabajo(idOrdenTrabajo) {
             ObtenerFechaInicio();
             ObtenerFechaFinalizacion();
             ObtenerParteIdByOTId();
-            ValidateIfExistsBitacoraOrdenTrabajo(); 
-            SetCurrentBitacoraOrdenTrabajo(); /// metodo para guardar en localstorage el id de la bitacora Orden Trabajo
-           
+            ValidateIfExistsBitacoraOrdenTrabajo();
+            
         }
     });
 }
@@ -66,10 +69,10 @@ function FillDetalles(data) {
 
         $("#pills-tabContent").append(
 
-              "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Codigo Orden de Trabajo</p>  <p class='displayResult'>" +   data.data[x].idCodigoOrdenTrabajo + "</p></div>"
+              "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'> Orden de Trabajo</p>  <p class='displayResult'>" +   data.data[x].idCodigoOrdenTrabajo + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Numero de Parte</p>           <p class='displayResult'>" +           data.data[x].idCodigoParte + "</p></div>"
             + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Cantidad Piezas por Orden</p> <p class='displayResult'>" + data.data[x].cantidadPiezasPorOrden + "</p></div>"
-            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Numero de Cabidades </p class='displayResult'><button class='btn btn-primary btn-CabidadesPieza' data-bs-toggle='modal' data-bs-target='#EditModalNCP'><strong>"+ data.data[x].numeroCabidadesPieza + "</strong></button>"
+            + "<div class='p-1 m-1 border border-3 bg-white'><p class='badge bg-secondary displayResult'>Cavidades </p class='displayResult'><button class='btn btn-primary btn-CabidadesPieza' data-bs-toggle='modal' data-bs-target='#EditModalNCP'><strong>"+ data.data[x].numeroCabidadesPieza + "</strong></button>"
             +"</div>"
 
 
@@ -202,6 +205,8 @@ function SetEditEmpleado(data) {
 function GuardarCambiosEmpleados() {
     var idMovimiento = localStorage.getItem('EditRelacion');
     var idEmpleado = $("#EleccionEmpleado").val();
+    $("#EleccionEmpleado").val('0');
+
     var currentOT = localStorage.getItem('currentOT');
 
     $.ajax({
@@ -264,7 +269,9 @@ function EvaluateOTEstado(data) {
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-info");
-            $("#AccionesOrdenTrabajo").append("<button class='btn btn-success bg-gradient m-2' onclick='SetActiva()'><strong>Iniciar</strong></button>");
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-success bg-gradient m-2' id='iniciarActiva' onclick='SetActiva()'><strong>Iniciar</strong></button>");
+       
+          
             break;
         case 2:
             //$("#AccionesOrdenTrabajo").html("");
@@ -276,15 +283,34 @@ function EvaluateOTEstado(data) {
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-success");
-            $("#AccionesOrdenTrabajo").append("<button class='btn btn-light bg-gradient m-2' onclick='SetAceptar();' ><strong>Liberar</strong></button>")
-            $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetPausa();'><strong>Pausar</strong></button>")
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-light bg-gradient m-2' onclick='SetAceptar();' id='iniciarLiberar' ><strong>Liberar</strong></button>");
+            $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' id='iniciarPausa' onclick='SetPausa();'><strong>Pausar</strong></button>");
+            var buttonPausa = $("#iniciarPausa");
+            var buttonLiberar = $("#iniciarLiberar");
+            buttonPausa.attr('disabled', 'disabled');
+            buttonLiberar.attr('disabled', 'disabled');
+            AddOtLoader();
+            setTimeout(function () {
+                buttonPausa.removeAttr('disabled');
+                buttonLiberar.removeAttr('disabled');
+                RemoveOtLoader();
+            }, 12000);
+           
+         
             break;
         case 10:
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-warning");
-            $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' onclick='SetTerminar();'><strong>Aceptar</strong></button>")
-
+            $("#AccionesOrdenTrabajo").append("<button class='btn bg-dark bg-gradient m-2 text-white' id='iniciarTerminar' onclick='SetTerminar();'><strong>Aceptar</strong></button>")
+            var buttonTerminar = $("#iniciarTerminar");
+          
+            buttonTerminar.attr('disabled', 'disabled');
+            AddOtLoader();
+            setTimeout(function () {
+                buttonTerminar.removeAttr('disabled');
+                RemoveOtLoader();
+            }, 14000);
             break;
         case 11:
             $("#AccionesOrdenTrabajo").html("");
@@ -298,8 +324,15 @@ function EvaluateOTEstado(data) {
             $("#AccionesOrdenTrabajo").html("");
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-danger");
-            $("#AccionesOrdenTrabajo").append("<button class='btn btn-success bg-gradient m-2' onclick='SetReanudar();'>Reanudar</button>")
-         
+            $("#AccionesOrdenTrabajo").append("<button class='btn btn-success bg-gradient m-2' id='iniciarActiva' onclick='SetReanudar();'>Reanudar</button>")
+            var buttonActiva = $("#iniciarActiva");
+
+            buttonActiva.attr('disabled', 'disabled');
+            AddOtLoader();
+            setTimeout(function () {
+                buttonActiva.removeAttr('disabled');
+                RemoveOtLoader();
+            }, 14000);
             break;
     }
 
@@ -309,7 +342,7 @@ function SetTerminar() {
     UpdateOTEstado(11);
     RegistrarFinalLiberar();
     MostrarInformeTiemposMuertos();
-    setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
+    setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 2000);
 
 }
 function SetReanudar() {
@@ -317,7 +350,7 @@ function SetReanudar() {
     RegistrarFinalDetenida();
     UpdateOTEstado(9);
     UpdateRegistroBitacoraOrdenTrabajo();
-    setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
+    setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 2000);
   
 }
 function SetActiva() {
@@ -337,7 +370,9 @@ function SetPausa() {
         UpdateFechaFinalizacion();
         UpdateOTEstado(12);
         RegistrarFinalActiva();
-        setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
+        setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 2000);
+        $("#checkRespuesta").val('0').change();
+        $("#MotivoCambioEstadoModal").modal('hide');
     }
    
 }
@@ -369,8 +404,13 @@ function ObtenerCajasRecibidas() {
     });
 }
 function UpdateCajasRecibidas() {
-    var NumeroCajasRecibidas = $("#CajasRecibidas").val();
-    var NumeroPiezasRecibidas = $("#PiezasSueltasRecibidas").val();
+    var NumeroCajasRecibidas = 0;
+     NumeroCajasRecibidas = $("#CajasRecibidas").val();
+    $("#CajasRecibidas").val(0);
+
+    var NumeroPiezasRecibidas = 0;
+        NumeroPiezasRecibidas = $("#PiezasSueltasRecibidas").val();
+    $("#PiezasSueltasRecibidas").val(0);
 
     var IdDetalleCajasRecibidas = localStorage.getItem('idDetalleCajasRecibidas');
     $.ajax({
@@ -398,7 +438,10 @@ function FillCajasRecibidas(data) {
 
 }
 function UpdateCajasRealizadas() {
-    var PiezasRealizadas = $("#PiezasRealizadas").val();
+
+    var PiezasRealizadas = 0;
+        PiezasRealizadas = $("#PiezasRealizadas").val();
+    $("#PiezasRealizadas").val(0);
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
     $.ajax({
         type: "POST",
@@ -457,11 +500,11 @@ function ObtenerFechaInicio() {
 }
 function FillFechaInicio(data) {
     $("#ShowHoraInicio").html("");
-    $("#ShowHoraInicio").append("<p class='badge bg-primary'> <strong>Fecha de Inicio : </strong>" + data.data[0].HoraInicio + "</p>")
+    $("#ShowHoraInicio").append("<p class='badge bg-primary'> <strong>Fecha de Inicio : </strong>" + FormatDate(data.data[0].HoraInicio) + " " + FormatTime(data.data[0].HoraInicio) + "</p>")
 }
 function FillFechaFinalizacion(data) {
     $("#ShowHoraFinalizacion").html("");
-    $("#ShowHoraFinalizacion").append("<p class='badge bg-primary'> <strong> Fecha de Finalizacion : </strong>" + data.data[0].HoraFinalizacion + "</p>");
+    $("#ShowHoraFinalizacion").append("<p class='badge bg-primary'> <strong> Fecha de Finalizacion : </strong>" + FormatDate(data.data[0].HoraFinalizacion) + " " + FormatTime(data.data[0].HoraFinalizacion) + "</p>");
 }
 function UpdateFechaInicio() {
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
@@ -587,8 +630,8 @@ function RegistrarDuracionEstado(
         },
         dataType: "json",
         success: function (data) {
-        
-          setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
+            setTimeout(ObtenerUltimoRegistroBitacoraDuracionEstado(), 2000);
+          setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 2000);
            
         }
     }); 
@@ -622,8 +665,8 @@ function UpdateBitacoraOrdenTrabajoProdTerminada() {
         },
         dataType: "json",
         success: function (data) {
-           
-            ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo();
+            setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 2000);
+     
             $("#ResumenTiemposMuertos").modal("hide");
             EvaluarProduccionCompletada();
             
@@ -634,9 +677,13 @@ function UpdateBitacoraOrdenTrabajoProdTerminada() {
 function InsertRespuestaCambioEstado() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
     var IdMotivoCambioEstadoFK = document.getElementById('checkRespuesta').value;
-    ObtenerUltimoRegistroBitacoraDuracionEstado();
-    var IdBitacoraOrdenTrabajo = localStorage.getItem('currentBOT');
-    RegistrarDuracionEstado(0, IdOrdenTrabajoFK, IdMotivoCambioEstadoFK, 12, IdBitacoraOrdenTrabajo);
+    setTimeout(ObtenerUltimoRegistroBitacoraDuracionEstado(), 2000);
+                  
+    setTimeout(function () {
+
+        var IdBitacoraOrdenTrabajo = localStorage.getItem('currentBOT');
+        RegistrarDuracionEstado(0, IdOrdenTrabajoFK, IdMotivoCambioEstadoFK, 12, IdBitacoraOrdenTrabajo)
+    }, 10000);
     SetPausa();
 
 }
@@ -656,9 +703,12 @@ function CheckRespuestaCambioEstado() {
 //registrar inicio de estado activo 
 function RegistrarInicioActiva() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
-    setTimeout(ObtenerUltimoRegistroBitacoraDuracionEstado(), 1000);
-    var IdBitacoraOrdenTrabajo = localStorage.getItem('currentBOT');
-    setTimeout(RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 9, IdBitacoraOrdenTrabajo), 7000);
+   
+    setTimeout(function () {
+       
+        var IdBitacoraOrdenTrabajo = localStorage.getItem('currentBOT');
+        RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 9, IdBitacoraOrdenTrabajo)
+    }, 10000); 
 
 }
 //resgistrar final de estado activo 
@@ -675,9 +725,12 @@ function RegistrarFinalDetenida() {
 //registrar inicio de estado por liberar
 function RegistrarInicioLiberar() {
     var IdOrdenTrabajoFK = localStorage.getItem('currentOT');
-    ObtenerUltimoRegistroBitacoraDuracionEstado();
-    var IdBitacoraOrdenTrabajo = localStorage.getItem('currentBOT');
-    RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 10, IdBitacoraOrdenTrabajo);
+    setTimeout(ObtenerUltimoRegistroBitacoraDuracionEstado(),500);
+   
+    setTimeout(function () {
+        var IdBitacoraOrdenTrabajo = localStorage.getItem('currentBOT');
+        RegistrarDuracionEstado(0, IdOrdenTrabajoFK, 22, 10, IdBitacoraOrdenTrabajo)
+    }, 10000);
 }
 //registrar final de estado por liberar 
 function RegistrarFinalLiberar() {
@@ -691,11 +744,12 @@ function ObtenerUltimoRegistroBitacoraDuracionEstado() {
     $.ajax({
         type: "POST",
         url: "../../BitacoraOrdenTrabajo/ObtenerUltimoRegistroBitacoraDuracionEstado",
-
         data: {
             IdOrdenTrabajoFK: IdOrdenTrabajo
-        }, dataType: "json",
+        },
+        dataType: "json",
         success: function (IdBitacoraOrdenTrabajo) {
+         
             localStorage.setItem('currentBOT', IdBitacoraOrdenTrabajo);
         }
 
@@ -749,7 +803,7 @@ function FillInformeTiempoMuertos(data) {
     $("#ResumenSumPorLiberar").html("");
     $("#ResumenSumActiva").html("");
     */
-    $.each(data.total, function (z) {
+   /* $.each(data.total, function (z) {
       
 
         if (data.total[z].nombreEstado == 'PAUSADA') {
@@ -767,7 +821,7 @@ function FillInformeTiempoMuertos(data) {
 
 
     });
-    
+    */
 
     $("#ResumenTiemposMuertos").modal("show");
 
@@ -777,7 +831,9 @@ function FormatearDateEstado(fecha) {
     return dateTimeEST.toLocaleTimeString();
 }
 function UpdateNumeroCabidades() {
-    var numCab = $("#NumeroCabidades").val();
+    var numCab = 0;
+    numCab = $("#NumeroCabidades").val();
+    $("#NumeroCabidades").val(0);
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
     $.ajax({
         type: "POST",
@@ -992,7 +1048,7 @@ function ObtenerSumBitacoraOrdenTrabajoProduccion() {
 }
 function FillSumProduccionActual(data) {
     $("#ProduccionTotal").remove();
-    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white displayResult' id='ProduccionTotal'><p class='badge bg-secondary text-wrap displayResult'>Produccion Total</p><p class='displayResult'>" + data + "</p></div>");
+    $("#BitacoraOrdenTrabajo").append("<div class='p-1 m-1 border border-3 bg-white displayResult' id='ProduccionTotal'><p class='badge bg-secondary text-wrap displayResult'>Produccion Acumulada</p><p class='displayResult'>" + data + "</p></div>");
 }
 function ValidateSumBitacoraOrdenTrabajoProduccion() {
     var IdOrdenTrabajo = localStorage.getItem('currentOT');
@@ -1027,6 +1083,7 @@ function ValidateIfExistsBitacoraOrdenTrabajo() {
             if (data == true) {
 
                 setTimeout(ObtenerBitacoraOrdenTrabajoByIdOrdenTrabajo(), 7000);
+                setTimeout(ObtenerUltimoRegistroBitacoraDuracionEstado(), 7000);
                 ValidateSumBitacoraOrdenTrabajoProduccion();
             } else {
 
@@ -1034,4 +1091,29 @@ function ValidateIfExistsBitacoraOrdenTrabajo() {
         }
 
     });
+}
+function FormatDate(fecha) {
+    let dateTimeEST = new Date(fecha);
+    return dateTimeEST.toLocaleDateString();
+}
+function FormatTime(fecha) {
+    let dateTimeEST = new Date(fecha);
+    return dateTimeEST.toLocaleTimeString();
+}
+
+
+function AddOtLoader() {
+    $("body").append("<span id='OtLoaderPoint' class='btnLoader'></span>");
+   
+
+    $("#ot-wrapper").addClass("OtLoader");
+ 
+}
+function RemoveOtLoader() {
+
+    $("#ot-wrapper").removeClass("OtLoader");
+    
+        $("#OtLoaderPoint").remove();
+  
+   
 }

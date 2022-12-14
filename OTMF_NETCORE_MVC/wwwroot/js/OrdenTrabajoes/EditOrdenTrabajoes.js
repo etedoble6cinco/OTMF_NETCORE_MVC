@@ -123,7 +123,7 @@ function FillMaquinas(data) {
     });
     $("#MaquinasRelacionadas").append("<section class='m-1'>" +
         "<button type='button' class='btn btn-primary m-1'  data-bs-toggle='modal' data-bs-target='#MaquinaModal'>" +
-        "Asignar Maquina</button>"
+        "Asignar Linea</button>"
         + "</section>");
 
 }
@@ -140,7 +140,7 @@ function ObtenerMaquinasById(dataRel) {
         success: function (data) {
             console.log(dataRel);
             $("#MaquinasRelacionadas").append("<section id='Maquina' class='p-1 m-1 bg-secondary'>"
-                + "<div class='badge bg-light text-dark'><h5>Maquina </h5><p>"
+                + "<div class='badge bg-light text-dark'><h5>Linea </h5><p>"
                 + data.data.nombreMaquina + "</p></div>" +
                 "<button class='btn btn-lg btn-primary m-1 p-2' data-bs-toggle='modal' data-bs-target='#MaquinaModal' onclick=\"SetMaquinasAsignadasByOTId(\'" + dataRel.IdMaquinaOrdeTrabajo + "\');\"><i class='fas fa-edit' ></i></button>" +
                 "<button class='btn btn-lg btn-primary m-1 p-2'  onclick=\"DeleteMaquinasAsignadasByOTId(\'" + dataRel.IdMaquinaOrdeTrabajo + "\');\"><i class='fa fa-trash' aria-hidden='true'></i></button> </section>");

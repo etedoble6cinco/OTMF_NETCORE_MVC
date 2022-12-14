@@ -36,9 +36,9 @@
             { "data": "idEmpleado" },
             { "data": "nombreEmpleado" },
             { "data": "claveEmpleado" },
-            { "data": "idTipoEmpleado" },
+         
             { "data": "nombreTipoEmpleado" },
-            { "data": "idTurno" },
+    
             { "data": "nombreTurno" }
 
 

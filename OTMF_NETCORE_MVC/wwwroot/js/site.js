@@ -235,7 +235,7 @@ function ObtenerAllBitacorasOtByOtId(IdOrdenTrabajo) {
         },
         dataType: 'json',
         success: function (data) {
-
+            console.log(data);
             FillAllBitacorasOtByOtId(data);
         }
     });
@@ -243,20 +243,59 @@ function ObtenerAllBitacorasOtByOtId(IdOrdenTrabajo) {
 function ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(IdBitacoraOrdenTrabajoFK) {
     $.ajax({
         type: 'POST',
-        url: '../../BitacoraOrdenTrabajo/ObtenerAllBitacorasOtByOtId',
+        url: '../../BitacoraOrdenTrabajo/ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo',
         data: {
             IdBitacoraOrdenTrabajoFK: IdBitacoraOrdenTrabajoFK
         },
         dataType: 'json',
         success: function (data) {
 
-            console.log(data);
-            $("DetalleDuracionEstados").append("<p>"+data+"</p>")
+            FillObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(data);
+
+
         }
     });
 
     
 }
+function FillObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(data){
+    console.log(data);
+    $("#DetalleDuracionEstados").html("");
+    $("#DetalleDuracionEstados").append('<table id="DetalleDuracionEstados" class="table table-strip">' +
+        '<thead><tr>' +
+        '<th>Duracion</th>' +
+        '<th>Fecha de Inicio</th>' +
+        '<th>Fecha de Finalizacion</th>' +
+        '<th>Hora Inicio</th>' +
+        '<th>Hora Finalizacion</th>' +
+        '<th>Estado</th>' +
+        '<th>Detalle de Cambio</th>' +
+      
+
+        '</tr></thead>' +
+        '<tbody id="ContenidoDetalleDuracionEstados">' +
+        '</tbody>'
+        + '</table>');
+
+    $("#ContenidoDetalleDuracionEstados").html("");
+
+    $.each(data.data, function (n) {
+
+        $("#ContenidoDetalleDuracionEstados").append("<tr>" +
+            "<td>" + data.data[n].Duracion + "</td>" +
+            "<td>" + FormatDate(data.data[n].InicioEstado) + "</td>" +
+            "<td>" + FormatDate(data.data[n].FinalEstado) + "</td>" +
+            "<td>" + FormatTime(data.data[n].InicioEstado) + "</td>" +
+            "<td>" + FormatTime(data.data[n].FinalEstado) + "</td>" +
+            "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
+            "<td>" + data.data[n].NombreMotivoCambioEstado+ "</td>" +
+     
+
+
+            "</tr>");
+    });
+}
+
 function FillAllBitacorasOtByOtId(data) {
  
     $("#DetalleBitcoraOrdenTrabajo").remove();
@@ -280,6 +319,8 @@ function FillAllBitacorasOtByOtId(data) {
         '<th>Estandar por Horas</th>' +
         '<th>Fecha de Creacion</th>' +
         '<th>Horas Trabajadas</th>' +
+        '<th>Horas Acumuladas</th>' +
+
         '<th>Detalles</th'+
         '</tr></thead>' +
         '<tbody id="ContenidoDetalleBitacoraOrdenTrabajo">' +
@@ -307,7 +348,8 @@ function FillAllBitacorasOtByOtId(data) {
             "<td>" + data.data[n].estandarPorHorasCalculado + "</td>" +
             "<td>" + FormatDate(data.data[n].fechaOrdenTrabajo) + "</td>" +
             "<td>" + data.data[n].horasTrabajadasCalculado + "</td>" +
-            "<td><button type='button' class='btn btn-primary'onclick=\"ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(\'" + data.data[n].idBitacoraOrdenTrabajo + "\');\">Duracion de estados</button></td>" +
+            "<td>" + data.data[n].horasTrabajasAcumulado + "</td>" +
+            "<td><a <a href='#DetalleDuracionEstados'><button type='button' class='btn btn-primary'onclick=\"ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(\'" + data.data[n].idBitacoraOrdenTrabajo + "\');\">Duracion de estados</button></a></td>" +
 
             "</tr>");
     });
@@ -316,6 +358,10 @@ function FillAllBitacorasOtByOtId(data) {
 
 
 
+}
+async function ObtenerUsuarioSistema() {
+
+    const response = await fetch('../../')
 }
 
 function ObtenerDetallesOrdenTrabajo(IdOrdenTrabajo) {
@@ -539,5 +585,33 @@ function FormatDate(fecha) {
 function FormatTime(fecha) {
     let dateTimeEST = new Date(fecha);
     return dateTimeEST.toLocaleTimeString();
+}
+function EvaluateEstado(IdEstadoOrdenFK) {
+    switch (IdEstadoOrdenFK) {
+        case 7: return "<p>PLANEADO</p>";
+            break;
+        case 9: return "<p>ACTIVA</p>";
+            break;
+        case 10: return "<p>PARA LIBERAR</p>";
+            break;
+        case 11: return "<p>TERMINADA</p>";
+            break;
+        case 12: return "<p>PAUSADA</p>";
+            break;
+
+
+    }
+}
+function ObtenerTiempoMinutos(date1,date2) {
+    dt1 = new Date(date1);
+    dt2 = new Date(date2);
+     return diff_minutes(dt1, dt2);
+}
+function diff_minutes(dt2, dt1) {
+
+    var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= 60;
+    return Math.abs(Math.round(diff));
+
 }
 //-------------------------------------------------------modal para busqueda de ordenes de trabajo

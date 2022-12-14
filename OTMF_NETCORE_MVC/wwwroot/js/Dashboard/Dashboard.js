@@ -142,7 +142,7 @@ function PorcenajeProdMeta() {
 
 
    
-    },2000);
+    },6000);
 
 }
 //CALCULAR MAS MAQUINAS POR DIA
