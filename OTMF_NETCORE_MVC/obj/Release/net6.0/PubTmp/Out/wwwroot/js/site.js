@@ -1,6 +1,7 @@
 ﻿
 
 
+
 function GetDetailsPartes() {
     $.ajax({
         type: 'GET',
@@ -19,19 +20,18 @@ function GetDetailsPartes() {
 function GetDetailsOrdenesTrabajo() {
 
 }
-//--------------------------------------------------------------------------modal para busqueda de ordenes de trabajo
-function AsignacionEmpleadosOrdenTrabajo () {
-    $("body").append('<div class= "modal fade " id="RelacionEmpleadosOrdenTrabajoModal" >'+
-        '<div class="modal-dialog  modal-lg">'+
-            '<div class="modal-content">'+
-                '<div class="modal-header">'+
-                    '<button type="button" class="btn" onclick="CerrarRelacionEmpleados()">&times;</button>'+
-                    '<h4 class="modal-title">Buscar Orden Trabajo</h4>'+
+$(document).ready(function () {
+    $("body").append('<div class="modal fade" id="RelacionEmpleadosOrdenTrabajoModal" aria-hidden="true" aria-labelledby="RelacionEmpleadosOrdenTrabajoModal" tabindex="-1" >' +
+        '<div class="modal-dialog  modal-xl">' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '<button type="button" class="btn" data-bs-dismiss="modal">&times;</button>' +
+        '<h4 class="modal-title">Buscar Orden Trabajo</h4>' +
         '</div>' +
 
-                '<div class="modal-body">'+
-        '<div class="row">'+
-        '<div class= "col-4"><div class="form-check">'+
+        '<div class="modal-body">' +
+        '<div class="row">' +
+        '<div class= "col-4"><div class="form-check">' +
         '<input type="radio" class="form-check-input" value="busquedaCodigo" id="busquedaCodigo" name="busqueda">' +
         '<label class="form-check-label" for="busquedaCodigo">Busqueda por codigo</label></div>' +
         '</div>'
@@ -43,20 +43,24 @@ function AsignacionEmpleadosOrdenTrabajo () {
         '<div class="form-check">' +
         '<input type="radio" class="form-check-input" id="busquedaFecha" value="busquedaFecha" name="busqueda">' +
         '<label for="busquedaFecha">Busqueda por Fecha</label>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-               '<div class="container" id="eleccion"></div>'+
-               '<div class="container" id="resultados"></div>'+
-                '<div class="modal-footer">'+
-                   ' <button type="button" class="btn btn-default" onclick="CerrarRelacionEmpleados()">Close</button>'+
-                '</div>'+
-            '</div>'+
-        '</div>'+
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="container" id="eleccion"></div>' +
+        '<div class="container" id="resultados"></div>' +
+        '<div class="modal-footer">' +
+        ' <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
         '</div>');
+});
+//--------------------------------------------------------------------------modal para busqueda de ordenes de trabajo
+function AsignacionEmpleadosOrdenTrabajo () {
+    
 
 
-    $("#RelacionEmpleadosOrdenTrabajoModal").modal("show");
+   
     $('input:radio[name="busqueda"]').change(function () {
         $(".daterangepicker").remove();
         if ($(this).is(':checked') && $(this).val() == 'busquedaCodigo') {
@@ -109,22 +113,27 @@ function evaluarEstadoSeleccionado() {
     $('input:radio[name="estado"]').change(function () {
         if ($(this).is(':checked') && $(this).val() == 'activo')
         {
+         
             ObtenerOrdenesTrabajoDetallesByState(9);
         }
         if ($(this).is(':checked') && $(this).val() == 'liberar')
         {
+            
             ObtenerOrdenesTrabajoDetallesByState(10);
         }
         if ($(this).is(':checked') && $(this).val() == 'pausada')
         {
+            
             ObtenerOrdenesTrabajoDetallesByState(12);
         }
         if ($(this).is(':checked') && $(this).val() == 'planeada')
         {
+        
             ObtenerOrdenesTrabajoDetallesByState(7);
         }
         if ($(this).is(':checked') && $(this).val() == 'terminada')
         {
+            
             ObtenerOrdenesTrabajoDetallesByState(11);
         }
     });
@@ -158,36 +167,201 @@ function ResultadosBusquedaOt() {
     });
 }
 function AgregarTableResultados(data) {
-  
+
     $("#resultados").html("");
     $("#resultados").append("<table id='OrdenTrabajo' class='table hover'>"
         +"<thead>"
         +"<tr>"
-        +"<th>Codigo</th>"
-        +"<th>Pieza</th>"
+        +"<th>Orden de Trabajo</th>"
+        +"<th>Numero de Parte</th>"
         +"<th>Estado</th>"
-        +"<th>Acciones</th>"
-        +"</tr > "
+        +"<th>Piezas Realizadas</th>"
+        + "<th>Detalles</th>"
+        + "<th>Detalles</th>"
+        +"</tr> "
         +"</thead > "
         +"<tbody id='resultados2'>"
-        
         + "</tbody>"
-        + "</table > ");
+        + "</table> ");
     $("#resultados2").html("");
     $.each(data.data, function (n) {
-       
-        $("#resultados2").append("<tr>" +
-            "<td>" + data.data[n].IdCodigoOrdenTrabajo + "</td>" +
-            "<td>" + data.data[n].IdCodigoParte + "</td>" +
-            "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
-            "<td><button class='btn btn-lg btn-primary m-1 p-2'    onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"
+      
+            $("#resultados2").append("<tr>" +
+                "<td>" + data.data[n].IdCodigoOrdenTrabajo + "</td>" +
+                "<td>" + data.data[n].IdCodigoParte + "</td>" +
+                "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
+                "<td id='PiezasRealizadasTotal_" + n + "'>" + ObtenerPiezasRealizadas(data.data[n].IdOrdenTrabajo, n) + "</td>" +
+                "<td><button type='button' class='btn btn-lg btn-primary m-1 p-2' data-bs-toggle='tooltip'' data-bs-placement='top' title='Detalles Orden de Trabajo' onclick=\"ObtenerDetallesOrdenTrabajo(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-eye' aria-hidden='true'></i></button></td>"+
+            "<td><button type='button' class='btn btn-lg btn-primary m-1 p-2' data-bs-toggle='tooltip' data-bs-placement='top' title='Detalle de Bitacora de Orden Trabajo'  onclick=\"ObtenerAllBitacorasOtByOtId(\'" + data.data[n].IdOrdenTrabajo + "\');\"><i class='fa fa-info-circle' aria-hidden='true'></i></button></td>"+
+                   
+                 "</tr>")
+    
+    });
+  
+}
 
-            + "</tr>");
+function ObtenerPiezasRealizadas(IdOrdenTrabajo,n) {
+
+    $.ajax({
+        type: 'POST',
+        url: '../../BitacoraOrdenTrabajo/ObtenerSumBitacoraOrdenTrabajoProduccion',
+        data: {
+            IdOrdenTrabajo: IdOrdenTrabajo
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data === undefined && typeof data == 'undefined' ) {
+                setTimeout(() => {
+                    document.getElementById("PiezasRealizadasTotal_" + n).innerText = "No hay produccion registrada";
+                }, 500);
+            }
+        
+            setTimeout(() => {
+                document.getElementById("PiezasRealizadasTotal_" + n).innerText = data;
+            }, 500);
+           
+            console.log("PiezasRealizadasTotal_" + n);
+        }
     });
-    $("#OrdenTrabajo").DataTable({
-        dom: 'Plfrtip'
-       
+   
+}
+function ObtenerAllBitacorasOtByOtId(IdOrdenTrabajo) {
+    $.ajax({
+        type: 'GET',
+        url: '../../BitacoraOrdenTrabajo/ObtenerAllBitacorasOtByOtId',
+        data: {
+            Id: IdOrdenTrabajo
+        },
+        dataType: 'json',
+        success: function (data) {
+            
+            FillAllBitacorasOtByOtId(data);
+        }
     });
+}
+function ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(IdBitacoraOrdenTrabajoFK) {
+    $.ajax({
+        type: 'POST',
+        url: '../../BitacoraOrdenTrabajo/ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo',
+        data: {
+            IdBitacoraOrdenTrabajoFK: IdBitacoraOrdenTrabajoFK
+        },
+        dataType: 'json',
+        success: function (data) {
+
+            FillObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(data);
+
+
+        }
+    });
+
+    
+}
+function FillObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(data){
+    console.log(data);
+    $("#DetalleDuracionEstados").html("");
+    $("#DetalleDuracionEstados").append('<table id="DetalleDuracionEstados" class="table table-strip">' +
+        '<thead><tr>' +
+        '<th>Duracion</th>' +
+        '<th>Fecha de Inicio</th>' +
+        '<th>Fecha de Finalizacion</th>' +
+        '<th>Hora Inicio</th>' +
+        '<th>Hora Finalizacion</th>' +
+        '<th>Estado</th>' +
+        '<th>Detalle de Cambio</th>' +
+      
+
+        '</tr></thead>' +
+        '<tbody id="ContenidoDetalleDuracionEstados">' +
+        '</tbody>'
+        + '</table>');
+
+    $("#ContenidoDetalleDuracionEstados").html("");
+
+    $.each(data.data, function (n) {
+
+        $("#ContenidoDetalleDuracionEstados").append("<tr>" +
+            "<td>" + data.data[n].Duracion + "</td>" +
+            "<td>" + FormatDate(data.data[n].InicioEstado) + "</td>" +
+            "<td>" + FormatDate(data.data[n].FinalEstado) + "</td>" +
+            "<td>" + FormatTime(data.data[n].InicioEstado) + "</td>" +
+            "<td>" + FormatTime(data.data[n].FinalEstado) + "</td>" +
+            "<td>" + data.data[n].NombreEstadoOrden + "</td>" +
+            "<td>" + data.data[n].NombreMotivoCambioEstado+ "</td>" +
+     
+
+
+            "</tr>");
+    });
+}
+
+function FillAllBitacorasOtByOtId(data) {
+ 
+    $("#DetalleBitcoraOrdenTrabajo").remove();
+    $("body").append('<div class="modal fade" id="DetalleBitacoraOrdenTrabajo" aria-hidden="true" aria-labelledby="DetalleBitacoraOrdenTrabajo" tabindex="-1">' +
+        '<div class="modal-dialog modal-xl">' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '<button type="button" class="btn"  data-bs-dismiss="modal"  ><i class="fa fa-arrow-left" aria-hidden="true"></i></button>' +
+        '<h4 class="modal-title">Detalle Bitacora Orden Trabajo</h4>' + 
+        '</div>' +
+        '<div class="modal-body">' +
+        '<div class="container-fluid">' +
+        '<div>' +
+        '<table class="table table-strip">' +
+        '<thead><tr>' +
+        '<th>Cajas Recibidas</th>' +
+        '<th>Piezas por Orden</th>' +
+        '<th>Piezas realizadas</th>' +
+        '<th>Estandar</th>' +
+        '<th>Estandar con Relevo</th>' +
+        '<th>Estandar por Horas</th>' +
+        '<th>Fecha de Creacion</th>' +
+        '<th>Horas Trabajadas</th>' +
+        '<th>Horas Acumuladas</th>' +
+
+        '<th>Detalles</th'+
+        '</tr></thead>' +
+        '<tbody id="ContenidoDetalleBitacoraOrdenTrabajo">' +
+        '</tbody>'
+        + '</table>'
+        + '</div>'
+        + '</div>' +
+        '<div class="container" id="resultados"></div>' +
+        '<div class="modal-footer" id="DetalleDuracionEstados">' +
+        '<button type="button" class="btn btn-default"  data-bs-dismiss="modal">Close</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>');
+    $("#ContenidoDetalleBitacoraOrdenTrabajo").html("");
+
+    $.each(data.data, function (n) {
+
+        $("#ContenidoDetalleBitacoraOrdenTrabajo").append("<tr>" +
+            "<td>" + data.data[n].cajasRecibidas              + "</td>" +
+            "<td>" + data.data[n].cantidadPiezasPorOrden          + "</td>" +
+            "<td>" + data.data[n].cantidadPiezasPorOrdenRealizadas      + "</td>" +
+            "<td>" + data.data[n].estandarCalculado + "</td>" +
+            "<td>" + data.data[n].estandarConRelevoCalculado + "</td>" +
+            "<td>" + data.data[n].estandarPorHorasCalculado + "</td>" +
+            "<td>" + FormatDate(data.data[n].fechaOrdenTrabajo) + "</td>" +
+            "<td>" + data.data[n].horasTrabajadasCalculado + "</td>" +
+            "<td>" + data.data[n].horasTrabajadasAcumulado + "</td>" +
+            "<td><a <a href='#DetalleDuracionEstados'><button type='button' class='btn btn-primary'onclick=\"ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(\'" + data.data[n].idBitacoraOrdenTrabajo + "\');\">Duracion de estados</button></a></td>" +
+
+            "</tr>");
+    });
+
+    $("#DetalleBitacoraOrdenTrabajo").modal("show");
+
+
+
+}
+async function ObtenerUsuarioSistema() {
+
+    const response = await fetch('../../')
 }
 
 function ObtenerDetallesOrdenTrabajo(IdOrdenTrabajo) {
@@ -207,12 +381,12 @@ function ObtenerDetallesOrdenTrabajo(IdOrdenTrabajo) {
 function FillDetallesOrdenTrabajo(data) {
  
     $("#DetallesOrdenTrabajo").remove();
-    $("body").append('<div class= "modal fade modal-dialog-scrollable " id="DetallesOrdenTrabajo" >' +
-        '<div class="modal-dialog">' +
+    $("body").append('<div class= "modal fade" id="DetallesOrdenTrabajo" aria-hidden="true" aria-labelledby="DetallesOrdenTrabajo" tabindex="-1" >' +
+        '<div class="modal-dialog  modal-xl">' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '<button type="button" class="btn" onclick="RegresarModal()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>' +
-        '<h4 class="modal-title">Buscar Orden Trabajo</h4>' +
+        '<button type="button" class="btn"  data-bs-dismiss="modal"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>' +
+        '<h4 class="modal-title">Detalle de Orden Trabajo</h4>' +
         '</div>' +
 
         '<div class="modal-body">' +
@@ -221,7 +395,7 @@ function FillDetallesOrdenTrabajo(data) {
         +'</div>' +
         '<div class="container" id="resultados"></div>' +
         '<div class="modal-footer">' +
-        '<button type="button" class="btn btn-default" onclick="RegresarModal">Close</button>' +
+        '<button type="button" class="btn btn-default" data-bs-dismiss="modal" >Close</button>' +
         '</div>' +
         '</div>' +
         '</div>' +
@@ -231,33 +405,30 @@ function FillDetallesOrdenTrabajo(data) {
     $.each(data.data, function (n) {
 
         $("#ContenidoDetalleOrdenTrabajo").append("<div>" +
-            "<div><strong>Codigo Pieza</strong>:" + data.data[n].IdCodigoParte      + "</div>" +
+            "<div><strong>Numero de Parte</strong>:" + data.data[n].IdCodigoParte      + "</div>" +
             "<div><strong>Estado de la Orden</strong>:" + data.data[n].NombreEstadoOrden + "</div>" +
-            "<div><strong>Codigo de la Orden Trabajo</strong>:" + data.data[n].IdCodigoOrdenTrabajo + "</div>" +
+            "<div><strong>Orden Trabajo</strong>:" + data.data[n].IdCodigoOrdenTrabajo + "</div>" +
             "<div><strong>Cantidad Piezas por Orden</strong>:" + data.data[n].CantidadPiezasPororden + "</div>" +
             "<div><strong>Estandar </strong>:" + data.data[n].EstandarCalculado + "</div> " +
             "<div><strong>Estandar Con Relevo </strong>:" + data.data[n].EstandarConRelevoCalculado + "</div> " +
             "<div><strong>Estandar Por Hora</strong>:" + data.data[n].EstandarPorHorasCalculado + "</div> " +
             "<div><strong>Etiqueta de Caja</strong>:" + data.data[n].EtiquetaDeCaja + "</div> " +
-            "<div><strong>Fecha de Creacion</strong>:" + data.data[n].FechaOrdenTrabajo + "</div> " +
+            "<div><strong>Fecha de Creacion</strong>:" + FormatDate(data.data[n].FechaOrdenTrabajo) + "</div> " +
             "<div><strong>Fraccion Estandar c/ Relevo</strong>:" + data.data[n].FracEstandarConRelevo + "</div> " +
-            "<div><strong>Hora Finalizacion</strong>:" + data.data[n].HoraFinalizacion + "</div> " +
-            "<div><strong>Hora Inicio</strong>:" + data.data[n].HoraInicio + "</div> " +
+            "<div><strong>Hora Finalizacion</strong>:" + FormatTime(data.data[n].HoraFinalizacion) + "</div> " +
+            "<div><strong>Hora Inicio</strong>:" + FormatTime(data.data[n].HoraInicio) + "</div> " +
             "<div><strong>Horas Trabajadas</strong>:" + data.data[n].HorasTrabajadasCalculado + "</div> " +
             "<div><strong>Porcentaje Scrap</strong>:" + data.data[n].PorcentajeScrapCalculado + "</div> " +
             "<div><strong>Scrap</strong>:" + data.data[n].ScrapCalculado + "</div> " +
              "</div>");
     });
-    $("#RelacionEmpleadosOrdenTrabajoModal").modal("hide");
+
     $("#DetallesOrdenTrabajo").modal("show");
-  
  
 }
 
-function RegresarModal() {
-    $("#RelacionEmpleadosOrdenTrabajoModal").modal("show");
-    $("#DetallesOrdenTrabajo").modal("hide");
-}
+
+
 
 function ObtenerOrdenTrabajoByDateRange(start, end) {
     document.getElementById("busquedaDatePicker").value = "";
@@ -291,7 +462,7 @@ function ObtenerOrdenTrabajoByOTCode() {
 }
 function FillOrdenTrabajoAutoComplete() {
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: '../../OrdenTrabajoes/ObtenerOrdenesTrabajo',
         dataType: 'json',
        
@@ -306,11 +477,7 @@ function FillOrdenTrabajoAutoComplete() {
         }
     });
 }
-function CerrarRelacionEmpleados() {
-    $("#RelacionEmpleadosOrdenTrabajoModal").modal("hide");
-    $("#RelacionEmpleadosOrdenTrabajoModal").remove();
 
-}
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -409,5 +576,42 @@ function autocomplete(inp, arr) {
    
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
     
+}
+
+function FormatDate(fecha) {
+    let dateTimeEST = new Date(fecha);
+    return dateTimeEST.toLocaleDateString();
+}
+function FormatTime(fecha) {
+    let dateTimeEST = new Date(fecha);
+    return dateTimeEST.toLocaleTimeString();
+}
+function EvaluateEstado(IdEstadoOrdenFK) {
+    switch (IdEstadoOrdenFK) {
+        case 7: return "<p>PLANEADO</p>";
+            break;
+        case 9: return "<p>ACTIVA</p>";
+            break;
+        case 10: return "<p>PARA LIBERAR</p>";
+            break;
+        case 11: return "<p>TERMINADA</p>";
+            break;
+        case 12: return "<p>PAUSADA</p>";
+            break;
+
+
+    }
+}
+function ObtenerTiempoMinutos(date1,date2) {
+    dt1 = new Date(date1);
+    dt2 = new Date(date2);
+     return diff_minutes(dt1, dt2);
+}
+function diff_minutes(dt2, dt1) {
+
+    var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= 60;
+    return Math.abs(Math.round(diff));
+
 }
 //-------------------------------------------------------modal para busqueda de ordenes de trabajo

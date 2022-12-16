@@ -1,3 +1,3 @@
-*.bin
-*.v2
-*.dll
+OTMF_NETCORE_MVC/obj/*
+OTMF_NETCORE_MVC/bin/*
+../.vs/*

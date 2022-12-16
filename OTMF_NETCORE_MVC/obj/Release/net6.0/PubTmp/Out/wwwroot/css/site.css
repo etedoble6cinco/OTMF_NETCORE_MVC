@@ -1,27 +1,4 @@
-html {
-  font-size: 14px;
-}
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-
-fieldset{
-    background-color :white;
-    padding:3px;
-    
-}
 legend {
    
     text-align: center;
@@ -104,18 +81,8 @@ body {
     min-height: 100vh;
 } */
 /* Global Stylings */
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
 
-input {
-    /*display: block;*/
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-}
+
 
 .width-50 {
     width: 50%;
@@ -129,7 +96,7 @@ input {
     text-align: center;
 }
 
-/* Progressbar */
+/* 
 .progressbar {
     position: relative;
     display: flex;
@@ -184,7 +151,7 @@ input {
     color: #f3f3f3;
 }
 
-/* Form */
+*/
 .form {
    /* width: clamp(320px, 30%, 430px); */
     margin: 0 auto;
@@ -220,23 +187,7 @@ input {
 }
 
 
-.btns-group {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
 
-.btn {
-    padding: 0.75rem;
-     display: block;
-    text-decoration: none;
-    background-color: var(--primary-color);
-    color: #f3f3f3;
-    text-align: center;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
     
     .btn:hover {
         box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
@@ -283,3 +234,103 @@ input {
     background-color: DodgerBlue !important;
     color: #ffffff;
 }
+.displayResult {
+    margin-bottom: 0rem;
+}
+.btn-CabidadesPieza {
+    padding: .1em;
+    margin: .1em;
+}
+#BitacoraOrdenTrabajo {
+   background-color:#845600;
+}
+.modal-xl {
+    max-width: 1325px;
+}
+
+
+.btnLoader {
+    --dot1: #788c9f;
+    --dot2: #788c9f33;
+    --dot3: #788c9f66;
+    --dot4: #788c9fb3;
+    --shadow1: 96px;
+    --shadow2: 48px;
+    --shadow3: -48px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--dot3);
+    box-shadow: var(--shadow1) 0 var(--dot1), var(--shadow2) 0 var(--dot2), var(--shadow3) 0 var(--dot4);
+    position: absolute;
+    top: 50%;
+    right:50%;
+    animation: 700ms linear 1ms infinite alternate flash;
+  
+}
+
+@keyframes flash {
+    0%, 100% {
+        background-color: var(--dot4);
+        box-shadow: var(--shadow1) 0 var(--dot2), var(--shadow2) 0 var(--dot3), var(--shadow3) 0 var(--dot1);
+    }
+
+    25% {
+        background-color: var(--dot1);
+        box-shadow: var(--shadow1) 0 var(--dot3), var(--shadow2) 0 var(--dot4), var(--shadow3) 0 var(--dot2);
+    }
+
+    50% {
+        background-color: var(--dot2);
+        box-shadow: var(--shadow1) 0 var(--dot4), var(--shadow2) 0 var(--dot1), var(--shadow3) 0 var(--dot3);
+    }
+
+    75% {
+        background-color: var(--dot3);
+        box-shadow: var(--shadow1) 0 var(--dot1), var(--shadow2) 0 var(--dot2), var(--shadow3) 0 var(--dot4);
+    }
+}
+
+.OtLoader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    opacity: 90;
+    pointer-events: none;
+
+}
+/*.backgorund-smi {
+    background-color: ghostwhite;
+    --dot5: #788c9f;
+    --dot6: #00BDE3;
+    --dot7: #788c9f66;
+    --dot8: #788c9fb3;
+    animation: 5s 1ms infinite alternate flash-background;
+    margin:0;
+    padding:0;
+}
+
+@keyframes flash-background {
+    0%, 100% {
+        background-color: var(--dot5);
+       
+    }
+
+    25% {
+        background-color: var(--dot6);
+  
+    }
+
+    50% {
+        background-color: var(--dot7);
+
+    }
+
+    75% {
+        background-color: var(--dot8);
+       
+    }
+}
+
+    */
