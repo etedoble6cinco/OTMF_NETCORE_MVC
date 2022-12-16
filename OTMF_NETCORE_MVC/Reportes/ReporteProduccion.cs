@@ -13,7 +13,8 @@ namespace OTMF_NETCORE_MVC.Reportes
 {
     public interface IReporteProduccion
     {
-         Task<List<ReporteProduccionViewModel>> CrearReporteProduccion(DateTime datetime);
+         Task<List<BitacoraOrdenTrabajoReporte>> CrearReporteProduccion(DateTime datetime);
+        Task<List<ReporteProduccionViewModel>> CrearReporteProduccionDetallado(DateTime dateTime);
     }
     public class ReporteProduccion : IReporteProduccion
     {
@@ -34,84 +35,211 @@ namespace OTMF_NETCORE_MVC.Reportes
             return Path.Combine(webHostEnvironment.WebRootPath + "\\Uploads\\TemplatesReporteProduccion\\", FileName);
         }
 
-        //P:\BITACORAMF\Registro de producción\2022\REGISTRO PRODUCCION SISTEMA
-        public async Task<List<ReporteProduccionViewModel>>  CrearReporteProduccion(DateTime ReporteDate)
+    
+        public async Task<List<ReporteProduccionViewModel>>  CrearReporteProduccionDetallado(DateTime ReporteDate)
         {
+            DateTime d1 = new DateTime(ReporteDate.Year,ReporteDate.Month,ReporteDate.Day,12,00,00,DateTimeKind.Local);
                 var maquinas = await _context.Maquinas.OrderBy(m => m.NombreMaquina).ToListAsync();
             List<ReporteProduccionViewModel> ReporteProduccionList = new List<ReporteProduccionViewModel>();
-            ReporteProduccionViewModel reporteProduccion = new ReporteProduccionViewModel();
+                     
+        
             foreach (var n in maquinas)
                 {
-               
-                reporteProduccion.NombreMaquina = n.NombreMaquina;
+                ReporteProduccionViewModel reporteProduccion = new ReporteProduccionViewModel();
+              
+                 reporteProduccion.NombreMaquina = n.NombreMaquina;
+                 reporteProduccion.IdMaquinaFK = n.IdMaquina;
+              
                 var bitacora = await RegistrarReporteProduccion(ReporteDate, n.IdMaquina);
-                   
-                    foreach (var m in bitacora)
+                List<BitacoraOrdenTrabajoReporte> Bitacoras = new List<BitacoraOrdenTrabajoReporte>();
+                foreach (var m in bitacora)
                     {
 
                     BitacoraOrdenTrabajoReporte BitacoraOrdenTrabajoList = new BitacoraOrdenTrabajoReporte();
-                            int IdUsuarioFK = _servicioUsuarios.ObtenerUsuarioId();
-                            int IdParteFK = (int)(await _context.OrdenTrabajos.FirstOrDefaultAsync(r => r.IdOrdenTrabajo == m.IdOrdenTrabajoFK)).IdParteFk;
-                         
-                            BitacoraOrdenTrabajoList.ClaveEmpleado = (await _context.Empleados.FirstOrDefaultAsync(x => x.IdEmpleado == m.IdEmpleadoMoldeoFK)) == null ? "NO REGISTRADO" : (await _context.Empleados.FirstOrDefaultAsync(x => x.IdEmpleado == m.IdEmpleadoMoldeoFK)).ClaveEmpleado;
-                            BitacoraOrdenTrabajoList.ClaveEmpleado = (await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == IdParteFK)) == null ? "NO REGISTRADO" : (await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == IdParteFK)).IdCodigoParte;
-                            BitacoraOrdenTrabajoList.NumeroCavidades = m.NumeroCavidades == null ? 0 : m.NumeroCavidades.Value;
-                            BitacoraOrdenTrabajoList.HorasTrabajadasCalculado = m.HorasTrabajadasCalculado == null ? 0 : m.HorasTrabajadasCalculado.Value;
-                            BitacoraOrdenTrabajoList.EstandarPorHoraCalculado = m.EstandarPorHorasCalculado == null ? 0 : m.EstandarPorHorasCalculado.Value;
-                            BitacoraOrdenTrabajoList.EstandarCalculado = m.EstandarCalculado == null ? 0 : m.EstandarCalculado.Value;
-                            BitacoraOrdenTrabajoList.TiempoAcumulado = m.TiempoAcumulado == null ? 0 : m.TiempoAcumulado.Value;
-                            BitacoraOrdenTrabajoList.CreationDateTime = DateTime.Now;
-                            BitacoraOrdenTrabajoList.CreateBy = await ObtenerEmailUsuario(); 
-                            BitacoraOrdenTrabajoList.FechaProduccion = ReporteDate;
-                            BitacoraOrdenTrabajoList.Eficiencia = 0;
-                            BitacoraOrdenTrabajoList.ProduccionBitacora = (int)m.NumeroPiezasRealizadas;
-                            var DuracionEstados = _context.DuracionEstados.Where(x => x.IdBitacoraOrdenTrabajoFk == m.IdBitacoraOrdenTrabajo).ToList();
-                    foreach (var d in DuracionEstados)
+                  
+                    int IdParteFK = (int)(await _context.OrdenTrabajos.FirstOrDefaultAsync(r => r.IdOrdenTrabajo == m.IdOrdenTrabajoFK)).IdParteFk;
+
+                    BitacoraOrdenTrabajoList.ClaveEmpleado = m.ClaveEmpleado;
+                    BitacoraOrdenTrabajoList.CodigoParte = (await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == IdParteFK)) == null ? "NO REGISTRADO" : (await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == IdParteFK)).IdCodigoParte;
+                    BitacoraOrdenTrabajoList.NumeroCavidades = m.NumeroCavidades;
+                    BitacoraOrdenTrabajoList.EstandarPorHorasCalculado = m.EstandarPorHorasCalculado;
+                    BitacoraOrdenTrabajoList.EstandarCalculado = m.EstandarCalculado;
+                    BitacoraOrdenTrabajoList.HorasTrabajadasAcumulado = m.HorasTrabajadasAcumulado;
+                    BitacoraOrdenTrabajoList.FechaReporteProduccion = ReporteDate;
+                    BitacoraOrdenTrabajoList.Eficiencia = 0;
+                    BitacoraOrdenTrabajoList.NumeroPiezasRealizadas = m.NumeroPiezasRealizadas;
+                    BitacoraOrdenTrabajoList.IdBitacoraOrdenTrabajo = m.IdBitacoraOrdenTrabajo;
+                    BitacoraOrdenTrabajoList.NombreMaquina = m.NombreMaquina;
+                    BitacoraOrdenTrabajoList.IdOrdenTrabajoFK = m.IdOrdenTrabajoFK;
+                 
+                     List<DuracionEstadosReporte> duracionPausada = new List<DuracionEstadosReporte>();  
+                     List<DuracionEstadosReporte> duracionActiva = new List<DuracionEstadosReporte>();  
+                     List<DuracionEstadosReporte> duracionParaLiberar = new List<DuracionEstadosReporte>();  
+                     List<DuracionEstadosReporte> duracionEstados = new List<DuracionEstadosReporte>();  
+                   
+                     var procedure = "[ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo]";
+                     using (var connection = new SqlConnection(connectionString))
+                         {
+                             var result = await connection.QueryAsync<DuracionEstadosReporte>(procedure, new
+                                         {
+                                             IdBitacoraOrdenTrabajoFK = m.IdBitacoraOrdenTrabajo
+                                         }, commandType: CommandType.StoredProcedure);
+
+                              duracionEstados = result.ToList();
+
+                         }
+
+                    foreach (var d in duracionEstados)
                     {
-                        if(d.IdEstadoOrdenFk == 1)
-                        {
-                            DuracionEstado duracionPausada = new DuracionEstado();
+                        if(d.IdEstadoOrdenFK == 12)
+                        { 
+                            DuracionEstadosReporte e = new DuracionEstadosReporte();
+                             
+                            e.IdDuracionEstados = d.IdDuracionEstados;
+                            e.NombreMotivoCambioEstado = d.NombreMotivoCambioEstado;
+                            e.NombreMotivoCambioEstadoDerivado = d.NombreMotivoCambioEstadoDerivado;
+                            e.InicioEstado = d.InicioEstado;
+                            e.FinalEstado = d.FinalEstado;
+                            e.Duracion = d.Duracion;
+                            e.NombreEstadoOrden = d.NombreEstadoOrden;
+                            duracionPausada.Add(e);
                         }
-                        if(d.IdEstadoOrdenFk == 2)
-                        {
-                            DuracionEstado duracionActiva = new DuracionEstado();
-                        }
-                        if(d.IdEstadoOrdenFk == 3)
-                        {
-                            DuracionEstado duracionPorLiberar = new DuracionEstado();
-                        }
-                      
-                        
-                      
-
-                        
-
                     }
-                }
+                    foreach (var d in duracionEstados)
+                    {
+                        if(d.IdEstadoOrdenFK == 9)
+                        {
+                            DuracionEstadosReporte e = new DuracionEstadosReporte();
+                            e.IdDuracionEstados = d.IdDuracionEstados;
+                            e.NombreMotivoCambioEstado = d.NombreMotivoCambioEstado;
+                            e.NombreMotivoCambioEstadoDerivado = d.NombreMotivoCambioEstadoDerivado;
+                            e.InicioEstado = d.InicioEstado;
+                            e.FinalEstado = d.FinalEstado;
+                            e.Duracion = d.Duracion;
+                            e.NombreEstadoOrden = d.NombreEstadoOrden;
+                            duracionActiva.Add(e);
+                        }
+                    }
                     
+                    foreach (var d in duracionEstados)
+                    {
+                        if(d.IdEstadoOrdenFK == 10)
+                        {
+                            DuracionEstadosReporte e = new DuracionEstadosReporte();
+                            e.IdDuracionEstados = d.IdDuracionEstados;
+                            e.NombreMotivoCambioEstado = d.NombreMotivoCambioEstado;
+                            e.NombreMotivoCambioEstadoDerivado = d.NombreMotivoCambioEstadoDerivado;
+                            e.InicioEstado = d.InicioEstado;
+                            e.FinalEstado = d.FinalEstado;
+                            e.Duracion = d.Duracion;
+                            e.NombreEstadoOrden = d.NombreEstadoOrden;
+                            duracionParaLiberar.Add(e);
+                        }
+                    }
+                    BitacoraOrdenTrabajoList.DuracionActiva = duracionActiva;
+                    BitacoraOrdenTrabajoList.DuracionPausada = duracionPausada;
+                    BitacoraOrdenTrabajoList.DuracionPorLiberar = duracionParaLiberar;
+
+                    Bitacoras.Add(BitacoraOrdenTrabajoList);
+                   
+                }
+                reporteProduccion.BitacorasList = Bitacoras;
+                ReporteProduccionList.Add(reporteProduccion);
                 
                 }
             return ReporteProduccionList.ToList();
         }
-        public async Task<string> ObtenerEmailUsuario()
+        public async Task<List<BitacoraOrdenTrabajoReporte>> CrearReporteProduccion(DateTime ReporteDate)
         {
-            int idUsaurio = _servicioUsuarios.ObtenerUsuarioId();
-            string email = (await _context.Usuarios.FirstOrDefaultAsync(x => x.IdUsuarios == idUsaurio)).Email;
-            
-            return email;
+            DateTime d1 = new DateTime(ReporteDate.Year, ReporteDate.Month, ReporteDate.Day, 12, 00, 00, DateTimeKind.Local);
+            var maquinas = await _context.Maquinas.OrderBy(m => m.NombreMaquina).ToListAsync();
+         
+            List<BitacoraOrdenTrabajoReporte> Bitacoras = new List<BitacoraOrdenTrabajoReporte>();
+
+            foreach (var n in maquinas)
+            {
+                ReporteProduccionViewModel reporteProduccion = new ReporteProduccionViewModel();
+
+                reporteProduccion.NombreMaquina = n.NombreMaquina;
+                reporteProduccion.IdMaquinaFK = n.IdMaquina;
+
+                var bitacora = await RegistrarReporteProduccion(ReporteDate, n.IdMaquina);
+               
+                foreach (var m in bitacora)
+                {
+
+                    BitacoraOrdenTrabajoReporte BitacoraOrdenTrabajoList = new BitacoraOrdenTrabajoReporte();
+
+                    int IdParteFK = (int)(await _context.OrdenTrabajos.FirstOrDefaultAsync(r => r.IdOrdenTrabajo == m.IdOrdenTrabajoFK)).IdParteFk;
+
+                    BitacoraOrdenTrabajoList.ClaveEmpleado = m.ClaveEmpleado;
+                    BitacoraOrdenTrabajoList.CodigoParte = (await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == IdParteFK)) == null ? "NO REGISTRADO" : (await _context.Partes.FirstOrDefaultAsync(z => z.IdParte == IdParteFK)).IdCodigoParte;
+                    BitacoraOrdenTrabajoList.NumeroCavidades = m.NumeroCavidades;
+                    BitacoraOrdenTrabajoList.EstandarPorHorasCalculado = m.EstandarPorHorasCalculado;
+                    BitacoraOrdenTrabajoList.EstandarCalculado = m.EstandarCalculado;
+                    BitacoraOrdenTrabajoList.HorasTrabajadasAcumulado = m.HorasTrabajadasAcumulado;
+                    BitacoraOrdenTrabajoList.FechaReporteProduccion = ReporteDate;
+                    BitacoraOrdenTrabajoList.Eficiencia = 0;
+                    BitacoraOrdenTrabajoList.NumeroPiezasRealizadas = m.NumeroPiezasRealizadas;
+                    BitacoraOrdenTrabajoList.IdBitacoraOrdenTrabajo = m.IdBitacoraOrdenTrabajo;
+                    BitacoraOrdenTrabajoList.NombreMaquina = m.NombreMaquina;
+                    BitacoraOrdenTrabajoList.IdOrdenTrabajoFK = m.IdOrdenTrabajoFK;
+                    BitacoraOrdenTrabajoList.IdCodigoOrdenTrabajo = m.IdCodigoOrdenTrabajo;
+                    BitacoraOrdenTrabajoList.HorasTrabajadasCalculado = m.HorasTrabajadasCalculado;
+                    var tiempos = await ObtenerTiemposMuertosByBitacoraOrdenTrabajo(m.IdBitacoraOrdenTrabajo);
+                    int activa = 0;
+                    int pausa = 0;
+                    int liberar = 0;
+                    foreach(var t in tiempos)
+                    {
+                        if (t.NombreEstadoOrden.Equals("ACTIVA"))
+                        {
+                            activa = t.Duracion + activa;   
+                        }
+                      
+                    }   foreach(var t in tiempos)
+                    {
+                      
+                        if (t.NombreEstadoOrden.Equals("PAUSADA"))
+                        {
+                            pausa = t.Duracion + pausa;
+                        }
+
+                    }   foreach(var t in tiempos)
+                    {
+                        if (t.NombreEstadoOrden.Equals("PARA LIBERAR"))
+                        {
+                            liberar = t.Duracion + liberar;
+                        }
+                       
+
+                    }
+
+                    BitacoraOrdenTrabajoList.Activa = activa;
+                    BitacoraOrdenTrabajoList.Pausa = pausa; 
+                    BitacoraOrdenTrabajoList.Liberar = liberar;
+                    BitacoraOrdenTrabajoList.HorasTrabajadasAcumulado = BitacoraOrdenTrabajoList.HorasTrabajadasAcumulado+pausa;
+                    Bitacoras.Add(BitacoraOrdenTrabajoList);
+
+                }
+                reporteProduccion.BitacorasList = Bitacoras;
+              
+
+            }
+            return Bitacoras.ToList();
         }
-        public async Task<List<CausasTiempoMuertoReporteProduccion>> ObtenerCausasTiempoMuertoReporteProduccion(int IdOrdenTrabajo , DateTime ReporteDate)
+        public async Task<List<ObtenerTiemposMuertosByBitacoraOrdenTrabajo>> ObtenerTiemposMuertosByBitacoraOrdenTrabajo(int IdBitacoraOrdenTrabajo)
         {
 
-            var procedure = "[ObtenerCausasTiempoMuertoReporteProduccion]";
+            var procedure = "[ObtenerTiemposMuertosByBitacoraOrdenTrabajo]";
             using (var connection = new SqlConnection(connectionString))
             {
-                var data = await connection.QueryAsync<CausasTiempoMuertoReporteProduccion>(procedure, new
+                var data = await connection.QueryAsync<ObtenerTiemposMuertosByBitacoraOrdenTrabajo>(procedure, new
                 {
-                    ReporteDate= ReporteDate
+                    IdBitacoraOrdenTrabajo= IdBitacoraOrdenTrabajo,
                 }, commandType: CommandType.StoredProcedure);
 
-                List<CausasTiempoMuertoReporteProduccion> result = new List<CausasTiempoMuertoReporteProduccion>();
+                List<ObtenerTiemposMuertosByBitacoraOrdenTrabajo> result = new List<ObtenerTiemposMuertosByBitacoraOrdenTrabajo>();
                 result = data.ToList();
                             
                 return result;
@@ -122,12 +250,12 @@ namespace OTMF_NETCORE_MVC.Reportes
 
 
         }
-        public async Task<List<ObtenerReporteProduccionByDate>> RegistrarReporteProduccion(DateTime ReporteDate , int IdMaquinaFK  )
+        public async Task<List<BitacoraOrdenTrabajoReporte>> RegistrarReporteProduccion(DateTime ReporteDate , int IdMaquinaFK  )
         {
             var procedure = "[ObtenerReporteProduccionByDate]";
             using (var connection = new SqlConnection(connectionString)) {
 
-                var IdReporteProduccion = await connection.QueryAsync<ObtenerReporteProduccionByDate>(procedure, new
+                var IdReporteProduccion = await connection.QueryAsync<BitacoraOrdenTrabajoReporte>(procedure, new
                 {
                     IdMaquinaFK = IdMaquinaFK,
                     ReporteDate = ReporteDate

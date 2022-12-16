@@ -235,7 +235,7 @@ function ObtenerAllBitacorasOtByOtId(IdOrdenTrabajo) {
         },
         dataType: 'json',
         success: function (data) {
-            console.log(data);
+            
             FillAllBitacorasOtByOtId(data);
         }
     });
@@ -295,7 +295,15 @@ function FillObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(data){
             "</tr>");
     });
 }
+function ParseSecondsToTime(value) {    //PARSER DE SEGUNDOS A MINUTOS  
+    const totalMinutes = Math.floor(value / 60);
 
+    const seconds = value % 60;
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+
+    return hours + ":" + minutes + ":" + seconds;
+}
 function FillAllBitacorasOtByOtId(data) {
  
     $("#DetalleBitcoraOrdenTrabajo").remove();
@@ -318,7 +326,6 @@ function FillAllBitacorasOtByOtId(data) {
         '<th>Estandar con Relevo</th>' +
         '<th>Estandar por Horas</th>' +
         '<th>Fecha de Creacion</th>' +
-        '<th>Horas Trabajadas</th>' +
         '<th>Horas Acumuladas</th>' +
 
         '<th>Detalles</th'+
@@ -342,13 +349,13 @@ function FillAllBitacorasOtByOtId(data) {
         $("#ContenidoDetalleBitacoraOrdenTrabajo").append("<tr>" +
             "<td>" + data.data[n].cajasRecibidas              + "</td>" +
             "<td>" + data.data[n].cantidadPiezasPorOrden          + "</td>" +
-            "<td>" + data.data[n].cantidadPiezasPorOrdenRealizadas      + "</td>" +
-            "<td>" + data.data[n].estandarCalculado + "</td>" +
-            "<td>" + data.data[n].estandarConRelevoCalculado + "</td>" +
-            "<td>" + data.data[n].estandarPorHorasCalculado + "</td>" +
+            "<td>" + data.data[n].cantidadPiezasPorOrdenRealizadas + "</td>" +
+            "<td>" + Math.trunc(data.data[n].estandarCalculado) + "</td>" +
+            "<td>" + Math.trunc(data.data[n].estandarConRelevoCalculado) + "</td>" +
+            "<td>" + Math.trunc(data.data[n].estandarPorHorasCalculado) + "</td>" +
             "<td>" + FormatDate(data.data[n].fechaOrdenTrabajo) + "</td>" +
-            "<td>" + data.data[n].horasTrabajadasCalculado + "</td>" +
-            "<td>" + data.data[n].horasTrabajasAcumulado + "</td>" +
+
+            "<td><strong>" + ParseSecondsToTime(data.data[n].horasTrabajadasAcumulado) + "</strong></td>" +
             "<td><a <a href='#DetalleDuracionEstados'><button type='button' class='btn btn-primary'onclick=\"ObtenerDuracionEstadoByIdBitacoraOrdenTrabajo(\'" + data.data[n].idBitacoraOrdenTrabajo + "\');\">Duracion de estados</button></a></td>" +
 
             "</tr>");
@@ -404,23 +411,24 @@ function FillDetallesOrdenTrabajo(data) {
   
     $.each(data.data, function (n) {
 
-        $("#ContenidoDetalleOrdenTrabajo").append("<div>" +
-            "<div><strong>Numero de Parte</strong>:" + data.data[n].IdCodigoParte      + "</div>" +
-            "<div><strong>Estado de la Orden</strong>:" + data.data[n].NombreEstadoOrden + "</div>" +
-            "<div><strong>Orden Trabajo</strong>:" + data.data[n].IdCodigoOrdenTrabajo + "</div>" +
-            "<div><strong>Cantidad Piezas por Orden</strong>:" + data.data[n].CantidadPiezasPororden + "</div>" +
-            "<div><strong>Estandar </strong>:" + data.data[n].EstandarCalculado + "</div> " +
-            "<div><strong>Estandar Con Relevo </strong>:" + data.data[n].EstandarConRelevoCalculado + "</div> " +
-            "<div><strong>Estandar Por Hora</strong>:" + data.data[n].EstandarPorHorasCalculado + "</div> " +
-            "<div><strong>Etiqueta de Caja</strong>:" + data.data[n].EtiquetaDeCaja + "</div> " +
-            "<div><strong>Fecha de Creacion</strong>:" + FormatDate(data.data[n].FechaOrdenTrabajo) + "</div> " +
-            "<div><strong>Fraccion Estandar c/ Relevo</strong>:" + data.data[n].FracEstandarConRelevo + "</div> " +
-            "<div><strong>Hora Finalizacion</strong>:" + FormatTime(data.data[n].HoraFinalizacion) + "</div> " +
-            "<div><strong>Hora Inicio</strong>:" + FormatTime(data.data[n].HoraInicio) + "</div> " +
-            "<div><strong>Horas Trabajadas</strong>:" + data.data[n].HorasTrabajadasCalculado + "</div> " +
-            "<div><strong>Porcentaje Scrap</strong>:" + data.data[n].PorcentajeScrapCalculado + "</div> " +
-            "<div><strong>Scrap</strong>:" + data.data[n].ScrapCalculado + "</div> " +
-             "</div>");
+        $("#ContenidoDetalleOrdenTrabajo").append("<div class='d-flex'><ul class='list-group'>" +
+            "<li class='list-group-item'><strong>Orden Trabajo</strong>:<p>" + data.data[n].IdCodigoOrdenTrabajo +                          "</p></li>" +
+            "<li class='list-group-item'><strong>Numero de Parte</strong>:<p>" + data.data[n].IdCodigoParte      +                          "</p></li>" +
+            "<li class='list-group-item'><strong>Estado de la Orden</strong>:<p>" + data.data[n].NombreEstadoOrden +                        "</p></li>" +
+                                                                                                                 
+            "<li class='list-group-item'><strong>Cantidad Piezas por Orden</strong>:<p>" + data.data[n].CantidadPiezasPororden +            "</p></li></ul>" +
+            "<ul class='list-group'><li class='list-group-item'><strong>Estandar </strong>:<p>" + Math.trunc(data.data[n].EstandarCalculado) +                     "</p></li> " +
+            "<li class='list-group-item'><strong>Estandar Con Relevo </strong>:<p>" + Math.trunc(data.data[n].EstandarConRelevoCalculado) + "</p></li> " +
+            "<li class='list-group-item'><strong>Estandar Por Hora</strong>:<p>" + Math.trunc(data.data[n].EstandarPorHorasCalculado) +     "</p></li> " +
+            "<li class='list-group-item'><strong>Etiqueta de Caja</strong>:<p>" + data.data[n].EtiquetaDeCaja +                             "</p></li>" +
+            "<li class='list-group-item'><strong>Fecha de Creacion</strong>:<p>" + FormatDate(data.data[n].FechaOrdenTrabajo) +             "</p></li> " +
+            "<li class='list-group-item'><strong>Fraccion Estandar c/ Relevo</strong>:<p>" + data.data[n].FracEstandarConRelevo +           "</p></li> </ul> <ul class='list-group-horizontal'> " +
+            "<li class='list-group-item'><strong>Hora Finalizacion</strong>:<p>" + FormatTime(data.data[n].HoraFinalizacion) +              "</p></li> " +
+            "<li class='list-group-item'><strong>Hora Inicio</strong>:<p>" + FormatTime(data.data[n].HoraInicio) +                          "</p></li> " +
+            "<li class='list-group-item'><strong>Horas Turno</strong>:<p>" + data.data[n].HorasTrabajadasCalculado +                        "</p></li> </ul> " +
+            "<ul class='list-group'><li class='list-group-item'><strong>Porcentaje Scrap</strong>:<p>" + data.data[n].PorcentajeScrapCalculado +                   "</p></li> " +
+            "<li class='list-group-item'><strong>Scrap</strong>:<p>" + data.data[n].ScrapCalculado +                                        "</p></li> " +
+             "</ul></div>");
     });
 
     $("#DetallesOrdenTrabajo").modal("show");

@@ -20,14 +20,22 @@ namespace OTMF_NETCORE_MVC.Controllers
         }
         public IActionResult Reporte()
         {
-            ViewData["IdOrdenTrabajo"] = new SelectList(_context.OrdenTrabajos, "IdOrdenTrabajo", "IdCodigoOrdenTrabajo");
+      
             return View();
         }
         public async Task<IActionResult> ObtenerReporteProduccion(DateTime ReporteDate)
         { 
-            string fileLocation = string.Empty;
-            //fileLocation = await _reporte.CrearReporteProduccion(ReporteDate);
-            return Json( new {data = fileLocation});
+          
+             var data = await _reporte.CrearReporteProduccion(ReporteDate);
+            return Json( new {data = data});
+        }
+
+
+        public IActionResult ReporteProduccion()
+        {
+
+
+            return View();
         }
     }
 }

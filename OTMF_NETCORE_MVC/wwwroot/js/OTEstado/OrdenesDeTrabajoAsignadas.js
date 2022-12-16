@@ -44,7 +44,7 @@ function GetOrdenTrabajo(idOrdenTrabajo) {
             AddOtLoader();
             setTimeout(function () {
                 RemoveOtLoader();
-            }, 7000);
+            }, 500);
             $("#BitacoraOrdenTrabajo").html("");
             FillDetalles(data);
             GetParteByOTId(idOrdenTrabajo);

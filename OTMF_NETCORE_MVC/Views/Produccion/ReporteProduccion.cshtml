@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+<div class="container-fluid">
+
+    <div class="row">
+       <div class="col-auto bg-gradient-primary">
+
+            <partial name="_navigationColumnPartes"/>
+
+        </div>
+    
+
+        <div class="col-auto">
+        
+    
+            <div class="container">
+                <div class="row">
+                    <div class="form-group">
+                          <input  type="date" id="FechaReporte" />
+               
+
+                   <button type="button" onclick="ObtenerReporteProduccion()" class="btn btn-primary">Registro Produccion</button>
+            
+
+                    </div>
+                        </div>
+
+            </div>
+               
+              
+              
+
+
+<div class="tabulator">
+    <div class="tabulator-tableholder">
+    <div>
+   
+    <button id="download-xlsx">Download XLSX</button>
+
+ 
+</div>
+ <div id="x-table" class="table-dark"></div>
+
+</div>
+
+</div>
+
+
+<div class="tabulator-loader"></div>
+
+    </div>           
+
+                
+         
+        </div>
+    </div>
+ 
+
+

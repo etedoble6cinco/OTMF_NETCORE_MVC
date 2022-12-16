@@ -133,7 +133,7 @@ function PorcenajeProdMeta() {
         var TotalPiezas = document.getElementById("TotalPiezas").innerText;
         var Meta = document.getElementById("MetaCantidad").innerText;
         let x = TotalPiezas * 100;
-        ppm = x / Meta;
+        ppm = Math.trunc(x / Meta);
         document.getElementById("PorcentajeProdMeta").innerText = ppm + "%";
         $("#progressbarcontent").html("");
         $("#progressbarcontent").append("<div class='progress progress-sm mr-2'>" +
