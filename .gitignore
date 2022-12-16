@@ -1,1 +1,3 @@
-OTMF_NETCORE_MVC\bin\*
+*.bin
+*.v2
+*.dll
