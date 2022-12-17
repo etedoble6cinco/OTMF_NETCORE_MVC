@@ -41,7 +41,7 @@ function GetOrdenTrabajo(idOrdenTrabajo) {
         data: { id: idOrdenTrabajo },
         dataType: "json",
         success: function (data) {
-            AddOtLoader();
+         
             setTimeout(function () {
                 RemoveOtLoader();
             }, 500);

@@ -9,7 +9,7 @@
       "OTMF_NETCORE_MVC/1.0.0": {
         "dependencies": {
           "Dapper": "2.0.123",
-          "EPPlus": "6.0.5",
+          "EPPlus": "6.0.8",
           "Microsoft.AspNet.Identity.Core": "2.2.3",
           "Microsoft.EntityFrameworkCore": "6.0.6",
           "Microsoft.EntityFrameworkCore.Design": "6.0.6",
@@ -34,7 +34,7 @@
           }
         }
       },
-      "EPPlus/6.0.5": {
+      "EPPlus/6.0.8": {
         "dependencies": {
           "EPPlus.Interfaces": "6.0.0",
           "EPPlus.System.Drawing": "6.0.0",
@@ -45,8 +45,8 @@
         },
         "runtime": {
           "lib/net6.0/EPPlus.dll": {
-            "assemblyVersion": "6.0.5.0",
-            "fileVersion": "6.0.5.0"
+            "assemblyVersion": "6.0.8.0",
+            "fileVersion": "6.0.8.0"
           }
         }
       },
@@ -2407,12 +2407,12 @@
       "path": "dapper/2.0.123",
       "hashPath": "dapper.2.0.123.nupkg.sha512"
     },
-    "EPPlus/6.0.5": {
+    "EPPlus/6.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-q6hZICsuIi/j5+1e5NxUl05R4T0eAg7BSE4JZVz9WxONpNLZz58uYx3Q88iR00LSXq9VgPhQfQ7B8q55+V76wA==",
-      "path": "epplus/6.0.5",
-      "hashPath": "epplus.6.0.5.nupkg.sha512"
+      "sha512": "sha512-AmeE6La29lh3Jw/8LqLfNmtp3a/xtsK0uUZg8LWPtetN2m8xWEPAbMq5C91homwsYofiE48FiuCgDf6NliGNGg==",
+      "path": "epplus/6.0.8",
+      "hashPath": "epplus.6.0.8.nupkg.sha512"
     },
     "EPPlus.Interfaces/6.0.0": {
       "type": "package",

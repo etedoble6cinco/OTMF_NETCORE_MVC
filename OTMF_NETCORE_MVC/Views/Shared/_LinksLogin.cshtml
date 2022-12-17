@@ -2,18 +2,18 @@
 @inject SignInManager<Usuario> SignInManager
 
 
-<ul class="navbar-nav">
+<div>
     @if(SignInManager.IsSignedIn(User))
     {
-          <div class="dropdown">
-      <a href="#" class="d-flex align-items-center link-white text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="btn-group dropstart">
+      <a href="#" class="btn btn-secondary dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
         <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>@User.Identity.Name</strong>
+     
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="">
         <li>
             <form class="dropdown-item" asp-action="logout" asp-controller="usuarios">
-             
+                <p class="d-flex text-wrap">Usuario : @User.Identity.Name</p>
                 <button type="submit" class="nav-link text-dark">
                     Logout
                 </button>
@@ -25,17 +25,9 @@
     }
     else
         {
-            <li class="nav-item" >
-                <a class="nav-link dark-text" asp-controller="usuarios" asp-action="Registro">
-                    Registro
-                </a>
-            </li>
-              <li class="nav-item" >
-                <a class="nav-link dark-text" asp-controller="usuarios" asp-action="Login">
-                    Login
-                </a>
-            </li>
+
+           
         }
 
 
-</ul>
+</div>

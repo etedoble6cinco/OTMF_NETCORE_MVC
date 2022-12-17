@@ -1,3 +1,9 @@
 OTMF_NETCORE_MVC/obj/*
 OTMF_NETCORE_MVC/bin/*
 .vs/*
+.vs/OTMF_NETCORE_MVC/v17/.suo
+*.v2
+.vs/OTMF_NETCORE_MVC/DesignTimeBuild/.dtbcache.v2
+.vs/OTMF_NETCORE_MVC/v17/.suo
+.vs/ProjectEvaluation/otmf_netcore_mvc.projects.v2
+.vs/ProjectEvaluation/otmf_netcore_mvc.metadata.v2

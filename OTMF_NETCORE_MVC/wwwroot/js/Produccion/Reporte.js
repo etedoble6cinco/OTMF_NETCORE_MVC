@@ -36,7 +36,7 @@ function ObtenerReporteProduccion() {
 
              table = new Tabulator("#x-table", {
                 data: data.data,
-                layout: "fitColumns",
+                layout: "Responsive",
                 responsiveLayout: true,
                 pagination: "local",
                 paginationSize: 6,
