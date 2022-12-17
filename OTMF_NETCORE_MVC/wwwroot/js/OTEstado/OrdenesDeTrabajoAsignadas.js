@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
     GetIdentificadorOT();
-    ObtenerRelacionMaquinasUsuarios();
+    ObtenerRelacionM aquinasUsuarios();
    
 });
 //METODO PARA OBTENER LA INFORMACION DE LAS PESTANAS 

@@ -1,5 +1,113 @@
 ﻿
 
+   
+    var collapseTwo = $('#collapseTwo');
+    $('#collapseTwo-nav-link').click(function (event) {
+        // Prevent the default event
+        event.preventDefault();
+        // Toggle the slide based on its current visibility.
+        if (collapseTwo.is(":visible")) {
+            // H
+            //collapseTwo.slideUp();
+            collapseTwo.classList.add("shadow-lg");
+
+        }
+        if (collapseTwo.is(':hidden')) {
+            // Show - slide down, pause 5 seconds, slide up
+            collapseTwo.slideDown(function () {
+                var self = $(this);
+                setTimeout(function () {
+                    self.hide();
+                }, 3000);
+            });
+        }
+    });
+var collapseUtilities = $('#collapseUtilities');
+$("#collapseUtilities-nav-link").click(function (event) {
+        // Prevent the default event
+        event.preventDefault();
+        // Toggle the slide based on its current visibility.
+        if (collapseUtilities.is(":visible")) {
+            // H
+            //collapseTwo.slideUp();
+            collapseUtilities.classList.add("shadow-lg");
+
+        }
+        if (collapseUtilities.is(':hidden')) {
+            // Show - slide down, pause 5 seconds, slide up
+            collapseUtilities.slideDown(function () {
+                var self = $(this);
+                setTimeout(function () {
+                    self.hide();
+                }, 3000);
+            });
+        }
+});
+
+var collapsePages = $('#collapsePages')
+$("#collapsePages-nav-link").click(function (event) {
+    // Prevent the default event
+    event.preventDefault();
+    // Toggle the slide based on its current visibility.
+    if (collapsePages.is(":visible")) {
+        // H
+        //collapseTwo.slideUp();
+        collapsePages.classList.add("shadow-lg");
+
+    }
+    if (collapsePages.is(':hidden')) {
+        // Show - slide down, pause 5 seconds, slide up
+        collapsePages.slideDown(function () {
+            var self = $(this);
+            setTimeout(function () {
+                self.hide();
+            }, 3000);
+        });
+    }
+});
+var collapseParametros = $('#collapseParametros')
+$("#collapseParametros-nav-link").click(function (event) {
+    // Prevent the default event
+    event.preventDefault();
+    // Toggle the slide based on its current visibility.
+    if (collapseParametros.is(":visible")) {
+        // H
+        //collapseTwo.slideUp();
+        collapseParametros.classList.add("shadow-lg");
+
+    }
+    if (collapseParametros.is(':hidden')) {
+        // Show - slide down, pause 5 seconds, slide up
+        collapseParametros.slideDown(function () {
+            var self = $(this);
+            setTimeout(function () {
+                self.hide();
+            }, 3000);
+        });
+    }
+});
+var collapseMaquinas = $('#collapseMaquinas')
+$("#collapseMaquinas-nav-link").click(function (event) {
+    // Prevent the default event
+    event.preventDefault();
+    // Toggle the slide based on its current visibility.
+    if (collapseMaquinas.is(":visible")) {
+        // H
+        //collapseTwo.slideUp();
+        collapseMaquinas.classList.add("shadow-lg");
+
+    }
+    if (collapseMaquinas.is(':hidden')) {
+        // Show - slide down, pause 5 seconds, slide up
+        collapseMaquinas.slideDown(function () {
+            var self = $(this);
+            setTimeout(function () {
+                self.hide();
+            }, 3000);
+        });
+    }
+});
+
 
 
 function GetDetailsPartes() {
@@ -54,7 +162,11 @@ $(document).ready(function () {
         '</div>' +
         '</div>' +
         '</div>');
+
+
 });
+
+
 //--------------------------------------------------------------------------modal para busqueda de ordenes de trabajo
 function AsignacionEmpleadosOrdenTrabajo () {
     

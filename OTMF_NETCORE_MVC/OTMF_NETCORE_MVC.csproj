@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\js\Shared\" />
     <Folder Include="wwwroot\lib\xlsx\" />
     <Folder Include="wwwroot\Uploads\ReportesCreados\" />
   </ItemGroup>
