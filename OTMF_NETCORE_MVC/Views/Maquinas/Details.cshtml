@@ -4,10 +4,17 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+
+<div id="wrapper">
+
+    <partial name="_navigationColumnPartes" />
+<div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+        <div class="container-fluid mt-1">
+         
 
 <div>
-    <h4>Maquina</h4>
+    <h4>Detalles</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -27,4 +34,10 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.IdMaquina">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div>
+
+        </div>
+        
+    </div>
+</div>
 </div>

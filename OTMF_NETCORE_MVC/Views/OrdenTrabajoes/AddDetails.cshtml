@@ -1,0 +1,126 @@
+﻿
+
+@model OTMF_NETCORE_MVC.Models.OrdenTrabajo
+
+@{
+    ViewData["Title"] = "AddDetails";
+}
+
+<div id="wrapper">
+    <partial name="_navigationColumnPartes" />
+    <div id="content-wrapper"  class="d-flex flex-column">
+    <div id="content">
+     <div class="container-fluid mt-1">
+               <input type="hidden" asp-for="IdOrdenTrabajo" id="IdOrdenTrabajo" />
+          <div class="container">
+              <h5> Agregar detalles </h5>
+                  <small class="help-text">*Asigna elementos restantes la orden de Trabajo : @Model.IdCodigoOrdenTrabajo , que acabas de crear. </small>
+   <div class="row">
+       <div class="col-6">
+                <h5>Operadores asignados</h5>
+    <div class="form-group">
+   
+
+        <div id="EmpleadosRelacionados">
+
+        </div>
+    </div>
+
+
+
+       </div>
+   
+  
+   <div class="col-6">
+       <h5>Lineas Asignadas</h5>
+   
+    <div class="form-group">
+   
+
+        <div id="MaquinasRelacionadas">
+
+        </div>
+    </div>
+
+
+   </div>
+    </div>
+       <div class="row">
+       <a class="btn btn-sm btn-primary" asp-action="Index" asp-controller="OrdenTrabajoes">Continuar</a>
+
+    </div>
+     </div>
+  
+    </div>
+ </div>
+
+</div>
+
+ 
+
+
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Asignar Empleados</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form">
+            <form>
+              <div class="m-2">
+                   <select id="EleccionEmpleado" class ="form-control" asp-items="ViewBag.Empleado">
+                     
+                     <option disabled selected> Seleccionar Empleado</option>
+                   </select>
+              </div>
+            </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" >Aceptar</button>
+        <button type="button" class="btn btn-primary" onclick="GuardarCambiosEmpleados()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="MaquinaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eleguir Linea</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <form>
+              <div class="m-2">
+                   <select id="EleccionMaquina" class ="form-control" asp-items="ViewBag.Maquinas">
+                     <option disabled selected> Seleccionar Linea</option>
+                   </select>
+              </div>
+            </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-primary" onclick="UpsertMaquinasAsignadasByOTId()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts {
+
+    <script src="~/js/OrdenTrabajoes/AddDetailsOrdenTrabajoes.js"></script>
+   
+
+}

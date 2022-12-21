@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
     GetIdentificadorOT();
-    ObtenerRelacionM aquinasUsuarios();
+    ObtenerRelacionMaquinasUsuarios();
    
 });
 //METODO PARA OBTENER LA INFORMACION DE LAS PESTANAS 
@@ -270,8 +270,6 @@ function EvaluateOTEstado(data) {
             $("#indicadorEstado").removeClass();
             $("#indicadorEstado").addClass("border p-2 bg-info");
             $("#AccionesOrdenTrabajo").append("<button class='btn btn-success bg-gradient m-2' id='iniciarActiva' onclick='SetActiva()'><strong>Iniciar</strong></button>");
-       
-          
             break;
         case 2:
             //$("#AccionesOrdenTrabajo").html("");

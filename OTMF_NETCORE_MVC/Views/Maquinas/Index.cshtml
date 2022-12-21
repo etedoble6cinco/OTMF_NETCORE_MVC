@@ -4,17 +4,13 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div id="wrapper">
 
-<div class="container-fluid">
-    <div class="row">
-  <div class="col-1 bg-gradient-primary">
-
-            <partial name="_navigationColumnPartes"/>
-
-        </div>
-        <div class="col-10 offset-1">
-       
-            <fieldset>
+    <partial name="_navigationColumnPartes" />
+<div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+        <div class="container-fluid mt-1">
+                 <fieldset>
                 <legend>Lineas</legend>
                      <table class="table" id="Maquinas">
     <thead>
@@ -36,9 +32,9 @@
             </td>
             <td>
                  @{if(@item.EstadoMaquina == true){
-                         <p>Disponible para asignarse a un Usuario</p>
+                             <p>Disponible para asignarse a un Usuario</p>
                  }else{
-                         <p>No disponible para asignarse a un Usuario</p>
+                             <p>No disponible para asignarse a un Usuario</p>
                  } }
             </td>
             <td>
@@ -57,14 +53,12 @@
 
 
             </fieldset>
-  
+        </div>
+        
     </div>
-    </div>
-    
-
-
-
 </div>
+</div>
+
 
 
 @section Scripts{

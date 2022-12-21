@@ -1,13 +1,16 @@
 ﻿@{
     Layout = "_Layout";
 }
-    <div class="container-fluid">
-        <div class="row">
-      <div class="col-1 bg-gradient-primary">
-                <partial name="_navigationColumnPartes"/>
-            </div>
-              <div class="col-10 offset-1">
-                <div class="d-flex justify-content-center mt-3">
+
+
+<div id="wrapper">
+
+    <partial name="_navigationColumnPartes" />
+<div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+        <div class="container-fluid mt-1">
+             <small class="help-text"> *Seleccione un mes para generar una consulta mensual </small>
+                <div class="d-flex justify-content-center">
                      <label class="form-label"> Seleccione Fecha de consulta</label>
                          <input type="datetime-local" class="form-control" onchange="SetChart()" name="MaquinasActivasSelectDate" id="MaquinasActivasDateSelect"/>
                         </div>
@@ -19,9 +22,13 @@
                         <div class=""></div></div></div>
                         <canvas id="MaquinasActivas" width="1014" height="320" style="display: block; width: 1014px; height: 320px;" class="chartjs-render-monitor"></canvas>
                          </div>
-                 </div>
-                </div>
-            </div>
+               
+        </div>
+        
+    </div>
+</div>
+</div>
+   
 @section Scripts{
       <script src="~/vendor/chart.js/Chart.min.js"></script>
     <script src="~/js/Maquinas/EstadisticasMaquinas.js" type="text/javascript"></script>

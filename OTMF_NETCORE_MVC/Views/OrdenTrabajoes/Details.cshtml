@@ -4,14 +4,15 @@
     ViewData["Title"] = "Details";
 }
 
-<input asp-for="IdOrdenTrabajo" type="hidden" id="IdOrdenTrabajo" />
-<div class="container">
-   <div class="row">
-      <div class="container">
+<div id="wrapper">
+    <partial name="_navigationColumnPartes" />
+    <div id="content-wrapper"  class="d-flex flex-column">
+        <div id="content">
+                  <div class="container">
           <div class="d-flex flex-column border border-dark" id="OTTittle"></div>
           <div class="d-flex flex-wrap border border-dark" id="OTDetails"></div> 
           <div class="d-flex flex-wrap border border-dark" id="OTDetailsCal"></div>
-      </div>
+
        <div class="form-group">
            <div class="btns-group">
                 <a asp-action="Index" class="btn bg-danger btn-lg text-white">Regresar</a>
@@ -20,10 +21,16 @@
            </div>
                
        </div>
-       
+             </div>
+
+        </div>
+    </div>
+
 
 </div>
-</div>
+
+
+<input asp-for="IdOrdenTrabajo" type="hidden" id="IdOrdenTrabajo" />
 
 
 @section Scripts{

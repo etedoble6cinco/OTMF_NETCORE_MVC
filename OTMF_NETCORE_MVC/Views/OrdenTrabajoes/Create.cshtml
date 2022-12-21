@@ -4,8 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
-
-<div class="container mt-1">
+<div id="wrapper">
+<partial name="_navigationColumnPartes" />
+    
+<div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+        <div class="container-fluid mt-1">
+            <div>
     <h6>Crear Orden Trabajo</h6>
 
 
@@ -24,7 +29,7 @@
                 <input asp-for="IdEmpleadoEmpacadorFk" type="hidden" value="0" class="form-control" />
                 <input asp-for="IdEmpeadoSupervisorFk" type="hidden" value="0"class="form-control" />
                 <input asp-for="FechaOrdenTrabajo" type="hidden" class="form-control" />
-                <input asp-for="HoraInicio"       id="HoraInicio" type="hidden"  class="form-control" />
+                <input asp-for="HoraInicio"  id="HoraInicio" type="hidden"  class="form-control" />
             
                 <input asp-for="HoraFinalizacion"  id="HoraFinalizacion" type="hidden" class="form-control" />
                 <input asp-for="EtiquetaDeCaja" type="hidden" value="0" class="form-control" />
@@ -135,6 +140,14 @@
         </form>
     </div>
 </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
 
 <div>
 <!-- Modal -->
