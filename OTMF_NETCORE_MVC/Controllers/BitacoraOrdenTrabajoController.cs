@@ -211,6 +211,7 @@ namespace OTMF_NETCORE_MVC.Controllers
             UltimoRegistroBitacora.CajasRecibidas = (await ObtenerCajasRecibidas(IdOrdenTrabajo)).NumeroCajasRecibidas;
             UltimoRegistroBitacora.PiezasRecibidas = (await ObtenerCajasRecibidas(IdOrdenTrabajo)).NumeroPiezasSueltasRecibidas;
             UltimoRegistroBitacora.NumeroCavidades = OrdenTrabajoOriginal.NumeroCabidadesPieza;
+    
             if ( await ValidarRegistroProduccion(IdOrdenTrabajo) == true)
             // VALIDAR SI LA ORDEN DE TRABAJO YA TERMINO O EXCEDE  LA DEMANDA ESTABLECIDA EN LA ORDEN DE TRABAJO ORIGINAL
             {// VALIDAR SI LA ORDEN DE TRABAJO TIENE MAS COPIAS DENTRO DEL LA BASE DE DATOS 
@@ -230,12 +231,50 @@ namespace OTMF_NETCORE_MVC.Controllers
            // SE REGISTRAN EL NUMERO DE PIEZAS REALIZADAS
             UltimoRegistroBitacora.NumeroPiezasRealizadas = OrdenTrabajoOriginal.PiezasRealizadas;
             _context.Update(UltimoRegistroBitacora);
+
+            await _context.SaveChangesAsync();
+            await UpdateOrdenTrabajo(OrdenTrabajoOriginal.IdOrdenTrabajo);
             await _context.SaveChangesAsync();
 
-
-
-
             return Json(new { data = "Terminada" });
+        }
+        public async Task<int> UpdateCajasRecibidas(int IdDetalleCajasRecibidas, int NumeroCajasRecibidas, int NumeroPiezasRecibidas)
+        {
+            var procedure = "[UpdateCajasRecibidas]";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var confirm = await connection.QueryAsync(procedure, new
+                {
+                    IdDetalleCajasRecibidas = IdDetalleCajasRecibidas,
+                    NumeroCajasRecibidas = NumeroCajasRecibidas,
+                    NumeroPiezasRecibidas = NumeroPiezasRecibidas
+                }, commandType: CommandType.StoredProcedure);
+                return 0;
+            }
+        }
+        public async Task<int> UpdateOrdenTrabajo(int IdOrdenTrabajoFK)
+        {
+            var ot = await _context.OrdenTrabajos.FirstOrDefaultAsync(m => m.IdOrdenTrabajo == IdOrdenTrabajoFK);
+            int idDetalleCajasRecibidas = (int)ot.CajasRecibidas;
+            await UpdateCajasRecibidas(idDetalleCajasRecibidas, 0, 0);
+            await DeleteAsignacionEmpleados(IdOrdenTrabajoFK);
+            ot.NumeroCabidadesPieza = 0;
+            ot.PiezasRealizadas = 0;
+            _context.Update(ot);
+            await _context.SaveChangesAsync();  
+            return 0;
+        }
+        public async Task<int> DeleteAsignacionEmpleados(int idOrdenTrabajo)
+        {
+           var rel = await _context.OrdenTrabajoEmpleados.Where(m => m.IdOrdenTrabajoFk == idOrdenTrabajo).ToListAsync();
+           foreach( var e in rel)
+            {
+                _context.Remove(e);
+                _context.Entry(e).State = EntityState.Deleted;
+                await _context.SaveChangesAsync();      
+
+            }
+            return 0;
         }
         //OBTENER CAJAS RECIBIDAS 
         public async Task<ObtenerCajasRecibidas> ObtenerCajasRecibidas(int IdOrdenTrabajo)

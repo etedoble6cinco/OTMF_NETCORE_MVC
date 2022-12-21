@@ -15,14 +15,14 @@ using OTMF_NETCORE_MVC.Models;
 
 namespace OTMF_NETCORE_MVC.Controllers
 {
-    [Authorize( Policy = "RequireAmin")]
+    [Authorize(Policy = "RequireAmin")]
     public class OrdenTrabajoesController : Controller
     {
         private readonly OTMFContext _context;
         private readonly string con;
         private readonly string connectionString;
         DashboardHub dashboardHub;
-        public OrdenTrabajoesController(DashboardHub dashboardHub,OTMFContext context ,IConfiguration configuration)
+        public OrdenTrabajoesController(DashboardHub dashboardHub, OTMFContext context, IConfiguration configuration)
 
         {
             this.dashboardHub = dashboardHub;
@@ -38,12 +38,12 @@ namespace OTMF_NETCORE_MVC.Controllers
             return View(await oTMFContext.ToListAsync());
         }
         [HttpPost]
-        public  JsonResult ObtenerMaquinaById(int IdMaquina)
+        public JsonResult ObtenerMaquinaById(int IdMaquina)
         {
             var data = "no se encontro";
             if (IdMaquina == null || _context.OrdenTrabajos == null)
             {
-               
+
                 return Json(data);
             }
             var maquina = _context.Maquinas.FirstOrDefault(m => m.IdMaquina == IdMaquina);
@@ -86,77 +86,78 @@ namespace OTMF_NETCORE_MVC.Controllers
             ViewData["IdTurnoOtFk"] = new SelectList(_context.TurnoOts, "IdTurnoOt", "NombreTurno");
             return View();
         }
-    
+
         // POST: OrdenTrabajoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdEmpleadoMoldeadorFk,IdEmpleadoEmpacadorFk,IdOrdenTrabajo,IdMaquinaFk,FechaOrdenTrabajo,IdParteFk,CantidadPiezasPororden,CajasRecibidas,PiezasRealizadas,IdInstructivoFk,HoraInicio,HoraFinalizacion,IdEmpeadoSupervisorFk,IdEstadoOrdenFk,EtiquetaDeCaja,IdEstandarConRelevoFk,IdEstandarPorHoraFk,MaxScrap,IdCodigoOrdenTrabajo,Otespecial,IdTurnoOtFk,NumeroCabidadesPieza,CantidadPiezasOtflag")] OrdenTrabajo ordenTrabajo)
-        {
+        { 
             if (ModelState.IsValid)
             {
                 
 
-                if(ordenTrabajo.Otespecial == false){
+                if (ordenTrabajo.Otespecial == false) {
                     // AGREGAR PREFIJO A LA ORDEN DE TRABAJO 
-                    var prefix = _context.PrefixOts.FirstOrDefault(m => m.IdPrefixOt == 1);
+                    var prefix = await _context.PrefixOts.FirstOrDefaultAsync(m => m.IdPrefixOt == 1);
                     ordenTrabajo.IdCodigoOrdenTrabajo = prefix.NombrePrefix + ordenTrabajo.IdCodigoOrdenTrabajo;
-                   
+
                 }
-                    var turnoOt = await _context.TurnoOts
-                     .FirstOrDefaultAsync(m => m.IdTurnoOt == ordenTrabajo.IdTurnoOtFk);
-                    var fraccionEstandarRelevo = await _context.FraccionEstandarRelevos.FirstOrDefaultAsync(x => x.IdFraccionEstandarRelevo
-                    == 1);
-                    var PorcentajeScrapPermitido = await _context.ScrapPermitidos.FirstOrDefaultAsync(y => y.IdScrapPermitido
-                    == 1);
-                    var Parte = await _context.Partes.FirstOrDefaultAsync(g => g.IdParte == ordenTrabajo.IdParteFk);
-                    var EstandarPorHoras = await _context.EstandarPorHoras.FirstOrDefaultAsync(d => d.IdEstandarPorHora == Parte.IdEstandarPorHoraFk);
-                    ordenTrabajo.ScrapCalculado = CalcularScrap((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas, (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido);
-                    ordenTrabajo.EstandarCalculado = CalcularEstandar((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas);
-                    ordenTrabajo.EstandarConRelevoCalculado = CalcularEstandarConRelevo((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas, (decimal)fraccionEstandarRelevo.FracEstandarRelevo);
-                    ordenTrabajo.EstandarPorHorasCalculado = (decimal)EstandarPorHoras.NombreEstandarPorHora;
-                    ordenTrabajo.HorasTrabajadasCalculado = (decimal)turnoOt.HorasTrabajadas;
-                    ordenTrabajo.PorcentajeScrapCalculado = (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido;
-                    ordenTrabajo.FracEstandarConRelevo = (decimal)fraccionEstandarRelevo.FracEstandarRelevo;
-                    ordenTrabajo.IdInstructivoFk = 3;   
-                    MaquinaOrdenTrabajo maquinaOrdenTrabajo = new MaquinaOrdenTrabajo();
+                var turnoOt = await _context.TurnoOts
+                 .FirstOrDefaultAsync(m => m.IdTurnoOt == ordenTrabajo.IdTurnoOtFk);
+                var fraccionEstandarRelevo = await _context.FraccionEstandarRelevos.FirstOrDefaultAsync(x => x.IdFraccionEstandarRelevo
+                == 1);
+                var PorcentajeScrapPermitido = await _context.ScrapPermitidos.FirstOrDefaultAsync(y => y.IdScrapPermitido
+                == 1);
+                var Parte = await _context.Partes.FirstOrDefaultAsync(g => g.IdParte == ordenTrabajo.IdParteFk);
+                var EstandarPorHoras = await _context.EstandarPorHoras.FirstOrDefaultAsync(d => d.IdEstandarPorHora == Parte.IdEstandarPorHoraFk);
+                ordenTrabajo.ScrapCalculado = CalcularScrap((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas, (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido);
+                ordenTrabajo.EstandarCalculado = CalcularEstandar((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas);
+                ordenTrabajo.EstandarConRelevoCalculado = CalcularEstandarConRelevo((decimal)EstandarPorHoras.NombreEstandarPorHora, (decimal)turnoOt.HorasTrabajadas, (decimal)fraccionEstandarRelevo.FracEstandarRelevo);
+                ordenTrabajo.EstandarPorHorasCalculado = (decimal)EstandarPorHoras.NombreEstandarPorHora;
+                ordenTrabajo.HorasTrabajadasCalculado = (decimal)turnoOt.HorasTrabajadas;
+                ordenTrabajo.PorcentajeScrapCalculado = (decimal)PorcentajeScrapPermitido.PorcentajeScrapPermitido;
+                ordenTrabajo.FracEstandarConRelevo = (decimal)fraccionEstandarRelevo.FracEstandarRelevo;
+                ordenTrabajo.IdInstructivoFk = 3;
+                MaquinaOrdenTrabajo maquinaOrdenTrabajo = new MaquinaOrdenTrabajo();
                 maquinaOrdenTrabajo.IdOrdenTrabajoFk = ordenTrabajo.IdOrdenTrabajo;
                 maquinaOrdenTrabajo.IdMaquinaFk = 79; //IdMaquina No asignada
-                _context.Add(maquinaOrdenTrabajo);  
-                _context.Add(ordenTrabajo);
-             
+                await _context.AddAsync(maquinaOrdenTrabajo);
+                await _context.AddAsync(ordenTrabajo);
+
                 await _context.SaveChangesAsync();
+               
                 //SE CREA LA RELACION DE LA TABLA DE CAJAS RECIBIDAS , YA QUE LA TABLA NO ESTA RELACIONADA CON FK , SI NO SOLAMENTE CON UN ID "POSTIZO"
                 using (var connection = new SqlConnection(connectionString))
                 {
                     var procedure = "[InsertCajasRecibidas]";
-                    var confirm = connection.Query(procedure, new
+                    var confirm = await connection.QueryAsync(procedure, new
                     {
                         IdOrdenTrabajo = ordenTrabajo.IdOrdenTrabajo,
                         NumeroCajasRecibidas = 0,
                         NumeroPiezasRecibidas = 0
                     }, commandType: CommandType.StoredProcedure);
                 }
-               
-                return RedirectToAction(nameof(Index));
+
+                return RedirectToAction("AddDetails" ,  new { id = ordenTrabajo.IdOrdenTrabajo });
             }
-         
+
             ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
             ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo", ordenTrabajo.IdInstructivoFk);
             ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
             return View(ordenTrabajo);
         }
-        public decimal CalcularScrap(decimal estandarPorHora , decimal horasTrabajadas , decimal porcentajeScrapPermitido)
+        public decimal CalcularScrap(decimal estandarPorHora, decimal horasTrabajadas, decimal porcentajeScrapPermitido)
         {
             decimal result = (estandarPorHora * horasTrabajadas);
             return result * porcentajeScrapPermitido;
         }
-        public decimal CalcularEstandar(decimal estandarPorHora , decimal horasTrabajadas)
+        public decimal CalcularEstandar(decimal estandarPorHora, decimal horasTrabajadas)
         {
             return estandarPorHora * horasTrabajadas;
         }
-        public decimal CalcularEstandarConRelevo(decimal estandarPorHora , decimal horasTrabajadas , decimal fracEstandarConRelevo)
+        public decimal CalcularEstandarConRelevo(decimal estandarPorHora, decimal horasTrabajadas, decimal fracEstandarConRelevo)
         {
             decimal result = horasTrabajadas + fracEstandarConRelevo;
             return result * estandarPorHora;
@@ -177,14 +178,39 @@ namespace OTMF_NETCORE_MVC.Controllers
             using (var connection = new SqlConnection(connectionString))
             {
                 var OE = "[ObtenerEmpleadoConcatType]";
-                var empleados = connection.Query<ObtenerEmpleadoConcatType>(OE,
+                var empleados = await connection.QueryAsync<ObtenerEmpleadoConcatType>(OE,
                commandType: CommandType.StoredProcedure);
-                ViewData["Empleado"] = new SelectList(empleados, "IdEmpleado", "NombreEmpleado");
-           
+                ViewData["Empleado"] = new SelectList(empleados.ToList(), "IdEmpleado", "NombreEmpleado");
+
             }
             ViewData["IdEstadoOrdenFk"] = new SelectList(_context.EstadoOrdens, "IdEstadoOrden", "NombreEstadoOrden", ordenTrabajo.IdEstadoOrdenFk);
             ViewData["IdInstructivoFk"] = new SelectList(_context.Instructivos, "IdInstructivo", "NombreInstructivo", ordenTrabajo.IdInstructivoFk);
             ViewData["IdParteFk"] = new SelectList(_context.Partes, "IdParte", "IdCodigoParte", ordenTrabajo.IdParteFk);
+            ViewData["Maquinas"] = new SelectList(_context.Maquinas, "IdMaquina", "NombreMaquina");
+            return View(ordenTrabajo);
+        }
+        public async Task<IActionResult> AddDetails(int? id)
+        {
+            if (id == null || _context.OrdenTrabajos == null)
+            {
+                return NotFound();
+            }
+
+            var ordenTrabajo = await _context.OrdenTrabajos.FindAsync(id);
+            if (ordenTrabajo == null)
+            {
+                return NotFound();
+            }
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var OE = "[ObtenerEmpleadoConcatType]";
+                var empleados =  await connection.QueryAsync<ObtenerEmpleadoConcatType>(OE,
+               commandType: CommandType.StoredProcedure);
+                  
+                ViewData["Empleado"] = new SelectList(empleados.ToList(), "IdEmpleado", "NombreEmpleado");
+
+            }
+          
             ViewData["Maquinas"] = new SelectList(_context.Maquinas, "IdMaquina", "NombreMaquina");
             return View(ordenTrabajo);
         }
