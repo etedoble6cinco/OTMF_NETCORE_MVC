@@ -122,6 +122,8 @@ function autocomplete(inp, arr) {
     /*execute a function when someone clicks in the document:*/
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
+        console.log('click on element');
+        console.log(e);
     });
 
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
