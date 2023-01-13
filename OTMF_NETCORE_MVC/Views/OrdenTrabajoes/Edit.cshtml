@@ -12,7 +12,7 @@
                <input type="hidden" asp-for="IdOrdenTrabajo" id="IdOrdenTrabajo" />
         <form>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-         <!----------------------------------------------------------------------->
+         <!--------------------------------HIDDEN FIELDS--------------------------------------->
                 <input asp-for="IdEmpleadoMoldeadorFk" type="hidden" class="form-control" />
                 <input asp-for="IdEmpleadoEmpacadorFk" type="hidden" class="form-control" />
                 <input asp-for="IdMaquinaFk" type="hidden" class="form-control" />
@@ -28,7 +28,7 @@
                 <input asp-for="IdEmpeadoSupervisorFk" type="hidden" class="form-control" />
                 <input type="hidden" asp-for="HoraFinalizacion" class="form-control" />
                
-         <!------------------------------------------------------------------------>
+         <!---------------------------------HIDDEN FIELDS--------------------------------------->
            <div class="form-group">
                 <label asp-for="IdParteFk" class="control-label"> Numero de Parte</label>
                 <select asp-for="IdParteFk" id="IdParteFK" class="form-control" asp-items="ViewBag.IdParteFk"></select>
@@ -54,10 +54,9 @@
               
             </div>
         </form>
-     </div>
-  
+     </div> 
     </div>
-    <div class="col-4">
+      <div class="col-4">
        
             <div class="form-group">
                 <label asp-for="PiezasRealizadas" class="control-label"> Piezas Realizadas</label>
@@ -71,44 +70,29 @@
                 <select asp-for="IdEstadoOrdenFk" id="IdEstadoOrdenFK" class="form-control" asp-items="ViewBag.IdEstadoOrdenFk"></select>
                 <span asp-validation-for="IdEstadoOrdenFk" class="text-danger"></span>
             </div>
-</div>
-<div class="col-4">
-    <div class="container">
-   <div class="row">
+       </div>
+       <div class="col-4">
+            <div class="container">
+                 <div class="row">
 
-        <h5>Operadores asignados</h5>
-    <div class="form-group">
-   
+                 <h5>Operadores asignados</h5>
+                 <div class="form-group">
+                     <div id="EmpleadosRelacionados">
+                     </div>
+                 </div>
 
-        <div id="EmpleadosRelacionados">
-
+                 </div>
+                 <div class="row">
+                        <h5>Lineas Asignadas</h5>
+                     <div class="form-group">
+                         <div id="MaquinasRelacionadas">
+                         </div>
+                     </div>
+                 </div>
+            </div>
         </div>
     </div>
-
-   </div>
-   <div class="row">
-       <h5>Lineas Asignadas</h5>
-    <div class="form-group">
-   
-
-        <div id="MaquinasRelacionadas">
-
-        </div>
-    </div>
-
-
-   </div>
-    </div>
-
-   
-
 </div>
-</div>
-
-
-</div>
-
-
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">

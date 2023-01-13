@@ -1,8 +1,8 @@
-﻿$(document).ready(function () {
+﻿$('#ParteAutoCompleteContainer').ready(function () {
 
     FillPiezaAutoComplete();   
 
-
+    console.log('here');
 
 });
 
@@ -10,17 +10,20 @@
 function FillPiezaAutoComplete() {
     $.ajax({
         type: 'GET',
-        url: '../../OrdenTrabajoes/ObtenerParteByName',
+        url: '../../Partes/ObtenerAllPartes',
         dataType: 'json',
 
         success: function (data) {
+            console.log(data);
 
-            var ot = [];
-
+            var parte = [];
+            
             for (var x = 0; x < data.data.length; x++) {
-                ot.push(data.data[x].idCodigoOrdenTrabajo);
+                parte.push(data.data[x].idCodigoParte);
             }
-            autocomplete(document.getElementById("InputPartesName"), ot);
+            autocomplete(document.getElementById("AutocompleteParte"), parte);
+            
+        
         }
     });
 }

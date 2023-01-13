@@ -1,7 +1,7 @@
 ﻿@model OTMF_NETCORE_MVC.Models.OrdenTrabajo
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Orden de Trabajo";
 }
 
 <div id="wrapper">
@@ -9,7 +9,7 @@
     
 <div id="content-wrapper" class="d-flex flex-column">
     <div id="content">
-        <div class="container-fluid mt-1">
+        <div class="container-fluid mt-3">
             <div>
     <h6>Crear Orden Trabajo</h6>
 
@@ -20,7 +20,7 @@
         <form asp-action="Create" id="Createot" class="row m-2 border border-2">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
-           <div class="col-6">
+           <div>
              <!-- INPUTS ESCONDIDOS CON VALOR AUTOMATICO---->
                 <input asp-for="CajasRecibidas" type="hidden" value="0" class="form-control" />
                     
@@ -45,8 +45,7 @@
                 <input asp-for="IdEstadoOrdenFk" type="hidden" value="7" />
                 <!------>
 
-          
-         
+      
             <div class="form-group">
                 <label asp-for="IdTurnoOtFk" class="control-label">Turno Orden Trabajo</label>
                    <select asp-for="IdTurnoOtFk"   class ="form-control" asp-items="ViewBag.IdTurnoOtFk" required>
@@ -55,16 +54,11 @@
             </div>
            
             <div class="form-group" id="ParteAutoCompleteContainer">
-              <input id="AutocompleteParte"  class="btn btn-sm btn-primary" value="Buscar" />
+                <label for="AutocompleteParte">Buscar Parte <i class="fas fa-search"></i></label>
+              <input id="AutocompleteParte" name="AutocompleteParte" placeholder="buscar" />
               <!--Autocompletado para busqueda de parte-->
             </div> 
-            
-              
-            
-    </div>
-    <div class="col-6">
-        
-        <div id="prefixOT">
+     <div id="prefixOT">
               <section class="form-group" id="otnormal">
                     <label> Orden Trabajo</label>
               <div class="input-group mb-1 mt-1">
@@ -75,61 +69,51 @@
                       <input type="text" class="form-control" asp-for="IdCodigoOrdenTrabajo" placeholder="Nombre Orden de Trabajo" aria-label="Orden Trabajo normal" id="InputPrefixValue" aria-describedby="basic-addon1">
                       </div>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  <i class="fas fa-fw fa-cog"></i>
-</button>
+            <i class="fas fa-fw fa-cog"></i>
+            </button>
         </section>
-            <section class="form-group" style="display:none;" id="otespecial">
-             
-    <label asp-for="IdCodigoOrdenTrabajo" class="control-label"> Codigo Orden Trabajo</label>
-
- 
-         <input asp-for="IdCodigoOrdenTrabajo" id="InputNormalot" placeholder="Orden de Trabajo Especial" class="form-control mb-3" required/>
-
-
-      <span asp-validation-for="IdCodigoOrdenTrabajo" class="text-danger"></span>
-
-
-               
-        
-           
-          </section>
-
-        </div>
-
-      
+            <section class="form-group" style="display:none;" id="otespecial"> 
+            <label asp-for="IdCodigoOrdenTrabajo" class="control-label"> Codigo Orden Trabajo</label>
+            <input asp-for="IdCodigoOrdenTrabajo" id="InputNormalot" placeholder="Orden de Trabajo Especial" class="form-control mb-3" required/>
+            <span asp-validation-for="IdCodigoOrdenTrabajo" class="text-danger"></span>
+        </section>
+        </div>  
           <div class="form-group">
               <div class="row g-3 align-items-center">
-  <div class="col-auto">
-       <input onchange="Getchkvalue()" type="checkbox" value="true"  id="flexCheckChecked">
-  </div>
-  <div class="col-auto">
-   <label class="form-check-label" for="flexCheckChecked">Orden Trabajo Especial</label>
-  </div>
-
-</div>
+                  <div class="col-auto">
+                       <input onchange="Getchkvalue()" type="checkbox" value="true"  id="flexCheckChecked">
+                  </div>
+                  <div class="col-auto">
+                   <label class="form-check-label" for="flexCheckChecked">Orden Trabajo Especial</label>
+                  </div>
+                
+                </div>
          
                
           </div>
           <div  class="form-group">
               <div class="row g-3 align-items-center">
                      <div class="col-auto">
-       <input onchange="GetchkvalueCantidadPiezasPorOrden()" type="checkbox" value="true"  id="CantidadPiezasPorOrdenChk">
+                        <input onchange="GetchkvalueCantidadPiezasPorOrden()" type="checkbox" value="true"  id="CantidadPiezasPorOrdenChk">
 
-  </div>
-  <div class="col-auto">
-      <label class="form-check-label" for="CantidadPiezasPorOrdenChk">Cantidad Piezas por Orden Especificada</label>
-  </div>
+                 </div>
+                <div class="col-auto">
+                    <label class="form-check-label" for="CantidadPiezasPorOrdenChk">Cantidad Partes por Orden de Trabajo Especificada</label>
+                </div>
               </div>
           </div>
 
           
              <div class="form-group" id="CantidadPiezasPorOrden" style="display:none;">
-                    <label asp-for="CantidadPiezasPororden" class="control-label"> Cantidad de piezas por orden</label>
+                    <label asp-for="CantidadPiezasPororden" class="control-label"> Cantidad de Partes por Orden de Trabajo</label>
                          <input asp-for="CantidadPiezasPororden" type="number" value="0" class="form-control" />
             </div>
           
        
-    </div>
+        
+        
+        </div>
+  
             <div class="mt-3 btns-group">
                    <input type="button" value="Crear" onclick="CheckChkEspecialValue()" class="btn btn-primary" />
                    <a asp-action="Index" type="button" class="btn btn-danger">Regresar</a> 
@@ -176,8 +160,8 @@
         <h5 class="modal-title" id="exampleModalLabel">Configurar Parte</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        
+      <div class="modal-body" id="ConfigParteContainer">
+        <!--para editar parte -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -189,6 +173,7 @@
 
 @section Scripts {
     <script src="~/js/OrdenTrabajoes/CreateOrdenTrabajoes.js"></script>
+    <script src="~/js/OrdenTrabajoes/AutoCompletePiezaForOrdenTrabajo.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
    
 }
