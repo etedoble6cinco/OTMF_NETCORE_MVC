@@ -423,7 +423,7 @@ namespace OTMF_NETCORE_MVC.Controllers
 
                 if(confirm != null)
                 {
-                    return true; //el nombre si existe por lo tanto no puede ser dada de alta la pieza 
+                    return true; //el nombre si existe por lo tanto no puede ser dada de alta la parte
                 }else
                 {
                     return false; //el nombre no existe y por lo tanto puede ser dado de alta  
