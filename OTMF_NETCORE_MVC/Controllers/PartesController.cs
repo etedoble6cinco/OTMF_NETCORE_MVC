@@ -123,6 +123,12 @@ namespace OTMF_NETCORE_MVC.Controllers
             "IdEtiquetaCajaFk," +
             "IdEstandarPorHoraFk")] Parte parte)
         {
+            
+            if (await ValidateIfExistNamePart(parte.IdCodigoParte))
+            {
+                return Problem("Ya existe una parte con ese numero");
+            }
+           
             if (ModelState.IsValid)
             {
                    
@@ -395,6 +401,38 @@ namespace OTMF_NETCORE_MVC.Controllers
                 }, commandType: CommandType.StoredProcedure);
                 return Json( new {data = DetalleParte });
             }
+        }
+        //for partes autocomplete
+        [HttpGet]
+        public async Task<JsonResult> ObtenerAllPartes()
+        {
+            var AllPartes = await _context.Partes.ToListAsync();
+            return Json(new { data = AllPartes });
+        }
+
+
+        public async Task<bool> ValidateIfExistNamePart(string NameParte)
+        {
+            if (string.IsNullOrEmpty(NameParte)) 
+            {
+            
+            }else
+            {
+                var confirm = await _context.Partes.FirstOrDefaultAsync(m =>
+                m.IdCodigoParte.Equals(NameParte, StringComparison.OrdinalIgnoreCase));
+
+                if(confirm != null)
+                {
+                    return true; //el nombre si existe por lo tanto no puede ser dada de alta la pieza 
+                }else
+                {
+                    return false; //el nombre no existe y por lo tanto puede ser dado de alta  
+                }
+            }
+            return true; //el nombre viene vacio y no coincide con ningun existe
+                          //pero no puede ser dado de alta por no cumplir con la normalizacion 
+                          // de los codigos de parte 
+                          // 
         }
     }
 }
