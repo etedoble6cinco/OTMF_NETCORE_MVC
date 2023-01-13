@@ -54,11 +54,9 @@
                    </select>
             </div>
            
-            <div class="form-group">
-                <label asp-for="IdParteFk" class="control-label">Numero de Parte</label>
-                <select asp-for="IdParteFk" class ="form-control" asp-items="ViewBag.IdParteFk">
-                    <option selected disabled> Seleccionar Pieza </option>
-                </select>
+            <div class="form-group" id="ParteAutoCompleteContainer">
+              <input id="AutocompleteParte"  class="btn btn-sm btn-primary" value="Buscar" />
+              <!--Autocompletado para busqueda de parte-->
             </div> 
             
               
@@ -150,7 +148,7 @@
 
 
 <div>
-<!-- Modal -->
+<!-- Modal-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -169,6 +167,24 @@
   </div>
 </div>
 
+</div>
+<!-- Modal para realizar configuracion de la parte antes de hacer calculo  -->
+<div class="modal fade" id="ModalSetParte" tabindex="-1" aria-labelledby="ModalSetParte" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Configurar Parte</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 @section Scripts {

@@ -101,3 +101,4 @@ function SetDefaultEstado() {
     const $selectEtiquetaParte = document.querySelector('#IdEstadoOrdenFk');
     $selectEtiquetaParte.value =7 ;
 }
+
