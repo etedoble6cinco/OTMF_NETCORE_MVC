@@ -415,8 +415,9 @@ namespace OTMF_NETCORE_MVC.Controllers
         {
             if (string.IsNullOrEmpty(NameParte)) 
             {
-            
-            }else
+               
+            }
+            else
             {
                 var confirm = await _context.Partes.FirstOrDefaultAsync(m =>
                 m.IdCodigoParte.Equals(NameParte, StringComparison.OrdinalIgnoreCase));
@@ -424,7 +425,8 @@ namespace OTMF_NETCORE_MVC.Controllers
                 if(confirm != null)
                 {
                     return true; //el nombre si existe por lo tanto no puede ser dada de alta la parte
-                }else
+                }
+                else
                 {
                     return false; //el nombre no existe y por lo tanto puede ser dado de alta  
                 }

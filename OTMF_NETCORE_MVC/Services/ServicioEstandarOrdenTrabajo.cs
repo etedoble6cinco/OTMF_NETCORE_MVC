@@ -23,6 +23,13 @@ namespace OTMF_NETCORE_MVC.Services
             connectionString = configuration.GetConnectionString("DefaultConnection");
             _context = context;
         }
+        public async Task<ObtenerCalculoByCavidadNumber> ObtenerCalculoEstandarByCavidadNumber()
+        {
+            ObtenerCalculoByCavidadNumber obtenerCalculoByCavidadNumber = new ObtenerCalculoByCavidadNumber();
+            
+            //METODO PARA REALIZAR CALCULO DE ESTANDAR 
+            return null;
+        }
         public async Task<ObtenerEstandarByCavidadNumber> ObtenerEstandarByCavidadNumber(int IdParteFK)
         {
             ///aqui regla de 3 inversa para obtener el estandar que es numero de cavidades 
@@ -39,7 +46,6 @@ namespace OTMF_NETCORE_MVC.Services
             ObtenerEstandarByCavidadNumber ObjObtenerEstandarByCavidadNumber = new ObtenerEstandarByCavidadNumber();
             if (ObjParte == null)
             {
-
             }   else
             {
                 var ObjMolde = await _context.Moldes.FirstOrDefaultAsync(m => m.IdMolde == ObjParte.IdMoldeFk);
@@ -49,17 +55,17 @@ namespace OTMF_NETCORE_MVC.Services
 
                     string[] strNombreMolde = ObjMolde.NombreMolde.Split('-');
                     int NumeroCavidades = int.Parse(strNombreMolde[0]);
-                    if(NumeroCavidades > 1)
-                    {
-                          
-                    
-                    }else
+                if(NumeroCavidades > 1)
+                {
+
+                }
+                else
                 {
                     var ObjEstandarPorHora = await _context.EstandarPorHoras.FirstOrDefaultAsync(m => m.IdEstandarPorHora == ObjParte.IdEstandarPorHoraFk);
                     ObjObtenerEstandarByCavidadNumber.EstandarPorHora = (int)ObjEstandarPorHora.NombreEstandarPorHora;
                     ObjObtenerEstandarByCavidadNumber.NumeroCavidadesByMoldeName = NumeroCavidades;
-
                     return ObjObtenerEstandarByCavidadNumber;
+                    
                 }  
 
                 //}
