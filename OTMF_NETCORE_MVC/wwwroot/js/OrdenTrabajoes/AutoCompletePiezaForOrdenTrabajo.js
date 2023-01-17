@@ -122,12 +122,17 @@ function autocomplete(inp, arr) {
     /*execute a function when someone clicks in the document:*/
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
-        console.log('click on element');
-        console.log(e);
+        
+      
     });
 
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 
+}
+
+
+function ObtenerParteByIdCodigoParte() {
+    var IdCodigoParte = document.getElementById('AutocompleteParte')
 }
 //CREAR UNA TABLA DONDE SE COPIE LA PARTE QUE ES SELECCIONADA PARA LA ORDEN DE TRABAJO , Y SE PUEDA CONFIGURAR SOLAMENTE PARA LA ORDEN DE TRABAJO
 //COPIA SOLAMENTE PARA LA ORDEN DE TRABAJO , PARA PODER SELECCIONAR  , EL ESTANDAR POR HORA QUE CORRESPONDE PARA ESA ORDEN DE TRABAJO  

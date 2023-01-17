@@ -32,6 +32,8 @@ namespace OTMF_NETCORE_MVC.Services
         }
         public async Task<ObtenerEstandarByCavidadNumber> ObtenerEstandarByCavidadNumber(int IdParteFK)
         {
+
+
             ///aqui regla de 3 inversa para obtener el estandar que es numero de cavidades 
             ///variables =  NumeroCavidadesMolde - split nombre del molde para obtener cavidades  
             ///variables =  Al iniciar la bitacora el numero de cavidades debe ser
@@ -41,11 +43,14 @@ namespace OTMF_NETCORE_MVC.Services
             /// en los casos en donde el molde marca solo un 1  es por que solo se ocupa una cavidad
             /// para tener ese estandar por hora , pero en los casos donde se especifique mas de una cavidad se debe recalcular
             /// aunque el molde marque un numero diferente de cavidades debe cambiar el estandar por hora segun 
-            /// sumado decuerdo a cuando era uno multiplicando ese numero por el numero actual de cavidades 
+            /// sumado deacuerdo a cuando era uno multiplicando ese numero por el numero actual de cavidades 
+            
             var ObjParte = await _context.Partes.FirstOrDefaultAsync(m => m.IdParte == IdParteFK);
             ObtenerEstandarByCavidadNumber ObjObtenerEstandarByCavidadNumber = new ObtenerEstandarByCavidadNumber();
             if (ObjParte == null)
             {
+            
+            
             }   else
             {
                 var ObjMolde = await _context.Moldes.FirstOrDefaultAsync(m => m.IdMolde == ObjParte.IdMoldeFk);
@@ -53,10 +58,11 @@ namespace OTMF_NETCORE_MVC.Services
                 //if(ObjMolde.NombreMolde != null || ObjMolde.NombreMolde != "" )
                 //{
 
-                    string[] strNombreMolde = ObjMolde.NombreMolde.Split('-');
-                    int NumeroCavidades = int.Parse(strNombreMolde[0]);
+                string[] strNombreMolde = ObjMolde.NombreMolde.Split('-');
+                int NumeroCavidades = int.Parse(strNombreMolde[0]);
                 if(NumeroCavidades > 1)
                 {
+
 
                 }
                 else

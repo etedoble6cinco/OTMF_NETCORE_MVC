@@ -85,7 +85,7 @@ function GetchkvalueCantidadPiezasPorOrden() {
     if (document.getElementById("CantidadPiezasPorOrdenChk").checked  == true) {
 
         document.getElementById("IdCantidadPiezasOtflag").value = true;
-      
+        
 
     }
     else {
