@@ -119,10 +119,12 @@ function autocomplete(inp, arr) {
             }
         }
     }
+    var autocomplete = document.getElementById("AutocompleteParte");
+
     /*execute a function when someone clicks in the document:*/
-    document.addEventListener("click", function (e) {
+    autocomplete.addEventListener("click", function (e) {
         closeAllLists(e.target);
-        
+        ObtenerParteByIdCodigoParte();
       
     });
 
@@ -132,7 +134,19 @@ function autocomplete(inp, arr) {
 
 
 function ObtenerParteByIdCodigoParte() {
-    var IdCodigoParte = document.getElementById('AutocompleteParte')
+    var IdCodigoParte = document.getElementById('AutocompleteParte').value;
+    $.ajax({
+        type: 'POST',
+        url: '../../Partes/ObtenerIdParteByIdCodigoParte',
+        dataType: 'json',
+        data: {
+            IdCodigoParte: IdCodigoParte
+        },
+        success: function (data) {
+
+            console.log(data);
+        }
+    });
 }
 //CREAR UNA TABLA DONDE SE COPIE LA PARTE QUE ES SELECCIONADA PARA LA ORDEN DE TRABAJO , Y SE PUEDA CONFIGURAR SOLAMENTE PARA LA ORDEN DE TRABAJO
 //COPIA SOLAMENTE PARA LA ORDEN DE TRABAJO , PARA PODER SELECCIONAR  , EL ESTANDAR POR HORA QUE CORRESPONDE PARA ESA ORDEN DE TRABAJO  

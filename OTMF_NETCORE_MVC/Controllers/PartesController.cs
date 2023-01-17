@@ -436,5 +436,20 @@ namespace OTMF_NETCORE_MVC.Controllers
                           // de los codigos de parte 
                           // 
         }
+        [HttpPost]
+        public async Task<JsonResult> ObtenerIdParteByIdCodigoParte(string IdCodigoParte)
+        {
+            int IdParte = (await _context.Partes.FirstOrDefaultAsync(m => m.IdCodigoParte == IdCodigoParte)).IdParte;
+            var procedure = "[ObtenerDetalleParteById]";
+            using (var connection = new SqlConnection (con))
+            {
+                var DetalleParte = connection.Query(procedure, new
+                {
+                    IdParte = IdParte
+                }, commandType: CommandType.StoredProcedure);
+                return Json(new { data = DetalleParte });
+            }
+
+        } 
     }
 }

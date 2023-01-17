@@ -79,6 +79,7 @@ function UpdatePrefixOT() {
     });
 }
 
+
 function GetchkvalueCantidadPiezasPorOrden() {
 
     $("#CantidadPiezasPorOrden").toggle();
